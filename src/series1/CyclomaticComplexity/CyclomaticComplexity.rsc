@@ -29,22 +29,17 @@ public map[str, int] cyclomaticLinesPerPartion(list[Declaration] declMethods, M3
     		case \while(_,_) : result += 1;		
 		}
 
-		if(/method(mLoc,_,_,_) := m.typ) {
-			//TODO: fix the location
-			loc mLoc = |file:///home/eigenaar/workspace/uva-software-evolution/src/javaProjects/basicExample/src/Factorial.java|;
-			str methodBody = readFile(mLoc);
-			int methodSize = getLocStats(methodBody)["code"];
-			
-			if(result > 10, result <= 20) {
-				complexity["mid"] += methodSize;
-			} else if (result > 20, result <= 50) {
-				complexity["high"] += methodSize;
-			} else if (result > 50) {
-				complexity["very high"] += methodSize;
-			} else {
-				complexity["low"] += methodSize;
-			}
-		}				
+		int methodSize = getTotalLocsForLocations([m.src])["code"];
+		
+		if(result > 10, result <= 20) {
+			complexity["mid"] += methodSize;
+		} else if (result > 20, result <= 50) {
+			complexity["high"] += methodSize;
+		} else if (result > 50) {
+			complexity["very high"] += methodSize;
+		} else {
+			complexity["low"] += methodSize;
+		}	
 	}
 	
 	return complexity;
