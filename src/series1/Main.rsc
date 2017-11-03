@@ -27,21 +27,14 @@ public void doAnalyses(loc eclipsePath) {
 	M3 model = createM3FromEclipseProject(eclipsePath);
 
 	//Get a list off all files that are relevant to test
-	list[loc] files = toList(files(model));
-	list[loc] projectFiles = getProjectFiles(files); 
+	list[loc] files = toList(methods(model));
+	list[loc] projectMethods = getProjectFiles(files); 
 	
 	//Get the total lines of code to do some metrix
-	int totalLinesOfCode = getTotalLocsForLocations(projectFiles)["code"];
-
-	//Extract all the methods
-	list[Declaration] declarations = [ createAstFromFile(file, true) | file <- projectFiles]; 
-	list[Declaration] methods = [];
-	for(int i <- [0 .. size(declarations)]) {
-		methods = methods + [dec | /Declaration dec := declarations[i], dec is method];
-	}
+	int totalLinesOfCode = getTotalLocsForLocations(projectMethods)["code"];
 
 	//Get cyclomatic complexity partitions
-	map[str, int] cyclomaticPartitions = cyclomaticLinesPerPartion(methods);
+	map[str, int] cyclomaticPartitions = cyclomaticLinesPerPartion(projectMethods, model);
 	printCyclomaticComplexity(cyclomaticPartitions, totalLinesOfCode);
 
 }

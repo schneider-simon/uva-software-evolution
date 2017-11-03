@@ -5,11 +5,14 @@ import lang::java::jdt::m3::AST;
 
 import IO;
 
-public map[str, int] cyclomaticLinesPerPartion(list[Declaration] methods) {
+public map[str, int] cyclomaticLinesPerPartion(list[loc] methods, M3 model) {
 
 	map[str, int] complexity = ("low" : 0, "mid" : 0, "high" : 0, "very high": 0);
 
-	for(m <- methods) {
+	for(mLoc <- methods) {
+		
+		Declaration m = getMethodASTEclipse(mLoc);
+	
 		//Base complexity is always 1. This is the function body
 		int result = 1;
 		
@@ -26,8 +29,6 @@ public map[str, int] cyclomaticLinesPerPartion(list[Declaration] methods) {
 			case \catch(_,_) : result += 1;	
     		case \while(_,_) : result += 1;		
 		}
-		
-		iprintln(file(m));
 
 		//if(/method(location,_,_,_) := m@typ) {
 			//TODO: get the size of the method. In lines of code
