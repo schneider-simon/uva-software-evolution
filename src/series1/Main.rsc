@@ -41,9 +41,10 @@ public void doAnalyses(loc eclipsePath) {
 	}
 
 	//Get cyclomatic complexity partitions
-	map[str, int] cyclomaticPartitions = cyclomaticLinesPerPartion(methods);
+	map[str, int] cyclomaticPartitions = cyclomaticLinesPerPartion(methods, model);
 	printCyclomaticComplexity(cyclomaticPartitions, totalLinesOfCode);
 
+	
 }
 
 public void printCyclomaticComplexity(map[str,int] complexity, int linesOfCode) {
