@@ -9,7 +9,7 @@ import lang::java::jdt::m3::AST;
 import series1::Volume::LinesOfCode;
 
 import series1::Helpers::ProjectFilesHelper;
-import series1::ClomaticComplexity::CyclomaticComplexity;
+import series1::CyclomaticComplexity::CyclomaticComplexity;
 
 /*
 	Will exexute the meterics on a test project
