@@ -6,6 +6,7 @@ import Set;
 
 import lang::java::jdt::m3::Core;
 import lang::java::jdt::m3::AST;
+import series1::Volume::LinesOfCode;
 
 import series1::Helpers::ProjectFilesHelper;
 import series1::ClomaticComplexity::CyclomaticComplexity;
@@ -22,15 +23,15 @@ public void testExampleJavaProject() {
 */
 public void doAnalyses(loc eclipsePath) {
  
- 	//Get the total lines of code to do some metrix
-	int totalLinesOfCode = 0;
-
 	//Create M3 model
 	M3 model = createM3FromEclipseProject(eclipsePath);
 
 	//Get a list off all files that are relevant to test
 	list[loc] files = toList(files(model));
 	list[loc] projectFiles = getProjectFiles(files); 
+	
+	//Get the total lines of code to do some metrix
+	int totalLinesOfCode = getTotalLocsForLocations(projectFiles)["code"];
 
 	//Extract all the methods
 	list[Declaration] declarations = [ createAstFromFile(file, true) | file <- projectFiles]; 
@@ -38,12 +39,10 @@ public void doAnalyses(loc eclipsePath) {
 	for(int i <- [0 .. size(declarations)]) {
 		methods = methods + [dec | /Declaration dec := declarations[i], dec is method];
 	}
-	
+
 	//Get cyclomatic complexity partitions
 	map[str, int] cyclomaticPartitions = cyclomaticLinesPerPartion(methods);
 	printCyclomaticComplexity(cyclomaticPartitions, totalLinesOfCode);
-
-	//list[loc] productionSourceFiles = [file | file <- files(model)];
 
 }
 

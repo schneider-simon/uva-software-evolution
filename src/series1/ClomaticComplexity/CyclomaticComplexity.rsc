@@ -26,6 +26,8 @@ public map[str, int] cyclomaticLinesPerPartion(list[Declaration] methods) {
 			case \catch(_,_) : result += 1;	
     		case \while(_,_) : result += 1;		
 		}
+		
+		iprintln(file(m));
 
 		//if(/method(location,_,_,_) := m@typ) {
 			//TODO: get the size of the method. In lines of code
