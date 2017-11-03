@@ -6,14 +6,12 @@ import series1::Volume::LinesOfCode;
 
 import IO;
 
-public map[str, int] cyclomaticLinesPerPartion(list[loc] methods, M3 model) {
+public map[str, int] cyclomaticLinesPerPartion(list[Declaration] methods) {
 
 	map[str, int] complexity = ("low" : 0, "mid" : 0, "high" : 0, "very high": 0);
 
-	for(mLoc <- methods) {
+	for(m <- methods) {
 		
-		Declaration m = getMethodASTEclipse(mLoc);
-	
 		//Base complexity is always 1. This is the function body
 		int result = 1;
 		
@@ -31,8 +29,9 @@ public map[str, int] cyclomaticLinesPerPartion(list[loc] methods, M3 model) {
     		case \while(_,_) : result += 1;		
 		}
 
-		//if(/method(location,_,_,_) := m@typ) {
-			//TODO: get the size of the method. In lines of code
+		//if(/method(mLoc,_,_,_) := m@typ) {
+			//TODO: fix the location
+			loc mLoc = |file:///home/eigenaar/workspace/uva-software-evolution/src/javaProjects/basicExample/src/Factorial.java|;
 			str methodBody = readFile(mLoc);
 			int methodSize = getLocStats(methodBody)["code"];
 			
