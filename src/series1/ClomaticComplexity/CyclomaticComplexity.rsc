@@ -2,6 +2,7 @@ module series1::ClomaticComplexity::CyclomaticComplexity
 
 import lang::java::jdt::m3::Core;
 import lang::java::jdt::m3::AST;
+import series1::Volume::LinesOfCode;
 
 import IO;
 
@@ -32,8 +33,8 @@ public map[str, int] cyclomaticLinesPerPartion(list[loc] methods, M3 model) {
 
 		//if(/method(location,_,_,_) := m@typ) {
 			//TODO: get the size of the method. In lines of code
-			//str methodBody = readFile(location);
-			int methodSize = 100; //methodSize(methodBody);
+			str methodBody = readFile(mLoc);
+			int methodSize = getLocStats(methodBody)["code"];
 			
 			if(result > 10, result <= 20) {
 				complexity["mid"] += methodSize;
