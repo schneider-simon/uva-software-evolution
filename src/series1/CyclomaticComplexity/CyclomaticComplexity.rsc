@@ -22,12 +22,12 @@ public map[str, int] cyclomaticLinesPerPartion(list[loc] methods, M3 model) {
     		case \do(_,_) : result += 1;
     		case \foreach(_,_,_) : result += 1;	
     		case \for(_,_,_,_) : result += 1;
-	  		case \for(_,_,_) : result += 1;
-	  		case \if(_,_) : result += 1;
-			case \if(_,_,_) : result += 1;
-			case \switch(_,_) : result += 1;
-			case \case(_) : result += 1;	
-			case \catch(_,_) : result += 1;	
+  		case \for(_,_,_) : result += 1;
+  		case \if(_,_) : result += 1;
+		case \if(_,_,_) : result += 1;
+		case \switch(_,_) : result += 1;
+		case \case(_) : result += 1;	
+		case \catch(_,_) : result += 1;	
     		case \while(_,_) : result += 1;		
 		}
 
