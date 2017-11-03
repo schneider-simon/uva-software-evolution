@@ -1,4 +1,4 @@
-module series1::ClomaticComplexity::CyclomaticComplexity
+module series1::CyclomaticComplexity::CyclomaticComplexity
 
 import lang::java::jdt::m3::Core;
 import lang::java::jdt::m3::AST;
