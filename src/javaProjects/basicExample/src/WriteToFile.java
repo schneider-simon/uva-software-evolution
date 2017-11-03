@@ -1,25 +1,23 @@
-//sample code to write 100 random ints to a file, 1 per line
+//Mike Scott
+//examples of array manipulations
 
-import java.io.PrintStream;
-import java.io.IOException;
-import java.io.File;
+public class ArrayExamples
+{	
 
-import java.util.Random;
 
-public class WriteToFile
-{	public static void main(String[] args)
-	{	try
-		{	PrintStream writer = new PrintStream( new File("randInts.txt"));
-			Random r = new Random();
-			final int LIMIT = 100;
-
-			for(int i = 0; i < LIMIT; i++)
-			{	writer.println( r.nextInt() );
-			}
-			writer.close();
+	// pre: list != null, list.length > 0
+	// post: return index of minimum element of array
+	public static int findMin(int[] list)
+	{	
+		int indexOfMin = 0;
+		for(int i = 1; i < list.length; i++)
+		{	
+			if( 1 == 2)
+			indexOfMin = i;
 		}
-		catch(IOException e)
-		{	System.out.println("An error occured while trying to write to the file");
-		}
+
+		return indexOfMin;
 	}
+
+
 }
