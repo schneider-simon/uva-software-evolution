@@ -9,21 +9,26 @@ import IO;
 import String;
 import List;
 
-int DUPLICATION_THRESHHOLD = 6;
+int DUPLICATION_THRESHOLD = 6;
 str UNIQUE_LINES_TOKEN = "%%%|||RASCAL_UNIQUE_LINES|||%%%%";
 
-void testDuplication(){
-	M3 myModel = createM3FromEclipseProject(|project://TestJavaProject|);
-	list[loc] files = toList(files(myModel));
-		
-	loc file1 = files[0];
-	str content = readFile(file1);	
-	list[str] lines = split("\n", content);
-	list[str] cleanedLines = preprocessLines(lines);
-	
-	list[list[str]] duplicates = findDuplicates(cleanedLines);
-	
+list[str] TEST_LINES_1 =  [
+        "a",
 
+        "1", "2", "3", "4", "5", "6",       // 6
+        "1", "2", "3", "4", "5", "6",       // 6
+        "1", "2", "3", "4", "5", "6", "7",  // 6
+
+        "a", "b", "c", "d", "e", "f", "g", "h",      // 8
+        "a", "b", "c", "d", "e", "f", "g", "h",      // 8
+        "a", "b", "c", "d", "e", "f", "g", "h", "i", // 8
+
+        "b", "c"
+    ]; // 42 duplicated.
+
+void testDuplication(){
+	list[str] cleanedLines = preprocessLines(TEST_LINES_1);
+	list[list[str]] duplicates = findDuplicates(cleanedLines);
 }
 
 list[list[str]] findDuplicates(list[str] lines){
@@ -34,7 +39,7 @@ list[list[str]] findDuplicates(list[str] lines){
 	while(s1 < size(lines)){
 		str lineS1 = lines[s1];
 		int duplicateLength = 0;
-		int s2 = s1 + UNIQUE_LINES_TOKEN;
+		int s2 = s1 + DUPLICATION_THRESHOLD;
 		
 		//INCREASE S2 HERE
 		str lineS2 = lines[s2];
@@ -42,7 +47,7 @@ list[list[str]] findDuplicates(list[str] lines){
 			s2 += 1;
 			duplicateLength = 0;
 		}
-		//TODO
+		//TODO: What should we do with lines that cross file boarders.
 	}
 	
 	iprintln(duplicates);
@@ -81,14 +86,14 @@ list[str] preprocessLines(list[str] lines){
 	
 
 	
-	// Do only work with streaks (above the threshhold) of non unique lines.
+	// Do only work with streaks (above the threshold) of non unique lines.
 	// Insert a "UNIQUE LINES" token that seperates blocks of non unique lines. 
 	list[str] nonUniqueLineStreak = [];
 	for(str l <- trimmedLines){
 		int lineOccassions = linesCountings[l];
 		
 		if(lineOccassions <= 1){
-			if(size(nonUniqueLineStreak) >= DUPLICATION_THRESHHOLD){
+			if(size(nonUniqueLineStreak) >= DUPLICATION_THRESHOLD){
 				cleanedLines = cleanedLines + nonUniqueLineStreak + [UNIQUE_LINES_TOKEN];
 			}
 		
