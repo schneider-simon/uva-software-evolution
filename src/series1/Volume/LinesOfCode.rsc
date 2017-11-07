@@ -3,6 +3,7 @@ module series1::Volume::LinesOfCode
 import lang::java::m3::Core;
 import lang::java::jdt::m3::Core;
 import util::FileSystem;
+import series1::Helpers::StringHelper;
 import Set;
 import IO;
 import String;
@@ -88,12 +89,4 @@ str withoutMultiLineComments(str source){
 	return visit(source){
    		case /\/\*[\s\S]*?\*\// => ""  
 	};
-}
-
-bool isOneLineComment(str line) {
-	return /^(\s*\/\/)/ := line;
-}
-
-bool isLineEmpty(str line) {
-	return /^\s*$/ := line;
 }

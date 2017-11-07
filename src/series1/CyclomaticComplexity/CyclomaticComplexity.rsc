@@ -26,8 +26,8 @@ public map[str, int] cyclomaticLinesPerPartion(list[Declaration] declMethods, M3
 		case \switch(_,_) : result += 1;
 		case \case(_) : result += 1;	
 		case \catch(_,_) : result += 1;	
-    		case \while(_,_) : result += 1;		
-		}
+    		case \while(_,_) : result += 1;	
+    		}
 
 		int methodSize = getTotalLocsForLocations([m.src])["code"];
 		
