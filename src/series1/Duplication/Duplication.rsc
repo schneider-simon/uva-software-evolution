@@ -29,7 +29,21 @@ void testDuplication(){
 list[list[str]] findDuplicates(list[str] lines){
 	list[list[str]] duplicates = [];
 	
+	int s1 = 0;
 	
+	while(s1 < size(lines)){
+		str lineS1 = lines[s1];
+		int duplicateLength = 0;
+		int s2 = s1 + UNIQUE_LINES_TOKEN;
+		
+		//INCREASE S2 HERE
+		str lineS2 = lines[s2];
+		if(!linesAreDuplicate(lineS1, lineS2)){
+			s2 += 1;
+			duplicateLength = 0;
+		}
+		//TODO
+	}
 	
 	iprintln(duplicates);
 	
