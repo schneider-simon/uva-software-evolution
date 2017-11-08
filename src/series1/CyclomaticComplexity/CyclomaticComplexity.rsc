@@ -19,6 +19,12 @@ import IO;
 	
 	}
 	
+	switch() {
+	case 1:
+	case 2:
+	}
+	
+	
 	In both cases there is only one code path. So, we need optimalisation.
 */
 
@@ -82,6 +88,8 @@ public complexityDivision cyclomaticLinesPerPartion(list[Declaration] declMethod
     		case \conditional(_, _, _): result += 1; //a ? c : d
     		case \infix(_, /^\|\||&&$/, _) : result += 1; //a && b. a || b
     		}
+
+		iprintln("compl: <result>");
 
 		//Determine method size, this is the weight of the method
 		int methodSize = getTotalLocsForLocations([m.src])["code"];

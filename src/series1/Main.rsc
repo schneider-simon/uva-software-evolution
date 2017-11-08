@@ -44,5 +44,8 @@ public void doAnalyses(loc eclipsePath) {
 	//Get cyclomatic complexity partitions
 	Ranking cyclomaticComplexityRank = getCyclomaticComplexityRating(methods, totalLinesOfCode, model);
 	iprintln("cyclomaticComplexityRank: <cyclomaticComplexityRank>");
+	
+	complexityDivision testComp = cyclomaticLinesPerPartion(methods, model);
+	iprintln("complexityDivision: <testComp>");
 }
 
