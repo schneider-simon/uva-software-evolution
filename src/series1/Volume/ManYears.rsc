@@ -1,10 +1,11 @@
 module series1::Volume::ManYears
 
 import series1::Volume::LinesOfCode;
+import series1::Ranking::Ranks;
 import util::Math;
 
 alias ManYear = int;
-alias ManYearsRanking = tuple[str name,ManYear minYears,ManYear maxYears,KLOC minKLOC,KLOC maxKLOC];
+alias ManYearsRanking = tuple[Ranking rankingType, ManYear minYears,ManYear maxYears,KLOC minKLOC,KLOC maxKLOC];
 
 /*
 rank MY 			Java
@@ -15,11 +16,11 @@ o    30 − 80 	246-665
 --   > 160 > 	1310 
 */
 
-ManYearsRanking manYears1 = <"++",   0,    8,    0,   66>;
-ManYearsRanking manYears2 = <"+",    8,   30,   66,  246>;
-ManYearsRanking manYears3 = <"o",   30,   80,  246,  665>;
-ManYearsRanking manYears4 = <"-",   80,  160,  655, 1310>;
-ManYearsRanking manYears5 = <"--",  160,  -1,  1310,  -1>;
+ManYearsRanking manYears1 = <veryPositive,   0,    8,    0,   66>;
+ManYearsRanking manYears2 = <positive,    8,   30,   66,  246>;
+ManYearsRanking manYears3 = <neutral,   30,   80,  246,  665>;
+ManYearsRanking manYears4 = <negative,   80,  160,  655, 1310>;
+ManYearsRanking manYears5 = <veryNegative,  160,  -1,  1310,  -1>;
 
 list[ManYearsRanking] manYearRankings = [manYears1, manYears2, manYears3, manYears4];
 
@@ -50,5 +51,5 @@ str manYearsRankingToString (ManYearsRanking ranking){
 		klocsRange = "\><ranking.minKLOC>";
 	}
 	
-	return "<ranking.name> \t <yearsRange> MYs \t <klocsRange> KLOCs";
+	return "<ranking.rankingType.name> \t <yearsRange> MYs \t <klocsRange> KLOCs";
 }
