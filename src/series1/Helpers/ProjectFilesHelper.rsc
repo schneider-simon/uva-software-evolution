@@ -8,7 +8,7 @@ list[str] invalidFolders = ["/test/","/generated/"];
 
 public list[loc] getProjectFiles(list[loc] files) {
 
-	validFiles = [];
+	list[loc] validFiles = [];
 	for(int i <- [0 .. size(files)]) {
 		loc file = files[i];
 		

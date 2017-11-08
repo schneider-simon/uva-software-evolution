@@ -7,6 +7,7 @@ import Set;
 import lang::java::jdt::m3::Core;
 import lang::java::jdt::m3::AST;
 import series1::Volume::LinesOfCode;
+import series1::Ranking::Ranks;
 
 import series1::Helpers::ProjectFilesHelper;
 import series1::CyclomaticComplexity::CyclomaticComplexity;
@@ -41,29 +42,7 @@ public void doAnalyses(loc eclipsePath) {
 	}
 
 	//Get cyclomatic complexity partitions
-	map[str, int] cyclomaticPartitions = cyclomaticLinesPerPartion(methods, model);
-	printCyclomaticComplexity(cyclomaticPartitions, totalLinesOfCode);
+	Ranking cyclomaticComplexityRank = getCyclomaticComplexityRating(methods, totalLinesOfCode, model);
+	iprintln("cyclomaticComplexityRank: <cyclomaticComplexityRank>");
 }
 
-public void printCyclomaticComplexity(map[str,int] complexity, int linesOfCode) {
-
-	int pMid = complexity["mid"] * 100 / linesOfCode;
-	int pHigh = complexity["high"] * 100 / linesOfCode;
-	int pVHigh= complexity["very high"] * 100 / linesOfCode;
-	
-	println("Cyclomatic complexity:");
-	println("Mid: <pMid>");
-	println("High: <pHigh>");
-	println("Very high: <pVHigh>");
-	print("Complexity rating: ");
-	if(pMid > 50 || pHigh > 15 || pVHigh > 5) 
-		println("--");
-	else if(pMid > 40 || pHigh > 10 || pVHigh > 0) 
-		println("-");
-	else if(pMid > 30 || pHigh > 5 || pVHigh > 0) 
-		println("o");
-	else if(pMid > 25 || pHigh > 0 || pVHigh > 0) 
-		println("+");
-	else
-		println("++");
-}
