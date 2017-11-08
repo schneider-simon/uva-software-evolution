@@ -89,8 +89,6 @@ public complexityDivision cyclomaticLinesPerPartion(list[Declaration] declMethod
     		case \infix(_, /^\|\||&&$/, _) : result += 1; //a && b. a || b
     		}
 
-		iprintln("compl: <result>");
-
 		//Determine method size, this is the weight of the method
 		int methodSize = getTotalLocsForLocations([m.src])["code"];
 		
@@ -99,7 +97,7 @@ public complexityDivision cyclomaticLinesPerPartion(list[Declaration] declMethod
 			complexity.mid += methodSize;
 		} else if (result >= high.min && result <= high.max) {
 			complexity.high  += methodSize;
-		} else if (result >= veryHigh.min && result <= veryHigh.max) {
+		} else if (result >= veryHigh.min ) {
 			complexity.veryHigh  += methodSize;
 		}
 	}
