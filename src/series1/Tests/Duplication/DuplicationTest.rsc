@@ -44,8 +44,6 @@ test bool findDuplicatesStartingFromLineTest(){
 
 test bool findDuplicatesTest1(){
 	list[list[str]] duplicates = findDuplicates(CODE_EXAMPLE_2);
-		
-		
 		println(duplicates);
 		return true;
 	return duplicates == [["a","b","c"],["a","b","c","d"]];
