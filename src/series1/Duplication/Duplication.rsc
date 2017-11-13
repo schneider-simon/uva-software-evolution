@@ -37,23 +37,58 @@ list[list[str]] findDuplicates(list[str] lines){
 	int s1 = 0;
 	
 	while(s1 < size(lines)){
-		str lineS1 = lines[s1];
-		int duplicateLength = 0;
-		int s2 = s1 + DUPLICATION_THRESHOLD;
-		
-		//INCREASE S2 HERE
-		str lineS2 = lines[s2];
-		if(!linesAreDuplicate(lineS1, lineS2)){
-			s2 += 1;
-			duplicateLength = 0;
-		}
-		//TODO: What should we do with lines that cross file boarders.
+		duplicates = duplicates + findDuplicatesStartingFromLine(lines, s1);
+		s1 += 1;
 	}
+		
+	return duplicates;
+}
+
+list[list[str]] findDuplicatesStartingFromLine(list[str] lines, int s1){
+	str lineS1 = lines[s1];
 	
-	iprintln(duplicates);
+	list[list[str]] duplicates = [];
+	
+	int s2 = s1 + 1;//TODO: Use threshhold to move faster
+	while(s2 < size(lines)){
+		str lineS2 = lines[s2];
+		
+		if(linesAreDuplicate(lineS1, lineS2)){
+			list[str] duplicate = findLargestDuplicate(lines, s1, s2);
+			duplicates = duplicates + [duplicate];
+		}
+		
+		s2 += 1;
+	}
 	
 	return duplicates;
 }
+
+list[str] findLargestDuplicate(list[str] lines, int s1, int s2){
+	assert s1 < s2 : "Second line must be larger than the first line";
+	
+	int pointer = 0;
+	
+	str lineS1 = lines[s1];
+	str lineS2 = lines[s2];
+	
+	list[str] duplicateLines = [];
+		
+	while(linesAreDuplicate(lineS1, lineS2)){
+		duplicateLines = duplicateLines + [lineS1];
+		pointer += 1;
+	
+		if(s2 + pointer >= size(lines)){
+			break;
+		}
+			
+		lineS1 = lines[s1 + pointer];
+		lineS2 = lines[s2 + pointer];
+	}
+	
+	return duplicateLines;
+}
+
 
 bool linesAreDuplicate(str line1, str line2){
 	return line1 == line2 && line1 != UNIQUE_LINES_TOKEN && line2 != UNIQUE_LINES_TOKEN;
@@ -83,7 +118,6 @@ list[str] preprocessLines(list[str] lines){
 			linesCountings[trimmedLine] += 1;
 		}
 	}	
-	
 
 	
 	// Do only work with streaks (above the threshold) of non unique lines.
@@ -101,7 +135,7 @@ list[str] preprocessLines(list[str] lines){
 			continue;
 		}
 		
-		nonUniqueLineStreak = push(l, nonUniqueLineStreak);
+		nonUniqueLineStreak = nonUniqueLineStreak + [l];
 	}
 	
 	cleanedLines = cleanedLines + nonUniqueLineStreak;

@@ -17,10 +17,10 @@ o    30 − 80 	246-665
 */
 
 ManYearsRanking manYears1 = <veryPositive,   0,    8,    0,   66>;
-ManYearsRanking manYears2 = <positive,    8,   30,   66,  246>;
-ManYearsRanking manYears3 = <neutral,   30,   80,  246,  665>;
-ManYearsRanking manYears4 = <negative,   80,  160,  655, 1310>;
-ManYearsRanking manYears5 = <veryNegative,  160,  -1,  1310,  -1>;
+ManYearsRanking manYears2 = <positive,    	8,   30,   66,  246>;
+ManYearsRanking manYears3 = <neutral,   		30,   80,  246,  665>;
+ManYearsRanking manYears4 = <negative,   		80,  160,  655, 1310>;
+ManYearsRanking manYears5 = <veryNegative,  	160,  -1,  1310,  -1>;
 
 list[ManYearsRanking] manYearRankings = [manYears1, manYears2, manYears3, manYears4];
 

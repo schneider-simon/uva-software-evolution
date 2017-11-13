@@ -17,10 +17,10 @@ void testLoc(){
 	M3 myModel = createM3FromEclipseProject(|project://TestJavaProject|);
 	list[loc] files = toList(files(myModel));
 		
-	loc file1 = files[0];
+	loc file1 = files[1];
 	str content = readFile(file1);
 	
-	println(getTotalLocsForLocations(files));
+	println(getTotalLocsForLocations([|project://TestJavaProject/src/com/zwei14/test_java/TestClass.java|]));
 }
 
 /**
@@ -65,6 +65,9 @@ LocationsLineOfCodeStats getLocStatsForLocations (list[loc] locations){
  *
  */
 LinesOfCodeStats getLocStats (str code) {
+	code = "\n" + code + "\n";
+	code = replaceString(code);
+	
     list[str] allLines = split("\n", code);
     list[str] nonBlankLines = [l | str l <- allLines, !isLineEmpty(l)];
   	list[str] codeLines = split("\n", withoutMultiLineComments(code));
@@ -90,3 +93,19 @@ str withoutMultiLineComments(str source){
    		case /\/\*[\s\S]*?\*\// => ""  
 	};
 }
+
+/**
+ * Replace strings with "S"
+ *
+ * Example of a problematic code without this replace string options:
+ * System.out.println("Hello wolrd \*"
+ *		+ "asdasd"
+ *		+ "asd*\asdsdasd"
+);	
+ */
+str replaceString(str source){
+	return visit(source){
+   		case /\".*\"/ => "\"S\""  
+	};
+}
+
