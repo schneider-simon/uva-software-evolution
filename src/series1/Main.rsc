@@ -4,6 +4,7 @@ import IO;
 import List;
 import Set;
 
+
 import lang::java::jdt::m3::Core;
 import lang::java::jdt::m3::AST;
 import series1::Volume::LinesOfCode;
@@ -11,6 +12,9 @@ import series1::Ranking::Ranks;
 
 import series1::Helpers::ProjectFilesHelper;
 import series1::CyclomaticComplexity::CyclomaticComplexity;
+import series1::Volume::ManYears;
+import series1::Volume::LinesOfCode;
+
 
 /*
 	Will exexute the meterics on a test project
@@ -68,5 +72,13 @@ public void doAnalyses(loc eclipsePath) {
 	
 	complexityDivision testComp = cyclomaticLinesPerPartion(methods, model);
 	iprintln("complexityDivision: <testComp>");
+	
+	//Getting code manyears
+	
+	LocationsLineOfCodeStats linesStats = getTotalLocsForLocations(projectFiles);
+	iprintln(linesStats);
+	
+	ManYearsRanking rankingStats = getManYearsRanking(stats["code"]);
+	iprintln(rankingStats);
 }
 
