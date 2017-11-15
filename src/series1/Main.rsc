@@ -27,7 +27,7 @@ public void testExampleJavaProject() {
 	Will exexute the meterics on smallsql
 */
 public void testSmallsqlJavaProject() {
-	doAnalyses(|project://smallsql/|);	
+	doAnalyses(|project://smallsql|);	
 }
 
 
@@ -35,7 +35,7 @@ public void testSmallsqlJavaProject() {
 	Will exexute the meterics on smallsql
 */
 public void testHsqlJavaProject() {
-	doAnalyses(|project://hsqldb/|);	
+	doAnalyses(|project://hsqldb|);	
 }
 
 /*
@@ -64,21 +64,16 @@ public void doAnalyses(loc eclipsePath) {
 		methods = methods + [dec | /Declaration dec := declarations[i], dec is method];
 	}
 	
-	
 	//Get cyclomatic complexity partitions
 	iprintln("Getting Cyclomatic complexity");
-	Ranking cyclomaticComplexityRank = getCyclomaticComplexityRating(methods, totalLinesOfCode, model);
+	complexityDivision division = cyclomaticLinesPerPartion(methods, model);
+	Ranking cyclomaticComplexityRank = getCyclomaticComplexityRating(division, totalLinesOfCode);
 	iprintln("cyclomaticComplexityRank: <cyclomaticComplexityRank>");
-	
-	complexityDivision testComp = cyclomaticLinesPerPartion(methods, model);
-	iprintln("complexityDivision: <testComp>");
+	iprintln("cyclomaticComplexity division <division>");
 	
 	//Getting code manyears
-	
-	LocationsLineOfCodeStats linesStats = getTotalLocsForLocations(projectFiles);
-	iprintln(linesStats);
-	
-	ManYearsRanking rankingStats = getManYearsRanking(stats["code"]);
-	iprintln(rankingStats);
+	LinesOfCodeStats linesStats = getTotalLocsForLocations(projectFiles);
+	ManYearsRanking rankingStats = getManYearsRanking(linesStats["code"]);
+	iprintln("Man year stats <rankingStats>");
 }
 

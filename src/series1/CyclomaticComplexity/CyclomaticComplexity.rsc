@@ -44,10 +44,8 @@ complexityRating high = <21,50>;
 complexityRating veryHigh = <51,-1>;
 list[complexityRating] complexityRatings = [mid, high, veryHigh];
 
-public Ranking getCyclomaticComplexityRating(list[Declaration] declMethods, int linesOfCode, M3 model) {
+public Ranking getCyclomaticComplexityRating(complexityDivision division, int linesOfCode) {
 
-	complexityDivision division = cyclomaticLinesPerPartion(declMethods, model);
-	
 	//calculate how it is divided
 	int pMid = division.mid * 100 / linesOfCode;
 	int pHigh = division.high * 100 / linesOfCode;
