@@ -31,6 +31,40 @@ while the last method is way more easier to understand.
 
 ## How do you count a statement that always branches to one branch
 
+## What is the smallest unit
+
+dec is method || dec is constructor || dec is initializer
+
+## How do we calculate the complexity
+
+# Do you calculate lambdas
+
+Checkstyle does not do this. We do
+
+```java
+public void testConcurrentThreadWrite() throws Throwable{ //1
+
+    try{
+
+        for(int i = 0; i < 200; i++){ //2
+            Thread thread = new Thread(new Runnable(){
+
+                public void run(){
+                    try{
+
+                    }catch(Throwable ex){ //3
+
+                    }
+                }
+
+            });
+        }
+    }finally{
+
+    }
+}
+```
+
 ## How do you support polymerization
 
 When you have a Class Audi that derives from Car and a class BMW that derives from Car. You accept an input parameter of type Car. How do you would the catch statements?
