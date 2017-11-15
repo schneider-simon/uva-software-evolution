@@ -60,6 +60,7 @@ public class complex100 {
 		case 7:
 		case 8:
 		case 9:
+case 91:
 		case 10:
 			x++;
 		}

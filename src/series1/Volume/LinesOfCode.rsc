@@ -41,7 +41,7 @@ LinesOfCodeStats getTotalLocsForLocations (list[loc] locations){
 	return stats;
 }
 
-/**
+/**e
  * Get lines of code stats for many locations.
  * 
  * Maps the location to a map of LOC statistics:
