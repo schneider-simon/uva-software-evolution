@@ -4,6 +4,7 @@ import util::Math;
 import List;
 
 alias Ranking = tuple[str name,int val];
+alias BoundRanking = tuple[Ranking ranking, num lower, num upper];
 
 public Ranking veryPositive = <"++", 2>;
 public Ranking positive = <"+", 1>;
@@ -20,7 +21,7 @@ Ranking averageRanking(list[Ranking] rankings){
 
 	int average = floor(sum([r.val | r <- rankings]) / size(rankings));	
 	
-	//TODO: Really use floor? Paper is inclear on that.
+	//TODO: Really use floor? Paper is unclear on that.
 	return findRankingByValue(average);
 }
 
@@ -29,4 +30,18 @@ Ranking findRankingByValue(int val){
 	assert val <= 2 : "Ranking value must be \<= +2";
 	
 	return [r | r <- allRankings, r.val == val][0];
+}
+
+Ranking rankingToString(Ranking ranking){
+	return ranking.name;
+}
+
+BoundRanking getBoundRanking(num rankingValue, list[BoundRanking] rankings){
+	for(BoundRanking ranking <- rankings){	
+		if(floor(rankingValue) < ranking.upper){
+			return ranking;
+		}
+	}
+	
+	return last(rankings);
 }

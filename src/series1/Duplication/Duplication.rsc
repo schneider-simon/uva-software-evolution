@@ -12,6 +12,10 @@ import List;
 int DUPLICATION_THRESHOLD = 6;
 str UNIQUE_LINES_TOKEN = "%%%|||RASCAL_UNIQUE_LINES|||%%%%";
 
+alias DuplicationOptions = tuple[int threshhold];
+
+public DuplicationOptions defaultDuptlicationOptions = <6>;
+
 list[str] TEST_LINES_1 =  [
         "a",
 
@@ -26,28 +30,36 @@ list[str] TEST_LINES_1 =  [
         "b", "c"
     ]; // 42 duplicated.
 
-void testDuplication(){
-	list[str] cleanedLines = preprocessLines(TEST_LINES_1);
-	list[list[str]] duplicates = findDuplicates(cleanedLines);
+set[int] testDuplication(){
+	DuplicationOptions options = <6>;
+	list[str] cleanedLines = preprocessLines(TEST_LINES_1, options);
+	set[int] duplicates = findDuplicates(cleanedLines, options);
+	
+	iprintln(sort(toList(duplicates)));
+	iprintln(size(duplicates));
+	
+	return duplicates;
+	
 }
 
-list[list[str]] findDuplicates(list[str] lines){
-	list[list[str]] duplicates = [];
+set[int] findDuplicates(list[str] lines, DuplicationOptions options){
+	set[int] duplicates = {};
 	
 	int s1 = 0;
 	
 	while(s1 < size(lines)){
-		duplicates = duplicates + findDuplicatesStartingFromLine(lines, s1);
+		duplicates = duplicates + findDuplicatesStartingFromLine(lines, s1, options);
 		s1 += 1;
 	}
+	
 		
 	return duplicates;
 }
 
-list[list[str]] findDuplicatesStartingFromLine(list[str] lines, int s1){
+set[int] findDuplicatesStartingFromLine(list[str] lines, int s1, DuplicationOptions options){
 	str lineS1 = lines[s1];
 	
-	list[list[str]] duplicates = [];
+	set[int] duplicateLineNumbers = {};
 	
 	int s2 = s1 + 1;//TODO: Use threshhold to move faster
 	while(s2 < size(lines)){
@@ -55,14 +67,24 @@ list[list[str]] findDuplicatesStartingFromLine(list[str] lines, int s1){
 		
 		if(linesAreDuplicate(lineS1, lineS2)){
 			list[str] duplicate = findLargestDuplicate(lines, s1, s2);
-			duplicates = duplicates + [duplicate];
+			
+			if(size(duplicate) >= options.threshhold){
+				int end1 = s1 + size(duplicate);
+				int end2 = s2 + size(duplicate);
+				
+				set[int] duplicateLinesS1 = toSet([s1..end1]);
+				set[int] duplicateLinesS2 = toSet([s2..end2]);
+			
+				duplicateLineNumbers = duplicateLineNumbers + duplicateLinesS1 + duplicateLinesS2;
+			}
 		}
 		
 		s2 += 1;
 	}
 	
-	return duplicates;
+	return duplicateLineNumbers;
 }
+
 
 list[str] findLargestDuplicate(list[str] lines, int s1, int s2){
 	assert s1 < s2 : "Second line must be larger than the first line";
@@ -95,7 +117,7 @@ bool linesAreDuplicate(str line1, str line2){
 }
 
 
-list[str] preprocessLines(list[str] lines){
+list[str] preprocessLines(list[str] lines, DuplicationOptions options){
 	list[str] trimmedLines = [];	
 	list[str] cleanedLines = [];
 	
@@ -110,6 +132,7 @@ list[str] preprocessLines(list[str] lines){
 		}
 		
 		//TODO: Do empty lines count as duplicates?
+		//TODO: Should we remove "{" lines and "}" lines?
 		trimmedLines = push(trimmedLine, trimmedLines);
 	
 		if(!(trimmedLine in linesCountings)){
@@ -127,7 +150,7 @@ list[str] preprocessLines(list[str] lines){
 		int lineOccassions = linesCountings[l];
 		
 		if(lineOccassions <= 1){
-			if(size(nonUniqueLineStreak) >= DUPLICATION_THRESHOLD){
+			if(size(nonUniqueLineStreak) >= options.threshhold){
 				cleanedLines = cleanedLines + nonUniqueLineStreak + [UNIQUE_LINES_TOKEN];
 			}
 		
@@ -139,5 +162,6 @@ list[str] preprocessLines(list[str] lines){
 	}
 	
 	cleanedLines = cleanedLines + nonUniqueLineStreak;
+	return cleanedLines;
 }
 
