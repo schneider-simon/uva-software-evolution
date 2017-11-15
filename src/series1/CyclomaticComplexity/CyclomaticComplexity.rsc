@@ -7,26 +7,6 @@ import series1::Ranking::Ranks;
 
 import IO;
 
-/*
-	What if you have:
-	if(True) {
-	
-	}
-	
-	a = true;
-	if(a) {
-	
-	}
-	
-	switch() {
-	case 1:
-	case 2:
-	}
-	
-	
-	In both cases there is only one code path. So, we need optimalisation.
-*/
-
 alias complexityRange = tuple[Ranking rank, int maxMod, int maxHigh, int maxVeryHigh];
 alias complexityDivision = tuple[int mid, int high, int veryHigh];
 
@@ -49,12 +29,13 @@ public Ranking getCyclomaticComplexityRating(complexityDivision division, int li
 	int pMid = division.mid * 100 / linesOfCode;
 	int pHigh = division.high * 100 / linesOfCode;
 	int pVHigh = division.veryHigh * 100 / linesOfCode;
-	
+		
 	//Get rating
 	for(complexityRange complexity <- complexityRanges) {
-		if( pMid <= complexity.maxMod || complexity.maxMod == -1 && 
-			pHigh <= complexity.maxHigh || complexity.maxHigh == -1 && 
-			pVHigh <= complexity.maxVeryHigh || complexity.maxVeryHigh == -1 )
+		
+		if( (pMid <= complexity.maxMod || complexity.maxMod == -1) && 
+			(pHigh <= complexity.maxHigh || complexity.maxHigh == -1) && 
+			(pVHigh <= complexity.maxVeryHigh || complexity.maxVeryHigh == -1) )
 			return complexity.rank;
 	}
 	

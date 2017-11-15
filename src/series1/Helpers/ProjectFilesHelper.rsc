@@ -42,8 +42,6 @@ public str getConcatinatedSourceFromFiles(list[loc] files){
 }
 
 public list[str] getCodeLinesFromFiles(list[loc] files){
-	println("files");
-	println(files);
 	str source = getConcatinatedSourceFromFiles(files);
 	return getCodeLines(source);
 }
