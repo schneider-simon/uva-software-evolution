@@ -89,7 +89,7 @@ public complexityDivision cyclomaticLinesPerPartion(list[Declaration] declMethod
     		}
 
 		//Determine method size, this is the weight of the method
-		int methodSize = getTotalLocsForLocations([m.src])["code"];
+		int methodSize = getLocsForLocations([m.src]);
 		
 		if(result > 1) {
 			testC = testC + 1;

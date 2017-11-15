@@ -32,7 +32,7 @@ Ranking findRankingByValue(int val){
 	return [r | r <- allRankings, r.val == val][0];
 }
 
-Ranking rankingToString(Ranking ranking){
+str rankingToString(Ranking ranking){
 	return ranking.name;
 }
 

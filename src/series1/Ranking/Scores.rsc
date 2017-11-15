@@ -1,23 +1,34 @@
 module series1::Ranking::Scores
 
 import series1::Ranking::Ranks;
+import IO;
 
 alias CodeProperties = tuple[Ranking volume, Ranking complexityPerUnit, Ranking duplication, Ranking unitSize, Ranking unitTesting];
 
+public CodeProperties emptyCodeProperties = <neutral, neutral, neutral, neutral, neutral>;
+
 Ranking getAnalysability(CodeProperties properties){
-	return averageRanking([metrics.volume, metrics.duplication, metrics.unitSize, metrics.unitTesting]);
+	return averageRanking([properties.volume, properties.duplication, properties.unitSize, properties.unitTesting]);
 }
 
 Ranking getChangeability(CodeProperties properties){
-	return averageRanking([metrics.complexityPerUnit, metrics.duplication]);
+	return averageRanking([properties.complexityPerUnit, properties.duplication]);
 }
 
 Ranking getStability(CodeProperties properties){
-	return averageRanking([metrics.unitTesting]);
+	return averageRanking([properties.unitTesting]);
 }
 
 Ranking getTestability(CodeProperties properties){
-	return averageRanking([metrics.complexityPerUnit, metrics.unitSize, metrics.unitTesting]);
+	return averageRanking([properties.complexityPerUnit, properties.unitSize, properties.unitTesting]);
+}
+
+void outputProperties(CodeProperties properties){
+	println("Volume: <rankingToString(properties.volume)>");
+	println("ComplexityPerUnit: <rankingToString(properties.complexityPerUnit)>");
+	println("Dupliction: <rankingToString(properties.duplication)>");
+	println("UnitSize: <rankingToString(properties.unitSize)>");
+	println("UnitTesting: <rankingToString(properties.unitTesting)>");
 }
 
 void outputScores(CodeProperties properties){

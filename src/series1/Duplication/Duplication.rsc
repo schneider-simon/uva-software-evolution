@@ -42,6 +42,15 @@ set[int] testDuplication(){
 	
 }
 
+set[int] findDuplicatesFaster(list[str] lines){
+	list[str] cleanedLines = preprocessLines(TEST_LINES_1, defaultDuptlicationOptions);
+	return findDuplicates(cleanedLines, defaultDuptlicationOptions);
+}
+
+set[int] findDuplicates(list[str] lines){
+	return findDuplicates(lines, defaultDuptlicationOptions);
+}
+
 set[int] findDuplicates(list[str] lines, DuplicationOptions options){
 	set[int] duplicates = {};
 	

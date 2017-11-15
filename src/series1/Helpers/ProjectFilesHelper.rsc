@@ -3,6 +3,8 @@ module series1::Helpers::ProjectFilesHelper
 import List;
 import String;
 import IO;
+import util::FileSystem;
+import series1::Helpers::StringHelper;
 
 list[str] invalidFolders = ["/test/","/generated/"];
 
@@ -31,4 +33,17 @@ public bool isValidProjectFile(str file) {
 	}
 
 	return true;
+}
+
+public str getConcatinatedSourceFromFiles(list[loc] files){
+	str code = "";
+
+	return ("" | it + "\n" +  readFile(l) | loc l <- files);
+}
+
+public list[str] getCodeLinesFromFiles(list[loc] files){
+	println("files");
+	println(files);
+	str source = getConcatinatedSourceFromFiles(files);
+	return getCodeLines(source);
 }
