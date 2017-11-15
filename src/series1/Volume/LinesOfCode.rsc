@@ -4,6 +4,7 @@ import lang::java::m3::Core;
 import lang::java::jdt::m3::Core;
 import util::FileSystem;
 import series1::Helpers::StringHelper;
+import series1::Helpers::ProjectFilesHelper;
 import Set;
 import IO;
 import String;
@@ -27,18 +28,9 @@ void testLoc(){
  * Sums up all the lines of code stats for many locations.
  * 
  */
-LinesOfCodeStats getTotalLocsForLocations (list[loc] locations){
-	LocationsLineOfCodeStats mapping = getLocStatsForLocations(locations);
-	LinesOfCodeStats stats =  ("text": 0, "code": 0, "blank": 0, "comments": 0);
-	
-	for(loc location <- mapping){
-		LinesOfCodeStats locationStats = mapping[location];
-		for(str statisticKey <- locationStats){
-			stats[statisticKey] += locationStats[statisticKey];
-		}
-	}
-	
-	return stats;
+int getLocsForLocations (list[loc] locations){
+	list[str] lines = getCodeLinesFromFiles(locations);
+	return size(lines);
 }
 
 /**e
@@ -66,7 +58,7 @@ LocationsLineOfCodeStats getLocStatsForLocations (list[loc] locations){
  */
 LinesOfCodeStats getLocStats (str code) {
 	code = "\n" + code + "\n";
-	code = replaceString(code);
+	code = replaceStrings(code);
 	
     list[str] allLines = split("\n", code);
     list[str] nonBlankLines = [l | str l <- allLines, !isLineEmpty(l)];
@@ -80,32 +72,4 @@ LinesOfCodeStats getLocStats (str code) {
   			);
 }
 
-/*asdasdasd
- * Removes all multi line comments from a source code string.
- *
- * After experimenting with multiple regular expressions we decided to use:
- * \/\*[\s\S]*?\*\/
- * (Compare with: https://blog.ostermiller.org/find-comment)
- *
- */
-str withoutMultiLineComments(str source){
-	return visit(source){
-   		case /\/\*[\s\S]*?\*\// => ""  
-	};
-}
-
-/**
- * Replace strings with "S"
- *
- * Example of a problematic code without this replace string options:
- * System.out.println("Hello wolrd \/*"
- *		+ "asdasd"
- *		+ "asd*\/asdsdasd"
-);	"Hello world \/*" --> "S"
- */
-str replaceString(str source){
-	return visit(source){
-   		case /\".*\"/ => "\"S\""  
-	};
-}
 

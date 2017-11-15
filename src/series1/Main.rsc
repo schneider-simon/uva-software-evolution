@@ -10,6 +10,9 @@ import lang::java::jdt::m3::Core;
 import lang::java::jdt::m3::AST;
 import series1::Volume::LinesOfCode;
 import series1::Ranking::Ranks;
+import series1::Ranking::Scores;
+import series1::Duplication::Duplication;
+import series1::Duplication::DuplicationRank;
 
 import series1::Helpers::ProjectFilesHelper;
 import series1::CyclomaticComplexity::CyclomaticComplexity;
@@ -51,17 +54,16 @@ public void doAnalyses(loc eclipsePath) {
 	//Get a list off all files that are relevant to test
 	list[loc] files = toList(files(model));
 	list[loc] projectFiles = getProjectFiles(files); 
+	list[str] codeLines = getCodeLinesFromFiles(projectFiles);
 	
 	//Filter for testing
-	//projectFiles = [file | file <- projectFiles, contains(file.path,"/SSDriver.java")];
-	//iprintln(projectFiles);
-	//Declaration decl2 = createAstFromFile(projectFiles[0], true);
-	//iprintln(decl2);
-		
+
+	//projectFiles = [file | file <- projectFiles, contains(file.path,"/Database.java")];
+	
 	//Get the total lines of code to do some metrix
 	iprintln("Get lines of code");
-	int totalLinesOfCode = getTotalLocsForLocations(projectFiles)["code"];
-	iprintln("lines of code: <totalLinesOfCode>");
+	int totalLinesOfCode = size(codeLines);
+	iprintln("Lines of code: <totalLinesOfCode>");
 
 	//Extract all the methods
 	iprintln("Extracting methods");
@@ -79,8 +81,36 @@ public void doAnalyses(loc eclipsePath) {
 	iprintln("cyclomaticComplexity division <division>");
 	
 	//Getting code manyears
-	LinesOfCodeStats linesStats = getTotalLocsForLocations(projectFiles);
-	ManYearsRanking rankingStats = getManYearsRanking(linesStats["code"]);
-	iprintln("Man year stats <rankingStats>");
+	ManYearsRanking manYearsRanking = getManYearsRanking(totalLinesOfCode);
+	iprintln("Man year ranking <manYearsRanking>");
+	
+	//Getting code duplicates
+	set[int] duplicates = findDuplicatesFaster(getCodeLinesFromFiles(projectFiles));
+	int duplicateLines = size(duplicates);	
+	Ranking duplicationRanking = getDuplicationRanking(duplicateLines, totalLinesOfCode);
+	
+	CodeProperties codeProperties = emptyCodeProperties;
+	codeProperties.volume = manYearsRanking.rankingType;
+	codeProperties.complexityPerUnit = cyclomaticComplexityRank;
+	codeProperties.duplication = duplicationRanking;
+	//TODO: codeProperties.unitSize = ;
+	codeProperties.unitTesting = neutral;
+	
+	printSeperator();
+	println("Properties:");
+	printSubSeperator();
+	outputProperties(codeProperties);
+	printSeperator();
+	println("Scores:");
+	printSubSeperator();
+	outputScores(codeProperties);
+	printSeperator();
 }
 
+public void printSeperator(){
+	println("=============================================");
+}
+
+public void printSubSeperator(){
+	println("---------------------------------------------");
+}
