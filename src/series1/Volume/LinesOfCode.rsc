@@ -80,7 +80,7 @@ LinesOfCodeStats getLocStats (str code) {
   			);
 }
 
-/**
+/*asdasdasd
  * Removes all multi line comments from a source code string.
  *
  * After experimenting with multiple regular expressions we decided to use:
@@ -98,10 +98,10 @@ str withoutMultiLineComments(str source){
  * Replace strings with "S"
  *
  * Example of a problematic code without this replace string options:
- * System.out.println("Hello wolrd \*"
+ * System.out.println("Hello wolrd \/*"
  *		+ "asdasd"
- *		+ "asd*\asdsdasd"
-);	
+ *		+ "asd*\/asdsdasd"
+);	"Hello world \/*" --> "S"
  */
 str replaceString(str source){
 	return visit(source){
