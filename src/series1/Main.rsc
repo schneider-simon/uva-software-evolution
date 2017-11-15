@@ -56,10 +56,6 @@ public void doAnalyses(loc eclipsePath) {
 	list[loc] projectFiles = getProjectFiles(files); 
 	list[str] codeLines = getCodeLinesFromFiles(projectFiles);
 	
-	//Filter for testing
-
-	//projectFiles = [file | file <- projectFiles, contains(file.path,"/Database.java")];
-	
 	//Get the total lines of code to do some metrix
 	iprintln("Get lines of code");
 	int totalLinesOfCode = size(codeLines);

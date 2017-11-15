@@ -43,8 +43,6 @@ complexityRating high = <21,50>;
 complexityRating veryHigh = <51,-1>;
 list[complexityRating] complexityRatings = [mid, high, veryHigh];
 
-int testC = 0;
-
 public Ranking getCyclomaticComplexityRating(complexityDivision division, int linesOfCode) {
 
 	//calculate how it is divided
@@ -90,11 +88,6 @@ public complexityDivision cyclomaticLinesPerPartion(list[Declaration] declMethod
 
 		//Determine method size, this is the weight of the method
 		int methodSize = getLocsForLocations([m.src]);
-		
-		if(result > 1) {
-			testC = testC + 1;
-			iprintln("<testC> <m.src>: Cyclomatic Complexity is <result>");
-		}
 		
 		//Devide the complexity in the correct group
 		if(result >= mid.min && result <= mid.max) {
