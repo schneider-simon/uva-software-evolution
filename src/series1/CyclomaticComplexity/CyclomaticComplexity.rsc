@@ -7,7 +7,6 @@ import series1::Ranking::Ranks;
 
 import IO;
 
-
 /*
 	What if you have:
 	if(True) {
@@ -43,6 +42,8 @@ complexityRating mid = <11,20>;
 complexityRating high = <21,50>;
 complexityRating veryHigh = <51,-1>;
 list[complexityRating] complexityRatings = [mid, high, veryHigh];
+
+int testC = 0;
 
 public Ranking getCyclomaticComplexityRating(complexityDivision division, int linesOfCode) {
 
@@ -89,6 +90,11 @@ public complexityDivision cyclomaticLinesPerPartion(list[Declaration] declMethod
 
 		//Determine method size, this is the weight of the method
 		int methodSize = getTotalLocsForLocations([m.src])["code"];
+		
+		if(result > 1) {
+			testC = testC + 1;
+			iprintln("<testC> <m.src>: Cyclomatic Complexity is <result>");
+		}
 		
 		//Devide the complexity in the correct group
 		if(result >= mid.min && result <= mid.max) {
