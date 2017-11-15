@@ -53,7 +53,10 @@ public void doAnalyses(loc eclipsePath) {
 	list[loc] projectFiles = getProjectFiles(files); 
 	
 	//Filter for testing
-	//projectFiles = [file | file <- projectFiles, contains(file.path,"/Database.java")];
+	//projectFiles = [file | file <- projectFiles, contains(file.path,"/SSDriver.java")];
+	//iprintln(projectFiles);
+	//Declaration decl2 = createAstFromFile(projectFiles[0], true);
+	//iprintln(decl2);
 		
 	//Get the total lines of code to do some metrix
 	iprintln("Get lines of code");
@@ -65,9 +68,9 @@ public void doAnalyses(loc eclipsePath) {
 	list[Declaration] declarations = [ createAstFromFile(file, true) | file <- projectFiles]; 
 	list[Declaration] methods = [];
 	for(int i <- [0 .. size(declarations)]) {
-		methods = methods + [dec | /Declaration dec := declarations[i], dec is method || dec is constructor];
+		methods = methods + [dec | /Declaration dec := declarations[i], dec is method || dec is constructor || dec is initializer];
 	}
-	
+
 	//Get cyclomatic complexity partitions
 	iprintln("Getting Cyclomatic complexity");
 	complexityDivision division = cyclomaticLinesPerPartion(methods, model);
