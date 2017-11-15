@@ -1,6 +1,8 @@
 # Cyclomatic complexity
 
-With this metric it is possible to indicate the complexity of a program. It measures the number of paths through the source code of a code section. In theory, how lower the cyclomatic complexity, how easier the code is to understand. However, the following method gets an complexity of 1:
+With this metric it is possible to indicate the complexity of a program. It measures the number of paths through the source code of a code section. In theory, how lower the cyclomatic complexity, how easier the code is to understand. However, in practice this is not always the case.
+
+The following method gets an lower complexity:
 
 ```java
 public int complexity1(bool a) {
@@ -12,8 +14,7 @@ public int complexity1(bool a) {
   return asd + 123;
 }
 ```
-
-And the following method gets an complexity of 3:
+Then the following method:
 
 ```java
 public int complexity1(bool a) {
@@ -27,15 +28,21 @@ public int complexity1(bool a) {
 }
 ```
 
-while the last method is way more easier to understand.
+However, the last method is easier to understand.
+
+## How do we calculate the complexity
+
+
 
 ## How do you count a statement that always branches to one branch
+
+
 
 ## What is the smallest unit
 
 dec is method || dec is constructor || dec is initializer
 
-## How do we calculate the complexity
+
 
 # Do you calculate lambdas
 
