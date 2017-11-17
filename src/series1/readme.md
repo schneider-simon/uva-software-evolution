@@ -229,6 +229,27 @@ The risk devision for the whole project is calculated and converted to a risk wi
 
 We use the same as they used for cyclometic complexity
 
+## Why this metric
+
+Unit interfacing is a metric for changeability and testability. How more more parameters there are for a method, how harder it is to test and change the functionality.
+
+## Test
+
+We compared some of our output to the smallsql source code:
+
+```
+"updateCharacterStream":3:
+public void updateCharacterStream(int columnIndex, Reader x, int length) throws SQLException
+
+"testNotInsertRow":0:
+private void testNotInsertRow() throws SQLException
+
+"calcMillis":7
+static long calcMillis(int year, int month, final int day, final int hour, final int minute, final int second, final int millis)
+```
+
+
+
 # Unit size
 
 The metric is calculated like the cyclomatic complexity with the following risk devisions for the parameters:
