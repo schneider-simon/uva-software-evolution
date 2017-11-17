@@ -289,4 +289,8 @@ We divide assertions by methods and multiply it by 100. The output 50 means that
 | -  | 0.5-1 assertions per method  |
 | -- | 0-0.5 assertions per method  |
 
-An alternative approach would be to calculate how many assertions there are per test method. We used assertions per because then you get an better idea on how many of all the functionality is tested. Normally you would do this by an converge test, but this is not possible in Rascal.   
+An alternative approach would be to calculate how many assertions there are per test method. We used assertions per because then you get an better idea on how many of all the functionality is tested. Normally you would do this by an converge test, but this is not possible in Rascal.
+
+# Test
+
+This implementation is tested manually. First you have to specify what base class has to be extended to be called by the unit testing framework. Then you can generate a report with how many assertions there are made and how many methods there are.
