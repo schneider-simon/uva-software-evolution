@@ -40,7 +40,7 @@ riskOverview getUnitSizeRiskOverview(UnitSizesPerLocation unitSizesLocations) {
 		if(size >= low.min && size <= low.max) {
 			overview.low += 1;
 		}  else if(size >= mid.min && size <= mid.max) {
-			overview.mid += 1;
+			overview.normal += 1;
 		} else if (size >= high.min && size <= high.max) {
 			overview.high  += 1;
 		} else if (size >= veryHigh.min ) {
