@@ -5,6 +5,7 @@ import List;
 import Set;
 import String;
 import util::ValueUI;
+import series1::TestQuality::TestQuality;
 
 
 import lang::java::jdt::m3::Core;
@@ -79,6 +80,13 @@ public void doAnalyses(loc eclipsePath) {
 		//TODO: Maybe remove initializers
 	}
 	
+	println("Getting assertions in test classes..");
+	int assertions = getAssertionsInTestClasses(declarations);
+	int methodCount = size(methods);
+	Ranking testRanking = getTestRankingBasedOnMethods(assertions, methodCount);
+	println("Assertions: <assertions> in <methodCount> methods");
+	println("Ranking: <testRanking>");
+
 	println("Extracted methods.");
 	list[loc] methodLocations = [method.src | Declaration method <- methods];
 	
