@@ -20,8 +20,7 @@ list[maxRisk] risks = [ <veryPositive,-1,25,0,0>,
 						<veryNegative,-1,-1,-1,-1>
 					  ]; 
 
-public Ranking getUnitInterfacingRating(interfacingOverview overview) {
-	riskOverview risksList = getInterfacingRisksCount(overview);
+public Ranking getUnitInterfacingRating(interfacingOverview overview, riskOverview risksList) {
 	int totalMethods = size(overview);
 	
 	return getScaleRating(risksList, totalMethods, risks);
