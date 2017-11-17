@@ -12,8 +12,8 @@ import List;
 int DUPLICATION_THRESHOLD = 6;
 str UNIQUE_LINES_TOKEN = "%%%|||RASCAL_UNIQUE_LINES|||%%%%";
 
-alias DuplicationOptions = tuple[int threshhold];
-public DuplicationOptions defaultDuptlicationOptions = <6>;
+alias DuplicationOptions = tuple[int threshhold, bool usePruning];
+public DuplicationOptions defaultDuptlicationOptions = <6, true>;
 
 list[str] TEST_LINES_1 =  [
         "a",
@@ -53,7 +53,7 @@ list[str] TEST_LINES_2 = [		// Assume treshhold = 3
     
 
 set[int] testDuplication(){
-	DuplicationOptions options = <3>;
+	DuplicationOptions options = <3, true>;
 	list[str] cleanedLines = preprocessLines(TEST_LINES_2, options);
 	//cleanedLines = TEST_LINES_2;
 	set[int] duplicates = findDuplicates(cleanedLines, options);
@@ -67,31 +67,39 @@ set[int] testDuplication(){
 }
 
 set[int] findDuplicatesFaster(list[str] lines){
-	list[str] cleanedLines = preprocessLines(lines, defaultDuptlicationOptions);
-	println("reduced lines for duplicates <size(cleanedLines)>");
-	return findDuplicates(cleanedLines, defaultDuptlicationOptions);
+	DuplicationOptions options = defaultDuptlicationOptions;
+	options.usePruning = true;
+	
+	return findDuplicates(lines, options);
 }
 
 set[int] findDuplicates(list[str] lines){
-	return findDuplicates(lines, defaultDuptlicationOptions);
+	DuplicationOptions options = defaultDuptlicationOptions;
+	options.usePruning = false;
+	
+	return findDuplicates(lines, options);
 }
 
 set[int] findDuplicates(list[str] lines, DuplicationOptions options){
+	println("Original lines for duplicates <size(lines)>");
+	lines = preprocessLines(lines, options);
+	println("Reduced lines for duplicates <size(lines)>");
+
 	set[int] duplicates = {};
 	
 	map[str,list[int]] linesMapping = getLinesMapping(lines);
 	
-	int s1 = 0;
+	int lineNumber = 0;
 	
-	while(s1 < size(lines)){
-		str l1 = lines[s1];
-		list[int] sameLines = [i | i <- linesMapping[l1], i > s1];
+	while(lineNumber < size(lines)){
+		str line = lines[lineNumber];
+		list[int] sameLines = [i | i <- linesMapping[line], i > lineNumber];
 		
-		duplicates = duplicates + findDuplicatesStartingFromLine(lines, s1, sameLines, options);
-		s1 += 1;
+		duplicates = duplicates + findDuplicatesForLine(lines, lineNumber, sameLines, options);
+		lineNumber += 1;
 		
-		if(s1%100 == 0){
-			println(s1);
+		if(lineNumber % 100 == 0){
+			println(lineNumber);
 		}
 	}
 	
@@ -121,7 +129,7 @@ map[str,list[int]] getLinesMapping(list[str] lines){
 	return linesMapping;
 }
 
-set[int] findDuplicatesStartingFromLine(list[str] lines, int checkLine, list[int] sameLines, DuplicationOptions options){
+set[int] findDuplicatesForLine(list[str] lines, int checkLine, list[int] sameLines, DuplicationOptions options){
 	str lineS1 = lines[checkLine];
 	
 	set[int] duplicateLineNumbers = {};
@@ -207,6 +215,10 @@ list[str] preprocessLines(list[str] lines, DuplicationOptions options){
 			linesCountings[trimmedLine] += 1;
 		}
 	}	
+	
+	if(!options.usePruning){
+		return trimmedLines;
+	}
 
 	
 	// Do only work with streaks (above the threshold) of non unique lines.
