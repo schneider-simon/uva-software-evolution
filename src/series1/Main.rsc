@@ -121,7 +121,7 @@ public void doAnalyses(loc eclipsePath) {
 	codeProperties.duplication = duplicationRanking;
 	codeProperties.unitInterfacing = interfacingRank;
 	codeProperties.unitSize = unitSizesRanking;
-	codeProperties.unitTesting = neutral;
+	codeProperties.unitTesting = testRanking;
 	//TODO: Remove unit testing - brings rating back to neutral
 	
 	printSeperator();
