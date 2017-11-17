@@ -13,11 +13,11 @@ import String;
 
 import util::Math;
 
-public BoundRanking veryPositiveTestCases = <veryPositive, 20, 100>;
-public BoundRanking positiveTestCases = <positive, 15, 20>;
-public BoundRanking neutralTestCases = <neutral, 10, 15>;
-public BoundRanking negativeTestCases = <negative, 5, 10>;
-public BoundRanking veryNegativeTestCases = <veryNegative, 0, 5>;
+public BoundRanking veryPositiveTestCases = <veryPositive, 300, 100000>;
+public BoundRanking positiveTestCases = <positive, 200, 300>;
+public BoundRanking neutralTestCases = <neutral, 100, 200>;
+public BoundRanking negativeTestCases = <negative, 50, 100>;
+public BoundRanking veryNegativeTestCases = <veryNegative, 0, 50>;
 
 public list[BoundRanking] allTestCaseRankings = [veryPositiveTestCases, 
 												positiveTestCases,
