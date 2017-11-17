@@ -16,6 +16,7 @@ import series1::Duplication::Duplication;
 import series1::Duplication::DuplicationRank;
 
 import series1::Helpers::ProjectFilesHelper;
+import series1::Helpers::OutputHelper;
 import series1::CyclomaticComplexity::CyclomaticComplexity;
 import series1::Volume::ManYears;
 import series1::Volume::LinesOfCode;
@@ -124,6 +125,8 @@ public void doAnalyses(loc eclipsePath) {
 	printSubSeperator();
 	outputScores(codeProperties);
 	printSeperator();
+	
+	writeCsv(|file:///tmp/output.csv|,getCodeResultMapping(codeProperties));
 }
 
 public void printSeperator(){
