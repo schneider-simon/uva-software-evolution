@@ -19,11 +19,12 @@ public BoundRanking neutralTestCases = <neutral, 100, 200>;
 public BoundRanking negativeTestCases = <negative, 50, 100>;
 public BoundRanking veryNegativeTestCases = <veryNegative, 0, 50>;
 
-public list[BoundRanking] allTestCaseRankings = [veryPositiveTestCases, 
-												positiveTestCases,
-												neutralTestCases, 
-												negativeTestCases, 
-												veryNegativeTestCases];  
+public list[BoundRanking] allTestCaseRankings = [veryNegativeTestCases,
+												 negativeTestCases,
+												 neutralTestCases,
+												 positiveTestCases,
+												 veryPositiveTestCases
+												];  
 
 str testClassKeyword = "TestCase";
 
