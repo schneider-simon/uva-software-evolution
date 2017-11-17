@@ -28,7 +28,7 @@ public Ranking getScaleRating(riskOverview risks, int totalItems, list[maxRisk] 
 
 public riskOverview getRisksDiv(riskOverview riskCount, int totalMethods) {
 	riskOverview rankingDiv = <0,0,0,0>;
-	rankingDiv.low = riskCount.low * 100 / totalMethods;
+	rankingDiv.low = riskCount.low * 100 / totalMethods; //TODO: to real. Round
 	rankingDiv.normal = riskCount.normal * 100 / totalMethods;
 	rankingDiv.high = riskCount.high * 100 / totalMethods;
 	rankingDiv.veryHigh = riskCount.veryHigh * 100 / totalMethods;

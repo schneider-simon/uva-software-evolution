@@ -12,7 +12,7 @@ Ranking getAnalysability(CodeProperties properties){
 }
 
 Ranking getChangeability(CodeProperties properties){
-	return averageRanking([properties.complexityPerUnit, properties.duplication, properties.unitInterfacing]);
+	return averageRanking([properties.complexityPerUnit, properties.duplication]);
 }
 
 Ranking getStability(CodeProperties properties){
@@ -20,7 +20,7 @@ Ranking getStability(CodeProperties properties){
 }
 
 Ranking getTestability(CodeProperties properties){
-	return averageRanking([properties.complexityPerUnit, properties.unitSize, properties.unitTesting, properties.unitInterfacing]);
+	return averageRanking([properties.complexityPerUnit, properties.unitSize, properties.unitTesting]);
 }
 
 void outputProperties(CodeProperties properties){

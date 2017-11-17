@@ -120,7 +120,7 @@ g
 ...
 ```
 
-Now we can iterate over the lines and count the occurences: 
+Now we can iterate over the lines and count the occurences:
 
 ```
 "a" -> 3
@@ -175,6 +175,32 @@ f
 ...
 ```
 
-Because we only care for 6 lines that are unique in a row. We then feed this reduced list of lines to an algorithm that knows how to handle the "%UNIQUE_LINES%" token that we introduced. 
+Because we only care for 6 lines that are unique in a row. We then feed this reduced list of lines to an algorithm that knows how to handle the "%UNIQUE_LINES%" token that we introduced.
 
-The first part of the algorithm has a complexity of O(2n) -> O(n), the actual search algorithm could be as bad as O(n^2), but with a reduced number of lines. This preprocessing will only be benefitial for cases in which the code does not consist out of non-unique lines. 
+The first part of the algorithm has a complexity of O(2n) -> O(n), the actual search algorithm could be as bad as O(n^2), but with a reduced number of lines. This preprocessing will only be benefitial for cases in which the code does not consist out of non-unique lines.
+
+# Unit interfacing
+
+Unit interfacing is a metric for changeability and testability. How more more parameters there are for a method, how harder it is to test and change the functionality.
+
+The metric is calculated like the cyclomatic complexity with the following risk devisions for the parameters:
+
+| Risk                        | parameters |
+| --------------------------- |:---------: |
+| Interfacing Low risk        | 0 - 2      |
+| Interfacing Moderate risk   | 2 - 3      |
+| Interfacing High risk       | 3 - 4      |
+| Interfacing Very-high risk  | 4 - ∞      |
+
+As described in the following paper:
+
+Alves, T. L., Correia, J. P., & Visser, J. (2011, November). Benchmark-based aggregation of metrics to ratings. In Software Measurement, 2011 Joint Conference of the 21st Int'l Workshop on and 6th Int'l Conference on Software Process and Product Measurement (IWSM-MENSURA) (pp. 20-29). IEEE.
+
+The risk devision for the whole project is calculated and converted to a risk with the following table:
+
+| Risk            | I Low risk | I Moderate risk | I High risk | I Very-high risk |
+| -------------   |:---------: |:--------------: |:----------: | :---------: |
+| Low risk        | max 25%    |
+| Moderate risk   | 2 - 3      |
+| High risk       | 3 - 4      |
+| Very-high risk  | 4 - ∞      |
