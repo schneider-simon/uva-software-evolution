@@ -57,7 +57,7 @@ public riskOverview cyclomaticLinesPerPartion(list[Declaration] declMethods, M3 
 		
 		//Devide the complexity in the correct group
 		if(result >= mid.min && result <= mid.max) {
-			complexity.mid += methodSize;
+			complexity.normal += methodSize;
 		} else if (result >= high.min && result <= high.max) {
 			complexity.high  += methodSize;
 		} else if (result >= veryHigh.min ) {

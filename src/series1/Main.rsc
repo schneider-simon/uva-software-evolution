@@ -104,15 +104,15 @@ public void doAnalyses(loc eclipsePath) {
 	//Gett unit size
 	println("Getting unit size...");
 	UnitSizesPerLocation unitSizesLocations = getUnitSizesPerLocation(methodLocations);
-	//iprintln(unitSizesLocations);
+	Ranking unitSizesRanking = getUnitSizeRanking(unitSizesLocations);
 	println("Got unit size.");
-		
+
 	CodeProperties codeProperties = emptyCodeProperties;
 	codeProperties.volume = manYearsRanking.rankingType;
 	codeProperties.complexityPerUnit = cyclomaticComplexityRank;
 	codeProperties.duplication = duplicationRanking;
 	codeProperties.unitInterfacing = interfacingRank;
-	//TODO: codeProperties.unitSize = ;
+	codeProperties.unitSize = unitSizesRanking;
 	codeProperties.unitTesting = neutral;
 	//TODO: Remove unit testing - brings rating back to neutral
 	
