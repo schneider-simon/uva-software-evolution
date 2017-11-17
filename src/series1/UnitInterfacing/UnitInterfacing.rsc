@@ -5,46 +5,30 @@ import lang::java::jdt::m3::AST;
 import lang::java::jdt::m3::Core;
 
 import series1::Ranking::Ranks;
+import series1::Ranking::RangeRanks;
 
 import List;
 import Map;
 import IO;
 
 alias interfacingOverview = map[str,int];
-alias interfacingRisks = tuple[int low, int normal, int high, int veryHigh];
+
+list[maxRisk] risks = [ <veryPositive,-1,25,0,0>,
+						<positive,-1,30,5,0>,
+						<neutral,-1,40,10,0>,
+						<negative,-1,50,25,5>,
+						<veryNegative,-1,-1,-1,-1>
+					  ]; 
 
 public Ranking getUnitInterfacingRating(interfacingOverview overview) {
-	
-	interfacingRisks risks = getInterfacingRisksCount(overview);
+	riskOverview risksList = getInterfacingRisksCount(overview);
 	int totalMethods = size(overview);
-	interfacingRisks rankingDiv = getInterfacingRisksDiv(risks, totalMethods);
-	iprintln(rankingDiv);
 	
-	if(rankingDiv.normal <= 25 && rankingDiv.high <= 0 && rankingDiv.veryHigh <= 0) {
-		return veryPositive;
-	} else if(rankingDiv.normal <= 30 && rankingDiv.high <= 5 && rankingDiv.veryHigh <= 0) {
-		return positive;
-	} else if(rankingDiv.normal <= 40 && rankingDiv.high <= 10 && rankingDiv.veryHigh <= 0) {
-		return positive;
-	} else if(rankingDiv.normal <= 50 && rankingDiv.high <= 15 && rankingDiv.veryHigh <= 5) {
-		return negative;
-	} else {
-		return veryNegative;
-	}
+	return getScaleRating(risksList, totalMethods, risks);
 }
 
-public interfacingRisks getInterfacingRisksDiv(interfacingRisks riskCount, int totalMethods) {
-	interfacingRisks rankingDiv = <0,0,0,0>;
-	rankingDiv.low = riskCount.low * 100 / totalMethods;
-	rankingDiv.normal = riskCount.normal * 100 / totalMethods;
-	rankingDiv.high = riskCount.high * 100 / totalMethods;
-	rankingDiv.veryHigh = riskCount.veryHigh * 100 / totalMethods;
-	
-	return rankingDiv;
-}
-
-public interfacingRisks getInterfacingRisksCount(interfacingOverview overview) {
-	interfacingRisks intermRanking = <0,0,0,0>;
+public riskOverview getInterfacingRisksCount(interfacingOverview overview) {
+	riskOverview intermRanking = <0,0,0,0>;
 	for(<str name, int size> <- toList(overview)) {
 		if(size < 3) {
 			intermRanking.low += 1;
