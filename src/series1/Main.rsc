@@ -20,7 +20,7 @@ import series1::CyclomaticComplexity::CyclomaticComplexity;
 import series1::Volume::ManYears;
 import series1::Volume::LinesOfCode;
 import series1::UnitSize::UnitSize;
-
+import series1::UnitInterfacing::UnitInterfacing;
 
 
 /*
@@ -57,8 +57,10 @@ public void doAnalyses(loc eclipsePath) {
 	//Get a list off all files that are relevant to test
 	println("Getting files...");
 	list[loc] files = toList(files(model));
+	
 	println("Getting project files...");
-	list[loc] projectFiles = getProjectFiles(files); 
+	list[loc] projectFiles = getProjectFiles(files);
+	 
 	println("Getting code lines from files...");
 	list[str] codeLines = getCodeLinesFromFiles(projectFiles);
 	
@@ -78,15 +80,18 @@ public void doAnalyses(loc eclipsePath) {
 	}
 	
 	println("Extracted methods.");
-
 	list[loc] methodLocations = [method.src | Declaration method <- methods];
+	
+	//Getting unit interfacing metric
+	println("Getting unit interfacing metric.");
+	map[str,int] interfaceMetric = getUnitInterfacing(declarations);
+	Ranking interfacingRank = getUnitInterfacingRating(interfaceMetric);
+	iprintln("Got unit interfacing rank: <interfacingRank>");
 	
 	//Get cyclomatic complexity partitions
 	println("Getting Cyclomatic complexity");
-	complexityDivision division = cyclomaticLinesPerPartion(methods, model);
-	Ranking cyclomaticComplexityRank = getCyclomaticComplexityRating(division, totalLinesOfCode);
-	println("Got cyclomatic complexity: <division>");
-	
+	Ranking cyclomaticComplexityRank = getCyclomaticComplexityRating(methods, model, totalLinesOfCode);
+	println("Got cyclomatic complexity: <cyclomaticComplexityRank>");
 	
 	//Getting code duplicates
 	println("Getting code duplicates");
@@ -105,6 +110,7 @@ public void doAnalyses(loc eclipsePath) {
 	codeProperties.volume = manYearsRanking.rankingType;
 	codeProperties.complexityPerUnit = cyclomaticComplexityRank;
 	codeProperties.duplication = duplicationRanking;
+	codeProperties.unitInterfacing = interfacingRank;
 	//TODO: codeProperties.unitSize = ;
 	codeProperties.unitTesting = neutral;
 	//TODO: Remove unit testing - brings rating back to neutral
