@@ -4,6 +4,7 @@ import IO;
 import List;
 import Set;
 import String;
+import util::ValueUI;
 
 
 import lang::java::jdt::m3::Core;
@@ -18,6 +19,8 @@ import series1::Helpers::ProjectFilesHelper;
 import series1::CyclomaticComplexity::CyclomaticComplexity;
 import series1::Volume::ManYears;
 import series1::Volume::LinesOfCode;
+import series1::UnitSize::UnitSize;
+
 
 
 /*
@@ -36,7 +39,7 @@ public void testSmallsqlJavaProject() {
 
 
 /*
-	Will exexute the meterics on smallsql
+	Will exexute the meterics on hsqldb
 */
 public void testHsqlJavaProject() {
 	doAnalyses(|project://hsqldb|);	
@@ -48,49 +51,63 @@ public void testHsqlJavaProject() {
 public void doAnalyses(loc eclipsePath) {
  
 	//Create M3 model
-	iprintln("Loading eclipse project <eclipsePath>");
+	println("Loading eclipse project <eclipsePath>");
 	M3 model = createM3FromEclipseProject(eclipsePath);
 
 	//Get a list off all files that are relevant to test
+	println("Getting files...");
 	list[loc] files = toList(files(model));
+	println("Getting project files...");
 	list[loc] projectFiles = getProjectFiles(files); 
+	println("Getting code lines from files...");
 	list[str] codeLines = getCodeLinesFromFiles(projectFiles);
 	
 	//Get the total lines of code to do some metrix
-	iprintln("Get lines of code");
+	println("Getting lines of code...");
 	int totalLinesOfCode = size(codeLines);
-	iprintln("Lines of code: <totalLinesOfCode>");
+	ManYearsRanking manYearsRanking = getManYearsRanking(totalLinesOfCode);
+	println("Got lines of code: <totalLinesOfCode>");
 
 	//Extract all the methods
-	iprintln("Extracting methods");
+	println("Extracting methods...");
 	list[Declaration] declarations = [ createAstFromFile(file, true) | file <- projectFiles]; 
 	list[Declaration] methods = [];
 	for(int i <- [0 .. size(declarations)]) {
 		methods = methods + [dec | /Declaration dec := declarations[i], dec is method || dec is constructor || dec is initializer];
+		//TODO: Maybe remove initializers
 	}
+	
+	println("Extracted methods.");
 
+	list[loc] methodLocations = [method.src | Declaration method <- methods];
+	
 	//Get cyclomatic complexity partitions
-	iprintln("Getting Cyclomatic complexity");
+	println("Getting Cyclomatic complexity");
 	complexityDivision division = cyclomaticLinesPerPartion(methods, model);
 	Ranking cyclomaticComplexityRank = getCyclomaticComplexityRating(division, totalLinesOfCode);
-	iprintln("cyclomaticComplexityRank: <cyclomaticComplexityRank>");
-	iprintln("cyclomaticComplexity division <division>");
+	println("Got cyclomatic complexity: <division>");
 	
-	//Getting code manyears
-	ManYearsRanking manYearsRanking = getManYearsRanking(totalLinesOfCode);
-	iprintln("Man year ranking <manYearsRanking>");
 	
 	//Getting code duplicates
+	println("Getting code duplicates");
 	set[int] duplicates = findDuplicatesFaster(getCodeLinesFromFiles(projectFiles));
 	int duplicateLines = size(duplicates);	
 	Ranking duplicationRanking = getDuplicationRanking(duplicateLines, totalLinesOfCode);
+	println("Got code duplicates: <size(duplicates)>");
 	
+	//Gett unit size
+	println("Getting unit size...");
+	UnitSizesPerLocation unitSizesLocations = getUnitSizesPerLocation(methodLocations);
+	//iprintln(unitSizesLocations);
+	println("Got unit size.");
+		
 	CodeProperties codeProperties = emptyCodeProperties;
 	codeProperties.volume = manYearsRanking.rankingType;
 	codeProperties.complexityPerUnit = cyclomaticComplexityRank;
 	codeProperties.duplication = duplicationRanking;
 	//TODO: codeProperties.unitSize = ;
 	codeProperties.unitTesting = neutral;
+	//TODO: Remove unit testing - brings rating back to neutral
 	
 	printSeperator();
 	println("Properties:");

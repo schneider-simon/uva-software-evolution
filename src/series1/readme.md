@@ -1,4 +1,8 @@
-# Cyclomatic complexity
+# Software evolution report
+- Simon Schneider
+- Laurance Saess
+
+## Cyclomatic complexity
 
 With this metric, it is possible to give and indication of the complexity of a program. It measures the number of paths through the source code of a code section. In theory, how lower the cyclomatic complexity, how easier the code should be to understand. However, in practice this is not always the case.
 
@@ -84,3 +88,93 @@ As a test, we compared the result of the complexity function with Checkstyle. We
 ```
 
 We compared every mismatch and reasoned if their approach is better than ours. One difference that we found was that Checkstyle does not count lambda's. In our opunion, they should be counted to the unit it is inside.
+
+
+## Code duplication
+
+### Prune / preprocessing the code
+
+To remove the amount of lines that the relativly costly code duplication algorithm has to check we are using pruning as a filter before the actual line-search algorithm.
+
+Example:
+
+```
+a
+b
+c
+d
+e
+ZZ
+f
+g
+1
+2
+3
+a
+b
+c
+d
+e
+f
+g
+...
+```
+
+Now we can iterate over the lines and count the occurences: 
+
+```
+"a" -> 3
+"b" -> 2
+"c" -> 2
+"d" -> 2
+"e" -> 2
+"f" -> 2
+"g" -> 1
+"1" -> 1
+"2" -> 1
+"3" -> 1
+"ZZ" -> 1
+```
+
+Can be replaced by
+
+```
+a
+b
+c
+d
+e
+%UNIQUE_LINE%
+f
+%UNIQUE_LINE%
+%UNIQUE_LINE%
+%UNIQUE_LINE%
+a
+a
+b
+c
+d
+e
+f
+%UNIQUE_LINE%
+...
+```
+
+This can be even further be reduced to:
+
+```
+%UNIQUE_LINES%
+a
+a
+b
+c
+d
+e
+f
+%UNIQUE_LINES%
+...
+```
+
+Because we only care for 6 lines that are unique in a row. We then feed this reduced list of lines to an algorithm that knows how to handle the "%UNIQUE_LINES%" token that we introduced. 
+
+The first part of the algorithm has a complexity of O(2n) -> O(n), the actual search algorithm could be as bad as O(n^2), but with a reduced number of lines. This preprocessing will only be benefitial for cases in which the code does not consist out of non-unique lines. 
