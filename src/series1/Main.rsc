@@ -87,13 +87,11 @@ public void doAnalyses(loc eclipsePath) {
 	map[str,int] interfaceMetric = getUnitInterfacing(declarations);
 	Ranking interfacingRank = getUnitInterfacingRating(interfaceMetric);
 	iprintln("Got unit interfacing rank: <interfacingRank>");
-	return;
 	
 	//Get cyclomatic complexity partitions
 	println("Getting Cyclomatic complexity");
-	complexityDivision division = cyclomaticLinesPerPartion(methods, model);
-	Ranking cyclomaticComplexityRank = getCyclomaticComplexityRating(division, totalLinesOfCode);
-	println("Got cyclomatic complexity: <division>");
+	Ranking cyclomaticComplexityRank = getCyclomaticComplexityRating(methods, model, totalLinesOfCode);
+	println("Got cyclomatic complexity: <cyclomaticComplexityRank>");
 	
 	//Getting code duplicates
 	println("Getting code duplicates");

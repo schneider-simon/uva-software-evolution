@@ -2,50 +2,35 @@ module series1::CyclomaticComplexity::CyclomaticComplexity
 
 import lang::java::jdt::m3::Core;
 import lang::java::jdt::m3::AST;
+
 import series1::Volume::LinesOfCode;
+
 import series1::Ranking::Ranks;
+import series1::Ranking::RangeRanks;
 
 import IO;
-
-alias complexityRange = tuple[Ranking rank, int maxMod, int maxHigh, int maxVeryHigh];
-alias complexityDivision = tuple[int mid, int high, int veryHigh];
-
-complexityRange veryLowCodeSide = <veryPositive, 25, 0, 0>; 
-complexityRange lowCodeSide = <positive, 30, 5, 0>; 
-complexityRange midCodeSide = <neutral, 40, 10, 0>;
-complexityRange highCodeSide = <negative, 50, 15, 5>;
-complexityRange veryHighCodeSide = <veryNegative, -1, -1, -1>;
-list[complexityRange] complexityRanges = [veryLowCodeSide,lowCodeSide,midCodeSide,highCodeSide,veryHighCodeSide];
 
 alias complexityRating = tuple[int min, int max];
 complexityRating mid = <11,20>;
 complexityRating high = <21,50>;
 complexityRating veryHigh = <51,-1>;
-list[complexityRating] complexityRatings = [mid, high, veryHigh];
 
-public Ranking getCyclomaticComplexityRating(complexityDivision division, int linesOfCode) {
+list[maxRisk] risks = [ <veryPositive,-1,25,0,0>,
+						<positive,-1,30,5,0>,
+						<neutral,-1,40,10,0>,
+						<negative,-1,50,25,5>,
+						<veryNegative,-1,-1,-1,-1>
+					  ]; 
 
-	//calculate how it is divided
-	int pMid = division.mid * 100 / linesOfCode;
-	int pHigh = division.high * 100 / linesOfCode;
-	int pVHigh = division.veryHigh * 100 / linesOfCode;
-		
-	//Get rating
-	for(complexityRange complexity <- complexityRanges) {
-		
-		if( (pMid <= complexity.maxMod || complexity.maxMod == -1) && 
-			(pHigh <= complexity.maxHigh || complexity.maxHigh == -1) && 
-			(pVHigh <= complexity.maxVeryHigh || complexity.maxVeryHigh == -1) )
-			return complexity.rank;
-	}
-	
-	//This should never happen
-	return veryNegative;
+public Ranking getCyclomaticComplexityRating(list[Declaration] declMethods, M3 model, int linesOfCode) {
+	riskOverview risksList = cyclomaticLinesPerPartion(declMethods, model);
+
+	return getScaleRating(risksList, linesOfCode, risks);
 }
 
-public complexityDivision cyclomaticLinesPerPartion(list[Declaration] declMethods, M3 model) {
+public riskOverview cyclomaticLinesPerPartion(list[Declaration] declMethods, M3 model) {
 
-	complexityDivision complexity = <0, 0, 0>;
+	riskOverview complexity = <0, 0, 0, 0>;
 			
 	for(m <- declMethods) {
 		
