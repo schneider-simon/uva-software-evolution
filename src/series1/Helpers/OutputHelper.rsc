@@ -6,6 +6,7 @@ import List;
 alias OutputHeads = list[str];
 alias OutputRow = list[str];
 alias OutputRows = list[OutputRow];
+alias HeadValue = tuple[str headVal, str val];
 
 void csvTest(){
 	writeCsv(|file:///tmp/helloworld.csv|, ["head1", "head2"], [["r11", "r12"], ["r21", "r22"]]);
@@ -19,9 +20,9 @@ void writeCsv(loc location, OutputHeads heads, OutputRows rows){
 	println("WROTE CSV TO: <location>");
 }
 
-void writeCsv(loc location, map[str, str] mapping){
-	OutputHeads heads = [head | str head <- mapping];
-	OutputRow row = [mapping[head] | str head <- mapping];
+void writeCsv(loc location, list[HeadValue] mapping){
+	OutputHeads heads = [_map.headVal | HeadValue _map <- mapping];
+	OutputRow row = [_map.val | HeadValue _map <- mapping];
 	OutputRows rows = [row];
 	
 	writeCsv(location, heads, rows);

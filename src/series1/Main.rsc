@@ -22,7 +22,7 @@ import series1::Volume::ManYears;
 import series1::Volume::LinesOfCode;
 import series1::UnitSize::UnitSize;
 import series1::UnitInterfacing::UnitInterfacing;
-
+import DateTime;
 
 /*
 	Will exexute the meterics on a test project
@@ -126,7 +126,17 @@ public void doAnalyses(loc eclipsePath) {
 	outputScores(codeProperties);
 	printSeperator();
 	
-	writeCsv(|file:///tmp/output.csv|,getCodeResultMapping(codeProperties));
+	list[HeadValue] resultMapping = getCodeResultMapping(codeProperties);
+	list[HeadValue] firstResults = [
+		<"Date", printDateTime(now())>,
+		<"Project", "<eclipsePath>">,
+		<"Duplicate Lines", "<duplicateLines>">,
+		<"Lines of code", "<size(codeLines)>">,
+		<"Amount of methods", "<size(methods)>">
+	];
+	
+	resultMapping = firstResults  + resultMapping;
+	writeCsv(|file:///tmp/output.csv|, resultMapping);
 }
 
 public void printSeperator(){
