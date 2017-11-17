@@ -12,8 +12,8 @@ import List;
 int DUPLICATION_THRESHOLD = 6;
 str UNIQUE_LINES_TOKEN = "%%%|||RASCAL_UNIQUE_LINES|||%%%%";
 
-alias DuplicationOptions = tuple[int threshhold, bool usePruning];
-public DuplicationOptions defaultDuptlicationOptions = <6, true>;
+alias DuplicationOptions = tuple[int threshhold, bool usePruning, bool countOriginals];
+public DuplicationOptions defaultDuptlicationOptions = <6, true, false>;
 
 list[str] TEST_LINES_1 =  [
         "a",
@@ -53,7 +53,7 @@ list[str] TEST_LINES_2 = [		// Assume treshhold = 3
     
 
 set[int] testDuplication(){
-	DuplicationOptions options = <3, true>;
+	DuplicationOptions options = <3, true, true>;
 	list[str] cleanedLines = preprocessLines(TEST_LINES_2, options);
 	//cleanedLines = TEST_LINES_2;
 	set[int] duplicates = findDuplicates(cleanedLines, options);
@@ -145,10 +145,13 @@ set[int] findDuplicatesForLine(list[str] lines, int checkLine, list[int] sameLin
 				int end2 = sameLine + size(duplicate);
 				
 				set[int] duplicateLines1 = toSet([checkLine..end1]);
-				//TODO: use lines of original code fragment? https://www.cs.usask.ca/~croy/papers/2009/RCK_SCP_Clones.pdf
 				set[int] duplicateLines2 = toSet([sameLine..end2]);
 			
-				duplicateLineNumbers = duplicateLineNumbers + duplicateLines1 + duplicateLines2;
+				duplicateLineNumbers = duplicateLineNumbers + duplicateLines2;
+				
+				if(options.countOriginals){
+					duplicateLineNumbers = duplicateLineNumbers + duplicateLines1;
+				}
 			}
 		
 		i += 1;
