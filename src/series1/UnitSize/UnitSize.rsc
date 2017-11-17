@@ -51,13 +51,6 @@ riskOverview getUnitSizeRiskOverview(UnitSizesPerLocation unitSizesLocations) {
 	return overview;
 }
 
-void testUSize(){
-	M3 myModel = createM3FromEclipseProject(|project://TestJavaProject|);
-	list[loc] modelMethods = toList(methods(myModel));
-	
-	iprintln(getUnitSizesPerLocation(modelMethods));
-}
-
 UnitSizesPerLocation getUnitSizesPerLocation(list[loc] units){
 	LocationsLineOfCodeStats stats = getLocStatsForLocations(units);
 		
