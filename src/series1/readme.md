@@ -89,6 +89,27 @@ As a test, we compared the result of the complexity function with Checkstyle. We
 
 We compared every mismatch and reasoned if their approach is better than ours. One difference that we found was that Checkstyle does not count lambda's. In our opunion, they should be counted to the unit it is inside.
 
+### Score
+
+We rank every method to a risk level
+
+| Risk                        | parameters |
+| --------------------------- |:---------: |
+| Low risk        | 0 - 10      |
+| Moderate risk   | 11 - 20      |
+| High risk       | 21 - 50      |
+| Very-high risk  | > 50      |
+
+And then we calculate the total percentage per risk, what results in a score.
+
+| Risk            | C Low risk  | C Moderate risk | C High risk | C Very-high risk |
+| -------------   |:---------:  |:--------------: |:----------: | :---------:      |
+| ++              | ∞           | max 25%         | Max 0%      | max 0 %          |              
+| +               | ∞           | max 30%         | Max 5%      | max 0 %          |   
+| o               | ∞           | max 40%         | Max 10%     | max 0 %          |   
+| -               | ∞           | max 50%         | Max 25%     | max 5 %          |   
+| --              | ∞           | ∞               | ∞           | ∞                |
+
 
 ## Code duplication
 
@@ -198,9 +219,37 @@ Alves, T. L., Correia, J. P., & Visser, J. (2011, November). Benchmark-based agg
 
 The risk devision for the whole project is calculated and converted to a risk with the following table:
 
-| Risk            | I Low risk | I Moderate risk | I High risk | I Very-high risk |
-| -------------   |:---------: |:--------------: |:----------: | :---------: |
-| Low risk        | max 25%    |
-| Moderate risk   | 2 - 3      |
-| High risk       | 3 - 4      |
-| Very-high risk  | 4 - ∞      |
+| Risk            | I Low risk  | I Moderate risk | I High risk | I Very-high risk |
+| -------------   |:---------:  |:--------------: |:----------: | :---------:      |
+| ++              | ∞           | max 25%         | Max 0%      | max 0 %          |              
+| +               | ∞           | max 30%         | Max 5%      | max 0 %          |   
+| o               | ∞           | max 40%         | Max 10%     | max 0 %          |   
+| -               | ∞           | max 50%         | Max 25%     | max 5 %          |   
+| --              | ∞           | ∞               | ∞           | ∞                |   
+
+We use the same as they used for cyclometic complexity
+
+# Unit size
+
+The metric is calculated like the cyclomatic complexity with the following risk devisions for the parameters:
+
+| Risk                        | parameters |
+| --------------------------- |:---------: |
+| U Low risk        | 0 - 30      |
+| U Moderate risk   | 31 - 44      |
+| U High risk       | 45 - 74      |
+| U Very-high risk  | 75 - ∞      |
+
+As described in the following paper:
+
+Alves, T. L., Correia, J. P., & Visser, J. (2011, November). Benchmark-based aggregation of metrics to ratings. In Software Measurement, 2011 Joint Conference of the 21st Int'l Workshop on and 6th Int'l Conference on Software Process and Product Measurement (IWSM-MENSURA) (pp. 20-29). IEEE.
+
+The risk devision for the whole project is calculated and converted to a risk with the following table:
+
+| Risk            | U Low risk  | U Moderate risk | U High risk | U Very-high risk |
+| -------------   |:---------:  |:--------------: |:----------: | :---------:      |
+| ++              | ∞           | max 25%         | Max 0%      | max 0 %          |              
+| +               | ∞           | max 30%         | Max 5%      | max 0 %          |   
+| o               | ∞           | max 40%         | Max 10%     | max 0 %          |   
+| -               | ∞           | max 50%         | Max 25%     | max 5 %          |   
+| --              | ∞           | ∞               | ∞           | ∞                |   
