@@ -110,6 +110,7 @@ public void doAnalyses(loc eclipsePath) {
 	codeProperties.volume = manYearsRanking.rankingType;
 	codeProperties.complexityPerUnit = cyclomaticComplexityRank;
 	codeProperties.duplication = duplicationRanking;
+	codeProperties.unitInterfacing = interfacingRank;
 	//TODO: codeProperties.unitSize = ;
 	codeProperties.unitTesting = neutral;
 	//TODO: Remove unit testing - brings rating back to neutral
