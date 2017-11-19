@@ -5,6 +5,7 @@ import List;
 import Set;
 import String;
 import util::ValueUI;
+import series1::TestQuality::TestQuality;
 
 
 import lang::java::jdt::m3::Core;
@@ -22,6 +23,7 @@ import series1::Volume::ManYears;
 import series1::Volume::LinesOfCode;
 import series1::UnitSize::UnitSize;
 import series1::UnitInterfacing::UnitInterfacing;
+import series1::Ranking::RangeRanks;
 import DateTime;
 
 /*
@@ -80,13 +82,22 @@ public void doAnalyses(loc eclipsePath) {
 		//TODO: Maybe remove initializers
 	}
 	
+	println("Getting assertions in test classes..");
+	int assertions = getAssertionsInTestClasses(declarations);
+	int methodCount = size(methods);
+	Ranking testRanking = getTestRankingBasedOnMethods(assertions, methodCount);
+	println("Assertions: <assertions> in <methodCount> methods");
+	println("Ranking: <testRanking>");
+
 	println("Extracted methods.");
 	list[loc] methodLocations = [method.src | Declaration method <- methods];
 	
 	//Getting unit interfacing metric
 	println("Getting unit interfacing metric.");
-	map[str,int] interfaceMetric = getUnitInterfacing(declarations);
-	Ranking interfacingRank = getUnitInterfacingRating(interfaceMetric);
+	interfacingOverview interfaceMetric = getUnitInterfacing(declarations);
+	riskOverview risksList = getInterfacingRisksCount(interfaceMetric);
+	Ranking interfacingRank = getUnitInterfacingRating(interfaceMetric, risksList);
+	iprintln("Interfacing: <risksList>");
 	iprintln("Got unit interfacing rank: <interfacingRank>");
 	
 	//Get cyclomatic complexity partitions
@@ -113,7 +124,7 @@ public void doAnalyses(loc eclipsePath) {
 	codeProperties.duplication = duplicationRanking;
 	codeProperties.unitInterfacing = interfacingRank;
 	codeProperties.unitSize = unitSizesRanking;
-	codeProperties.unitTesting = neutral;
+	codeProperties.unitTesting = testRanking;
 	//TODO: Remove unit testing - brings rating back to neutral
 	
 	printSeperator();

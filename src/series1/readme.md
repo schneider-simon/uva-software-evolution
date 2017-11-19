@@ -274,3 +274,23 @@ The risk devision for the whole project is calculated and converted to a risk wi
 | o               | ∞           | max 40%         | Max 10%     | max 0 %          |   
 | -               | ∞           | max 50%         | Max 25%     | max 5 %          |   
 | --              | ∞           | ∞               | ∞           | ∞                |   
+
+# Testing
+
+For testing we calculate how many assertions there are for each test method. We calculate it in the following way:
+
+We divide assertions by methods and multiply it by 100. The output 50 means that there is one assertion for every 2 methods. The output 100 means that there are as many test methods as methods. The output 200 means that there are 2 test methods per method.   
+
+| Risk           | Assertions per production method |
+| -------------- |:--------------------: |
+| ++ | 3-10 assertions per method  |
+| +  | 2-3 assertions per method  |
+| O  | 1-2 assertions per method  |
+| -  | 0.5-1 assertions per method  |
+| -- | 0-0.5 assertions per method  |
+
+An alternative approach would be to calculate how many assertions there are per test method. We used assertions per because then you get an better idea on how many of all the functionality is tested. Normally you would do this by an converge test, but this is not possible in Rascal.
+
+# Test
+
+This implementation is tested manually. First you have to specify what base class has to be extended to be called by the unit testing framework. Then you can generate a report with how many assertions there are made and how many methods there are.

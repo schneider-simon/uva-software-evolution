@@ -1,7 +1,8 @@
 package javaProjects.basicExample.src;
 
-public class complex1 {
+public class complex1 extends TestCase {
 	public void complexity(int test) {
+<<<<<<< HEAD
 		int a = 0;
 		int b = 1;
 		
@@ -27,5 +28,11 @@ public class complex1 {
 		System.out.println(b);
 		System.out.println(a);
 		System.out.println(b);
+=======
+		  assert(1 == 2, "test");
+		  assert(1 == 2);
+>>>>>>> bbc59fe1e6c9feead28856d3a8aad740948f31c1
 	}
 }
+
+
