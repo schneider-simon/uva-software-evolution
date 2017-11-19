@@ -107,7 +107,7 @@ public void doAnalyses(loc eclipsePath) {
 	
 	//Getting code duplicates
 	println("Getting code duplicates");
-	set[int] duplicates = findDuplicatesFaster(getCodeLinesFromFiles(projectFiles));
+	set[int] duplicates = findDuplicatesFaster(getCodeLinesFromFiles(projectFiles, <true>));
 	int duplicateLines = size(duplicates);	
 	Ranking duplicationRanking = getDuplicationRanking(duplicateLines, totalLinesOfCode);
 	println("Got code duplicates: <size(duplicates)>");

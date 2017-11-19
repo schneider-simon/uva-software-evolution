@@ -55,6 +55,7 @@ test bool findLargestDuplicateTest(){
 	return duplicate == ["a","b","c"];
 }
 
+/**
 test bool findDuplicatesStartingFromLineTest(){
 	set[int] duplicates = findDuplicatesStartingFromLine(CODE_EXAMPLE_2, 0, <1>);
 	return duplicates == {0,1,2,3,5,6,7,9,10,11,12};
@@ -84,13 +85,23 @@ test bool findDuplicatesAmountTest2(){
 	set[int] duplicates = findDuplicates(CODE_EXAMPLE_3, <2>);
 	return size(duplicates) == 48;
 }
+**/
 
 test bool concatinatedFilesDuplicatesTest(){
 	loc file1 = |project://uva-software-evolution/src/resources/series1/test-code/duplication/File1.java|;
 	loc file2 = |project://uva-software-evolution/src/resources/series1/test-code/duplication/File2.java|;
 	
-	list[str] lines = getCodeLinesFromFiles([file1, file2]);
-	iprintln(lines);
+	list[str] lines = getCodeLinesFromFiles([file1, file2], <true>);
+	set[int] duplicates = findDuplicatesFaster(lines);
+
+	return size(duplicates) == 0;
+}
+
+test bool uniqueLinesOnlyTest(){
+	loc file1 = |project://uva-software-evolution/src/resources/series1/test-code/duplication/UniqueLinesOnly.java|;
 	
-	return true;
+	list[str] lines = getCodeLinesFromFiles([file1], <true>);
+	set[int] duplicates = findDuplicatesFaster(lines);
+	
+	return size(duplicates) == 0;
 }

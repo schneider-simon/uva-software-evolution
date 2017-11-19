@@ -5,8 +5,13 @@ import String;
 import IO;
 import util::FileSystem;
 import series1::Helpers::StringHelper;
+import series1::Configuration;
 
 list[str] invalidFolders = ["/test/","/generated/"];
+
+alias ProjectFileOptions = tuple[bool addPageBreakTokens];
+public ProjectFileOptions defaultProjectFileOptions = <false>;
+
 
 public list[loc] getProjectFiles(list[loc] files) {
 
@@ -35,13 +40,24 @@ public bool isValidProjectFile(str file) {
 	return true;
 }
 
-public str getConcatinatedSourceFromFiles(list[loc] files){
-	str code = "";
+public list[str] getConcatinatedSourceFromFiles(list[loc] files) = getConcatinatedSourceFromFiles(files, defaultProjectFileOptions);
 
-	return ("" | it + "\n" +  readFile(l) | loc l <- files);
+
+public str getConcatinatedSourceFromFiles(list[loc] files, ProjectFileOptions options){
+	str code = "";
+	str pageBreak = "\n";
+	
+	if(options.addPageBreakTokens){
+		pageBreak = "\n<PAGE_BREAK_TOKEN>\n";
+	}
+
+	return ("" | it + pageBreak +  readFile(l) | loc l <- files);
 }
 
-public list[str] getCodeLinesFromFiles(list[loc] files){
-	str source = getConcatinatedSourceFromFiles(files);
+public list[str] getCodeLinesFromFiles(list[loc] files) = getCodeLinesFromFiles(files, defaultProjectFileOptions);
+
+public list[str] getCodeLinesFromFiles(list[loc] files, ProjectFileOptions options){
+	str source = getConcatinatedSourceFromFiles(files, options);
 	return getCodeLines(source);
 }
+

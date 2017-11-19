@@ -1,0 +1,10 @@
+System.out.println("z1");
+System.out.println("z2");
+System.out.println("z3");
+System.out.println("z4");
+System.out.println("z5");
+System.out.println("z6");
+System.out.println("z7");
+System.out.println("z8");
+System.out.println("z9");
+System.out.println("z10");

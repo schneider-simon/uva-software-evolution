@@ -8,12 +8,11 @@ import Set;
 import IO;
 import String;
 import List;
-
-int DUPLICATION_THRESHOLD = 6;
-str UNIQUE_LINES_TOKEN = "%%%|||RASCAL_UNIQUE_LINES|||%%%%";
+import series1::Configuration;
+import series1::Helpers::LogHelper;
 
 alias DuplicationOptions = tuple[int threshhold, bool usePruning, bool countOriginals];
-public DuplicationOptions defaultDuptlicationOptions = <6, true, false>;
+public DuplicationOptions defaultDuptlicationOptions = <DUPLICATION_THRESHOLD, DUPLICATON_USE_PRUNING, DUPLICATON_COUNT_ORIGINALS>;
 
 list[str] TEST_LINES_1 =  [
         "a",
@@ -58,9 +57,9 @@ set[int] testDuplication(){
 	//cleanedLines = TEST_LINES_2;
 	set[int] duplicates = findDuplicates(cleanedLines, options);
 	
-	iprintln(sort(toList(duplicates)));
-	iprintln(size(duplicates));
-	println(("" | it + l + "\n" | str l <- cleanedLines));
+	printDebug(sort(toList(duplicates)));
+	printDebug(size(duplicates));
+	printDebug(("" | it + l + "\n" | str l <- cleanedLines));
 	
 	return duplicates;
 	
@@ -81,9 +80,9 @@ set[int] findDuplicates(list[str] lines){
 }
 
 set[int] findDuplicates(list[str] lines, DuplicationOptions options){
-	println("Original lines for duplicates <size(lines)>");
+	printDebug("Original lines for duplicates <size(lines)>");
 	lines = preprocessLines(lines, options);
-	println("Reduced lines for duplicates <size(lines)>");
+	printDebug("Reduced lines for duplicates <size(lines)>");
 
 	set[int] duplicates = {};
 	
@@ -99,7 +98,7 @@ set[int] findDuplicates(list[str] lines, DuplicationOptions options){
 		lineNumber += 1;
 		
 		if(lineNumber % 100 == 0){
-			println(lineNumber);
+			printDebug(lineNumber);
 		}
 	}
 	
@@ -108,7 +107,7 @@ set[int] findDuplicates(list[str] lines, DuplicationOptions options){
 }
 
 void testLinesMapping(){
-	println(getLinesMapping(TEST_LINES_1));
+	printDebug(getLinesMapping(TEST_LINES_1));
 }
 
 map[str,list[int]] getLinesMapping(list[str] lines){	
@@ -188,7 +187,7 @@ list[str] findLargestDuplicate(list[str] lines, int s1, int s2){
 
 
 bool linesAreDuplicate(str line1, str line2){
-	return line1 == line2 && line1 != UNIQUE_LINES_TOKEN && line2 != UNIQUE_LINES_TOKEN;
+	return line1 == line2 && line1 != UNIQUE_LINES_TOKEN && line2 != UNIQUE_LINES_TOKEN && line1 != PAGE_BREAK_TOKEN && line2 != PAGE_BREAK_TOKEN;
 }
 
 /**
@@ -230,7 +229,7 @@ list[str] preprocessLines(list[str] lines, DuplicationOptions options){
 	for(str l <- trimmedLines){
 		int lineOccassions = linesCountings[l];
 		
-		if(lineOccassions <= 1){
+		if(lineOccassions <= 1 || l == PAGE_BREAK_TOKEN){
 			if(size(nonUniqueLineStreak) >= options.threshhold){
 				cleanedLines = cleanedLines + nonUniqueLineStreak + [UNIQUE_LINES_TOKEN];
 			}
@@ -241,6 +240,8 @@ list[str] preprocessLines(list[str] lines, DuplicationOptions options){
 		
 		nonUniqueLineStreak = nonUniqueLineStreak + [l];
 	}
+	
+	//TODO: Compress UNIQUE_LINES_TOKEN streaks?
 	
 	cleanedLines = cleanedLines + nonUniqueLineStreak;
 	return cleanedLines;

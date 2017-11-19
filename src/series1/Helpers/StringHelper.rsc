@@ -1,6 +1,8 @@
 module series1::Helpers::StringHelper
 
 import String;
+import IO;
+import series1::Configuration;
 
 
 bool isOneLineComment(str line) {
@@ -32,11 +34,12 @@ str withoutMultiLineComments(str source){
  * System.out.println("Hello wolrd \/*"
  *		+ "asdasd"
  *		+ "asd*\/asdsdasd"
-);	"Hello world \/*" --> "S"
+);	"Hello world \/*" --> "Hello world COMMENT_START_TOKEN"
  */
-str replaceStrings(str source){
+str replaceStrings(str source){	
 	return visit(source){
-   		case /\".*\"/ => "\"S\""  
+   		case /"<stringstart:.*><commentstart:\/\*><stringend:.*>"/ => "\"<stringstart><COMMENT_START_TOKEN><stringend>\""
+   		case /"<stringstart:.*><commentend:\*\/><stringend:.*>"/ => "\"<stringstart><COMMENT_END_TOKEN><stringend>\""
 	};
 }
 
