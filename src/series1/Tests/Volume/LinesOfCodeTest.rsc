@@ -1,9 +1,11 @@
-module series1::Tests::Volume::LinesOfCodeTest
+	module series1::Tests::Volume::LinesOfCodeTest
 
 import series1::Helpers::ProjectFilesHelper;
 import series1::Helpers::StringHelper;
+import series1::Helpers::BenchmarkHelper;
 import IO;
 import List;
+import String;
 
 test bool commentInStringLocTest(){
 	loc file = |project://uva-software-evolution/src/resources/series1/test-code/volume/CommentInStrings.java|;
@@ -11,6 +13,8 @@ test bool commentInStringLocTest(){
 	str source = readFile(file);
 	
 	list[str] codeLines = getCodeLines(source);
+	
+	println(codeLines);
 	
 	return size(codeLines) == 3;
 }

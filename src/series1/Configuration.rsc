@@ -10,4 +10,6 @@ public str UNIQUE_LINES_TOKEN = "%%%|||RASCAL_UNIQUE_LINES|||%%%%";
 public str COMMENT_START_TOKEN = "%%%|||RASCAL_COMMENT_START|||%%%";
 public str COMMENT_END_TOKEN = "%%%|||RASCAL_COMMENT_END|||%%%";
 
-public bool DEBUG_MODE = false;
+public loc CSV_OUTPUT = |file:///tmp/output.csv|;
+
+public bool DEBUG_MODE = true;

@@ -10,6 +10,7 @@ import String;
 import List;
 import series1::Configuration;
 import series1::Helpers::LogHelper;
+import util::Math;
 
 alias DuplicationOptions = tuple[int threshhold, bool usePruning, bool countOriginals];
 public DuplicationOptions defaultDuptlicationOptions = <DUPLICATION_THRESHOLD, DUPLICATON_USE_PRUNING, DUPLICATON_COUNT_ORIGINALS>;
@@ -98,7 +99,7 @@ set[int] findDuplicates(list[str] lines, DuplicationOptions options){
 		lineNumber += 1;
 		
 		if(lineNumber % 100 == 0){
-			printDebug(lineNumber);
+			printDebug("Line no: <lineNumber>, <toReal(lineNumber)/toReal(size(lines)*100)>%");
 		}
 	}
 	

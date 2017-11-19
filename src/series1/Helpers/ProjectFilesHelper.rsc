@@ -6,6 +6,9 @@ import IO;
 import util::FileSystem;
 import series1::Helpers::StringHelper;
 import series1::Configuration;
+import series1::Helpers::LogHelper;
+import series1::Helpers::BenchmarkHelper;
+import util::FileSystem;
 
 list[str] invalidFolders = ["/test/","/generated/"];
 
@@ -40,7 +43,9 @@ public bool isValidProjectFile(str file) {
 	return true;
 }
 
-public list[str] getConcatinatedSourceFromFiles(list[loc] files) = getConcatinatedSourceFromFiles(files, defaultProjectFileOptions);
+public str getConcatinatedSourceFromFiles(list[loc] files) {
+	return getConcatinatedSourceFromFiles(files, defaultProjectFileOptions);
+}
 
 
 public str getConcatinatedSourceFromFiles(list[loc] files, ProjectFileOptions options){
@@ -54,10 +59,14 @@ public str getConcatinatedSourceFromFiles(list[loc] files, ProjectFileOptions op
 	return ("" | it + pageBreak +  readFile(l) | loc l <- files);
 }
 
-public list[str] getCodeLinesFromFiles(list[loc] files) = getCodeLinesFromFiles(files, defaultProjectFileOptions);
+public list[str] getCodeLinesFromFiles(list[loc] files) {
+	return getCodeLinesFromFiles(files, defaultProjectFileOptions);
+}
 
 public list[str] getCodeLinesFromFiles(list[loc] files, ProjectFileOptions options){
-	str source = getConcatinatedSourceFromFiles(files, options);
-	return getCodeLines(source);
+	str source = getConcatinatedSourceFromFiles(files, options);	
+	list[str] lines = getCodeLines(source);
+	
+	return lines;
 }
 
