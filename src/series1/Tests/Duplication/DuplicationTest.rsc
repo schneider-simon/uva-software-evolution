@@ -1,6 +1,7 @@
 module series1::Tests::Duplication::DuplicationTest
 
 import series1::Duplication::Duplication;
+import series1::Helpers::ProjectFilesHelper;
 import IO;
 import Set;
 import List;
@@ -82,4 +83,14 @@ test bool findDuplicatesAmountTest1(){
 test bool findDuplicatesAmountTest2(){
 	set[int] duplicates = findDuplicates(CODE_EXAMPLE_3, <2>);
 	return size(duplicates) == 48;
+}
+
+test bool concatinatedFilesDuplicatesTest(){
+	loc file1 = |project://uva-software-evolution/src/resources/series1/test-code/duplication/File1.java|;
+	loc file2 = |project://uva-software-evolution/src/resources/series1/test-code/duplication/File2.java|;
+	
+	list[str] lines = getCodeLinesFromFiles([file1, file2]);
+	iprintln(lines);
+	
+	return true;
 }
