@@ -3,6 +3,7 @@ module series1::Helpers::OutputHelper
 import IO;
 import List;
 import series1::Helpers::LogHelper;
+import String;
 
 alias OutputHeads = list[str];
 alias OutputRow = list[str];
@@ -30,7 +31,7 @@ void writeCsv(loc location, list[HeadValue] mapping){
 }
 
 str stringifyRow(OutputRow row){
-	return intercalate(";", row);
+	return intercalate(";", [replaceAll(r, ";", ",") | r <- row]);
 }
 
 str stringifyRows(OutputRows rows){

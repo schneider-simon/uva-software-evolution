@@ -22,3 +22,11 @@ test bool testabilityExampleRankTest(){
 test bool veryPositiveExampleRankTest(){
 	return averageRanking([veryPositive, veryPositive, positive]) == veryPositive;	
 }
+
+test bool positiveExampleRankTest(){
+	return averageRanking([positive, positive, positive, positive, positive, positive, positive, positive, veryPositive]) == positive;	
+}
+
+test bool averageRankOfEmptyTest(){
+	return averageRanking([]) == neutral;	
+}

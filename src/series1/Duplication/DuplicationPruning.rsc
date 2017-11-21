@@ -1,7 +1,7 @@
 module series1::Duplication::DuplicationPruning
 
 import String;
-import series1::Duplication::Duplication;
+import series1::Duplication::DuplicationOptions;
 import series1::Configuration;
 import series1::Helpers::StringHelper;
 import List;
@@ -9,7 +9,7 @@ import List;
 /**
 * Remove all lines that can not be part of a duplicate.
 **/
-list[str] pruneUniqueLines(list[str] lines, DuplicationOptions options){
+public list[str] pruneUniqueLines(list[str] lines, DuplicationOptions options){
 	list[str] cleanedLines = [];
 	
 	map[str,list[int]] linesMapping = getLinesMapping(lines);

@@ -94,7 +94,7 @@ public void doAnalyses(loc eclipsePath) {
 	set[int] duplicates = findDuplicatesFaster(codesLinesForDuplicates);
 	int duplicateLines = size(duplicates);	
 	Ranking duplicationRanking = getDuplicationRanking(duplicateLines, totalLinesOfCode);
-	println("Got code duplicates: <size(duplicates)>");
+	println("Got code duplicates: <size(duplicates)>, <rankingToString(duplicationRanking)>");
 
 	//Extract all the methods with initializers
 	println("Extracting methods...");
@@ -119,18 +119,18 @@ public void doAnalyses(loc eclipsePath) {
 	interfacingOverview interfaceMetric = getUnitInterfacing(declarations);
 	riskOverview risksList = getInterfacingRisksCount(interfaceMetric);
 	Ranking interfacingRank = getUnitInterfacingRating(interfaceMetric, risksList);
-	println("Got unit interfacing rank.");
+	println("Got unit interfacing rank: <rankingToString(interfacingRank)>");
 	
 	//Get cyclomatic complexity partitions
 	println("Getting Cyclomatic complexity");
 	Ranking cyclomaticComplexityRank = getCyclomaticComplexityRating(methods, model, totalLinesOfCode);
-	println("Got cyclomatic complexity.");
+	println("Got cyclomatic complexity rank: <rankingToString(cyclomaticComplexityRank)>");
 	
 	//Get unit size
 	println("Getting unit size...");
 	UnitSizesPerLocation unitSizesLocations = getUnitSizesPerLocation(methodLocations);
 	Ranking unitSizesRanking = getUnitSizeRanking(unitSizesLocations);
-	println("Got unit size.");
+	println("Got unit size: <rankingToString(unitSizesRanking)>");
 
 	CodeProperties codeProperties = emptyCodeProperties;
 	codeProperties.volume = manYearsRanking.rankingType;

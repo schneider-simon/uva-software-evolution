@@ -4,6 +4,7 @@ import lang::java::jdt::m3::Core;
 import lang::java::jdt::m3::AST;
 
 import series1::Ranking::Ranks;
+import series1::Configuration;
 
 import IO;
 
@@ -26,7 +27,6 @@ public list[BoundRanking] allTestCaseRankings = [veryNegativeTestCases,
 												 veryPositiveTestCases
 												];  
 
-str testClassKeyword = "TestCase";
 
 Ranking getTestRankingBasedOnMethods(int assertions, int totalLinesOfCode) {
 	return getBoundRanking(assertions * 100 / totalLinesOfCode, allTestCaseRankings).ranking;
@@ -51,7 +51,7 @@ public list[Declaration] getTestClasses(list[Declaration] declarations) {
 		testClasses = testClasses + [dec | /Declaration dec := declarations[i], 
 								   /class(_, list[Type] extends, _, _) := dec,
 								   /simpleName(str name) := extends,
-								   contains(name,testClassKeyword)];
+								   contains(name,TEST_CLASS_KEYWORD)];
 	}
 		
 	return testClasses;	

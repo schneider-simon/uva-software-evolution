@@ -38,9 +38,7 @@ public class TestClass {
 				+ "asd*/asdsdasd"
 		);
 		
-		return x + y;		
+		return x + y;
+		}
 	}
-}
-
-
 //asdassa

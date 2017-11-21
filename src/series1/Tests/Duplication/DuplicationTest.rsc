@@ -1,6 +1,7 @@
 module series1::Tests::Duplication::DuplicationTest
 
 import series1::Duplication::Duplication;
+import series1::Duplication::DuplicationPruning;
 import series1::Helpers::ProjectFilesHelper;
 import IO;
 import Set;
@@ -79,6 +80,12 @@ test bool findLargestDuplicateTest(){
 	return duplicate == ["a","b","c"];
 }
 
+test bool findLargestDuplicateTest2(){
+	list[str] duplicate = findLargestDuplicate(CODE_EXAMPLE_2, 5, 9);
+	
+	return duplicate == ["a","b","c"];
+}
+
 test bool findDuplicatesWithoutOriginalsTest(){
 	set[int] duplicates = findDuplicates(CODE_EXAMPLE_4, <3, false, false>);
 	return size(duplicates) == 7;
@@ -106,4 +113,18 @@ test bool uniqueLinesOnlyTest(){
 	set[int] duplicates = findDuplicatesFaster(lines);
 	
 	return size(duplicates) == 0;
+}
+
+test bool testDuplicationPruning(){
+	DuplicationOptions options = <3, true, true>;
+	
+	list[str] cleanedLines = pruneUniqueLines(CODE_EXAMPLE_4, options);
+	
+	prinln(cleanedLines);
+	
+	if(size(cleanedLines) > size(CODE_EXAMPLE_4)){
+		return false;
+	}
+	
+	return cleanedLines;
 }

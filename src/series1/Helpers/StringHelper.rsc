@@ -69,7 +69,7 @@ str replaceStringContent(str stringContent){
 	return stringContent;
 }
 
-bool isCodeLine(str line){
+bool isCodeLine(str line, bool curlyBracketsAreCode){
 	if(isLineEmpty(line)){
 		return false;
 	}
@@ -78,20 +78,22 @@ bool isCodeLine(str line){
 		return false;
 	}
 	
-	if(CURLY_BRACKETS_ARE_CODE == false && isCurlyBracket(line)){
+	if(curlyBracketsAreCode == false && isCurlyBracket(line)){
 		return false;
 	}
 	
 	return true;
 }
 
-list[str] getCodeLines(str source){
+list[str] getCodeLines(str source) = getCodeLines(source, CURLY_BRACKETS_ARE_CODE);
+
+list[str] getCodeLines(str source, bool curlyBracketsAreCode){
 	source = "\n" + source + "\n";
 	source = replaceStrings(source);
 	source = withoutMultiLineComments(source);
 	
   	list[str] codeLines = split("\n", source);
-  	return [trim(l) | str l <- codeLines, isCodeLine(l)];
+  	return [trim(l) | str l <- codeLines, isCodeLine(l, curlyBracketsAreCode)];
 }
 
 map[str,list[int]] getLinesMapping(list[str] lines){	
