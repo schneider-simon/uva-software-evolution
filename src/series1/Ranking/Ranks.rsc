@@ -6,11 +6,11 @@ import List;
 alias Ranking = tuple[str name,int val];
 alias BoundRanking = tuple[Ranking ranking, num lower, num upper];
 
-public Ranking veryPositive = <"++", 2>;
+public Ranking veryPositive = <"++", 0>;
 public Ranking positive = <"+", 1>;
-public Ranking neutral = <"o", 0>;
-public Ranking negative = <"-", -1>;
-public Ranking veryNegative = <"--", -2>;
+public Ranking neutral = <"o", 2>;
+public Ranking negative = <"-", 3>;
+public Ranking veryNegative = <"--", 4>;
 
 public list[Ranking] allRankings = [veryPositive, positive, neutral, negative, veryNegative];
 
@@ -26,8 +26,8 @@ Ranking averageRanking(list[Ranking] rankings){
 }
 
 Ranking findRankingByValue(int val){
-	assert val >= -2 : "Ranking value must be \>= -2";
-	assert val <= 2 : "Ranking value must be \<= +2";
+	assert val >= 0 : "Ranking value must be \>= 0";
+	assert val <= 4 : "Ranking value must be \<= 4";
 	
 	return [r | r <- allRankings, r.val == val][0];
 }
@@ -38,7 +38,7 @@ str rankingToString(Ranking ranking){
 
 BoundRanking getBoundRanking(num rankingValue, list[BoundRanking] rankings){
 	for(BoundRanking ranking <- rankings){	
-		if(floor(rankingValue) < ranking.upper){
+		if(round(rankingValue) < ranking.upper){
 			return ranking;
 		}
 	}

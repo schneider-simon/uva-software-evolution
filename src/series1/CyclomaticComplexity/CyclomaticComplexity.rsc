@@ -39,17 +39,18 @@ public riskOverview cyclomaticLinesPerPartion(list[Declaration] declMethods, M3 
 		
 		//Calculate in the method the complexity
 		visit(m) {
-    		case \do(_,_) : result += 1;
-    		case \foreach(_,_,_) : result += 1;	
-    		case \for(_,_,_,_) : result += 1;
+	    		case \do(_,_) : result += 1;
+	    		case \foreach(_,_,_) : result += 1;	
+	    		case \for(_,_,_,_) : result += 1;
 	  		case \for(_,_,_) : result += 1;
 	  		case \if(_,_) : result += 1;
 			case \if(_,_,_) : result += 1;
-			case \case(_) : result += 1; // case() 
+			case \case(_) : result += 1; // case:
+			case \defaultCase() : result += 1; // default: 
 			case \catch(_,_) : result += 1;	 //catch() {}
 	   		case \while(_,_) : result += 1;	//while(_) x
-    		case \conditional(_, _, _): result += 1; //a ? c : d
-    		case \infix(_, /^\|\||&&$/, _) : result += 1; //a && b. a || b
+    			case \conditional(_, _, _): result += 1; //a ? c : d
+    			case \infix(_, /^\|\||&&$/, _) : result += 1; //a && b. a || b
     		}
 
 		//Determine method size, this is the weight of the method

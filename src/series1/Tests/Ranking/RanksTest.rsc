@@ -12,17 +12,13 @@ test bool changeabilityExampleRankTest(){
 }
 
 test bool stabilityExampleRankTest(){
-	return averageRanking([negative]) == negative;	
+	return averageRanking([neutral]) == neutral;	
 }
 
 test bool testabilityExampleRankTest(){
 	return averageRanking([veryNegative, negative, neutral]) == negative;	
 }
 
-test bool addNeutralRankingTest(list[Ranking] rankings){
-	 println(rankings);
-	 return true;
-	 Ranking ranking = averageRanking(rankings);
-	 
-	 return ranking ==  averageRanking([ranking, neutral]);
+test bool veryPositiveExampleRankTest(){
+	return averageRanking([veryPositive, veryPositive, positive]) == veryPositive;	
 }

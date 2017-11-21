@@ -10,27 +10,19 @@ import String;
 import List;
 import series1::Configuration;
 import series1::Helpers::LogHelper;
+import series1::Duplication::DuplicationPruning;
 import util::Math;
 
 alias DuplicationOptions = tuple[int threshhold, bool usePruning, bool countOriginals];
 public DuplicationOptions defaultDuptlicationOptions = <DUPLICATION_THRESHOLD, DUPLICATON_USE_PRUNING, DUPLICATON_COUNT_ORIGINALS>;
 
-set[int] findDuplicatesFaster(list[str] lines){
-	DuplicationOptions options = <DUPLICATION_THRESHOLD, true, DUPLICATON_COUNT_ORIGINALS>;
-	
-	return findDuplicates(lines, options);
-}
-
-set[int] findDuplicates(list[str] lines){
-	DuplicationOptions options = <DUPLICATION_THRESHOLD, false, DUPLICATON_COUNT_ORIGINALS>;
-		
-	return findDuplicates(lines, options);
-}
-
 set[int] findDuplicates(list[str] lines, DuplicationOptions options){
 	printDebug("Original lines for duplicates <size(lines)>");
 	printDebug(options);
-	lines = preprocessLines(lines, options);
+	
+	if(options.usePruning){
+		lines = pruneUniqueLines(lines, options);	
+	}
 	printDebug("Reduced lines for duplicates <size(lines)>");
 
 	set[int] duplicates = {};
@@ -117,60 +109,12 @@ bool linesAreDuplicate(str line1, str line2){
 	return line1 == line2 && line1 != UNIQUE_LINES_TOKEN && line2 != UNIQUE_LINES_TOKEN && line1 != PAGE_BREAK_TOKEN && line2 != PAGE_BREAK_TOKEN;
 }
 
-/**
-* Remove all lines that can not be part of a duplicate.
-**/
-list[str] preprocessLines(list[str] lines, DuplicationOptions options){
-	list[str] trimmedLines = [];	
-	list[str] cleanedLines = [];
-	
-	map[str, int] linesCountings = ();
-	
-	// Count trimmed lines in order to ignore unique lines in the future
-	for(str l <- lines){
-		str trimmedLine = trim(l);
-		
-		if(trimmedLine == ""){
-			continue;
-		}
-		
-		//TODO: Do empty lines count as duplicates?
-		//TODO: Should we remove "{" lines and "}" lines?
-		trimmedLines = trimmedLines + [trimmedLine];
-			
-		if(!(trimmedLine in linesCountings)){
-			linesCountings[trimmedLine] = 1;
-		} else {
-			linesCountings[trimmedLine] += 1;
-		}
-	}	
-	
-	if(!options.usePruning){
-		return trimmedLines;
-	}
-
-	
-	// Do only work with streaks (above the threshold) of non unique lines.
-	// Insert a "UNIQUE LINES" token that seperates blocks of non unique lines. 
-	list[str] nonUniqueLineStreak = [];
-	for(str l <- trimmedLines){
-		int lineOccassions = linesCountings[l];
-		
-		if(lineOccassions <= 1 || l == PAGE_BREAK_TOKEN){			
-			if(size(nonUniqueLineStreak) >= options.threshhold){
-				cleanedLines = cleanedLines + nonUniqueLineStreak + [UNIQUE_LINES_TOKEN];
-			}
-		
-			nonUniqueLineStreak = [];
-			continue;
-		}
-		
-		nonUniqueLineStreak = nonUniqueLineStreak + [l];
-	}
-	
-	//TODO: Compress UNIQUE_LINES_TOKEN streaks?
-	
-	cleanedLines = cleanedLines + nonUniqueLineStreak;
-	return cleanedLines;
+set[int] findDuplicatesFaster(list[str] lines){
+	return findDuplicates(lines, <DUPLICATION_THRESHOLD, true, DUPLICATON_COUNT_ORIGINALS>);
 }
+
+set[int] findDuplicates(list[str] lines){	
+	return findDuplicates(lines,  <DUPLICATION_THRESHOLD, false, DUPLICATON_COUNT_ORIGINALS>);
+}
+
 

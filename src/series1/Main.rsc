@@ -73,7 +73,7 @@ public void doAnalyses(loc eclipsePath) {
 	stopMeasure("GetProjectFilesList");
 	
 	startMeasure("Analyse");
-	
+		
 	println("Getting code lines from files...");
 	list[str] codeLines = getCodeLinesFromFiles(projectFiles);
 	
@@ -125,8 +125,6 @@ public void doAnalyses(loc eclipsePath) {
 	println("Getting Cyclomatic complexity");
 	Ranking cyclomaticComplexityRank = getCyclomaticComplexityRating(methods, model, totalLinesOfCode);
 	println("Got cyclomatic complexity.");
-	
-
 	
 	//Get unit size
 	println("Getting unit size...");

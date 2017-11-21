@@ -5,6 +5,7 @@ import IO;
 import series1::Configuration;
 import series1::Helpers::LogHelper;
 import series1::Helpers::BenchmarkHelper;
+import List;
 
 bool isOneLineComment(str line) {
 	return /^(\s*\/\/)/ := line;
@@ -78,7 +79,6 @@ bool isCodeLine(str line){
 	}
 	
 	if(CURLY_BRACKETS_ARE_CODE == false && isCurlyBracket(line)){
-		println("remove curly");
 		return false;
 	}
 	
@@ -91,7 +91,7 @@ list[str] getCodeLines(str source){
 	source = withoutMultiLineComments(source);
 	
   	list[str] codeLines = split("\n", source);
-  	return [l | str l <- codeLines, isCodeLine(l)];
+  	return [trim(l) | str l <- codeLines, isCodeLine(l)];
 }
 
 map[str,list[int]] getLinesMapping(list[str] lines){	

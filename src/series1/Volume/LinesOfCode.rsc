@@ -12,17 +12,7 @@ import List;
 
 alias KLOC = num;
 alias LinesOfCodeStats = map[str,int];
-alias LocationsLineOfCodeStats = map[loc,LinesOfCodeStats] ;
-
-void testLoc(){
-	M3 myModel = createM3FromEclipseProject(|project://TestJavaProject|);
-	list[loc] files = toList(files(myModel));
-		
-	loc file1 = files[1];
-	str content = readFile(file1);
-	
-	println(getTotalLocsForLocations([|project://TestJavaProject/src/com/zwei14/test_java/TestClass.java|]));
-}
+alias LocationsLineOfCodeStats = map[loc,LinesOfCodeStats];
 
 /**
  * Sums up all the lines of code stats for many locations.
