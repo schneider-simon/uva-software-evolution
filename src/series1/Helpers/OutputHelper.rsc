@@ -10,13 +10,15 @@ alias OutputRow = list[str];
 alias OutputRows = list[OutputRow];
 alias HeadValue = tuple[str headVal, str val];
 
-void csvTest(){
-	writeCsv(|file:///tmp/helloworld.csv|, ["head1", "head2"], [["r11", "r12"], ["r21", "r22"]]);
-}
 
 void writeCsv(loc location, OutputHeads heads, OutputRows rows){
-	str output = stringifyRows([heads] + rows);
+	str output = "";
 	
+	if(exists(location)){
+		output = readFile(location) + "\n" +  stringifyRows(rows);
+	} else {
+		output = stringifyRows([heads] + rows);
+	}
 	
 	writeFile(location,output);
 	printDebug("WROTE CSV TO: <location>");

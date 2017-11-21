@@ -109,7 +109,7 @@ public void doAnalyses(loc eclipsePath) {
 	int assertions = getAssertionsInTestClasses(declarations);
 	int methodCount = size(methods);
 	Ranking testRanking = getTestRankingBasedOnMethods(assertions, methodCount);
-	println("Assertions: <assertions> in <methodCount> methods");
+	println("Assertions: <assertions> in <methodCount> methods, <rankingToString(testRanking)>");
 
 	println("Extracted methods.");
 	list[loc] methodLocations = [method.src | Declaration method <- methods];
