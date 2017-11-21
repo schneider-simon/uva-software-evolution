@@ -15,73 +15,21 @@ import util::Math;
 alias DuplicationOptions = tuple[int threshhold, bool usePruning, bool countOriginals];
 public DuplicationOptions defaultDuptlicationOptions = <DUPLICATION_THRESHOLD, DUPLICATON_USE_PRUNING, DUPLICATON_COUNT_ORIGINALS>;
 
-list[str] TEST_LINES_1 =  [
-        "a",
-
-        "1", "2", "3", "4", "5", "6",       // 6
-        "1", "2", "3", "4", "5", "6",       // 6
-        "1", "2", "3", "4", "5", "6", "7",  // 6
-
-        "a", "b", "c", "d", "e", "f", "g", "h",      // 8
-        "a", "b", "c", "d", "e", "f", "g", "h",      // 8
-        "a", "b", "c", "d", "e", "f", "g", "h", "i", // 8
-
-        "b", "c"
-    ]; // 42 duplicated.
-    
-list[str] TEST_LINES_2 = [		// Assume treshhold = 3
-    "package java;", 			//0
-"public class Duplicates {", 	//1
-	"public void method1() {", 	//2
-		"int a = 1;", 			//3 DUPLICATE?
-		"int b = 2;",			//4 DUPLICATE?
-		"int c = 3;", 			//5 DUPLICATE?
-		"int d = 4;", 			//6 DUPLICATE?
-	"}",							//7 DUPLICATE?
-	"public void method2() {", 	//8
-		"int a = 1;",			//9  DUPLICATE!
-		"int b = 2;",			//10 DUPLICATE!
-		"int c = 3;",			//11 DUPLICATE!
-	"}",							//12
-	"public void method3() {",	//13
-		"int b = 2;",			//14 DUPLICATE!
-		"int c = 3;",			//15 DUPLICATE!
-		"int d = 4;",			//16 DUPLICATE!
-	"}",							//17 DUPLICATE!
-"}"								//18
-];
-    
-
-set[int] testDuplication(){
-	DuplicationOptions options = <3, true, true>;
-	list[str] cleanedLines = preprocessLines(TEST_LINES_2, options);
-	//cleanedLines = TEST_LINES_2;
-	set[int] duplicates = findDuplicates(cleanedLines, options);
-	
-	printDebug(sort(toList(duplicates)));
-	printDebug(size(duplicates));
-	printDebug(("" | it + l + "\n" | str l <- cleanedLines));
-	
-	return duplicates;
-	
-}
-
 set[int] findDuplicatesFaster(list[str] lines){
-	DuplicationOptions options = defaultDuptlicationOptions;
-	options.usePruning = true;
+	DuplicationOptions options = <DUPLICATION_THRESHOLD, true, DUPLICATON_COUNT_ORIGINALS>;
 	
 	return findDuplicates(lines, options);
 }
 
 set[int] findDuplicates(list[str] lines){
-	DuplicationOptions options = defaultDuptlicationOptions;
-	options.usePruning = false;
-	
+	DuplicationOptions options = <DUPLICATION_THRESHOLD, false, DUPLICATON_COUNT_ORIGINALS>;
+		
 	return findDuplicates(lines, options);
 }
 
 set[int] findDuplicates(list[str] lines, DuplicationOptions options){
 	printDebug("Original lines for duplicates <size(lines)>");
+	printDebug(options);
 	lines = preprocessLines(lines, options);
 	printDebug("Reduced lines for duplicates <size(lines)>");
 
@@ -99,34 +47,12 @@ set[int] findDuplicates(list[str] lines, DuplicationOptions options){
 		lineNumber += 1;
 		
 		if(lineNumber % 100 == 0){
-			printDebug("Line no: <lineNumber>, <toReal(lineNumber)/toReal(size(lines)*100)>%");
+			printDebug("Line no: <lineNumber>, <(toReal(lineNumber)/toReal(size(lines))*100)>%");
 		}
 	}
 	
 		
 	return duplicates;
-}
-
-void testLinesMapping(){
-	printDebug(getLinesMapping(TEST_LINES_1));
-}
-
-map[str,list[int]] getLinesMapping(list[str] lines){	
-	map[str,list[int]] linesMapping = ();
-	int i = 0;
-	
-	while(i < size(lines)){
-		str l = lines[i];
-		
-		if(l in linesMapping == false){
-			linesMapping[l] = [];
-		}
-		
-		linesMapping[l] = linesMapping[l] + [i];
-		i += 1;
-	}
-	
-	return linesMapping;
 }
 
 set[int] findDuplicatesForLine(list[str] lines, int checkLine, list[int] sameLines, DuplicationOptions options){
@@ -230,7 +156,7 @@ list[str] preprocessLines(list[str] lines, DuplicationOptions options){
 	for(str l <- trimmedLines){
 		int lineOccassions = linesCountings[l];
 		
-		if(lineOccassions <= 1 || l == PAGE_BREAK_TOKEN){
+		if(lineOccassions <= 1 || l == PAGE_BREAK_TOKEN){			
 			if(size(nonUniqueLineStreak) >= options.threshhold){
 				cleanedLines = cleanedLines + nonUniqueLineStreak + [UNIQUE_LINES_TOKEN];
 			}

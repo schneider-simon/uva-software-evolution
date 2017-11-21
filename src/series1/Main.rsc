@@ -50,6 +50,7 @@ public void testHsqlJavaProject() {
 	doAnalyses(|project://hsqldb|);	
 }
 
+
 /*
 	Runes the analyses on a eclipse project
 */
@@ -82,6 +83,19 @@ public void doAnalyses(loc eclipsePath) {
 	ManYearsRanking manYearsRanking = getManYearsRanking(totalLinesOfCode);
 	println("Got lines of code: <totalLinesOfCode>");
 
+	//Get code duplicates
+	println("Getting code duplicates");
+	list[str] codesLinesForDuplicates = codeLines;
+	
+	if(DUPLICATON_RESPECT_FILE_PAGE_BREAKS){
+		codesLinesForDuplicates = getCodeLinesFromFiles(projectFiles, <true>);
+	}
+	
+	set[int] duplicates = findDuplicatesFaster(codesLinesForDuplicates);
+	int duplicateLines = size(duplicates);	
+	Ranking duplicationRanking = getDuplicationRanking(duplicateLines, totalLinesOfCode);
+	println("Got code duplicates: <size(duplicates)>");
+
 	//Extract all the methods with initializers
 	println("Extracting methods...");
 	list[Declaration] declarations = [ createAstFromFile(file, true) | file <- projectFiles]; 
@@ -89,6 +103,7 @@ public void doAnalyses(loc eclipsePath) {
 	for(int i <- [0 .. size(declarations)]) {
 		methods = methods + [dec | /Declaration dec := declarations[i], dec is method || dec is constructor || dec is initializer];
 	}
+	println("Extracted methods: <size(methods)>");
 	
 	println("Getting assertions in test classes..");
 	int assertions = getAssertionsInTestClasses(declarations);
@@ -111,12 +126,7 @@ public void doAnalyses(loc eclipsePath) {
 	Ranking cyclomaticComplexityRank = getCyclomaticComplexityRating(methods, model, totalLinesOfCode);
 	println("Got cyclomatic complexity.");
 	
-	//Get code duplicates
-	println("Getting code duplicates");
-	set[int] duplicates = findDuplicatesFaster(getCodeLinesFromFiles(projectFiles, <true>));
-	int duplicateLines = size(duplicates);	
-	Ranking duplicationRanking = getDuplicationRanking(duplicateLines, totalLinesOfCode);
-	println("Got code duplicates: <size(duplicates)>");
+
 	
 	//Get unit size
 	println("Getting unit size...");

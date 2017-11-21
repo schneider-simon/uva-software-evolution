@@ -15,7 +15,6 @@ list[str] invalidFolders = ["/test/","/generated/"];
 alias ProjectFileOptions = tuple[bool addPageBreakTokens];
 public ProjectFileOptions defaultProjectFileOptions = <false>;
 
-
 public list[loc] getProjectFiles(list[loc] files) {
 
 	list[loc] validFiles = [];

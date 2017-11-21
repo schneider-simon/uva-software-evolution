@@ -14,6 +14,10 @@ bool isLineEmpty(str line) {
 	return /^\s*$/ := line;
 }
 
+bool isCurlyBracket(str line){
+	return trim(line) == "{" || trim(line) == "}";
+}
+
 /*
  * Removes all multi line comments from a source code string.
  *
@@ -64,11 +68,46 @@ str replaceStringContent(str stringContent){
 	return stringContent;
 }
 
+bool isCodeLine(str line){
+	if(isLineEmpty(line)){
+		return false;
+	}
+	
+	if(isOneLineComment(line)){
+		return false;
+	}
+	
+	if(CURLY_BRACKETS_ARE_CODE == false && isCurlyBracket(line)){
+		println("remove curly");
+		return false;
+	}
+	
+	return true;
+}
+
 list[str] getCodeLines(str source){
 	source = "\n" + source + "\n";
 	source = replaceStrings(source);
 	source = withoutMultiLineComments(source);
 	
   	list[str] codeLines = split("\n", source);
-  	return [l | str l <- codeLines, !isLineEmpty(l) && !isOneLineComment(l)];
+  	return [l | str l <- codeLines, isCodeLine(l)];
+}
+
+map[str,list[int]] getLinesMapping(list[str] lines){	
+	map[str,list[int]] linesMapping = ();
+	int i = 0;
+	
+	while(i < size(lines)){
+		str l = lines[i];
+		
+		if(l in linesMapping == false){
+			linesMapping[l] = [];
+		}
+		
+		linesMapping[l] = linesMapping[l] + [i];
+		i += 1;
+	}
+	
+	return linesMapping;
 }

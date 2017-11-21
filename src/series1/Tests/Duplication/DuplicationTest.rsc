@@ -32,7 +32,8 @@ list[str] CODE_EXAMPLE_2 = [
 	"d"   //12
 ];
 
-list[str] CODE_EXAMPLE_3 =  [
+
+list[str] CODE_EXAMPLE_3 = [
         "a",
 
         "1", "2", "3", "4", "5", "6",       // 6
@@ -48,6 +49,29 @@ list[str] CODE_EXAMPLE_3 =  [
 		"%",
         "b", "c"
     ]; // 42 duplicated.
+    
+    
+list[str] CODE_EXAMPLE_4 = [		// Assume treshhold = 3
+    "package java;", 			//0
+"public class Duplicates {", 	//1
+	"public void method1() {", 	//2
+		"int a = 1;", 			//3 DUPLICATE?
+		"int b = 2;",			//4 DUPLICATE?
+		"int c = 3;", 			//5 DUPLICATE?
+		"int d = 4;", 			//6 DUPLICATE?
+	"}",							//7 DUPLICATE?
+	"public void method2() {", 	//8
+		"int a = 1;",			//9  DUPLICATE!
+		"int b = 2;",			//10 DUPLICATE!
+		"int c = 3;",			//11 DUPLICATE!
+	"}",							//12
+	"public void method3() {",	//13
+		"int b = 2;",			//14 DUPLICATE!
+		"int c = 3;",			//15 DUPLICATE!
+		"int d = 4;",			//16 DUPLICATE!
+	"}",							//17 DUPLICATE!
+"}"								//18
+];
 
 test bool findLargestDuplicateTest(){
 	list[str] duplicate = findLargestDuplicate(CODE_EXAMPLE_1, 0, 4);
@@ -55,37 +79,15 @@ test bool findLargestDuplicateTest(){
 	return duplicate == ["a","b","c"];
 }
 
-/**
-test bool findDuplicatesStartingFromLineTest(){
-	set[int] duplicates = findDuplicatesStartingFromLine(CODE_EXAMPLE_2, 0, <1>);
-	return duplicates == {0,1,2,3,5,6,7,9,10,11,12};
+test bool findDuplicatesWithoutOriginalsTest(){
+	set[int] duplicates = findDuplicates(CODE_EXAMPLE_4, <3, false, false>);
+	return size(duplicates) == 7;
 }
 
-test bool findDuplicatesStartingFromLineTest2(){
-	set[int] duplicates = findDuplicatesStartingFromLine(CODE_EXAMPLE_2, 0, <4>);
-	return duplicates == {0,1,2,3,9,10,11,12};
+test bool findDuplicatesWithOriginalsTest(){
+	set[int] duplicates = findDuplicates(CODE_EXAMPLE_4, <3, false, true>);
+	return size(duplicates) == 12;
 }
-
-test bool findDuplicatesStartingFromLineTest3(){
-	set[int] duplicates = findDuplicatesStartingFromLine(CODE_EXAMPLE_2, 0, <5>);
-	return duplicates == {};
-}
-
-test bool findDuplicatesTest1(){
-	set[int] duplicates = findDuplicates(CODE_EXAMPLE_2, <0>);
-	return duplicates == {0,1,2,3,5,6,7,9,10,11,12};
-}
-
-test bool findDuplicatesAmountTest1(){
-	set[int] duplicates = findDuplicates(CODE_EXAMPLE_3, <6>);
-	return size(duplicates) == 42;
-}
-
-test bool findDuplicatesAmountTest2(){
-	set[int] duplicates = findDuplicates(CODE_EXAMPLE_3, <2>);
-	return size(duplicates) == 48;
-}
-**/
 
 test bool concatinatedFilesDuplicatesTest(){
 	loc file1 = |project://uva-software-evolution/src/resources/series1/test-code/duplication/File1.java|;
