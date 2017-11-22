@@ -1,4 +1,4 @@
-public class ComplexityH {
+public class ComplexityVH {
 	
 	void test(String[] args)
     {
@@ -161,6 +161,9 @@ public class ComplexityH {
 	            	args[0] += "1";
 	                break;
 	             case "8":
+	            	args[0] += "1";
+	                break;
+	             case "9":
 	            	args[0] += "1";
 	                break;
 	        }
