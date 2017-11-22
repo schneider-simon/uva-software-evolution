@@ -2,6 +2,9 @@ module series1::Tests::Ranking::RanksTest
 
 import IO;
 import series1::Ranking::Ranks;
+import series1::Tests::Fixture::TestHelpers;
+import List;
+import util::Math;
 
 test bool analysabilityExampleRankTest(){
 	return averageRanking([veryPositive, negative, negative, neutral]) == neutral;	
@@ -29,4 +32,19 @@ test bool positiveExampleRankTest(){
 
 test bool averageRankOfEmptyTest(){
 	return averageRanking([]) == neutral;	
+}
+
+test bool automaticRankTest(list[int] l){
+	list[int] rankingNumbers = [rangedNumberFromRandom(0,4,n) | n <- l];
+	list[Ranking] rankings = [findRankingByValue(n) | n <- rankingNumbers];
+	Ranking averageRanking = averageRanking(rankings);
+	
+	Ranking expectedAverage = neutral;
+	
+	if(size(rankingNumbers) > 0){
+		int expectedAverageNumber = round(toReal(sum(rankingNumbers)) / toReal(size(rankingNumbers)));
+		expectedAverage = findRankingByValue(expectedAverageNumber);
+	}
+		
+	return expectedAverage == averageRanking;
 }
