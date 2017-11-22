@@ -36,7 +36,6 @@ public int getAssertionsInTestClasses(list[Declaration] declarations) {
 	int assertions = 0;
 
 	list[Declaration] testClasses = getTestClasses(declarations);
-	
 	for(Declaration testClass <- testClasses) {
 		assertions += getAssertions(testClass);
 	}

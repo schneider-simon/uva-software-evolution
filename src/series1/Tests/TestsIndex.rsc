@@ -5,3 +5,4 @@ import series1::Tests::RangeRanks::RangeRankTest;
 import series1::Tests::Ranking::RanksTest;
 import series1::Tests::Volume::LinesOfCodeTest;
 import series1::CyclomaticComplexity::CyclomaticComplexity;
+import series1::Tests::UnitInterfacing::UnitInterfacingTest;
