@@ -62,6 +62,8 @@ public riskOverview cyclomaticLinesPerPartion(list[Declaration] declMethods, M3 
 			complexity.high  += methodSize;
 		} else if (result >= veryHigh.min ) {
 			complexity.veryHigh  += methodSize;
+		} else {
+			complexity.low  += methodSize;
 		}
 	}
 	

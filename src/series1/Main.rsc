@@ -106,7 +106,12 @@ public void doAnalyses(loc eclipsePath) {
 	println("Extracted methods: <size(methods)>");
 	
 	println("Getting assertions in test classes..");
-	int assertions = getAssertionsInTestClasses(declarations);
+	list[Declaration] classItems = [];
+	for(int i <- [0 .. size(declarations)]) {
+		classItems = classItems + [dec | /Declaration dec := declarations[i], dec is class];
+	}
+	
+	int assertions = getAssertionsInTestClasses(classItems);
 	int methodCount = size(methods);
 	Ranking testRanking = getTestRankingBasedOnMethods(assertions, methodCount);
 	println("Assertions: <assertions> in <methodCount> methods, <rankingToString(testRanking)>");
