@@ -1,6 +1,7 @@
 module series1::Tests::Duplication::DuplicationTest
 
 import series1::Duplication::Duplication;
+import series1::Duplication::DuplicationOptions;
 import series1::Duplication::DuplicationPruning;
 import series1::Helpers::ProjectFilesHelper;
 import IO;
@@ -119,12 +120,7 @@ test bool testDuplicationPruning(){
 	DuplicationOptions options = <3, true, true>;
 	
 	list[str] cleanedLines = pruneUniqueLines(CODE_EXAMPLE_4, options);
-	
-	prinln(cleanedLines);
-	
-	if(size(cleanedLines) > size(CODE_EXAMPLE_4)){
-		return false;
-	}
-	
-	return cleanedLines;
+		
+	return size(cleanedLines) < size(CODE_EXAMPLE_4);
 }
+
