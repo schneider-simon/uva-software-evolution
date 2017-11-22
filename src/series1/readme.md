@@ -2,6 +2,88 @@
 - Simon Schneider
 - Laurance Saess
 
+
+## Lines of code
+
+Lines of code is one of the simplest or even the simplest metric that one can think of. Heitlager defines it as `all lines of source code that are not comment or blank lines`. [Heitlager, 2007]
+
+Java has two types of comments: 
+
+* single line comments that start with `//`
+* multiline comments that are surrounded by `/*` and `*/` 
+
+After reading all files from the project that we are going to analyze we have to remove these comments and blank lines. 
+
+We can do this by replacing matches that follow these two regular expressions with an empty string: 
+
+* `/^(\s*\/\/)/` for single line comments (arbitray white space followed by //) 
+* `/\/\*[\s\S]*?\*\//` strings that go over multiple lines and start with /* and end with */, between them is any character (non whitespace, or whitespace (including new lines))
+
+### Problem: Comments inside strings
+
+Before applying these two regexes we have to consider edge cases like the following: 
+
+```
+System.out.println("Hello wolrd /*"
+		+ "asd*/asdsdasd"
+);	
+```
+
+Fortunatly Java only supports strings over a single line. They have be concatenated by a `+` to reach over multiple lines.
+Applying the regex solution from above will result in a wrong solution (LOC = 2 instead of 3): 
+
+```
+System.out.println("Hello wolrd asdsdasd"
+);	
+```
+
+To tacke this we replace every comment start and end inside a string before passing it to the mentioned regex with this function:
+
+```
+return visit(stringContent){
+			case /<stringstart:.*><commentstart:\/\*><stringend:.*>/ => "\"<stringstart><COMMENT_START_TOKEN><stringend>\""
+			case /<stringstart:.*><commentend:\*\/><stringend:.*>/ => "\"<stringstart><COMMENT_END_TOKEN><stringend>\""
+		}
+```
+
+The expected result is then produced (LOC = 3)
+
+```
+System.out.println("Hello wolrd %%%|||RASCAL_COMMENT_START|||%%%"
+		+ "asd%%%|||RASCAL_COMMENT_END|||%%%asdsdasd"
+);	
+```
+
+This behaviour is tested in [LinesOfCodeTest.rsc](https://github.com/schneider-simon/uva-software-evolution/blob/master/src/series1/Tests/Volume/LinesOfCodeTest.rsc) via the analyzation of [CommentsInStrings.java](https://github.com/schneider-simon/uva-software-evolution/blob/master/src/resources/series1/test-code/volume/CommentInStrings.java).
+
+### Problem: Curly Brackets
+
+The original paper of Heitlager gives a very broad definition of "lines of code" since its supposed to be language agnostic. Languages like python do not use curly brackets, languages like PHP favour brackets in new lines (please see [PSR-2](http://www.php-fig.org/psr/psr-2/)) and Java users usually prefer the opening bracket in the same line as the method definition: 
+
+```
+PHP : (4 LOC ?)
+public function main()
+{
+    echo "Hello, World";
+}
+
+Java: (3 LOC ?)
+public static void main(String[] args) {
+    System.out.println("Hello, World");
+}
+    
+Pyhton: (2 LOC !)
+def happyBirthdayEmily(): 
+    print("Hello, World")
+
+```
+
+The question arises if we should count bracket lines in the first place since the LOC greatly depend on the style of the programmer or the current conventions inside the community. 
+
+There are also other practitioners that do not count bracket lines as lines of code [Klint, 2009, p. 9].
+
+We decided to let the user of our tool decide which approach he wants to use, even though we suggest to count bracket lines to stay as close to [Heitlager, 2007] as we can. (See [Configuration.rsc](https://github.com/schneider-simon/uva-software-evolution/blob/master/src/series1/Configuration.rsc))
+
 ## Cyclomatic complexity
 
 With this metric, it is possible to give and indication of the complexity of a program. It measures the number of paths through the source code of a code section. In theory, how lower the cyclomatic complexity, how easier the code should be to understand. However, in practice this is not always the case.
@@ -34,11 +116,11 @@ public int complexity1(bool a) {
 
 However, the last method is easier to understand. The complexity can be used as an indication. But it should not be used as only measure.
 
-## How do we calculate the complexity
+### How do we calculate the complexity
 
 We calculate the complexity over all units (methods, constructors and static constructors) in the project. We iterate over every statements in the unit and increment the complexity for every do, foreach, for, if, case, catch, while, conditional and || / && infix operator. This, because these elements will result into a new branch, =
 
-## How do you count a statement that always branches to one branch
+### How do you count a statement that always branches to one branch
 
 There is the case that, for example an if statement, only will result into a single branch. For example:
 
@@ -51,20 +133,20 @@ if(b) {
 
 This method will only result in one branch, but for the reader it adds complexity and there are many cases when you cannot know that it only will result in one branch.
 
-## What do we call a unit in Java
+### What do we call a unit in Java
 
 Cyclomatic complexity is about the complexity of the smallest possible unit. In Java it is and method, constructor and static constructors.
 
-# Do you calculate lambdas
+### Do you calculate lambdas
 
 For example, when you define a lambda inside a method, does it add up to the complexity? In our application we add the complexity to the unit. It is part of the unit, and it adds complexity of the reader. So, we count it as complexity.
 
 Other tools, like Checkstyle do not calculate these kind of things to the complexity.  
 
-## Test
+### Test
 As a test, we compared the result of the complexity function with Checkstyle. We generated lists of the complexity per method and compared them:
 
-### Checkstyle output
+#### Checkstyle output
 
 ```text
 /src/smallsql/database/Command.java:106:9: Cyclomatic Complexity is 3  
@@ -76,7 +158,7 @@ As a test, we compared the result of the complexity function with Checkstyle. We
 /src/smallsql/database/Command.java:96:5: Cyclomatic Complexity is 2  
 ```
 
-### Rascal output
+#### Rascal output
 ```text
 /src/smallsql/database/Command.java|(2404,307,\<83,4\>,\<91,5\>): Cyclomatic Complexity is 3"
 /src/smallsql/database/Command.java|(2719,207,\<93,4\>,\<100,5\>): Cyclomatic Complexity is 2"
@@ -113,7 +195,65 @@ And then we calculate the total percentage per risk, what results in a score.
 
 ## Code duplication
 
-### Prune / preprocessing the code
+Code duplicates were the most painful metric to implement. Not because it is hard to find an efficient algorithm for type-0 clones, but because there are many missconceptions that led to many discussions among the students. 
+
+This is suprising since the paper of Heitlager gives a pretty clear definition on clones: 
+
+```
+We calculate code duplication as the percentage of all code that occurs more than once in equal
+code blocks of at least 6 lines. When comparing code lines, we ignore leading spaces.
+```
+[Heitlager, 2007]
+
+Couting every line that occurs more than once means that we have to count the original lines and all of its duplicates. Since the original line is also a line that "occurs more than once". 
+
+On the other hand, there are other sources that give a more elaborate definition of duplicates and some of them state that the original line should not be considered part of the code duplication: [Roy, 2009]
+
+
+* __Definition 1__: Code Fragment. A code fragment (CF) is any sequence of code lines (with
+or without comments). It can be of any granularity, e.g., function definition, begin-end block, or
+sequence of statements. A CF is identified by its file name and begin-end line numbers in the
+original code base and is denoted as a triple (CF.FileName, CF.BeginLine, CF.EndLine).
+* __Definition 2__: Code Clone. A ***code fragment CF2 is a clone of another code fragment CF1***
+if they are similar by some given definition of similarity, that is, f(CF1) = f(CF2) where f is the
+similarity function. Two fragments that are similar to each other form a clone pair (CF1,CF2), and when many fragments are similar, they form a clone class or clone group.
+
+To illustrate the diffrence we can take a look at the following Java code (assume a duplication threshhold of 3): 
+
+```java
+00: package java; 							
+01: 	public class Duplicates { 	
+02: 	public void method1() { 	
+03:			int a = 1; 				//DUPLICATE?
+04:			int b = 2;				//DUPLICATE?
+05:			int c = 3; 				//DUPLICATE?
+06:			int d = 4; 				//DUPLICATE?
+07:	 	} 					    	//DUPLICATE?
+08:		public void method2() { 	
+09:			int a = 1;				//DUPLICATE!
+10:			int b = 2;				//DUPLICATE!
+11:			int c = 3;				//DUPLICATE!
+12:		}							
+13:		public void method3() {		
+14:			int b = 2;				//DUPLICATE!
+15:			int c = 3;				//DUPLICATE!
+16:			int d = 4;				//DUPLICATE!
+17:	   }							//DUPLICATE!
+18:}
+```
+
+If we count the brackets (see problem above) we have 19 lines of code. 
+
+The duplicates differ depending on the definition that we use: 
+
+* Duplicate lines: **12** [Heitlager, 2007]
+* Duplicate lines: **7** [Roy, 2009]
+
+We again decided to stay to the paper of Heitlager by default, but leave it as an option to the user to count the originals or not. (See [Configuration.rsc](https://github.com/schneider-simon/uva-software-evolution/blob/master/src/series1/Configuration.rsc)) 
+
+### Problem: Overlapping duplicates
+
+### Problem: Prune / preprocessing the code
 
 To remove the amount of lines that the relativly costly code duplication algorithm has to check we are using pruning as a filter before the actual line-search algorithm.
 
@@ -294,3 +434,13 @@ An alternative approach would be to calculate how many assertions there are per 
 # Test
 
 This implementation is tested manually. First you have to specify what base class has to be extended to be called by the unit testing framework. Then you can generate a report with how many assertions there are made and how many methods there are.
+
+# Bibliography
+
+
+Heitlager, Ilja, Tobias Kuipers, and Joost Visser. "A practical model for measuring maintainability." Quality of Information and Communications Technology, 2007. QUATIC 2007. 6th International Conference on the. IEEE, 2007.
+
+Klint, Paul, Tijs Van Der Storm, and Jurgen Vinju. "Rascal: A domain specific language for source code analysis and manipulation." Source Code Analysis and Manipulation, 2009. SCAM'09. Ninth IEEE International Working Conference on. IEEE, 2009.
+
+Roy, Chanchal K., James R. Cordy, and Rainer Koschke. "Comparison and evaluation of code clone detection techniques and tools: A qualitative approach." Science of computer programming 74.7 (2009): 470-495.
+
