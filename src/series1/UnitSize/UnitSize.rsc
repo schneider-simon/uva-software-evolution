@@ -6,6 +6,7 @@ import lang::java::jdt::m3::Core;
 
 import series1::Ranking::Ranks;
 import series1::Ranking::RangeRanks;
+import series1::Helpers::LogHelper;
 
 import IO;
 import Set;
@@ -29,6 +30,8 @@ complexityRating veryHigh = <75,-1>;
 
 Ranking getUnitSizeRanking(UnitSizesPerLocation unitSizesLocations) {
 	riskOverview risksList = getUnitSizeRiskOverview(unitSizesLocations);
+	
+	printDebug(stringifyRiskOverview(risksList));
 	
 	return getScaleRating(risksList, size(unitSizesLocations), risks);
 }

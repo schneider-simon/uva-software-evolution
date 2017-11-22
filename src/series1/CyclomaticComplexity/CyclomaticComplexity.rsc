@@ -5,10 +5,12 @@ import lang::java::jdt::m3::AST;
 
 import series1::Volume::LinesOfCode;
 
+import series1::Helpers::LogHelper;
 import series1::Ranking::Ranks;
 import series1::Ranking::RangeRanks;
 
 import IO;
+import List;
 
 alias complexityRating = tuple[int min, int max];
 complexityRating mid = <11,20>;
@@ -24,6 +26,8 @@ list[maxRisk] risks = [ <veryPositive,-1,25,0,0>,
 
 public Ranking getCyclomaticComplexityRating(list[Declaration] declMethods, M3 model, int linesOfCode) {
 	riskOverview risksList = cyclomaticLinesPerPartion(declMethods, model);
+
+	printDebug(stringifyRiskOverview(risksList));
 
 	return getScaleRating(risksList, linesOfCode, risks);
 }

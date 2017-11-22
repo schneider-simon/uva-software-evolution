@@ -52,5 +52,5 @@ str manYearsRankingToString (ManYearsRanking ranking){
 		klocsRange = "\><ranking.minKLOC>";
 	}
 	
-	return "<ranking.rankingType.name> \t <yearsRange> MYs \t <klocsRange> KLOCs";
+	return "<ranking.rankingType.name>, <yearsRange> MYs, <klocsRange> KLOCs";
 }

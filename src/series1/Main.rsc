@@ -3,6 +3,7 @@ module series1::Main
 import IO;
 import List;
 import Set;
+import Map;
 import String;
 import util::ValueUI;
 import util::Math;
@@ -82,8 +83,24 @@ public void doAnalyses(loc eclipsePath) {
 	println("Getting lines of code...");
 	int totalLinesOfCode = size(codeLines);
 	ManYearsRanking manYearsRanking = getManYearsRanking(totalLinesOfCode);
-	println("Got lines of code: <totalLinesOfCode>");
+	println("Got lines of code: <totalLinesOfCode>, <manYearsRankingToString(manYearsRanking)>");
 
+	//Extract all the methods with initializers
+	println("Extracting methods...");
+	list[Declaration] declarations = [ createAstFromFile(file, true) | file <- projectFiles]; 
+	list[Declaration] methods = [];
+	for(int i <- [0 .. size(declarations)]) {
+		methods = methods + [dec | /Declaration dec := declarations[i], dec is method || dec is constructor || dec is initializer];
+	}
+	println("Extracted methods: <size(methods)>");
+	
+	//Getting unit interfacing metric
+	println("Getting unit interfacing metric..");
+	interfacingOverview interfaceMetric = getUnitInterfacing(declarations);
+	riskOverview risksList = getInterfacingRisksCount(interfaceMetric);
+	Ranking interfacingRank = getUnitInterfacingRating(interfaceMetric, risksList);
+	println("Got unit interfacing rank: <rankingToString(interfacingRank)>; <stringifyRiskOverview(risksList)>");
+	
 	//Get code duplicates
 	println("Getting code duplicates");
 	list[str] codesLinesForDuplicates = codeLines;
@@ -97,15 +114,6 @@ public void doAnalyses(loc eclipsePath) {
 	Ranking duplicationRanking = getDuplicationRanking(duplicateLines, totalLinesOfCode);
 	num duplicatePercentage = (toReal(size(duplicates)) / toReal(totalLinesOfCode) ) * 100.0;
 	println("Got code duplicates: <size(duplicates)>, <duplicatePercentage>%, <rankingToString(duplicationRanking)>");
-
-	//Extract all the methods with initializers
-	println("Extracting methods...");
-	list[Declaration] declarations = [ createAstFromFile(file, true) | file <- projectFiles]; 
-	list[Declaration] methods = [];
-	for(int i <- [0 .. size(declarations)]) {
-		methods = methods + [dec | /Declaration dec := declarations[i], dec is method || dec is constructor || dec is initializer];
-	}
-	println("Extracted methods: <size(methods)>");
 	
 	println("Getting assertions in test classes..");
 	list[Declaration] classItems = [];
@@ -121,13 +129,7 @@ public void doAnalyses(loc eclipsePath) {
 	println("Extracted methods.");
 	list[loc] methodLocations = [method.src | Declaration method <- methods];
 	
-	//Getting unit interfacing metric
-	println("Getting unit interfacing metric..");
-	interfacingOverview interfaceMetric = getUnitInterfacing(declarations);
-	riskOverview risksList = getInterfacingRisksCount(interfaceMetric);
-	Ranking interfacingRank = getUnitInterfacingRating(interfaceMetric, risksList);
-	println("Got unit interfacing rank: <rankingToString(interfacingRank)>");
-	
+
 	//Get cyclomatic complexity partitions
 	println("Getting Cyclomatic complexity");
 	Ranking cyclomaticComplexityRank = getCyclomaticComplexityRating(methods, model, totalLinesOfCode);

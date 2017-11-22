@@ -36,3 +36,10 @@ public riskOverview getRisksDiv(riskOverview riskCount, num totalMethods) {
 	
 	return rankingDiv;
 }
+
+public str stringifyRiskOverview(riskOverview risks){
+	int total = risks.low + risks.normal + risks.high + risks.veryHigh;
+	riskOverview divs = getRisksDiv(risks, total);
+	
+	return "Low: <risks.low> (<divs.low>%), Normal: <risks.normal> (<divs.normal>%), High: <risks.high> (<divs.high>%), VeryHigh: <risks.veryHigh> (<divs.veryHigh>%)";
+}

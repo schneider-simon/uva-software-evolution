@@ -17,7 +17,7 @@ import util::Math;
 
 set[int] findDuplicates(list[str] lines, DuplicationOptions options){
 	printDebug("Original lines for duplicates <size(lines)>");
-	printDebug(options);
+	printDebug("Duplication options <options>");
 	
 	if(options.usePruning){
 		lines = pruneUniqueLines(lines, options);	
