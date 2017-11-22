@@ -14,6 +14,7 @@ import IO;
 import Set;
 import List;
 import String;
+import util::Math;
 
 loc eclipsePath = |project://uva-software-evolution/src/resources/series1/test-code|;
 	
@@ -40,6 +41,14 @@ test bool qualityVeryLowTest() {
 	return risk == veryNegative;
 }
 
+test bool qualityMLowLowTest() {
+	return getTestRankingBasedOnMethods(0,100) == veryNegative;
+}
+
+test bool qualityMLowTest() {
+	return getTestRankingBasedOnMethods(49,100) == veryNegative;
+}
+
 test bool qualityLowTest() {
 
 	loc fileToTest = |project://uva-software-evolution/src/resources/series1/test-code/testQuality/QualityLow.java|;
@@ -48,12 +57,29 @@ test bool qualityLowTest() {
 	return risk == negative;
 }
 
+test bool qualityMLowNormalTest() {
+	return getTestRankingBasedOnMethods(50,100) == negative;
+}
+
+test bool qualityMNormalTest() {
+	return getTestRankingBasedOnMethods(99,100) == negative;
+}
+
+
 test bool qualityNormalTest() {
 
 	loc fileToTest = |project://uva-software-evolution/src/resources/series1/test-code/testQuality/QualityNormal.java|;
 	Ranking risk = getFileRisk(fileToTest);
 
 	return risk == neutral;
+}
+
+test bool qualityMLowNormalTest() {
+	return getTestRankingBasedOnMethods(100,100) == neutral;
+}
+
+test bool qualityMNormalTest() {
+	return getTestRankingBasedOnMethods(199,100) == neutral;
 }
 
 test bool qualityHighTest() {
@@ -64,6 +90,13 @@ test bool qualityHighTest() {
 	return risk == positive;
 }
 
+test bool qualityMLowHighTest() {
+	return getTestRankingBasedOnMethods(200,100) == positive;
+}
+
+test bool qualityMHighTest() {
+	return getTestRankingBasedOnMethods(299,100) == positive;
+}
 
 test bool qualityVeryHighTest() {
 
@@ -72,3 +105,36 @@ test bool qualityVeryHighTest() {
 
 	return risk == veryPositive;
 }
+
+test bool qualityMLowVeryHighTest() {
+	return getTestRankingBasedOnMethods(300,100) == veryPositive;
+}
+
+test bool qualityMVeryHighTest() {
+	return getTestRankingBasedOnMethods(100000,100) == veryPositive;
+}
+
+test bool qualityAutoTest(int val) {
+	val = abs(val);
+	
+	Ranking rank = getTestRankingBasedOnMethods(val, 100);
+	if(rank == veryPositive && val >= 300) {
+		return true;
+	}
+	if(rank == positive && val >= 200 && val < 300) {
+		return true;
+	}
+	if(rank == neutral && val >= 100 && val < 200) {
+		return true;
+	}
+	if(rank == negative && val >= 50 && val < 100) {
+		return true;
+	}
+	if(rank == veryNegative && val >= 0 && val < 50) {
+		return true;
+	}
+	
+	return false;
+}
+
+

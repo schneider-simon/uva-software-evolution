@@ -14,7 +14,7 @@ import String;
 
 import util::Math;
 
-public BoundRanking veryPositiveTestCases = <veryPositive, 300, 100000>;
+public BoundRanking veryPositiveTestCases = <veryPositive, 300, -1>;
 public BoundRanking positiveTestCases = <positive, 200, 300>;
 public BoundRanking neutralTestCases = <neutral, 100, 200>;
 public BoundRanking negativeTestCases = <negative, 50, 100>;
@@ -28,8 +28,8 @@ public list[BoundRanking] allTestCaseRankings = [veryNegativeTestCases,
 												];  
 
 
-Ranking getTestRankingBasedOnMethods(int assertions, int totalLinesOfCode) {
-	return getBoundRanking(assertions * 100 / totalLinesOfCode, allTestCaseRankings).ranking;
+Ranking getTestRankingBasedOnMethods(int assertions, int methodCount) {
+	return getBoundRanking(assertions * 100 / methodCount, allTestCaseRankings).ranking;
 }
 
 public int getAssertionsInTestClasses(list[Declaration] declarations) {
