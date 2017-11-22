@@ -1,7 +1,6 @@
-# Software evolution report
+# Software evolution report series 1
 - Simon Schneider
 - Laurance Saess
-
 
 ## Lines of code
 
@@ -25,7 +24,7 @@ We can do this by replacing matches that follow these two regular expressions wi
 
 Before applying these two regexes we have to consider edge cases like the following: 
 
-```
+```java
 System.out.println("Hello world /*"
 		+ "asd*/asdsdasd"
 );	
@@ -34,14 +33,14 @@ System.out.println("Hello world /*"
 Fortunately Java only supports strings over a single line. They have to be concatenated by a `+` to reach over multiple lines.
 Applying the regex solution from above will result in a wrong solution (LOC = 2 instead of 3): 
 
-```
+```java
 System.out.println("Hello world asdsdasd"
 );	
 ```
 
 To tackle this we replace every comment start and end inside a string before passing it to the mentioned regex with this function:
 
-```
+```java
 return visit(stringContent){
 			case /<stringstart:.*><commentstart:\/\*><stringend:.*>/ => "\"<stringstart><COMMENT_START_TOKEN><stringend>\""
 			case /<stringstart:.*><commentend:\*\/><stringend:.*>/ => "\"<stringstart><COMMENT_END_TOKEN><stringend>\""
@@ -50,7 +49,7 @@ return visit(stringContent){
 
 The expected result is then produced (LOC = 3)
 
-```
+```java
 System.out.println("Hello wolrd %%%|||RASCAL_COMMENT_START|||%%%"
 		+ "asd%%%|||RASCAL_COMMENT_END|||%%%asdsdasd"
 );	
@@ -60,21 +59,30 @@ This behaviour is tested in [LinesOfCodeTest.rsc](https://github.com/schneider-s
 
 ### Problem: Curly Brackets
 
-The original paper of Heitlager gives a very broad definition of "lines of code" since its supposed to be language agnostic. Languages like python do not use curly brackets, languages like PHP favor brackets in new lines (please see [PSR-2](http://www.php-fig.org/psr/psr-2/)) and Java users usually prefer the opening bracket in the same line as the method definition: 
+The original paper of Heitlager gives a very broad definition of "lines of code" since its supposed to be language agnostic. Languages like python do not use curly brackets, languages like PHP favor brackets in new lines  and Java users usually prefer the opening bracket in the same line as the method definition: 
 
-```
-PHP : (4 LOC ?)
+_PHP: (4 LOC ?) - formatted according to [PSR-2](http://www.php-fig.org/psr/psr-2/)_
+
+```php
 public function main()
 {
     echo "Hello, World";
 }
+```
 
-Java: (3 LOC ?)
+
+_Java: (3 LOC ?)_
+
+```java
 public static void main(String[] args) {
     System.out.println("Hello, World");
 }
+```
+
     
-Pyhton: (2 LOC !)
+_Pyhton: (2 LOC !)_
+
+```python
 def happyBirthdayEmily(): 
     print("Hello, World")
 
@@ -201,7 +209,7 @@ Code duplicates were the most painful metric to implement. Not because it is har
 
 This is surprising since the paper of Heitlager gives a pretty clear definition on clones: 
 
-```
+```text
 We calculate code duplication as the percentage of all code that occurs more than once in equal
 code blocks of at least 6 lines. When comparing code lines, we ignore leading spaces.
 ```
@@ -266,7 +274,7 @@ To remove the number of lines that the relatively costly code duplication algori
 
 Example:
 
-```
+```text
 a
 b
 c
@@ -290,7 +298,7 @@ g
 
 Now we can iterate over the lines and count the occurences:
 
-```
+```text
 "a" -> 3
 "b" -> 2
 "c" -> 2
@@ -306,7 +314,7 @@ Now we can iterate over the lines and count the occurences:
 
 Can be replaced by
 
-```
+```text
 a
 b
 c
@@ -330,7 +338,7 @@ f
 
 This can be even further be reduced to:
 
-```
+```text
 %UNIQUE_LINES%
 a
 a
