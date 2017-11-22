@@ -5,39 +5,41 @@
 
 ## Lines of code
 
-Lines of code is one of the simplest or even the simplest metric that one can think of. Heitlager defines it as `all lines of source code that are not comment or blank lines`. [Heitlager, 2007]
+Lines of code is one of the simplest or even the simplest metric that one can think of. 
+
+Heitlager defines it as `all lines of source code that are not comment or blank lines`. [Heitlager, 2007]
 
 Java has two types of comments: 
 
-* single line comments that start with `//`
-* multiline comments that are surrounded by `/*` and `*/` 
+1. single line comments that start with `//`
+2. multiline comments that are surrounded by `/*` and `*/` 
 
 After reading all files from the project that we are going to analyze we have to remove these comments and blank lines. 
 
 We can do this by replacing matches that follow these two regular expressions with an empty string: 
 
-* `/^(\s*\/\/)/` for single line comments (arbitray white space followed by //) 
-* `/\/\*[\s\S]*?\*\//` strings that go over multiple lines and start with /* and end with */, between them is any character (non whitespace, or whitespace (including new lines))
+1. `/^(\s*\/\/)/` for single line comments (arbitrary white space followed by //) 
+2. `/\/\*[\s\S]*?\*\//` strings that go over multiple lines and start with /* and end with */, between them is any character (nonwhitespace, or whitespace (including new lines))
 
 ### Problem: Comments inside strings
 
 Before applying these two regexes we have to consider edge cases like the following: 
 
 ```
-System.out.println("Hello wolrd /*"
+System.out.println("Hello world /*"
 		+ "asd*/asdsdasd"
 );	
 ```
 
-Fortunatly Java only supports strings over a single line. They have be concatenated by a `+` to reach over multiple lines.
+Fortunately Java only supports strings over a single line. They have to be concatenated by a `+` to reach over multiple lines.
 Applying the regex solution from above will result in a wrong solution (LOC = 2 instead of 3): 
 
 ```
-System.out.println("Hello wolrd asdsdasd"
+System.out.println("Hello world asdsdasd"
 );	
 ```
 
-To tacke this we replace every comment start and end inside a string before passing it to the mentioned regex with this function:
+To tackle this we replace every comment start and end inside a string before passing it to the mentioned regex with this function:
 
 ```
 return visit(stringContent){
@@ -58,7 +60,7 @@ This behaviour is tested in [LinesOfCodeTest.rsc](https://github.com/schneider-s
 
 ### Problem: Curly Brackets
 
-The original paper of Heitlager gives a very broad definition of "lines of code" since its supposed to be language agnostic. Languages like python do not use curly brackets, languages like PHP favour brackets in new lines (please see [PSR-2](http://www.php-fig.org/psr/psr-2/)) and Java users usually prefer the opening bracket in the same line as the method definition: 
+The original paper of Heitlager gives a very broad definition of "lines of code" since its supposed to be language agnostic. Languages like python do not use curly brackets, languages like PHP favor brackets in new lines (please see [PSR-2](http://www.php-fig.org/psr/psr-2/)) and Java users usually prefer the opening bracket in the same line as the method definition: 
 
 ```
 PHP : (4 LOC ?)
@@ -78,7 +80,7 @@ def happyBirthdayEmily():
 
 ```
 
-The question arises if we should count bracket lines in the first place since the LOC greatly depend on the style of the programmer or the current conventions inside the community. 
+The question arises if we should count bracket lines in the first place since the LOC greatly depend on the style of the programmer or the current conventions of the community. 
 
 There are also other practitioners that do not count bracket lines as lines of code [Klint, 2009, p. 9].
 
@@ -86,9 +88,9 @@ We decided to let the user of our tool decide which approach he wants to use, ev
 
 ## Cyclomatic complexity
 
-With this metric, it is possible to give and indication of the complexity of a program. It measures the number of paths through the source code of a code section. In theory, how lower the cyclomatic complexity, how easier the code should be to understand. However, in practice this is not always the case.
+With this metric, it is possible to give an indication of the complexity of a program. It measures the number of paths through the source code of a code section. In theory, the lower the cyclomatic complexity, the easier the code should be to understand. However, in practice this is not always the case.
 
-The following method gets an lower complexity:
+The following method gets a lower complexity:
 
 ```java
 public int complexity1(bool a) {
@@ -114,15 +116,15 @@ public int complexity1(bool a) {
 }
 ```
 
-However, the last method is easier to understand. The complexity can be used as an indication. But it should not be used as only measure.
+However, the last method is easier to understand. The complexity can be used as an indication. But it should not be used as the only measure.
 
 ### How do we calculate the complexity
 
-We calculate the complexity over all units (methods, constructors and static constructors) in the project. We iterate over every statements in the unit and increment the complexity for every do, foreach, for, if, case, catch, while, conditional and || / && infix operator. This, because these elements will result into a new branch, =
+We calculate the complexity over all units (methods, constructors and static constructors) in the project. We iterate over every statement in the unit and increment the complexity for every `do`, `foreach`, `for`, `if`, `case`, `catch`, `while`, conditional and `||` / `&&` infix operators, because all of these listed elements will result in a new branch. 
 
 ### How do you count a statement that always branches to one branch
 
-There is the case that, for example an if statement, only will result into a single branch. For example:
+There is the case that, for example, an `if` statement will only result into a single branch:
 
 ```java
 bool b = true;
@@ -131,15 +133,15 @@ if(b) {
 }
 ```
 
-This method will only result in one branch, but for the reader it adds complexity and there are many cases when you cannot know that it only will result in one branch.
+This method will only result in one branch, but for the reader, it adds complexity and there are many cases when you cannot know that it only will result in one branch.
 
 ### What do we call a unit in Java
 
-Cyclomatic complexity is about the complexity of the smallest possible unit. In Java it is and method, constructor and static constructors.
+Cyclomatic complexity is about the complexity of the smallest possible unit. In Java it those are methods, constructors and static constructors.
 
 ### Do you calculate lambdas
 
-For example, when you define a lambda inside a method, does it add up to the complexity? In our application we add the complexity to the unit. It is part of the unit, and it adds complexity of the reader. So, we count it as complexity.
+For example, when you define a lambda inside a method, does it add up to the complexity? In our application, we add the complexity to the unit. It is part of the unit, and it adds complexity for the reader. So, we count it as complexity.
 
 Other tools, like Checkstyle do not calculate these kind of things to the complexity.  
 
@@ -169,7 +171,7 @@ As a test, we compared the result of the complexity function with Checkstyle. We
 /src/smallsql/database/Command.java|(4439,170,\<148,4\>,\<152,5\>): Cyclomatic Complexity is 2"
 ```
 
-We compared every mismatch and reasoned if their approach is better than ours. One difference that we found was that Checkstyle does not count lambda's. In our opunion, they should be counted to the unit it is inside.
+We compared every mismatch and reasoned if their approach is better than ours. One difference that we found was that Checkstyle does not count lambda's. In our opinion, they should be counted to the unit it is inside.
 
 ### Score
 
@@ -195,9 +197,9 @@ And then we calculate the total percentage per risk, what results in a score.
 
 ## Code duplication
 
-Code duplicates were the most painful metric to implement. Not because it is hard to find an efficient algorithm for type-0 clones, but because there are many missconceptions that led to many discussions among the students. 
+Code duplicates were the most painful metric to implement. Not because it is hard to find an efficient algorithm for type-0 clones, but because there are many misconceptions and diffrent understandings that led to many discussions among students. 
 
-This is suprising since the paper of Heitlager gives a pretty clear definition on clones: 
+This is surprising since the paper of Heitlager gives a pretty clear definition on clones: 
 
 ```
 We calculate code duplication as the percentage of all code that occurs more than once in equal
@@ -205,10 +207,9 @@ code blocks of at least 6 lines. When comparing code lines, we ignore leading sp
 ```
 [Heitlager, 2007]
 
-Couting every line that occurs more than once means that we have to count the original lines and all of its duplicates. Since the original line is also a line that "occurs more than once". 
+Counting every line that occurs more than once means that we have to count the original lines and all of its duplicates. Since the original line is also a line that "occurs more than once". 
 
 On the other hand, there are other sources that give a more elaborate definition of duplicates and some of them state that the original line should not be considered part of the code duplication: [Roy, 2009]
-
 
 * __Definition 1__: Code Fragment. A code fragment (CF) is any sequence of code lines (with
 or without comments). It can be of any granularity, e.g., function definition, begin-end block, or
@@ -251,11 +252,17 @@ The duplicates differ depending on the definition that we use:
 
 We again decided to stay to the paper of Heitlager by default, but leave it as an option to the user to count the originals or not. (See [Configuration.rsc](https://github.com/schneider-simon/uva-software-evolution/blob/master/src/series1/Configuration.rsc)) 
 
-### Problem: Overlapping duplicates
+### Problem: Duplicates accross file borders
+
+To calculate the code clones we concatenate the source code of all files in the project and analyze them. Depending on the approach we use for ignoring brackets, we could get false positives because of this. 
+
+Two files that would create a false positive like that can be found here: [File1.java](https://github.com/schneider-simon/uva-software-evolution/blob/master/src/resources/series1/test-code/duplication/File1.java) and [File2.java](https://github.com/schneider-simon/uva-software-evolution/blob/master/src/resources/series1/test-code/duplication/File2.java). 
+
+This cannot be desirable because the amount of code duplicates that depends on the order in which the files are read. We, therefore, added a "page break" token to tell the duplication algorithm that he cannot compare code duplicates across file borders. 
 
 ### Problem: Prune / preprocessing the code
 
-To remove the amount of lines that the relativly costly code duplication algorithm has to check we are using pruning as a filter before the actual line-search algorithm.
+To remove the number of lines that the relatively costly code duplication algorithm has to check we are using pruning as a filter before the actual line-search algorithm.
 
 Example:
 
@@ -336,15 +343,15 @@ f
 ...
 ```
 
-Because we only care for 6 lines that are unique in a row. We then feed this reduced list of lines to an algorithm that knows how to handle the "%UNIQUE_LINES%" token that we introduced.
+Because we only care for 6 lines that are unique in a row. We then feed this reduced list of lines to an algorithm that knows how to handle the `%UNIQUE_LINES%` token that we introduced.
 
-The first part of the algorithm has a complexity of O(2n) -> O(n), the actual search algorithm could be as bad as O(n^2), but with a reduced number of lines. This preprocessing will only be benefitial for cases in which the code does not consist out of non-unique lines.
+The first part of the algorithm has a complexity of `O(2n) => O(n)`, the actual search algorithm could be as bad as O(n^2), but with a reduced number of lines. This preprocessing will only be beneficial for cases in which the code does not consist out of non-unique lines.
 
 # Unit interfacing
 
-Unit interfacing is a metric for changeability and testability. How more more parameters there are for a method, how harder it is to test and change the functionality.
+Unit interfacing is a metric for changeability and testability. The more parameters there are for a method, the harder it is to test and change the functionality.
 
-The metric is calculated like the cyclomatic complexity with the following risk devisions for the parameters:
+The metric is calculated in a samiliar fashin as the cyclomatic complexity with the following risk divisions for the parameters:
 
 | Risk                        | parameters |
 | --------------------------- |:---------: |
@@ -355,7 +362,7 @@ The metric is calculated like the cyclomatic complexity with the following risk 
 
 As described in the following paper:
 
-Alves, T. L., Correia, J. P., & Visser, J. (2011, November). Benchmark-based aggregation of metrics to ratings. In Software Measurement, 2011 Joint Conference of the 21st Int'l Workshop on and 6th Int'l Conference on Software Process and Product Measurement (IWSM-MENSURA) (pp. 20-29). IEEE.
+
 
 The risk devision for the whole project is calculated and converted to a risk with the following table:
 
@@ -367,13 +374,13 @@ The risk devision for the whole project is calculated and converted to a risk wi
 | -               | ∞           | max 50%         | Max 25%     | max 5 %          |   
 | --              | ∞           | ∞               | ∞           | ∞                |   
 
-We use the same as they used for cyclometic complexity
+We use the same as they used for cyclomatic complexity
 
-## Why this metric
+### Why this metric
 
-Unit interfacing is a metric for changeability and testability. How more more parameters there are for a method, how harder it is to test and change the functionality.
+Unit interfacing is a metric for changeability and testability. The higher the number of parameters there are for a method, the harder it is to test and change the functionality.
 
-## Test
+### Test
 
 We compared some of our output to the smallsql source code:
 
@@ -389,10 +396,9 @@ static long calcMillis(int year, int month, final int day, final int hour, final
 ```
 
 
-
 # Unit size
 
-The metric is calculated like the cyclomatic complexity with the following risk devisions for the parameters:
+The metric is again calculated like the cyclomatic complexity with the following risk devisions for the parameters [Alves, 2011]:
 
 | Risk                        | parameters |
 | --------------------------- |:---------: |
@@ -401,7 +407,6 @@ The metric is calculated like the cyclomatic complexity with the following risk 
 | U High risk       | 45 - 74      |
 | U Very-high risk  | 75 - ∞      |
 
-As described in the following paper:
 
 Alves, T. L., Correia, J. P., & Visser, J. (2011, November). Benchmark-based aggregation of metrics to ratings. In Software Measurement, 2011 Joint Conference of the 21st Int'l Workshop on and 6th Int'l Conference on Software Process and Product Measurement (IWSM-MENSURA) (pp. 20-29). IEEE.
 
@@ -417,7 +422,7 @@ The risk devision for the whole project is calculated and converted to a risk wi
 
 # Testing
 
-For testing we calculate how many assertions there are for each test method. We calculate it in the following way:
+For testing, we calculate how many assertions there are for each test method. We calculate it in the following way:
 
 We divide assertions by methods and multiply it by 100. The output 50 means that there is one assertion for every 2 methods. The output 100 means that there are as many test methods as methods. The output 200 means that there are 2 test methods per method.   
 
@@ -429,13 +434,15 @@ We divide assertions by methods and multiply it by 100. The output 50 means that
 | -  | 0.5-1 assertions per method  |
 | -- | 0-0.5 assertions per method  |
 
-An alternative approach would be to calculate how many assertions there are per test method. We used assertions per because then you get an better idea on how many of all the functionality is tested. Normally you would do this by an converge test, but this is not possible in Rascal.
+An alternative approach would be to calculate how many assertions there are per test method. We used assertions per because then you get a better idea of how much of the functionality is actually tested. Normally you would do with a dynamic coverage test, but this is not possible in Rascal.
 
-# Test
+## Test
 
-This implementation is tested manually. First you have to specify what base class has to be extended to be called by the unit testing framework. Then you can generate a report with how many assertions there are made and how many methods there are.
+This implementation is tested manually. First, you have to specify what base class has to be extended to be called by the unit testing framework. Then you can generate a report with how many assertions there are made and how many methods there are.
 
 # Bibliography
+
+Alves, T. L., Correia, J. P., & Visser, J. (2011, November). Benchmark-based aggregation of metrics to ratings. In Software Measurement, 2011 Joint Conference of the 21st Int'l Workshop on and 6th Int'l Conference on Software Process and Product Measurement (IWSM-MENSURA) (pp. 20-29). IEEE.
 
 
 Heitlager, Ilja, Tobias Kuipers, and Joost Visser. "A practical model for measuring maintainability." Quality of Information and Communications Technology, 2007. QUATIC 2007. 6th International Conference on the. IEEE, 2007.
@@ -443,4 +450,5 @@ Heitlager, Ilja, Tobias Kuipers, and Joost Visser. "A practical model for measur
 Klint, Paul, Tijs Van Der Storm, and Jurgen Vinju. "Rascal: A domain specific language for source code analysis and manipulation." Source Code Analysis and Manipulation, 2009. SCAM'09. Ninth IEEE International Working Conference on. IEEE, 2009.
 
 Roy, Chanchal K., James R. Cordy, and Rainer Koschke. "Comparison and evaluation of code clone detection techniques and tools: A qualitative approach." Science of computer programming 74.7 (2009): 470-495.
+
 
