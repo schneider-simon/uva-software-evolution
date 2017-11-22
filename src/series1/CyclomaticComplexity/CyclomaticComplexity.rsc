@@ -46,7 +46,6 @@ public riskOverview cyclomaticLinesPerPartion(list[Declaration] declMethods, M3 
 	  		case \if(_,_) : result += 1;
 			case \if(_,_,_) : result += 1;
 			case \case(_) : result += 1; // case:
-			case \defaultCase() : result += 1; // default: 
 			case \catch(_,_) : result += 1;	 //catch() {}
 	   		case \while(_,_) : result += 1;	//while(_) x
     			case \conditional(_, _, _): result += 1; //a ? c : d
