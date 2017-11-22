@@ -4,7 +4,7 @@ public bool CURLY_BRACKETS_ARE_CODE = true;
 
 public int DUPLICATION_THRESHOLD = 6;
 public bool DUPLICATON_USE_PRUNING = true;
-public bool DUPLICATON_COUNT_ORIGINALS = true;
+public bool DUPLICATON_COUNT_ORIGINALS = false;
 public bool DUPLICATON_RESPECT_FILE_PAGE_BREAKS = true;
 
 public str UNIQUE_LINES_TOKEN = "%%%|||RASCAL_UNIQUE_LINES|||%%%%";

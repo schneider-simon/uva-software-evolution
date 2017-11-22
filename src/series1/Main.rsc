@@ -5,6 +5,7 @@ import List;
 import Set;
 import String;
 import util::ValueUI;
+import util::Math;
 import series1::TestQuality::TestQuality;
 
 
@@ -94,7 +95,8 @@ public void doAnalyses(loc eclipsePath) {
 	set[int] duplicates = findDuplicatesFaster(codesLinesForDuplicates);
 	int duplicateLines = size(duplicates);	
 	Ranking duplicationRanking = getDuplicationRanking(duplicateLines, totalLinesOfCode);
-	println("Got code duplicates: <size(duplicates)>, <rankingToString(duplicationRanking)>");
+	num duplicatePercentage = (toReal(size(duplicates)) / toReal(totalLinesOfCode) ) * 100.0;
+	println("Got code duplicates: <size(duplicates)>, <duplicatePercentage>%, <rankingToString(duplicationRanking)>");
 
 	//Extract all the methods with initializers
 	println("Extracting methods...");
