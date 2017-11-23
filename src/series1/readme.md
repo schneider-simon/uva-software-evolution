@@ -263,7 +263,7 @@ The duplicates differ depending on the definition that we use:
 We again decided to stay to the paper of Heitlager by default, but leave it as an option to the user to count the originals or not. (See [Configuration.rsc](https://github.com/schneider-simon/uva-software-evolution/blob/master/src/series1/Configuration.rsc)) 
 
 ### Threat to validity: Duplicates across file borders
-
+****
 To calculate the code clones we concatenate the source code of all files in the project and analyze them. Depending on the approach we use for ignoring brackets, we could get false positives because of this. 
 
 Two files that would create a false positive like that can be found here: [File1.java](https://github.com/schneider-simon/uva-software-evolution/blob/master/src/resources/series1/test-code/duplication/File1.java) and [File2.java](https://github.com/schneider-simon/uva-software-evolution/blob/master/src/resources/series1/test-code/duplication/File2.java). 
