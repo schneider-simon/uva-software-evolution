@@ -459,7 +459,10 @@ This implementation is tested manually. First, you have to specify what base cla
 
 # Metric results
 
-We executed the metric and got the following data: [Result data](documentation/output.csv)
+We executed the metric and got the following data: 
+
+* [output.tsv](documentation/output.tsv) - to view in github
+* [output.csv](documentation/output.csv) - to download
 
 # Bibliography
 
