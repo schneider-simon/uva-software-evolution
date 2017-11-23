@@ -20,7 +20,7 @@ We can do this by replacing matches that follow these two regular expressions wi
 1. `/^(\s*\/\/)/` for single line comments (arbitrary white space followed by //) 
 2. `/\/\*[\s\S]*?\*\//` strings that go over multiple lines and start with /* and end with */, between them is any character (nonwhitespace, or whitespace (including new lines))
 
-### Problem: Comments inside strings
+### Threat to validity: Comments inside strings
 
 Before applying these two regexes we have to consider edge cases like the following: 
 
@@ -57,7 +57,7 @@ System.out.println("Hello wolrd %%%|||RASCAL_COMMENT_START|||%%%"
 
 This behaviour is tested in [LinesOfCodeTest.rsc](https://github.com/schneider-simon/uva-software-evolution/blob/master/src/series1/Tests/Volume/LinesOfCodeTest.rsc) via the analyzation of [CommentsInStrings.java](https://github.com/schneider-simon/uva-software-evolution/blob/master/src/resources/series1/test-code/volume/CommentInStrings.java).
 
-### Problem: Curly Brackets
+### Thread to validity: Curly Brackets
 
 The original paper of Heitlager gives a very broad definition of "lines of code" since its supposed to be language agnostic. Languages like python do not use curly brackets, languages like PHP favor brackets in new lines  and Java users usually prefer the opening bracket in the same line as the method definition: 
 
@@ -207,6 +207,8 @@ And then we calculate the total percentage per risk, what results in a score.
 
 Code duplicates were the most painful metric to implement. Not because it is hard to find an efficient algorithm for type-0 clones, but because there are many misconceptions and diffrent understandings that led to many discussions among students. 
 
+### Threat to validity: Counting original lines
+
 This is surprising since the paper of Heitlager gives a pretty clear definition on clones: 
 
 ```text
@@ -260,7 +262,7 @@ The duplicates differ depending on the definition that we use:
 
 We again decided to stay to the paper of Heitlager by default, but leave it as an option to the user to count the originals or not. (See [Configuration.rsc](https://github.com/schneider-simon/uva-software-evolution/blob/master/src/series1/Configuration.rsc)) 
 
-### Problem: Duplicates accross file borders
+### Threat to validity: Duplicates across file borders
 
 To calculate the code clones we concatenate the source code of all files in the project and analyze them. Depending on the approach we use for ignoring brackets, we could get false positives because of this. 
 
@@ -416,8 +418,6 @@ The metric is again calculated like the cyclomatic complexity with the following
 | U Very-high risk  | 75 - ∞      |
 
 
-Alves, T. L., Correia, J. P., & Visser, J. (2011, November). Benchmark-based aggregation of metrics to ratings. In Software Measurement, 2011 Joint Conference of the 21st Int'l Workshop on and 6th Int'l Conference on Software Process and Product Measurement (IWSM-MENSURA) (pp. 20-29). IEEE.
-
 The risk devision for the whole project is calculated and converted to a risk with the following table:
 
 | Risk            | U Low risk  | U Moderate risk | U High risk | U Very-high risk |
@@ -444,9 +444,17 @@ We divide assertions by methods and multiply it by 100. The output 50 means that
 
 An alternative approach would be to calculate how many assertions there are per test method. We used assertions per because then you get a better idea of how much of the functionality is actually tested. Normally you would do with a dynamic coverage test, but this is not possible in Rascal.
 
+## Unit size result for small project
+
+![Unit Size](documentation/images/unit_sizes.png)
+
+Since we already output our data as csv files it is easy to use tools like Excel or R to generate diagrams. 
+We can see that the vast majority of the methods are below 30 lines of code. 
+
 ## Test
 
 This implementation is tested manually. First, you have to specify what base class has to be extended to be called by the unit testing framework. Then you can generate a report with how many assertions there are made and how many methods there are.
+
 
 # Bibliography
 
@@ -459,4 +467,10 @@ Klint, Paul, Tijs Van Der Storm, and Jurgen Vinju. "Rascal: A domain specific la
 
 Roy, Chanchal K., James R. Cordy, and Rainer Koschke. "Comparison and evaluation of code clone detection techniques and tools: A qualitative approach." Science of computer programming 74.7 (2009): 470-495.
 
+#Notes from grading session
+
+* Which errors found with tests
+* Why no unit tests in large project
+* Risk profiles in excel
+* unit size: small 50%
 

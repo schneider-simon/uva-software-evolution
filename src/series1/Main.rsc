@@ -97,9 +97,9 @@ public void doAnalyses(loc eclipsePath) {
 	//Getting unit interfacing metric
 	println("Getting unit interfacing metric..");
 	interfacingOverview interfaceMetric = getUnitInterfacing(declarations);
-	riskOverview risksList = getInterfacingRisksCount(interfaceMetric);
-	Ranking interfacingRank = getUnitInterfacingRating(interfaceMetric, risksList);
-	println("Got unit interfacing rank: <rankingToString(interfacingRank)>; <stringifyRiskOverview(risksList)>");
+	riskOverview interfacingRisksList = getInterfacingRisksCount(interfaceMetric);
+	Ranking interfacingRank = getUnitInterfacingRating(interfaceMetric, interfacingRisksList);
+	println("Got unit interfacing rank: <rankingToString(interfacingRank)>; <stringifyRiskOverview(interfacingRisksList)>");
 	
 	//Get code duplicates
 	println("Getting code duplicates");
@@ -129,17 +129,22 @@ public void doAnalyses(loc eclipsePath) {
 	println("Extracted methods.");
 	list[loc] methodLocations = [method.src | Declaration method <- methods];
 	
-
-	//Get cyclomatic complexity partitions
-	println("Getting Cyclomatic complexity");
-	Ranking cyclomaticComplexityRank = getCyclomaticComplexityRating(methods, model, totalLinesOfCode);
-	println("Got cyclomatic complexity rank: <rankingToString(cyclomaticComplexityRank)>");
 	
 	//Get unit size
 	println("Getting unit size...");
 	UnitSizesPerLocation unitSizesLocations = getUnitSizesPerLocation(methodLocations);
 	Ranking unitSizesRanking = getUnitSizeRanking(unitSizesLocations);
 	println("Got unit size: <rankingToString(unitSizesRanking)>");
+	
+	list[list[str]] unitSizeRows = [ ["<size[0]>", "<size[1]>"] | size <- unitSizesLocations];
+
+	writeCsv(|file:///tmp/unitsize.csv|, ["metho locaction", "unit size"], unitSizeRows);
+	println("WRITTEN TO <|file:///tmp/unitsize.csv|>");
+	
+	//Get cyclomatic complexity partitions
+	println("Getting Cyclomatic complexity");
+	Ranking cyclomaticComplexityRank = getCyclomaticComplexityRating(methods, model, totalLinesOfCode);
+	println("Got cyclomatic complexity rank: <rankingToString(cyclomaticComplexityRank)>");
 
 	CodeProperties codeProperties = emptyCodeProperties;
 	codeProperties.volume = manYearsRanking.rankingType;
@@ -166,6 +171,8 @@ public void doAnalyses(loc eclipsePath) {
 		<"Date", printDateTime(now())>,
 		<"Project", "<eclipsePath>">,
 		<"Duplicate Lines", "<duplicateLines>">,
+		<"Duplication percent", "<duplicatePercentage>">,
+		<"Unit interfacing risks", "<stringifyRiskOverview(interfacingRisksList)>">,
 		<"Lines of code", "<size(codeLines)>">,
 		<"Amount of methods", "<size(methods)>">
 	];
