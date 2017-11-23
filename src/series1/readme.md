@@ -4,38 +4,38 @@
 
 ## Lines of code
 
-Lines of code is one of the simplest or even the simplest metric that one can think of. 
+Lines of code is one of the simplest or even the simplest metric that one can think of.
 
 Heitlager defines it as `all lines of source code that are not comment or blank lines`. [Heitlager, 2007]
 
-Java has two types of comments: 
+Java has two types of comments:
 
 1. single line comments that start with `//`
-2. multiline comments that are surrounded by `/*` and `*/` 
+2. multiline comments that are surrounded by `/*` and `*/`
 
-After reading all files from the project that we are going to analyze we have to remove these comments and blank lines. 
+After reading all files from the project that we are going to analyze we have to remove these comments and blank lines.
 
-We can do this by replacing matches that follow these two regular expressions with an empty string: 
+We can do this by replacing matches that follow these two regular expressions with an empty string:
 
-1. `/^(\s*\/\/)/` for single line comments (arbitrary white space followed by //) 
+1. `/^(\s*\/\/)/` for single line comments (arbitrary white space followed by //)
 2. `/\/\*[\s\S]*?\*\//` strings that go over multiple lines and start with /* and end with */, between them is any character (nonwhitespace, or whitespace (including new lines))
 
 ### Threat to validity: Comments inside strings
 
-Before applying these two regexes we have to consider edge cases like the following: 
+Before applying these two regexes we have to consider edge cases like the following:
 
 ```java
 System.out.println("Hello world /*"
 		+ "asd*/asdsdasd"
-);	
+);
 ```
 
 Fortunately Java only supports strings over a single line. They have to be concatenated by a `+` to reach over multiple lines.
-Applying the regex solution from above will result in a wrong solution (LOC = 2 instead of 3): 
+Applying the regex solution from above will result in a wrong solution (LOC = 2 instead of 3):
 
 ```java
 System.out.println("Hello world asdsdasd"
-);	
+);
 ```
 
 To tackle this we replace every comment start and end inside a string before passing it to the mentioned regex with this function:
@@ -52,14 +52,14 @@ The expected result is then produced (LOC = 3)
 ```java
 System.out.println("Hello wolrd %%%|||RASCAL_COMMENT_START|||%%%"
 		+ "asd%%%|||RASCAL_COMMENT_END|||%%%asdsdasd"
-);	
+);
 ```
 
 This behaviour is tested in [LinesOfCodeTest.rsc](https://github.com/schneider-simon/uva-software-evolution/blob/master/src/series1/Tests/Volume/LinesOfCodeTest.rsc) via the analyzation of [CommentsInStrings.java](https://github.com/schneider-simon/uva-software-evolution/blob/master/src/resources/series1/test-code/volume/CommentInStrings.java).
 
 ### Thread to validity: Curly Brackets
 
-The original paper of Heitlager gives a very broad definition of "lines of code" since its supposed to be language agnostic. Languages like python do not use curly brackets, languages like PHP favor brackets in new lines  and Java users usually prefer the opening bracket in the same line as the method definition: 
+The original paper of Heitlager gives a very broad definition of "lines of code" since its supposed to be language agnostic. Languages like python do not use curly brackets, languages like PHP favor brackets in new lines  and Java users usually prefer the opening bracket in the same line as the method definition:
 
 _PHP: (4 LOC ?) - formatted according to [PSR-2](http://www.php-fig.org/psr/psr-2/)_
 
@@ -79,16 +79,16 @@ public static void main(String[] args) {
 }
 ```
 
-    
+
 _Pyhton: (2 LOC !)_
 
 ```python
-def happyBirthdayEmily(): 
+def happyBirthdayEmily():
     print("Hello, World")
 
 ```
 
-The question arises if we should count bracket lines in the first place since the LOC greatly depend on the style of the programmer or the current conventions of the community. 
+The question arises if we should count bracket lines in the first place since the LOC greatly depend on the style of the programmer or the current conventions of the community.
 
 There are also other practitioners that do not count bracket lines as lines of code [Klint, 2009, p. 9].
 
@@ -128,7 +128,7 @@ However, the last method is easier to understand. The complexity can be used as 
 
 ### How do we calculate the complexity
 
-We calculate the complexity over all units (methods, constructors and static constructors) in the project. We iterate over every statement in the unit and increment the complexity for every `do`, `foreach`, `for`, `if`, `case`, `catch`, `while`, conditional and `||` / `&&` infix operators, because all of these listed elements will result in a new branch. 
+We calculate the complexity over all units (methods, constructors and static constructors) in the project. We iterate over every statement in the unit and increment the complexity for every `do`, `foreach`, `for`, `if`, `case`, `catch`, `while`, conditional and `||` / `&&` infix operators, because all of these listed elements will result in a new branch.
 
 ### How do you count a statement that always branches to one branch
 
@@ -205,11 +205,11 @@ And then we calculate the total percentage per risk, what results in a score.
 
 ## Code duplication
 
-Code duplicates were the most painful metric to implement. Not because it is hard to find an efficient algorithm for type-0 clones, but because there are many misconceptions and diffrent understandings that led to many discussions among students. 
+Code duplicates were the most painful metric to implement. Not because it is hard to find an efficient algorithm for type-0 clones, but because there are many misconceptions and diffrent understandings that led to many discussions among students.
 
 ### Threat to validity: Counting original lines
 
-This is surprising since the paper of Heitlager gives a pretty clear definition on clones: 
+This is surprising since the paper of Heitlager gives a pretty clear definition on clones:
 
 ```text
 We calculate code duplication as the percentage of all code that occurs more than once in equal
@@ -217,7 +217,7 @@ code blocks of at least 6 lines. When comparing code lines, we ignore leading sp
 ```
 [Heitlager, 2007]
 
-Counting every line that occurs more than once means that we have to count the original lines and all of its duplicates. Since the original line is also a line that "occurs more than once". 
+Counting every line that occurs more than once means that we have to count the original lines and all of its duplicates. Since the original line is also a line that "occurs more than once".
 
 On the other hand, there are other sources that give a more elaborate definition of duplicates and some of them state that the original line should not be considered part of the code duplication: [Roy, 2009]
 
@@ -229,7 +229,7 @@ original code base and is denoted as a triple (CF.FileName, CF.BeginLine, CF.End
 if they are similar by some given definition of similarity, that is, f(CF1) = f(CF2) where f is the
 similarity function. Two fragments that are similar to each other form a clone pair (CF1,CF2), and when many fragments are similar, they form a clone class or clone group.
 
-To illustrate the diffrence we can take a look at the following Java code (assume a duplication threshhold of 3): 
+To illustrate the diffrence we can take a look at the following Java code (assume a duplication threshhold of 3):
 
 ```java
 00: package java; 							
@@ -253,22 +253,22 @@ To illustrate the diffrence we can take a look at the following Java code (assum
 18:}
 ```
 
-If we count the brackets (see problem above) we have 19 lines of code. 
+If we count the brackets (see problem above) we have 19 lines of code.
 
-The duplicates differ depending on the definition that we use: 
+The duplicates differ depending on the definition that we use:
 
 * Duplicate lines: **12** [Heitlager, 2007]
 * Duplicate lines: **7** [Roy, 2009]
 
-We again decided to stay to the paper of Heitlager by default, but leave it as an option to the user to count the originals or not. (See [Configuration.rsc](https://github.com/schneider-simon/uva-software-evolution/blob/master/src/series1/Configuration.rsc)) 
+We again decided to stay to the paper of Heitlager by default, but leave it as an option to the user to count the originals or not. (See [Configuration.rsc](https://github.com/schneider-simon/uva-software-evolution/blob/master/src/series1/Configuration.rsc))
 
 ### Threat to validity: Duplicates across file borders
 ****
-To calculate the code clones we concatenate the source code of all files in the project and analyze them. Depending on the approach we use for ignoring brackets, we could get false positives because of this. 
+To calculate the code clones we concatenate the source code of all files in the project and analyze them. Depending on the approach we use for ignoring brackets, we could get false positives because of this.
 
-Two files that would create a false positive like that can be found here: [File1.java](https://github.com/schneider-simon/uva-software-evolution/blob/master/src/resources/series1/test-code/duplication/File1.java) and [File2.java](https://github.com/schneider-simon/uva-software-evolution/blob/master/src/resources/series1/test-code/duplication/File2.java). 
+Two files that would create a false positive like that can be found here: [File1.java](https://github.com/schneider-simon/uva-software-evolution/blob/master/src/resources/series1/test-code/duplication/File1.java) and [File2.java](https://github.com/schneider-simon/uva-software-evolution/blob/master/src/resources/series1/test-code/duplication/File2.java).
 
-This cannot be desirable because the amount of code duplicates that depends on the order in which the files are read. We, therefore, added a "page break" token to tell the duplication algorithm that he cannot compare code duplicates across file borders. 
+This cannot be desirable because the amount of code duplicates that depends on the order in which the files are read. We, therefore, added a "page break" token to tell the duplication algorithm that he cannot compare code duplicates across file borders.
 
 ### Problem: Prune / preprocessing the code
 
@@ -448,13 +448,33 @@ An alternative approach would be to calculate how many assertions there are per 
 
 ![Unit Size](documentation/images/unit_sizes.png)
 
-Since we already output our data as csv files it is easy to use tools like Excel or R to generate diagrams. 
-We can see that the vast majority of the methods are below 30 lines of code. 
+Since we already output our data as csv files it is easy to use tools like Excel or R to generate diagrams.
+We can see that the vast majority of the methods are below 30 lines of code.
 
 ## Test
 
 This implementation is tested manually. First, you have to specify what base class has to be extended to be called by the unit testing framework. Then you can generate a report with how many assertions there are made and how many methods there are.
 
+# Metric results
+
+| Risk           | Assertions per production method |
+| -------------- |:--------------------: |
+| ++ | 3-10 assertions per method  |
+| +  | 2-3 assertions per method  |
+| O  | 1-2 assertions per method  |
+| -  | 0.5-1 assertions per method  |
+| -- | 0-0.5 assertions per method  |
+
+|Date|Project|Duplicate Lines|Duplication percent|Unit interfacing risks|Unit size risks|Cyclometic complexity risks|Lines of code|Amount of methods|
+| ---- |
+|2017-11-23 19:51:36.316+0000|project://smallsql|2560|10.64449064000|Low: 981 (91%), Normal: 68 (6%), High: 27 (2%), VeryHigh: 6 (1%)|Low: 2304 (95%), Normal: 46 (2%), High: 48 (2%), VeryHigh: 17 (1%)|Low: 15909 (74%), Normal: 1747 (8%), High: 2481 (12%), VeryHigh: 1255 (6%)|24050|2415|
+|2017-11-23 22:00:28.401+0000|project://hsqldb|24005|15.11136012000|Low: 4455 (88%), Normal: 352 (7%), High: 127 (3%), VeryHigh: 114 (2%)|Low: 9705 (91%), Normal: 405 (4%), High: 327 (3%), VeryHigh: 240 (2%)|Low: 89623 (62%), Normal: 21047 (15%), High: 17243 (12%), VeryHigh: 16682 (12%)|158854|10677|
+
+
+|Date|Project|Volume|ComplexityPerUnit|Dupliction|UnitSize|UnitTesting|UnitInterfacing|Analysability|Changeability|Stability|Testability|
+| ---- |
+|2017-11-23 19:51:36.316+0000|project://smallsql|++|-|-|-|--|-|o|-|--|-|
+|2017-11-23 22:00:28.401+0000|project://hsqldb|+|--|-|-|--|-|-|-|--|--|
 
 # Bibliography
 
@@ -473,4 +493,3 @@ Roy, Chanchal K., James R. Cordy, and Rainer Koschke. "Comparison and evaluation
 * Why no unit tests in large project
 * Risk profiles in excel
 * unit size: small 50%
-
