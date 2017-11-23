@@ -461,8 +461,8 @@ This implementation is tested manually. First, you have to specify what base cla
 
 We executed the metric and got the following data: 
 
-* [output.tsv](documentation/output.tsv) - to view in github
-* [output.csv](documentation/output.csv) - to download
+* [output.tsv](https://github.com/schneider-simon/uva-software-evolution/blob/master/src/series1/documentation/output.tsv) - to view in github
+* [output.csv](https://raw.githubusercontent.com/schneider-simon/uva-software-evolution/master/src/series1/documentation/output.csv) - to download
 
 # Bibliography
 
