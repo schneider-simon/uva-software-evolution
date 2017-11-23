@@ -134,7 +134,7 @@ public void doAnalyses(loc eclipsePath) {
 	println("Getting unit size...");
 	UnitSizesPerLocation unitSizesLocations = getUnitSizesPerLocation(methodLocations);
 	riskOverview unitSizeRisksList = getUnitSizeRiskOverview(unitSizesLocations);
-	Ranking unitSizesRanking = getUnitSizeRanking(unitSizeRisksList);
+	Ranking unitSizesRanking = getUnitSizeRanking(unitSizeRisksList, unitSizesLocations);
 	println("Got unit size: <rankingToString(unitSizesRanking)>");
 	
 	list[list[str]] unitSizeRows = [ ["<size[0]>", "<size[1]>"] | size <- unitSizesLocations];
@@ -145,7 +145,7 @@ public void doAnalyses(loc eclipsePath) {
 	//Get cyclomatic complexity partitions
 	println("Getting Cyclomatic complexity");
 	riskOverview cycloRisksList = cyclomaticLinesPerPartion(methods, model);
-	Ranking cyclomaticComplexityRank = getCyclomaticComplexityRating(methods, model, totalLinesOfCode);
+	Ranking cyclomaticComplexityRank = getCyclomaticComplexityRating(cycloRisksList, totalLinesOfCode);
 	println("Got cyclomatic complexity rank: <rankingToString(cyclomaticComplexityRank)>");
 
 	CodeProperties codeProperties = emptyCodeProperties;

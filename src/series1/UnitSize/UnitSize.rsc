@@ -28,7 +28,7 @@ complexityRating mid = <31,44>;
 complexityRating high = <45,74>;
 complexityRating veryHigh = <75,-1>;
 
-Ranking getUnitSizeRanking(riskOverview risksList) {
+Ranking getUnitSizeRanking(riskOverview risksList, UnitSizesPerLocation unitSizesLocations) {
 	return getScaleRating(risksList, size(unitSizesLocations), risks);
 }
 
