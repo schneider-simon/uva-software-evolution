@@ -50,12 +50,12 @@ return visit(stringContent){
 The expected result is then produced (LOC = 3)
 
 ```java
-System.out.println("Hello world %%%|||RASCAL_COMMENT_START|||%%%"
+System.out.println("Hello wolrd %%%|||RASCAL_COMMENT_START|||%%%"
 		+ "asd%%%|||RASCAL_COMMENT_END|||%%%asdsdasd"
 );
 ```
 
-Fortunatly, we were able to find this behaviour with an automated test: [LinesOfCodeTest.rsc](https://github.com/schneider-simon/uva-software-evolution/blob/master/src/series1/Tests/Volume/LinesOfCodeTest.rsc) via the analyzation of [CommentsInStrings.java](https://github.com/schneider-simon/uva-software-evolution/blob/master/src/resources/series1/test-code/volume/CommentInStrings.java).
+This behaviour is tested in [LinesOfCodeTest.rsc](https://github.com/schneider-simon/uva-software-evolution/blob/master/src/series1/Tests/Volume/LinesOfCodeTest.rsc) via the analyzation of [CommentsInStrings.java](https://github.com/schneider-simon/uva-software-evolution/blob/master/src/resources/series1/test-code/volume/CommentInStrings.java).
 
 ### Thread to validity: Curly Brackets
 
@@ -444,11 +444,15 @@ We divide assertions by methods and multiply it by 100. The output 50 means that
 
 An alternative approach would be to calculate how many assertions there are per test method. We used assertions per because then you get a better idea of how much of the functionality is actually tested. Normally you would do with a dynamic coverage test, but this is not possible in Rascal.
 
+## What is a test class
+
+We mark a class as a test class when it derives from a certain base class. This can be specified in the configuration file, what makes it possible that we almost can cover all Java test frameworks.
+
+By using this implementation, we could not support the hsqldb project for this test metric. With this project, it is also unclear what a unit test is, and what is tested. It was too much work to support all these kinds of different test approaches for this course.   
+
 ## Unit size result for small project
 
 ![Unit Size](documentation/images/unit_sizes.png)
-
-Raw data: [unitsize.csv](documentation/unitsize.csv)
 
 Since we already output our data as csv files it is easy to use tools like Excel or R to generate diagrams.
 We can see that the vast majority of the methods are below 30 lines of code.
@@ -459,17 +463,50 @@ This implementation is tested manually. First, you have to specify what base cla
 
 # Metric results
 
-We executed the metric and got the following data: 
+We executed the metric and got the following data:
 
-* [output.tsv](https://github.com/schneider-simon/uva-software-evolution/blob/master/src/series1/documentation/output.tsv) - to view in github
-* [output.csv](https://raw.githubusercontent.com/schneider-simon/uva-software-evolution/master/src/series1/documentation/output.csv) - to download
+|Date|Project|Duplicate Lines|Duplication percent|Unit interfacing risks|Unit size risks|
+| ---- |
+|2017-11-23 19:51:36.316+0000|project://smallsql|2560|10.64449064000|Low: 981 (91%), Normal: 68 (6%), High: 27 (2%), VeryHigh: 6 (1%)|Low: 2304 (95%), Normal: 46 (2%), High: 48 (2%), VeryHigh: 17 (1%)|
+|2017-11-23 22:00:28.401+0000|project://hsqldb|24005|15.11136012000|Low: 4455 (88%), Normal: 352 (7%), High: 127 (3%), VeryHigh: 114 (2%)|Low: 9705 (91%), Normal: 405 (4%), High: 327 (3%), VeryHigh: 240 (2%)
+
+|Date|Project|Cyclometic complexity risks|Lines of code|Amount of methods|
+| ---- |
+|2017-11-23 19:51:36.316+0000|project://smallsql|Low: 15909 (74%), Normal: 1747 (8%), High: 2481 (12%), VeryHigh: 1255 (6%)|24050|2415|
+|2017-11-23 22:00:28.401+0000|project://hsqldb|Low: 89623 (62%), Normal: 21047 (15%), High: 17243 (12%), VeryHigh: 16682 (12%)|158854|10677|
+
+The data has been converted according to the "A practical model for measuring maintainability" [Heitlager, 2007] paper, to the following scores:
+
+|Date|Project|Volume|ComplexityPerUnit|Dupliction|UnitSize|
+| ---- |
+|2017-11-23 19:51:36.316+0000|project://smallsql|++|-|-|-|
+|2017-11-23 22:00:28.401+0000|project://hsqldb|+|--|-|-|
+
+|Date|Project|UnitTesting|UnitInterfacing|Analysability|Changeability|
+| ---- |
+|2017-11-23 19:51:36.316+0000|project://smallsql|--|-|o|-|
+|2017-11-23 22:00:28.401+0000|project://hsqldb|--|-|-|-|
+
+|Date|Project|Stability|Testability|
+| ---- |
+|2017-11-23 19:51:36.316+0000|project://smallsql|--|-|
+|2017-11-23 22:00:28.401+0000|project://hsqldb|--|--|
+
 
 # Bibliography
 
 Alves, T. L., Correia, J. P., & Visser, J. (2011, November). Benchmark-based aggregation of metrics to ratings. In Software Measurement, 2011 Joint Conference of the 21st Int'l Workshop on and 6th Int'l Conference on Software Process and Product Measurement (IWSM-MENSURA) (pp. 20-29). IEEE.
+
 
 Heitlager, Ilja, Tobias Kuipers, and Joost Visser. "A practical model for measuring maintainability." Quality of Information and Communications Technology, 2007. QUATIC 2007. 6th International Conference on the. IEEE, 2007.
 
 Klint, Paul, Tijs Van Der Storm, and Jurgen Vinju. "Rascal: A domain specific language for source code analysis and manipulation." Source Code Analysis and Manipulation, 2009. SCAM'09. Ninth IEEE International Working Conference on. IEEE, 2009.
 
 Roy, Chanchal K., James R. Cordy, and Rainer Koschke. "Comparison and evaluation of code clone detection techniques and tools: A qualitative approach." Science of computer programming 74.7 (2009): 470-495.
+
+#Notes from grading session
+
+* Which errors found with tests
+* Why no unit tests in large project
+* Risk profiles in excel
+* unit size: small 50%
