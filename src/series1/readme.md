@@ -457,14 +457,6 @@ This implementation is tested manually. First, you have to specify what base cla
 
 # Metric results
 
-| Risk           | Assertions per production method |
-| -------------- |:--------------------: |
-| ++ | 3-10 assertions per method  |
-| +  | 2-3 assertions per method  |
-| O  | 1-2 assertions per method  |
-| -  | 0.5-1 assertions per method  |
-| -- | 0-0.5 assertions per method  |
-
 |Date|Project|Duplicate Lines|Duplication percent|Unit interfacing risks|Unit size risks|Cyclometic complexity risks|Lines of code|Amount of methods|
 | ---- |
 |2017-11-23 19:51:36.316+0000|project://smallsql|2560|10.64449064000|Low: 981 (91%), Normal: 68 (6%), High: 27 (2%), VeryHigh: 6 (1%)|Low: 2304 (95%), Normal: 46 (2%), High: 48 (2%), VeryHigh: 17 (1%)|Low: 15909 (74%), Normal: 1747 (8%), High: 2481 (12%), VeryHigh: 1255 (6%)|24050|2415|
