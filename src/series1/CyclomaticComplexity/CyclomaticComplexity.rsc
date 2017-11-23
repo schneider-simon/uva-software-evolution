@@ -24,11 +24,7 @@ list[maxRisk] risks = [ <veryPositive,-1,25,0,0>,
 						<veryNegative,-1,-1,-1,-1>
 					  ]; 
 
-public Ranking getCyclomaticComplexityRating(list[Declaration] declMethods, M3 model, int linesOfCode) {
-	riskOverview risksList = cyclomaticLinesPerPartion(declMethods, model);
-
-	printDebug(stringifyRiskOverview(risksList));
-
+public Ranking getCyclomaticComplexityRating(riskOverview risksList, int linesOfCode) {
 	return getScaleRating(risksList, linesOfCode, risks);
 }
 

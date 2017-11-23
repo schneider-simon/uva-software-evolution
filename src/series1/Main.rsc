@@ -18,6 +18,7 @@ import series1::Ranking::Scores;
 import series1::Duplication::Duplication;
 import series1::Duplication::DuplicationRank;
 import series1::Configuration;
+import series1::Helpers::BenchmarkHelper;
 
 import series1::Helpers::ProjectFilesHelper;
 import series1::Helpers::OutputHelper;
@@ -129,11 +130,11 @@ public void doAnalyses(loc eclipsePath) {
 	println("Extracted methods.");
 	list[loc] methodLocations = [method.src | Declaration method <- methods];
 	
-	
 	//Get unit size
 	println("Getting unit size...");
 	UnitSizesPerLocation unitSizesLocations = getUnitSizesPerLocation(methodLocations);
-	Ranking unitSizesRanking = getUnitSizeRanking(unitSizesLocations);
+	riskOverview unitSizeRisksList = getUnitSizeRiskOverview(unitSizesLocations);
+	Ranking unitSizesRanking = getUnitSizeRanking(unitSizeRisksList);
 	println("Got unit size: <rankingToString(unitSizesRanking)>");
 	
 	list[list[str]] unitSizeRows = [ ["<size[0]>", "<size[1]>"] | size <- unitSizesLocations];
@@ -143,6 +144,7 @@ public void doAnalyses(loc eclipsePath) {
 	
 	//Get cyclomatic complexity partitions
 	println("Getting Cyclomatic complexity");
+	riskOverview cycloRisksList = cyclomaticLinesPerPartion(methods, model);
 	Ranking cyclomaticComplexityRank = getCyclomaticComplexityRating(methods, model, totalLinesOfCode);
 	println("Got cyclomatic complexity rank: <rankingToString(cyclomaticComplexityRank)>");
 
@@ -173,6 +175,8 @@ public void doAnalyses(loc eclipsePath) {
 		<"Duplicate Lines", "<duplicateLines>">,
 		<"Duplication percent", "<duplicatePercentage>">,
 		<"Unit interfacing risks", "<stringifyRiskOverview(interfacingRisksList)>">,
+		<"Unit size risks", "<stringifyRiskOverview(unitSizeRisksList)>">,
+		<"Cyclometic complexity risks","<stringifyRiskOverview(cycloRisksList)>">,
 		<"Lines of code", "<size(codeLines)>">,
 		<"Amount of methods", "<size(methods)>">
 	];
