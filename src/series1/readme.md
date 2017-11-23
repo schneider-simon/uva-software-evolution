@@ -448,6 +448,8 @@ An alternative approach would be to calculate how many assertions there are per 
 
 ![Unit Size](documentation/images/unit_sizes.png)
 
+Raw data: [unitsize.csv](documentation/unitsize.csv)
+
 Since we already output our data as csv files it is easy to use tools like Excel or R to generate diagrams.
 We can see that the vast majority of the methods are below 30 lines of code.
 
