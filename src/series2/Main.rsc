@@ -71,6 +71,7 @@ public void doAnalyses(loc eclipsePath) {
 	set[Declaration] ast = createAstsFromEclipseProject(eclipsePath, true);
 	//stopMeasure("LoadAST");
 	
+	/*
 	tuple[FileLineMapping fileMapping, list[str] codeLines] filesResult = getCodeLinesFromFiles(projectFiles);
 	FileLineMapping fileLineMapping = filesResult.fileMapping;
 	list[str] codeLines = filesResult.codeLines;
@@ -79,8 +80,9 @@ public void doAnalyses(loc eclipsePath) {
 	DuplicationExport duplicationExport = getDuplicationExport(fileLineMapping, codeLines, duplicateLineIndexes);
 	
 	writeDuplicationReport(|file:///tmp/duplicationReport.rdexp|, duplicationExport);
+	*/
 	
-	//doCloneDetection(ast);
+	doCloneDetection(ast);
 
 
 

@@ -1,6 +1,6 @@
 module series1::Configuration
 
-public bool CURLY_BRACKETS_ARE_CODE = true;
+public bool CURLY_BRACKETS_ARE_CODE = false;
 
 public int DUPLICATION_THRESHOLD = 6;
 public bool DUPLICATON_USE_PRUNING = true;

@@ -17,7 +17,7 @@ public void doCloneDetection(set[Declaration] ast) {
 
 	//For type 2 - 3. Names are types are removed
 	println("Get normalized AST");
-	list[nodeLoc] normalizedAst = getNormalizedLocationAst(ast);
+	set[Declaration] normalizedAst = getNormalizedLocationAst(ast);
 	println("End get normalized AST");
 	
 	//Get combinations
@@ -27,9 +27,9 @@ public void doCloneDetection(set[Declaration] ast) {
 	
 	for (nodeLA <- normalizedAst) {
 		for (nodeLB <- normalizedAst) {
-			num similarity = nodeSimilarity(nodeLA.n, nodeLB.n);
+			num similarity = nodeSimilarity(nodeLA, nodeLB);
 		
-			iprintln("Loc: <nodeLA.l> - <nodeLB.l> : similarity: <similarity>");
+			iprintln("Similarity: <similarity>");
 		}
 	}
 	
@@ -61,104 +61,50 @@ public num nodeSimilarity(node nodeA, node nodeB) {
 }
 
 //Will remove all items that are inrelevant for type 2 and 3
-public list[nodeLoc] getNormalizedLocationAst(set[Declaration] ast) {
+public set[Declaration] getNormalizedLocationAst(set[Declaration] ast) {
 
-	list[nodeLoc] astLocations = [];
-
-	visit(ast) {
-		case node nodeItem: {
-			node normalizedNode = normalizeNode(nodeItem);
-			loc location = nodeFileLocation(normalizedNode);
-			astLocations += <location,normalizedNode>;
-		}
-	}
-	
-	return astLocations;
-}
-
-/*
-	We are not interested in other locations. We compare blocks, and a block 
-	is a Declaration, Expression or Statement
-*/
-public loc nodeFileLocation(node n) {
-
-	if (Declaration d := n) { 
-		return d.decl;
-	}
-	
-	if (Expression e := n) { 
-		return e.src;
-	}
-	
-	if (Statement s := n) { 
-		return s.src;
-	}	 
-	
-	return noLocation;
-}
-
-/**
-	The following elements do not have to be changed:
-		* compilationUnit
-		* enum
-		* class without name
-		* initializer
-		* import
-		* package
-		* arrayAccess
-		* arrayInitializer
-		* assignment
-		* qualifiedName
-		* conditional
-		* instanceof
-		* null
-		* ....
-*/
-public node normalizeNode(nodeItem) {
-	switch(nodeItem) {
-		case \enumConstant(_, args, cls): return \enumConstant("enumConstant", args, cls);
-		case \enumConstant(_, args): return \enumConstant("enumConstant", args);
-		case \class(_, ext, imp, bod): return \class("class", ext, imp, bod);
-		case \interface(_, ext, imp, bod): return \interface("interface", ext, imp, bod);
+	return visit(ast) {
+		case \enumConstant(_, args, cls) => \enumConstant("enumConstant", args, cls)
+		case \enumConstant(_, args) => \enumConstant("enumConstant", args)
+		case \class(_, ext, imp, bod) => \class("class", ext, imp, bod)
+		case \interface(_, ext, imp, bod) => \interface("interface", ext, imp, bod)
 			//case \field(_, frags): return \field(defaultType, frags);
-		//case \method(_, _, pars, expr, imp): return lang::java::jdt::m3::AST::method(defaultType, "method", pars, expr, imp)
-		//case \method(_, _, pars, expr): return lang::java::jdt::m3::AST::method(defaultType, "method", pars, expr)
-		case \constructor(_, pars, expr, impl): return \constructor("constructor", pars, expr, impl);
-		case \variable(_,ext): return \variable("variableName",ext);
-		case \variable(_,ext, ini): return \variable("variable",ext,ini);
-		case \typeParameter(_, ext): return \typeParameter("typeParameter",ext);
-		case \annotationType(_, bod): return \annotationType("annotationType", bod);
-		case \annotationTypeMember(_, _): return \annotationTypeMember(defaultType, "annotationTypeMember");
-		case \annotationTypeMember(_, _, def): return \annotationTypeMember(defaultType, "annotationTypeMember", def);
-		case \parameter(_, _, ext): return \parameter(defaultType, "parameter", ext);
-		case \vararg(_, _): return \vararg(defaultType, "vararg");
+		case \method(_, _, pars, expr, imp) => \method(defaultType, "method", pars, expr, imp)
+		case \method(_, _, a, b) => \method(lang::java::jdt::m3::AST::float(), "method", a, b)
+		case \constructor(_, pars, expr, impl) => \constructor("constructor", pars, expr, impl)
+		case \variable(_,ext) => \variable("variableName",ext)
+		case \variable(_,ext, ini) => \variable("variable",ext,ini)
+		case \typeParameter(_, ext) => \typeParameter("typeParameter",ext)
+		case \annotationType(_, bod) => \annotationType("annotationType", bod)
+		case \annotationTypeMember(_, _) => \annotationTypeMember(defaultType, "annotationTypeMember")
+		case \annotationTypeMember(_, _, def) => \annotationTypeMember(defaultType, "annotationTypeMember", def)
+		case \parameter(_, _, ext) => \parameter(defaultType, "parameter", ext)
+		case \vararg(_, _) => \vararg(defaultType, "vararg")
 			//case \newArray(_, dim, ini): return \newArray(defaultType, dim, ini);
 			//case \newArray(_, dim): return \newArray(defaultType, dim);
 			//case \cast(_, exp): return \cast(defaultType, exp);
-		case \characterLiteral(_): return \characterLiteral("a");
+		case \characterLiteral(_) => \characterLiteral("a")
 			//case \newObject(exp, _, arg, cls): return \newObject(exp, defaultType, arg, cls);
 			//case \newObject(exp, _, arg, cls): return \newObject(exp, defaultType, arg);
 	    	//case \newObject(_, arg, cls): return \newObject(defaultType, arg, cls);
 			//case \newObject(_, arg, cls): return \newObject(defaultType, arg);
 			//case \fieldAccess(is, ex, _): return \fieldAccess(is, ex, "fa");
-		case \fieldAccess(is, _): return \fieldAccess(is, "fa");
-		case \methodCall(is, _, arg): return \methodCall(is, "methodCall", arg);
-		case \methodCall(is, expr, _, arg): return \methodCall(is, expr, "methodCall", arg);
-		case \number(_): return \number("1");
-		case \booleanLiteral(_): return \booleanLiteral(true);
-		case \stringLiteral(_): return \stringLiteral("str");
-		case \type(_): return \type(defaultType);
-		case \simpleName(_): return \simpleName("simpleName");
-		case \markerAnnotation(_): return \markerAnnotation("markerAnnotation");
-		case \normalAnnotation(_, memb): return \normalAnnotation("normalAnnotation", memb);
-		case \memberValuePair(_, vl): return \memberValuePair("memberValuePair", vl);          
-		case \singleMemberAnnotation(_, vl): return \singleMemberAnnotation("singleMemberAnnotation", vl);
-		case \break(_): return \break("break");
-		case \continue(_): return \continue("continue"); 
-		case \label(_, bdy): return \label("label", bdy);
-		case Type _: return defaultType;
-		case Modifier _: return \public();
+		case \fieldAccess(is, _) => \fieldAccess(is, "fa")
+		case \methodCall(is, _, arg) => \methodCall(is, "methodCall", arg)
+		case \methodCall(is, expr, _, arg) => \methodCall(is, expr, "methodCall", arg)
+		case \number(_) => \number("1")
+		case \booleanLiteral(_) => \booleanLiteral(true)
+		case \stringLiteral(_) => \stringLiteral("str")
+		case \type(_) => \type(defaultType)
+		case \simpleName(_) => \simpleName("simpleName")
+		case \markerAnnotation(_) => \markerAnnotation("markerAnnotation")
+		case \normalAnnotation(_, memb) => \normalAnnotation("normalAnnotation", memb)
+		case \memberValuePair(_, vl) => \memberValuePair("memberValuePair", vl)    
+		case \singleMemberAnnotation(_, vl) => \singleMemberAnnotation("singleMemberAnnotation", vl)
+		case \break(_) => \break("break")
+		case \continue(_) => \continue("continue")
+		case \label(_, bdy) => \label("label", bdy)
+		case Type _ => defaultType
+		case Modifier _ => lang::java::jdt::m3::AST::\public()
 	}
-	
-	return nodeItem;
 }
