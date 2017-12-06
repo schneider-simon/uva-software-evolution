@@ -17,9 +17,8 @@ import series2::Helpers::LogHelper;
 import series2::Helpers::BenchmarkHelper;
 import series2::Helpers::ProjectFilesHelper;
 import series2::Helpers::OutputHelper;
-import series2::Duplication::Duplication;
-import series2::Duplication::DuplicationExporter;
 import series2::Configuration;
+import series2::CloneDetection::CloneExporter;
 
 import DateTime;
 
@@ -86,6 +85,9 @@ public void doAnalyses(loc eclipsePath) {
 	cloneDetectionResult cloneResult = doCloneDetection(ast, true, 6, 100.0);
 	iprintln(cloneResult.connections);
 	
+	cloneResultToJson(cloneResult);
+	
+	/**
 	for(connection <- cloneResult.connections) {
 		loc la = cloneResult.nodeDetails[connection.f].l;
 		loc lb = cloneResult.nodeDetails[connection.s].l;
@@ -100,5 +102,5 @@ public void doAnalyses(loc eclipsePath) {
 		iprintln("");
 		iprintln(lbs);
 		iprintln("");
-	}
+	}*/
 }
