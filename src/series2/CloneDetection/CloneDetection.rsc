@@ -13,8 +13,8 @@ import Set;
 import util::Math;
 
 alias nodeS = tuple[node d,int s];
-alias nodeDetailed = tuple[int id, node d, loc l, int s]; 
-alias cloneDetectionResult = tuple[list[nodeDetailed] nodeDetails, lrel[nodeId,nodeId] connections];
+alias nodeDetailed = tuple[nodeId id, node d, loc l, int s]; 
+alias cloneDetectionResult = tuple[list[nodeDetailed] nodeDetails, rel[nodeId,nodeId] connections];
 alias nodeId = int;
 
 loc noLocation = |project://uva-software-evolution/|;
@@ -22,7 +22,9 @@ Type defaultType = lang::java::jdt::m3::AST::short();
 
 //Start clone detection
 //Type 2: simularity = 100
-public void doCloneDetection(set[Declaration] ast, int minimalNodeGroupSize, real minimalSimularity) {
+public cloneDetectionResult doCloneDetection(set[Declaration] ast, int minimalNodeGroupSize, real minimalSimularity) {
+
+	cloneDetectionResult results = <[],{}>;
 
 	//For type 2 - 3. Names are types are removed
 	println("Get normalized AST");
@@ -42,6 +44,7 @@ public void doCloneDetection(set[Declaration] ast, int minimalNodeGroupSize, rea
 									size := nodeSize(nodeI),
 									size >= minimalNodeGroupSize,
 									nLoc != noLocation ];
+							
 	println("End adding node details");
 
 	println("Comparing nodes");
@@ -74,9 +77,13 @@ public void doCloneDetection(set[Declaration] ast, int minimalNodeGroupSize, rea
 			//Log items that are the same
 			iprintln("Similarity: <similarity>");
 			iprintln("Loc a: <nodeLA.l> Loc b: <nodeLB.l>");
+			results.connections[nodeLA.id] = nodeLB.id;
 		}
 	}
 	println("End comparing nodes");
+	
+	results.nodeDetails	= nodeWLoc;
+	return results;
 }
 
 public int nodeSize(node nodeItem) {
