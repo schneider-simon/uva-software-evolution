@@ -13,7 +13,7 @@ import Set;
 import util::Math;
 
 alias nodeS = tuple[node d,int s];
-alias nodeDetailed = tuple[int id, node d, loc l]; 
+alias nodeDetailed = tuple[int id, node d, loc l, int s]; 
 alias cloneDetectionResult = tuple[list[nodeDetailed] nodeDetails, lrel[nodeId,nodeId] connections];
 alias nodeId = int;
 
@@ -29,40 +29,41 @@ public void doCloneDetection(set[Declaration] ast, int minimalNodeGroupSize, rea
 	set[Declaration] normalizedAst = getNormalizedLocationAst(ast);
 	println("End normalized AST");
 	
-	//TODO: Add index, later only compare when: a.id < b.id ZIP
-	//TODO: Get locations, add next to the node! (first src?)
-	//TODO: Remove the locations in the node unsetRec
-	
 	//Create list of all nodes
 	println("Creating node list");
 	list[node] nodes = declarationToNodeList(normalizedAst);
 	println("End creating node list");
 	
-	//TODO: Do this step in the node list creation
-	println("Getting size of nodes");
-	list[nodeS] nodeSizes = [ <item,size> | item <- nodes, size := nodeSize(item), size >= minimalNodeGroupSize];
-	println("End getting size of nodes");
-
-	text(nodeSizes);
+	println("Adding node details");
+	list[tuple[int id, node n]] nodeWId = zip([1..(size(nodes) + 1)], nodes);
+	list[nodeDetailed] nodeWLoc = [ <id, unsetRec(nodeI), nLoc, size> | 
+									<id,nodeI> <- nodeWId, 
+									nLoc := nodeFileLocation(nodeI), 
+									size := nodeSize(nodeI),
+									size >= minimalNodeGroupSize,
+									nLoc != noLocation ];
+	println("End adding node details");
 
 	println("Comparing nodes");
-	int nodeItems = size(nodeSizes);
+	int nodeItems = size(nodeWLoc);
 	int counter = 0;
-	
-	for (nodeLA <- nodeSizes) {
+	for (nodeLA <- nodeWLoc) {
 		iprintln("<counter> / <nodeItems>");
 		counter = counter + 1;
 		
 		//TODO: only with higher ID!
-		for (nodeLB <- nodeSizes) {
-			//When the node count difference is too much, the simulairty cannot be in the margin
-			if( nodeLA.s > nodeLB.s || nodeLB.s == 0 || percent(nodeLA.s,nodeLB.s) < minimalSimularity)
+		for (nodeLB <- nodeWLoc) {
+				
+			//Only comapre with biger items, otherwise duplicates
+			if(nodeLA.id >= nodeLB.id)
 				continue;
-			
+				
 			//Compare different and valid locations
-			loc LAloc = nodeFileLocation(nodeLA.d);
-			loc LBloc = nodeFileLocation(nodeLB.d);
-			if(LAloc == LBloc || LAloc == noLocation || LBloc == noLocation) 
+			if(nodeLA.l == nodeLB.l || nodeLA.l == noLocation || nodeLB.l == noLocation) 
+				continue;
+		
+			//When the node count difference is too much, the simulairty cannot be in the margin
+			if( nodeLA.s > nodeLB.s || nodeLB.s == 0 || nodeLA.s == 0 || percent(nodeLA.s,nodeLB.s) < minimalSimularity)
 				continue;
 			
 			//Minimal similarity
@@ -72,7 +73,7 @@ public void doCloneDetection(set[Declaration] ast, int minimalNodeGroupSize, rea
 							
 			//Log items that are the same
 			iprintln("Similarity: <similarity>");
-			iprintln("Loc a: <LAloc> Loc b: <LBloc>");
+			iprintln("Loc a: <nodeLA.l> Loc b: <nodeLB.l>");
 		}
 	}
 	println("End comparing nodes");
@@ -120,7 +121,9 @@ public num nodeSimilarity(node nodeA, node nodeB) {
 	num sameElements = size(nodeList1 & nodeList2);
 	num totalItems = size(nodeList1) + size(nodeList2) - sameElements;
 	
-	return sameElements / totalItems;
+	//iprintln("sameElements: <sameElements> totalItems: <totalItems>");
+	
+	return sameElements / totalItems * 100;
 }
 
 /*
