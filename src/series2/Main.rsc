@@ -82,5 +82,5 @@ public void doAnalyses(loc eclipsePath) {
 	writeDuplicationReport(|file:///tmp/duplicationReport.rdexp|, duplicationExport);
 	*/
 	
-	doCloneDetection(ast);
+	doCloneDetection(ast, 6, 100.0);
 }
