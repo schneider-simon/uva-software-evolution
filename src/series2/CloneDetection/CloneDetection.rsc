@@ -13,7 +13,7 @@ import Set;
 import util::Math;
 
 alias nodeS = tuple[node d,int s];
-alias nodeDetailed = tuple[nodeId id, node d, loc l, int s]; 
+alias nodeDetailed = tuple[nodeId id, node d, loc l, int s];
 alias cloneDetectionResult = tuple[map[nodeId, nodeDetailed] nodeDetails, rel[nodeId f,nodeId s] connections];
 alias nodeId = int;
 
@@ -34,21 +34,21 @@ public cloneDetectionResult doCloneDetection(set[Declaration] ast, bool normaliz
 		testOnAst = getNormalizedLocationAst(ast);
 		println("End normalized AST");
 	}
-	
+
 	//Create list of all nodes
 	println("Creating node list");
 	list[node] nodes = declarationToNodeList(testOnAst);
 	println("End creating node list");
-	
+
 	println("Adding node details");
 	list[tuple[int id, node n]] nodeWId = zip([1..(size(nodes) + 1)], nodes);
-	list[nodeDetailed] nodeWLoc = [ <id, unsetRec(nodeI), nLoc, size> | 
-									<id,nodeI> <- nodeWId, 
-									nLoc := nodeFileLocation(nodeI), 
+	list[nodeDetailed] nodeWLoc = [ <id, unsetRec(nodeI), nLoc, size> |
+									<id,nodeI> <- nodeWId,
+									nLoc := nodeFileLocation(nodeI),
 									size := nodeSize(nodeI),
 									size >= minimalNodeGroupSize,
 									nLoc != noLocation ];
-							
+
 	println("End adding node details");
 
 	println("Comparing nodes");
@@ -57,27 +57,27 @@ public cloneDetectionResult doCloneDetection(set[Declaration] ast, bool normaliz
 	for (nodeLA <- nodeWLoc) {
 		iprintln("<counter> / <nodeItems>");
 		counter = counter + 1;
-		
+
 		//TODO: only with higher ID!
 		for (nodeLB <- nodeWLoc) {
-				
+
 			//Only comapre with biger items, otherwise duplicates
 			if(nodeLA.id >= nodeLB.id)
 				continue;
-				
+
 			//Compare different and valid locations
-			if(nodeLA.l == nodeLB.l || nodeLA.l == noLocation || nodeLB.l == noLocation) 
+			if(nodeLA.l == nodeLB.l || nodeLA.l == noLocation || nodeLB.l == noLocation)
 				continue;
-		
+
 			//When the node count difference is too much, the simulairty cannot be in the margin
 			if( nodeLA.s > nodeLB.s || nodeLB.s == 0 || nodeLA.s == 0 || percent(nodeLA.s,nodeLB.s) < minimalSimularity)
 				continue;
-			
+
 			//Minimal similarity
 			num similarity = nodeSimilarity(nodeLA.d, nodeLB.d);
 			if(similarity < minimalSimularity)
 				continue;
-							
+
 			//Log items that are the same
 			iprintln("Similarity: <similarity>");
 			iprintln("Loc a: <nodeLA.l> Loc b: <nodeLB.l>");
@@ -85,27 +85,27 @@ public cloneDetectionResult doCloneDetection(set[Declaration] ast, bool normaliz
 		}
 	}
 	println("End comparing nodes");
-	
+
 	for(nodeI <- nodeWLoc) {
 		results.nodeDetails += (nodeI.id:nodeI);
 	}
-	
+
 	return results;
 }
 
 public int nodeSize(node nodeItem) {
-	
+
 	int counter = 0;
 	visit (nodeItem) {
 		case Statement _: counter += 1;
 		case Expression _: counter += 1;
 	}
-	
+
 	return counter;
 }
 
 public list[node] declarationToNodeList(set[Declaration] decs) {
-	
+
 	list[node] nodeList = [];
 	for(dec <- decs) {
 		nodeList += nodeToNodeList(dec);
@@ -120,7 +120,7 @@ public list[node] nodeToNodeList(node iNode) {
 			nodeList += x;
 		}
 	}
-	
+
 	return nodeList;
 }
 
@@ -131,33 +131,33 @@ public list[node] nodeToNodeList(node iNode) {
 public num nodeSimilarity(node nodeA, node nodeB) {
 	list[node] nodeList1 = nodeToNodeList(nodeA);
 	list[node] nodeList2 = nodeToNodeList(nodeB);
-	
+
 	num sameElements = size(nodeList1 & nodeList2);
 	num totalItems = size(nodeList1) + size(nodeList2) - sameElements;
-	
+
 	//iprintln("sameElements: <sameElements> totalItems: <totalItems>");
-	
+
 	return sameElements / totalItems * 100;
 }
 
 /*
-	We are not interested in other locations. We compare blocks, and a block 
+	We are not interested in other locations. We compare blocks, and a block
 	is a Declaration, Expression or Statement
 */
 public loc nodeFileLocation(node n) {
 
-	if (Declaration d := n) { 
+	if (Declaration d := n) {
 		return d.decl;
 	}
-	
-	if (Expression e := n) { 
+
+	if (Expression e := n) {
 		return e.src;
 	}
-	
-	if (Statement s := n) { 
+
+	if (Statement s := n) {
 		return s.src;
-	}	 
-	
+	}
+
 	return noLocation;
 }
 
@@ -198,7 +198,7 @@ public node normalizeNode(node nodeItem) {
 		case \simpleName(_) => \simpleName("simpleName")
 		case \markerAnnotation(_) => \markerAnnotation("markerAnnotation")
 		case \normalAnnotation(_, memb) => \normalAnnotation("normalAnnotation", memb)
-		case \memberValuePair(_, vl) => \memberValuePair("memberValuePair", vl)    
+		case \memberValuePair(_, vl) => \memberValuePair("memberValuePair", vl)
 		case \singleMemberAnnotation(_, vl) => \singleMemberAnnotation("singleMemberAnnotation", vl)
 		case \break(_) => \break("break")
 		case \continue(_) => \continue("continue")
