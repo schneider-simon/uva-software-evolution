@@ -14,6 +14,8 @@ import util::Math;
 
 alias nodeS = tuple[node d,int s];
 alias nodeDetailed = tuple[int id, node d, loc l]; 
+alias cloneDetectionResult = tuple[list[nodeDetailed] nodeDetails, lrel[nodeId,nodeId] connections];
+alias nodeId = int;
 
 loc noLocation = |project://uva-software-evolution/|;
 Type defaultType = lang::java::jdt::m3::AST::short();
@@ -27,7 +29,7 @@ public void doCloneDetection(set[Declaration] ast, int minimalNodeGroupSize, rea
 	set[Declaration] normalizedAst = getNormalizedLocationAst(ast);
 	println("End normalized AST");
 	
-	//TODO: Add index, later only compare when: a.id < b.id
+	//TODO: Add index, later only compare when: a.id < b.id ZIP
 	//TODO: Get locations, add next to the node! (first src?)
 	//TODO: Remove the locations in the node unsetRec
 	
