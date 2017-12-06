@@ -41,7 +41,7 @@ public void doCloneDetection(set[Declaration] ast) {
 	list[nodeS] nodeSizes = [ <item,size> | item <- nodes, size := nodeSize(item), size >= minimalNodeGroupSize];
 	println("End getting size of nodes");
 
-	text(nodeSizes);
+	//text(nodeSizes);
 
 	println("Comparing nodes");
 	int nodeItems = size(nodeSizes);
@@ -57,14 +57,20 @@ public void doCloneDetection(set[Declaration] ast) {
 			if( nodeLA.s > nodeLB.s || nodeLB.s == 0 || percent(nodeLA.s,nodeLB.s) < minimalSimularity)
 				continue;
 			
+			//Compare different and valid locations
+			loc LAloc = nodeFileLocation(nodeLA.d);
+			loc LBloc = nodeFileLocation(nodeLB.d);
+			if(LAloc == LBloc || LAloc == noLocation || LBloc == noLocation) 
+				continue;
+			
 			//Minimal similarity
 			num similarity = nodeSimilarity(nodeLA.d, nodeLB.d);
 			if(similarity < minimalSimularity)
 				continue;
-			
+							
 			//Log items that are the same
 			iprintln("Similarity: <similarity>");
-			iprintln("Loc a: <nodeFileLocation(nodeLA.d)> Loc b: <nodeFileLocation(nodeLA.d)>");
+			iprintln("Loc a: <LAloc> Loc b: <LBloc>");
 		}
 	}
 	println("End comparing nodes");
