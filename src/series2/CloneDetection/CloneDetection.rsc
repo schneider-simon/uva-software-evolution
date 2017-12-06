@@ -181,7 +181,7 @@ public node normalizeNode(node nodeItem) {
 		case \constructor(_, pars, expr, impl) => \constructor("constructor", pars, expr, impl)
 		case \variable(_,ext) => \variable("variableName",ext)
 		case \variable(_,ext, ini) => \variable("variable",ext,ini)
-		case \typeParameter(_, ext) => \typeParameter("typeParameter",ext)
+		case \typeParameter(_, list[Type] ext) => \typeParameter("typeParameter",ext)
 		case \annotationType(_, bod) => \annotationType("annotationType", bod)
 		case \annotationTypeMember(_, _) => \annotationTypeMember(defaultType, "annotationTypeMember")
 		case \annotationTypeMember(_, _, def) => \annotationTypeMember(defaultType, "annotationTypeMember", def)
