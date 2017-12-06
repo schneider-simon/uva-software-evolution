@@ -65,8 +65,8 @@ public void doAnalyses(loc eclipsePath) {
 
 	//startMeasure("LoadAST");
 	M3 model = createM3FromEclipseProject(eclipsePath);
-	list[loc] files = toList(files(model));
-	list[loc] projectFiles = getProjectFiles(files);
+	//list[loc] files = toList(files(model));
+	//list[loc] projectFiles = getProjectFiles(files);
 	
 	set[Declaration] ast = createAstsFromEclipseProject(eclipsePath, true);
 	//stopMeasure("LoadAST");
@@ -83,8 +83,4 @@ public void doAnalyses(loc eclipsePath) {
 	*/
 	
 	doCloneDetection(ast);
-
-
-
-
 }

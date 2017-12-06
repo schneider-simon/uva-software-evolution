@@ -1,16 +1,23 @@
 module series2::CloneDetection::CloneDetection
 
 import lang::java::jdt::m3::AST;
+import lang::java::m3::AST;
+import lang::java::jdt::m3::Core;
+import util::ValueUI;
 
 import IO;
 import List;
 import Set;
 
-alias nodeLoc = tuple[loc l, node n];
-alias nodeLocR = lrel[nodeLoc l, nodeLoc r];
+import util::Math;
+
+alias nodeS = tuple[node d,int s];
 
 loc noLocation = |project://uva-software-evolution/|;
 Type defaultType = lang::java::jdt::m3::AST::short();
+
+real minimalSimularity = 30.0;
+int minimalNodeGroupSize = 6;
 
 //Start clone detection
 public void doCloneDetection(set[Declaration] ast) {
@@ -18,21 +25,69 @@ public void doCloneDetection(set[Declaration] ast) {
 	//For type 2 - 3. Names are types are removed
 	println("Get normalized AST");
 	set[Declaration] normalizedAst = getNormalizedLocationAst(ast);
-	println("End get normalized AST");
+	println("End normalized AST");
 	
-	//Get combinations
-	//nodeLocR nodeCombinations = normalizedAst * normalizedAst;
+	//TODO: Add index, later only compare when: a.id < b.id
+	//TODO: Get locations, add next to the node! (first src?)
+	//TODO: Remove the locations in the node
 	
-	//TODO: Remove reflective and symmetric clones!
+	//Create list of all nodes
+	println("Creating node list");
+	list[node] nodes = declarationToNodeList(normalizedAst);
+	println("End creating node list");
 	
-	for (nodeLA <- normalizedAst) {
-		for (nodeLB <- normalizedAst) {
-			num similarity = nodeSimilarity(nodeLA, nodeLB);
+	//TODO: Do this step in the node list creation
+	println("Getting size of nodes");
+	list[nodeS] nodeSizes = [ <item,size> | item <- nodes, size := nodeSize(item), size >= minimalNodeGroupSize];
+	println("End getting size of nodes");
+
+	text(nodeSizes);
+
+	println("Comparing nodes");
+	int nodeItems = size(nodeSizes);
+	int counter = 0;
+	
+	for (nodeLA <- nodeSizes) {
+		iprintln("<counter> / <nodeItems>");
+		counter = counter + 1;
 		
+		//TODO: only with higher ID!
+		for (nodeLB <- nodeSizes) {
+			//When the node count difference is too much, the simulairty cannot be in the margin
+			if( nodeLA.s > nodeLB.s || nodeLB.s == 0 || percent(nodeLA.s,nodeLB.s) < minimalSimularity)
+				continue;
+			
+			//Minimal similarity
+			num similarity = nodeSimilarity(nodeLA.d, nodeLB.d);
+			if(similarity < minimalSimularity)
+				continue;
+			
+			//Log items that are the same
 			iprintln("Similarity: <similarity>");
+			iprintln("Loc a: <nodeFileLocation(nodeLA.d)> Loc b: <nodeFileLocation(nodeLA.d)>");
 		}
 	}
+	println("End comparing nodes");
+}
+
+public int nodeSize(node nodeItem) {
 	
+	int counter = 0;
+	visit (nodeItem) {
+		case Statement _: counter += 1;
+		case Expression _: counter += 1;
+	}
+	
+	return counter;
+}
+
+public list[node] declarationToNodeList(set[Declaration] decs) {
+	
+	list[node] nodeList = [];
+	for(dec <- decs) {
+		nodeList += nodeToNodeList(dec);
+	}
+	return nodeList;
 }
 
 public list[node] nodeToNodeList(node iNode) {
@@ -62,15 +117,42 @@ public num nodeSimilarity(node nodeA, node nodeB) {
 
 //Will remove all items that are inrelevant for type 2 and 3
 public set[Declaration] getNormalizedLocationAst(set[Declaration] ast) {
-
 	return visit(ast) {
+		case node nodeItem => normalizeNode(nodeItem)
+	}
+}
+
+/*
+	We are not interested in other locations. We compare blocks, and a block 
+	is a Declaration, Expression or Statement
+*/
+public loc nodeFileLocation(node n) {
+
+	if (Declaration d := n) { 
+		return d.decl;
+	}
+	
+	if (Expression e := n) { 
+		return e.src;
+	}
+	
+	if (Statement s := n) { 
+		return s.src;
+	}	 
+	
+	return noLocation;
+}
+
+//Will remove all items that are inrelevant for type 2 and 3
+public node normalizeNode(node nodeItem) {
+
+	return visit(nodeItem) {
 		case \enumConstant(_, args, cls) => \enumConstant("enumConstant", args, cls)
 		case \enumConstant(_, args) => \enumConstant("enumConstant", args)
 		case \class(_, ext, imp, bod) => \class("class", ext, imp, bod)
 		case \interface(_, ext, imp, bod) => \interface("interface", ext, imp, bod)
-			//case \field(_, frags): return \field(defaultType, frags);
-		case \method(_, _, pars, expr, imp) => \method(defaultType, "method", pars, expr, imp)
-		case \method(_, _, a, b) => \method(lang::java::jdt::m3::AST::float(), "method", a, b)
+		case \method(_, _, a, b, c) => \method(defaultType, "method", a, b, c)
+		case \method(Type a,str b,list[Declaration] c,list[Expression] d) => \method(a,b,c,d)
 		case \constructor(_, pars, expr, impl) => \constructor("constructor", pars, expr, impl)
 		case \variable(_,ext) => \variable("variableName",ext)
 		case \variable(_,ext, ini) => \variable("variable",ext,ini)
@@ -80,15 +162,7 @@ public set[Declaration] getNormalizedLocationAst(set[Declaration] ast) {
 		case \annotationTypeMember(_, _, def) => \annotationTypeMember(defaultType, "annotationTypeMember", def)
 		case \parameter(_, _, ext) => \parameter(defaultType, "parameter", ext)
 		case \vararg(_, _) => \vararg(defaultType, "vararg")
-			//case \newArray(_, dim, ini): return \newArray(defaultType, dim, ini);
-			//case \newArray(_, dim): return \newArray(defaultType, dim);
-			//case \cast(_, exp): return \cast(defaultType, exp);
 		case \characterLiteral(_) => \characterLiteral("a")
-			//case \newObject(exp, _, arg, cls): return \newObject(exp, defaultType, arg, cls);
-			//case \newObject(exp, _, arg, cls): return \newObject(exp, defaultType, arg);
-	    	//case \newObject(_, arg, cls): return \newObject(defaultType, arg, cls);
-			//case \newObject(_, arg, cls): return \newObject(defaultType, arg);
-			//case \fieldAccess(is, ex, _): return \fieldAccess(is, ex, "fa");
 		case \fieldAccess(is, _) => \fieldAccess(is, "fa")
 		case \methodCall(is, _, arg) => \methodCall(is, "methodCall", arg)
 		case \methodCall(is, expr, _, arg) => \methodCall(is, expr, "methodCall", arg)
