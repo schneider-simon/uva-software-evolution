@@ -13,7 +13,7 @@ import Set;
 import util::Math;
 
 alias nodeS = tuple[node d,int s];
-alias nodeDetailed = tuple[int id, node d, loc l]; 
+alias nodeDetailed = tuple[nodeId id, node d, loc l]; 
 alias cloneDetectionResult = tuple[list[nodeDetailed] nodeDetails, lrel[nodeId,nodeId] connections];
 alias nodeId = int;
 
