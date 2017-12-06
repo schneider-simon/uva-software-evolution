@@ -82,6 +82,21 @@ public void doAnalyses(loc eclipsePath) {
 	writeDuplicationReport(|file:///tmp/duplicationReport.rdexp|, duplicationExport);
 	*/
 	
-	cloneDetectionResult cloneResult = doCloneDetection(ast, 6, 100.0);
-	iprintln(cloneResult);
+	cloneDetectionResult cloneResult = doCloneDetection(ast, true, 6, 100.0);
+	iprintln(cloneResult.connections);
+	
+	for(connection <- cloneResult.connections) {
+		loc la = cloneResult.nodeDetails[connection.f].l;
+		loc lb = cloneResult.nodeDetails[connection.s].l;
+		
+		str las = readFile(la);
+		str lbs = readFile(lb);
+		
+		iprintln("#########");
+		iprintln(las);
+		iprintln("");
+		iprintln("");
+		iprintln(lbs);
+		iprintln("");
+	}
 }

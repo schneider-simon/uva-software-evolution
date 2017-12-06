@@ -14,26 +14,30 @@ import util::Math;
 
 alias nodeS = tuple[node d,int s];
 alias nodeDetailed = tuple[nodeId id, node d, loc l, int s]; 
-alias cloneDetectionResult = tuple[list[nodeDetailed] nodeDetails, rel[nodeId,nodeId] connections];
+alias cloneDetectionResult = tuple[map[nodeId, nodeDetailed] nodeDetails, rel[nodeId f,nodeId s] connections];
 alias nodeId = int;
 
-loc noLocation = |project://uva-software-evolution/|;
+loc noLocation = |unresolved:///|;
 Type defaultType = lang::java::jdt::m3::AST::short();
 
 //Start clone detection
 //Type 2: simularity = 100
-public cloneDetectionResult doCloneDetection(set[Declaration] ast, int minimalNodeGroupSize, real minimalSimularity) {
+//Type 3: simularity = 30?
+public cloneDetectionResult doCloneDetection(set[Declaration] ast, bool normalizeAST, int minimalNodeGroupSize, real minimalSimularity) {
 
-	cloneDetectionResult results = <[],{}>;
+	cloneDetectionResult results = <(),{}>;
 
 	//For type 2 - 3. Names are types are removed
-	println("Get normalized AST");
-	set[Declaration] normalizedAst = getNormalizedLocationAst(ast);
-	println("End normalized AST");
+	set[Declaration] testOnAst = ast;
+	if(normalizeAST) {
+		println("Get normalized AST");
+		testOnAst = getNormalizedLocationAst(ast);
+		println("End normalized AST");
+	}
 	
 	//Create list of all nodes
 	println("Creating node list");
-	list[node] nodes = declarationToNodeList(normalizedAst);
+	list[node] nodes = declarationToNodeList(testOnAst);
 	println("End creating node list");
 	
 	println("Adding node details");
@@ -82,7 +86,10 @@ public cloneDetectionResult doCloneDetection(set[Declaration] ast, int minimalNo
 	}
 	println("End comparing nodes");
 	
-	results.nodeDetails	= nodeWLoc;
+	for(nodeI <- nodeWLoc) {
+		results.nodeDetails += (nodeI.id:nodeI);
+	}
+	
 	return results;
 }
 
