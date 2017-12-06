@@ -27,7 +27,7 @@ import DateTime;
 	Will exexute the meterics on a test project 
 */
 public void testExampleJavaProject() {
-	doAnalyses(|project://uva-software-evolution/resources/TestJavaProject/|);
+	doAnalyses(|project://TestJavaProject/|);
 }
 
 public void testExampleJavaProject2() {
@@ -69,6 +69,7 @@ public void doAnalyses(loc eclipsePath) {
 	//list[loc] projectFiles = getProjectFiles(files);
 	
 	set[Declaration] ast = createAstsFromEclipseProject(eclipsePath, true);
+	//iprintln(files(ast));
 	//stopMeasure("LoadAST");
 	
 	/*
@@ -82,7 +83,7 @@ public void doAnalyses(loc eclipsePath) {
 	writeDuplicationReport(|file:///tmp/duplicationReport.rdexp|, duplicationExport);
 	*/
 	
-	cloneDetectionResult cloneResult = doCloneDetection(ast, false, 6, 100.0);
+	cloneDetectionResult cloneResult = doCloneDetection(ast, true, 15, 100.0);
 	iprintln(cloneResult.connections);
 	
 	for(connection <- cloneResult.connections) {
