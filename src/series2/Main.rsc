@@ -97,7 +97,8 @@ public void doAnalyses(loc eclipsePath) {
 		str las = readFile(la);
 		str lbs = readFile(lb);
 		
-		iprintln("#########");
+		iprintln("#########<la>");
+		iprintln("#########<lb>");
 		iprintln(las);
 		iprintln("");
 		iprintln("");
