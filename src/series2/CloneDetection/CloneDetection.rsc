@@ -7,29 +7,31 @@ import util::ValueUI;
 
 import IO;
 import List;
+import Node;
 import Set;
 
 import util::Math;
 
 alias nodeS = tuple[node d,int s];
+alias nodeDetailed = tuple[int id, node d, loc l]; 
+alias cloneDetectionResult = tuple[list[nodeDetailed] nodeDetails, lrel[nodeId,nodeId] connections];
+alias nodeId = int;
 
 loc noLocation = |project://uva-software-evolution/|;
 Type defaultType = lang::java::jdt::m3::AST::short();
 
-real minimalSimularity = 30.0;
-int minimalNodeGroupSize = 6;
-
 //Start clone detection
-public void doCloneDetection(set[Declaration] ast) {
+//Type 2: simularity = 100
+public void doCloneDetection(set[Declaration] ast, int minimalNodeGroupSize, real minimalSimularity) {
 
 	//For type 2 - 3. Names are types are removed
 	println("Get normalized AST");
 	set[Declaration] normalizedAst = getNormalizedLocationAst(ast);
 	println("End normalized AST");
 	
-	//TODO: Add index, later only compare when: a.id < b.id
+	//TODO: Add index, later only compare when: a.id < b.id ZIP
 	//TODO: Get locations, add next to the node! (first src?)
-	//TODO: Remove the locations in the node
+	//TODO: Remove the locations in the node unsetRec
 	
 	//Create list of all nodes
 	println("Creating node list");
@@ -41,7 +43,7 @@ public void doCloneDetection(set[Declaration] ast) {
 	list[nodeS] nodeSizes = [ <item,size> | item <- nodes, size := nodeSize(item), size >= minimalNodeGroupSize];
 	println("End getting size of nodes");
 
-	//text(nodeSizes);
+	text(nodeSizes);
 
 	println("Comparing nodes");
 	int nodeItems = size(nodeSizes);
@@ -121,13 +123,6 @@ public num nodeSimilarity(node nodeA, node nodeB) {
 	return sameElements / totalItems;
 }
 
-//Will remove all items that are inrelevant for type 2 and 3
-public set[Declaration] getNormalizedLocationAst(set[Declaration] ast) {
-	return visit(ast) {
-		case node nodeItem => normalizeNode(nodeItem)
-	}
-}
-
 /*
 	We are not interested in other locations. We compare blocks, and a block 
 	is a Declaration, Expression or Statement
@@ -147,6 +142,13 @@ public loc nodeFileLocation(node n) {
 	}	 
 	
 	return noLocation;
+}
+
+//Will remove all items that are inrelevant for type 2 and 3
+public set[Declaration] getNormalizedLocationAst(set[Declaration] ast) {
+	return visit(ast) {
+		case node nodeItem => normalizeNode(nodeItem)
+	}
 }
 
 //Will remove all items that are inrelevant for type 2 and 3
