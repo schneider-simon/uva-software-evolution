@@ -82,12 +82,14 @@ public void doAnalyses(loc eclipsePath) {
 	writeDuplicationReport(|file:///tmp/duplicationReport.rdexp|, duplicationExport);
 	*/
 	
-	cloneDetectionResult cloneResult = doCloneDetection(ast, true, 50, 100.0);
+	cloneDetectionResult cloneResult = doCloneDetection(ast, true, 6, 100.0);
 	iprintln(cloneResult.connections);
 	
-	cloneResultToJson(cloneResult);
+	str json = cloneResultToJson(cloneResult);
 	
-	/**
+	text(json);
+	
+	/*
 	for(connection <- cloneResult.connections) {
 		loc la = cloneResult.nodeDetails[connection.f].l;
 		loc lb = cloneResult.nodeDetails[connection.s].l;
@@ -101,5 +103,6 @@ public void doAnalyses(loc eclipsePath) {
 		iprintln("");
 		iprintln(lbs);
 		iprintln("");
-	}*/
+	}
+	*/
 }

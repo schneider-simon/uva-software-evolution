@@ -5,6 +5,7 @@ import lang::java::m3::AST;
 import lang::java::jdt::m3::Core;
 import util::ValueUI;
 
+import series2::Helpers::LogHelper;
 import IO;
 import List;
 import Node;
@@ -30,17 +31,17 @@ public cloneDetectionResult doCloneDetection(set[Declaration] ast, bool normaliz
 	//For type 2 - 3. Names are types are removed
 	set[Declaration] testOnAst = ast;
 	if(normalizeAST) {
-		println("Get normalized AST");
+		printDebug("Get normalized AST");
 		testOnAst = getNormalizedLocationAst(ast);
-		println("End normalized AST");
+		printDebug("End normalized AST");
 	}
 
 	//Create list of all nodes
-	println("Creating node list");
+	printDebug("Creating node list");
 	list[node] nodes = declarationToNodeList(testOnAst);
-	println("End creating node list");
+	printDebug("End creating node list");
 
-	println("Adding node details");
+	printDebug("Adding node details");
 	list[tuple[int id, node n]] nodeWId = zip([1..(size(nodes) + 1)], nodes);
 	list[nodeDetailed] nodeWLoc = [ <id, unsetRec(nodeI), nLoc, size> |
 									<id,nodeI> <- nodeWId,
@@ -49,13 +50,13 @@ public cloneDetectionResult doCloneDetection(set[Declaration] ast, bool normaliz
 									size >= minimalNodeGroupSize,
 									nLoc != noLocation ];
 
-	println("End adding node details");
+	printDebug("End adding node details");
 
-	println("Comparing nodes");
+	printDebug("Comparing nodes");
 	int nodeItems = size(nodeWLoc);
 	int counter = 0;
 	for (nodeLA <- nodeWLoc) {
-		iprintln("<counter> / <nodeItems>");
+		printDebug("<counter> / <nodeItems>");
 		counter = counter + 1;
 
 		//TODO: only with higher ID!
@@ -79,12 +80,12 @@ public cloneDetectionResult doCloneDetection(set[Declaration] ast, bool normaliz
 				continue;
 
 			//Log items that are the same
-			iprintln("Similarity: <similarity>");
-			iprintln("Loc a: <nodeLA.l> Loc b: <nodeLB.l>");
+			printDebug("Similarity: <similarity>");
+			printDebug("Loc a: <nodeLA.l> Loc b: <nodeLB.l>");
 			results.connections[nodeLA.id] = nodeLB.id;
 		}
 	}
-	println("End comparing nodes");
+	printDebug("End comparing nodes");
 
 	for(nodeI <- nodeWLoc) {
 		results.nodeDetails += (nodeI.id:nodeI);
@@ -135,7 +136,7 @@ public num nodeSimilarity(node nodeA, node nodeB) {
 	num sameElements = size(nodeList1 & nodeList2);
 	num totalItems = size(nodeList1) + size(nodeList2) - sameElements;
 
-	//iprintln("sameElements: <sameElements> totalItems: <totalItems>");
+	//printDebug("sameElements: <sameElements> totalItems: <totalItems>");
 
 	return sameElements / totalItems * 100;
 }

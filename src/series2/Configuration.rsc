@@ -16,4 +16,4 @@ public str TEST_CLASS_KEYWORD = "TestCase";
 
 public loc CSV_OUTPUT = |file:///tmp/output.csv|;
 
-public bool DEBUG_MODE = true;
+public bool DEBUG_MODE = false;
