@@ -49,7 +49,9 @@ public void testHsqlJavaProject() {
 }
 
 public void testMain(){
-	
+	loc testLocation = |project://smallsql/src/smallsql/database/Column.java|;
+	loc testLocation2 = |project://TestJavaProject/src/testClass.java|(270,1,<23,21>,<23,22>);
+	iprintln(testLocation2.offset);
 }
 
 
