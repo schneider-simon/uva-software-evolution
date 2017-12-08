@@ -4,7 +4,6 @@ import IO;
 import List;
 import series2::Helpers::LogHelper;
 import String;
-import series2::Duplication::DuplicationExporter;
 
 alias OutputHeads = list[str];
 alias OutputRow = list[str];
@@ -39,24 +38,6 @@ str stringifyRow(OutputRow row){
 
 str stringifyRows(OutputRows rows){
 	return intercalate("\n", [stringifyRow(r) | r <- rows]);
-}
-
-void writeDuplicationReport(loc location, DuplicationExport export){
-	list[str] jsonEntries = [];
-	
-	for(DuplicationEntry entry <- export){
-		list[str] rows = [];
-		rows += "{";
-		rows += "\t\"location\": \"<entry.file.path>\",";
-		rows += "\t\"lines\": <entry.duplicateLines>";
-		rows += "}";
-		jsonEntries += [intercalate("\n", rows)];
-	}
-
-	str output = "[" + intercalate(",\n", jsonEntries) + "]";
-	writeFile(location,output);
-	
-	printDebug("WROTE EXPORT TO: <location>");
 }
 
 void printThankYou(){

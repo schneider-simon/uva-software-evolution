@@ -48,6 +48,10 @@ public void testHsqlJavaProject() {
 	doAnalyses(|project://hsqldb|);
 }
 
+public void testMain(){
+	
+}
+
 
 /*
 	Runes the analyses on a eclipse project
@@ -62,12 +66,19 @@ public void doAnalyses(loc eclipsePath) {
 	//iprintln(files(model));
 	//stopMeasure("LoadEclipseProject");
 
+	startMeasure("LoadM3");
+
 	//startMeasure("LoadAST");
 	M3 model = createM3FromEclipseProject(eclipsePath);
 	//list[loc] files = toList(files(model));
 	//list[loc] projectFiles = getProjectFiles(files);
 	
+	stopMeasure("LoadM3");
+	
+	startMeasure("CreateAsts");
 	set[Declaration] ast = createAstsFromEclipseProject(eclipsePath, true);
+	stopMeasure("CreateAsts");
+	
 	//iprintln(files(ast));
 	//stopMeasure("LoadAST");
 	
@@ -82,10 +93,16 @@ public void doAnalyses(loc eclipsePath) {
 	writeDuplicationReport(|file:///tmp/duplicationReport.rdexp|, duplicationExport);
 	*/
 	
-	cloneDetectionResult cloneResult = doCloneDetection(ast, true, 6, 100.0);
+	startMeasure("DetectClones");	
+	
+	cloneDetectionResult cloneResult = doCloneDetection(ast, false, 20, 100.0);
 	iprintln(cloneResult.connections);
 	
+	stopMeasure("DetectClones");	
+	
+	startMeasure("ToJson");	
 	str json = cloneResultToJson(cloneResult);
+	stopMeasure("ToJson");	
 	
 	text(json);
 	

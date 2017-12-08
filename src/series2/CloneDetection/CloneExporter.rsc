@@ -33,7 +33,7 @@ str nodeDetailedToJson(nodeDetailed details){
 }
 
 str locationToJson(loc location){
-
+	//TODO: Return null if location does not have a line begin and end
 	return "{
 		\"path\": \"<location.path>\",
 		\"length\": <location.length>,
