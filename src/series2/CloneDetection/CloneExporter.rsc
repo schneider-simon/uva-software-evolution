@@ -4,6 +4,7 @@ import Set;
 import List;
 import String;
 import IO;
+import series2::Helpers::LocationHelper;
 import series2::CloneDetection::CloneNetwork;
 import series2::CloneDetection::CloneDetection;
 
@@ -33,6 +34,10 @@ str nodeDetailedToJson(nodeDetailed details){
 }
 
 str locationToJson(loc location){
+	if(!locationHasArea(location)){
+		return "null";
+	}
+
 	//TODO: Return null if location does not have a line begin and end
 	return "{
 		\"path\": \"<location.path>\",
