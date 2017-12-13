@@ -90,7 +90,7 @@ public void doAnalyses(loc eclipsePath) {
 	
 	startMeasure("DetectClones");	
 	
-	cloneDetectionResult cloneResult = doCloneDetection(ast, false, 20, 100.0);
+	cloneDetectionResult cloneResult = doCloneDetection(ast, false, 60, 100.0);
 	iprintln(cloneResult.connections);
 	
 	stopMeasure("DetectClones");	

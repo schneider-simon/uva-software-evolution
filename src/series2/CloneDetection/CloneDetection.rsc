@@ -45,12 +45,6 @@ public cloneDetectionResult doCloneDetection(set[Declaration] ast, bool normaliz
 									size := nodeSize(nodeI),
 									size >= minimalNodeGroupSize,
 									nLoc != noLocation ];
-	//iprintln(nodeWLoc);
-	/*if(normalizeAST) {
-		printDebug("Get normalized AST");
-		testOnAst = getNormalizedLocationAst(normalizeAST);
-		printDebug("End normalized AST");
-	}*/
 	
 	printDebug("End adding node details");
 
@@ -98,7 +92,6 @@ public cloneDetectionResult doCloneDetection(set[Declaration] ast, bool normaliz
 }
 
 public int nodeSize(node nodeItem) {
-
 	int counter = 0;
 	visit (nodeItem) {
 		case node _ : counter += 1;
@@ -138,8 +131,6 @@ public num nodeSimilarity(node nodeA, node nodeB) {
 	num sameElements = size(nodeList1 & nodeList2);
 	num totalItems = size(nodeList1) + size(nodeList2) - sameElements;
 
-	//printDebug("sameElements: <sameElements> totalItems: <totalItems>");
-
 	return sameElements / totalItems * 100;
 }
 
@@ -149,18 +140,15 @@ public num nodeSimilarity(node nodeA, node nodeB) {
 */
 public loc nodeFileLocation(node n) {
 
-	if (Declaration d := n) {
+	if (Declaration d := n) 
 		return d.src;
-	}
-
-	if (Expression e := n) {
+	
+	if (Expression e := n) 
 		return e.src;
-	}
-
-	if (Statement s := n) {
+	
+	if (Statement s := n)
 		return s.src;
-	}
-
+	
 	return noLocation;
 }
 

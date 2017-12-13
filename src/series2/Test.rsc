@@ -18,6 +18,59 @@ import IO;
 
 loc eclipsePath = |project://TestJavaProject/|;
 
+//Call method test
+test bool callMyMethodT2() {
+	set[int] lines = getClonesType("advancedClone", 2);
+	return size(lines) == 22;
+}
+
+//Call method test
+test bool callMyMethodT2() {
+	set[int] lines = getClonesType("callMyMethod", 2);
+	return size(lines) == 6;
+}
+
+test bool callMyMethodT1() {
+	set[int] lines = getClonesType("callMyMethod", 1);
+	return size(lines) == 0;
+}
+
+
+//Char diff test
+test bool charLitTest() {
+	set[int] lines = getClonesType("charLit", 2);
+	return size(lines) == 6;
+}
+
+test bool charLitTestT1() {
+	set[int] lines = getClonesType("charLit", 1);
+	return size(lines) == 0;
+}
+
+//Annotating tests
+test bool annoTest() {
+	set[int] lines = getClonesType("anno", 2);
+	return size(lines) == 8;
+}
+
+//Different parameter types
+test bool testT3SimCorrect() {
+	set[int] lines = getClonesType("params", 2);
+	return size(lines) == 6;
+}
+
+//Test simularity
+test bool testT3SimCorrect() {
+	set[int] lines = doT3CloneDetection("detectMethodD", 6, 25.0);
+	return size(lines) == 6;
+}
+
+//Test simularity
+test bool testT3SimInCorrect() {
+	set[int] lines = doT3CloneDetection("detectMethodD", 6, 26.0);
+	return size(lines) == 3;
+}
+
 //globalWithSubClass
 test bool testT2Interface() {
 	set[int] lines = getClonesType("interfaceIntern", 2);
@@ -52,7 +105,6 @@ test bool testT2EnumName() {
 //Enum other name with type 1 = no clone
 test bool testT1EnumName() {
 	set[int] lines = getClonesType("sameEnum", 1);
-	iprintln(lines);
 	return size(lines) == 0;
 }
 
@@ -83,7 +135,7 @@ test bool testT2TypeIndp() {
 //Change type and method name = duplicate for type 3
 test bool testT3TypeIndp() {
 	set[int] lines = getClonesType("simpleTypeTypeAndName", 3);
-	return lines == {3,4,5,7,8,9};
+	return size(lines) == 6;
 }
 
 //To large trashhold
@@ -93,6 +145,12 @@ test bool testT2TypeIndpToHighV() {
 }
 
 //Do clone detection
+public set[int] doT3CloneDetection(str className, int v, real diff) {
+	set[Declaration] ast = getASTForClass(className);
+	cloneDetectionResult cloneResult = doCloneDetection(ast, true, v, diff);
+	return getDuplicateLines(cloneResult);
+}
+
 public set[int] getClonesTypeWithV(str className, int ctype, int v) {
 	bool clean = ctype != 1;
 	real dupLevel = ctype != 3 ? 100.0 : 50.0;
