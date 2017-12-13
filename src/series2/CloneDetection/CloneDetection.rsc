@@ -30,11 +30,6 @@ public cloneDetectionResult doCloneDetection(set[Declaration] ast, bool normaliz
 
 	//For type 2 - 3. Names are types are removed
 	set[Declaration] testOnAst = ast;
-	if(normalizeAST) {
-		printDebug("Get normalized AST");
-		testOnAst = getNormalizedLocationAst(ast);
-		printDebug("End normalized AST");
-	}
 
 	//Create list of all nodes
 	printDebug("Creating node list");
@@ -43,19 +38,26 @@ public cloneDetectionResult doCloneDetection(set[Declaration] ast, bool normaliz
 
 	printDebug("Adding node details");
 	list[tuple[int id, node n]] nodeWId = zip([1..(size(nodes) + 1)], nodes);
-	list[nodeDetailed] nodeWLoc = [ <id, unsetRec(nodeI), nLoc, size> |
+	list[nodeDetailed] nodeWLoc = [ <id, unsetRec(nodeIc), nLoc, size> |
 									<id,nodeI> <- nodeWId,
+									nodeIc := (normalizeAST ? normalizeNode(nodeI) : nodeI),
 									nLoc := nodeFileLocation(nodeI),
 									size := nodeSize(nodeI),
 									size >= minimalNodeGroupSize,
 									nLoc != noLocation ];
-
+	//iprintln(nodeWLoc);
+	/*if(normalizeAST) {
+		printDebug("Get normalized AST");
+		testOnAst = getNormalizedLocationAst(normalizeAST);
+		printDebug("End normalized AST");
+	}*/
+	
 	printDebug("End adding node details");
 
 	printDebug("Comparing nodes");
 	int nodeItems = size(nodeWLoc);
 	int counter = 0;
-	for (nodeLA <- nodeWLoc) {
+	for (nodeLA <- nodeWLoc) {	
 		printDebug("<counter> / <nodeItems>");
 		counter = counter + 1;
 
@@ -76,6 +78,7 @@ public cloneDetectionResult doCloneDetection(set[Declaration] ast, bool normaliz
 
 			//Minimal similarity
 			num similarity = nodeSimilarity(nodeLA.d, nodeLB.d);
+			
 			if(similarity < minimalSimularity)
 				continue;
 
@@ -98,8 +101,7 @@ public int nodeSize(node nodeItem) {
 
 	int counter = 0;
 	visit (nodeItem) {
-		case Statement _: counter += 1;
-		case Expression _: counter += 1;
+		case node _ : counter += 1;
 	}
 
 	return counter;
@@ -148,7 +150,7 @@ public num nodeSimilarity(node nodeA, node nodeB) {
 public loc nodeFileLocation(node n) {
 
 	if (Declaration d := n) {
-		return d.decl;
+		return d.src;
 	}
 
 	if (Expression e := n) {
