@@ -86,6 +86,12 @@ test bool testT3TypeIndp() {
 	return lines == {3,4,5,7,8,9};
 }
 
+//To large trashhold
+test bool testT2TypeIndpToHighV() {
+	set[int] lines = getClonesTypeWithV("simpleTypeTypeAndName", 3, 18);
+	return lines == {};
+}
+
 //Do clone detection
 public set[int] getClonesTypeWithV(str className, int ctype, int v) {
 	bool clean = ctype != 1;
