@@ -16,7 +16,29 @@ import Set;
 import List;
 import IO;
 
-loc eclipsePath = |project://TestJavaProject/|;
+loc eclipsePath = |project://use-test-project/|;
+
+//Incorrect if match
+test bool incorrectIf() {
+	set[int] lines = getClonesType("ifChange", 1);
+	return size(lines) == 4;
+}
+
+//Code swap
+test bool callMyMethodT1() {
+	set[int] lines = getClonesTypeWithV("codeSwap", 1, 16);
+	return size(lines) == 0;
+}
+
+test bool callMyMethodT2() {
+	set[int] lines = getClonesTypeWithV("codeSwap", 2, 16);
+	return size(lines) == 0;
+}
+
+test bool callMyMethodT3() {
+	set[int] lines = doT3CloneDetection("codeSwap", 16, 90.0);
+	return size(lines) == 0;
+}
 
 //Call method test
 test bool callMyMethodT2() {
