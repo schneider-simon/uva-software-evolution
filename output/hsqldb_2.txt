@@ -1,0 +1,495 @@
+{
+		"nodes": [{
+		"id": "180086",
+		"location": {
+		"path": "/src/org/hsqldb/dbinfo/DatabaseInformationFull.java",
+		"length": 2420,
+		"startLine": 5891,
+		"endLine": 5961,
+		"startColumn": 72,
+		"endColumn": 5				
+	},
+		"nodesAmount": 472			
+	},
+{
+		"id": "180576",
+		"location": {
+		"path": "/src/org/hsqldb/dbinfo/DatabaseInformationFull.java",
+		"length": 2418,
+		"startLine": 5998,
+		"endLine": 6068,
+		"startColumn": 73,
+		"endColumn": 5				
+	},
+		"nodesAmount": 472			
+	},
+{
+		"id": "716815",
+		"location": {
+		"path": "/src/org/hsqldb/jdbc/JDBCDatabaseMetaData.java",
+		"length": 3713,
+		"startLine": 3674,
+		"endLine": 3744,
+		"startColumn": 4,
+		"endColumn": 5				
+	},
+		"nodesAmount": 109			
+	},
+{
+		"id": "1186397",
+		"location": {
+		"path": "/src/org/hsqldb/lib/InOutUtil.java",
+		"length": 1606,
+		"startLine": 210,
+		"endLine": 259,
+		"startColumn": 4,
+		"endColumn": 5				
+	},
+		"nodesAmount": 191			
+	},
+{
+		"id": "1068699",
+		"location": {
+		"path": "/src/org/hsqldb/lib/KMPSearchAlgorithm.java",
+		"length": 1166,
+		"startLine": 111,
+		"endLine": 161,
+		"startColumn": 62,
+		"endColumn": 5				
+	},
+		"nodesAmount": 244			
+	},
+{
+		"id": "603823",
+		"location": {
+		"path": "/src/org/hsqldb/jdbc/JDBCStatement.java",
+		"length": 2544,
+		"startLine": 1269,
+		"endLine": 1320,
+		"startColumn": 4,
+		"endColumn": 5				
+	},
+		"nodesAmount": 78			
+	},
+{
+		"id": "716924",
+		"location": {
+		"path": "/src/org/hsqldb/jdbc/JDBCDatabaseMetaData.java",
+		"length": 3529,
+		"startLine": 3746,
+		"endLine": 3814,
+		"startColumn": 4,
+		"endColumn": 5				
+	},
+		"nodesAmount": 109			
+	},
+{
+		"id": "170072",
+		"location": {
+		"path": "/src/org/hsqldb/dbinfo/DatabaseInformationFull.java",
+		"length": 2662,
+		"startLine": 3921,
+		"endLine": 3973,
+		"startColumn": 12,
+		"endColumn": 13				
+	},
+		"nodesAmount": 501			
+	},
+{
+		"id": "180581",
+		"location": {
+		"path": "/src/org/hsqldb/dbinfo/DatabaseInformationFull.java",
+		"length": 3644,
+		"startLine": 5963,
+		"endLine": 6068,
+		"startColumn": 4,
+		"endColumn": 5				
+	},
+		"nodesAmount": 490			
+	},
+{
+		"id": "183642",
+		"location": {
+		"path": "/src/org/hsqldb/dbinfo/DatabaseInformationFull.java",
+		"length": 2917,
+		"startLine": 6437,
+		"endLine": 6492,
+		"startColumn": 16,
+		"endColumn": 17				
+	},
+		"nodesAmount": 501			
+	},
+{
+		"id": "517332",
+		"location": {
+		"path": "/src/org/hsqldb/dbinfo/DatabaseInformationMain.java",
+		"length": 7406,
+		"startLine": 3023,
+		"endLine": 3197,
+		"startColumn": 4,
+		"endColumn": 5				
+	},
+		"nodesAmount": 817			
+	},
+{
+		"id": "1069599",
+		"location": {
+		"path": "/src/org/hsqldb/lib/KMPSearchAlgorithm.java",
+		"length": 1436,
+		"startLine": 321,
+		"endLine": 377,
+		"startColumn": 59,
+		"endColumn": 5				
+	},
+		"nodesAmount": 280			
+	},
+{
+		"id": "164833",
+		"location": {
+		"path": "/src/org/hsqldb/dbinfo/DatabaseInformationFull.java",
+		"length": 3840,
+		"startLine": 2881,
+		"endLine": 2997,
+		"startColumn": 4,
+		"endColumn": 5				
+	},
+		"nodesAmount": 538			
+	},
+{
+		"id": "603903",
+		"location": {
+		"path": "/src/org/hsqldb/jdbc/JDBCStatement.java",
+		"length": 2512,
+		"startLine": 1322,
+		"endLine": 1372,
+		"startColumn": 4,
+		"endColumn": 5				
+	},
+		"nodesAmount": 80			
+	},
+{
+		"id": "715922",
+		"location": {
+		"path": "/src/org/hsqldb/jdbc/JDBCDatabaseMetaData.java",
+		"length": 8759,
+		"startLine": 2865,
+		"endLine": 3010,
+		"startColumn": 4,
+		"endColumn": 5				
+	},
+		"nodesAmount": 129			
+	},
+{
+		"id": "517326",
+		"location": {
+		"path": "/src/org/hsqldb/dbinfo/DatabaseInformationMain.java",
+		"length": 4354,
+		"startLine": 3096,
+		"endLine": 3197,
+		"startColumn": 66,
+		"endColumn": 5				
+	},
+		"nodesAmount": 798			
+	},
+{
+		"id": "1186133",
+		"location": {
+		"path": "/src/org/hsqldb/lib/InOutUtil.java",
+		"length": 1658,
+		"startLine": 141,
+		"endLine": 191,
+		"startColumn": 4,
+		"endColumn": 5				
+	},
+		"nodesAmount": 191			
+	},
+{
+		"id": "188269",
+		"location": {
+		"path": "/src/org/hsqldb/dbinfo/DatabaseInformationFull.java",
+		"length": 3658,
+		"startLine": 7313,
+		"endLine": 7420,
+		"startColumn": 4,
+		"endColumn": 5				
+	},
+		"nodesAmount": 492			
+	},
+{
+		"id": "447055",
+		"location": {
+		"path": "/src/org/hsqldb/jdbc/JDBCConnection.java",
+		"length": 3023,
+		"startLine": 864,
+		"endLine": 934,
+		"startColumn": 4,
+		"endColumn": 5				
+	},
+		"nodesAmount": 39			
+	},
+{
+		"id": "1069285",
+		"location": {
+		"path": "/src/org/hsqldb/lib/KMPSearchAlgorithm.java",
+		"length": 1441,
+		"startLine": 248,
+		"endLine": 307,
+		"startColumn": 59,
+		"endColumn": 5				
+	},
+		"nodesAmount": 280			
+	},
+{
+		"id": "518143",
+		"location": {
+		"path": "/src/org/hsqldb/dbinfo/DatabaseInformationMain.java",
+		"length": 4391,
+		"startLine": 3199,
+		"endLine": 3301,
+		"startColumn": 73,
+		"endColumn": 5				
+	},
+		"nodesAmount": 798			
+	},
+{
+		"id": "164828",
+		"location": {
+		"path": "/src/org/hsqldb/dbinfo/DatabaseInformationFull.java",
+		"length": 2628,
+		"startLine": 2917,
+		"endLine": 2997,
+		"startColumn": 67,
+		"endColumn": 5				
+	},
+		"nodesAmount": 520			
+	},
+{
+		"id": "180091",
+		"location": {
+		"path": "/src/org/hsqldb/dbinfo/DatabaseInformationFull.java",
+		"length": 3669,
+		"startLine": 5856,
+		"endLine": 5961,
+		"startColumn": 4,
+		"endColumn": 5				
+	},
+		"nodesAmount": 490			
+	},
+{
+		"id": "1068983",
+		"location": {
+		"path": "/src/org/hsqldb/lib/KMPSearchAlgorithm.java",
+		"length": 2094,
+		"startLine": 163,
+		"endLine": 230,
+		"startColumn": 4,
+		"endColumn": 5				
+	},
+		"nodesAmount": 274			
+	},
+{
+		"id": "193298",
+		"location": {
+		"path": "/src/org/hsqldb/dbinfo/DatabaseInformationFull.java",
+		"length": 2641,
+		"startLine": 8388,
+		"endLine": 8438,
+		"startColumn": 12,
+		"endColumn": 13				
+	},
+		"nodesAmount": 501			
+	},
+{
+		"id": "604133",
+		"location": {
+		"path": "/src/org/hsqldb/jdbc/JDBCStatement.java",
+		"length": 3024,
+		"startLine": 1505,
+		"endLine": 1567,
+		"startColumn": 4,
+		"endColumn": 5				
+	},
+		"nodesAmount": 80			
+	},
+{
+		"id": "1069297",
+		"location": {
+		"path": "/src/org/hsqldb/lib/KMPSearchAlgorithm.java",
+		"length": 2251,
+		"startLine": 232,
+		"endLine": 307,
+		"startColumn": 4,
+		"endColumn": 5				
+	},
+		"nodesAmount": 314			
+	},
+{
+		"id": "164295",
+		"location": {
+		"path": "/src/org/hsqldb/dbinfo/DatabaseInformationFull.java",
+		"length": 3883,
+		"startLine": 2763,
+		"endLine": 2879,
+		"startColumn": 4,
+		"endColumn": 5				
+	},
+		"nodesAmount": 538			
+	},
+{
+		"id": "1069611",
+		"location": {
+		"path": "/src/org/hsqldb/lib/KMPSearchAlgorithm.java",
+		"length": 2039,
+		"startLine": 309,
+		"endLine": 377,
+		"startColumn": 4,
+		"endColumn": 5				
+	},
+		"nodesAmount": 314			
+	},
+{
+		"id": "1068973",
+		"location": {
+		"path": "/src/org/hsqldb/lib/KMPSearchAlgorithm.java",
+		"length": 1186,
+		"startLine": 180,
+		"endLine": 230,
+		"startColumn": 62,
+		"endColumn": 5				
+	},
+		"nodesAmount": 244			
+	},
+{
+		"id": "188761",
+		"location": {
+		"path": "/src/org/hsqldb/dbinfo/DatabaseInformationFull.java",
+		"length": 3670,
+		"startLine": 7422,
+		"endLine": 7530,
+		"startColumn": 4,
+		"endColumn": 5				
+	},
+		"nodesAmount": 492			
+	},
+{
+		"id": "604053",
+		"location": {
+		"path": "/src/org/hsqldb/jdbc/JDBCStatement.java",
+		"length": 3040,
+		"startLine": 1441,
+		"endLine": 1503,
+		"startColumn": 4,
+		"endColumn": 5				
+	},
+		"nodesAmount": 78			
+	},
+{
+		"id": "716283",
+		"location": {
+		"path": "/src/org/hsqldb/jdbc/JDBCDatabaseMetaData.java",
+		"length": 8320,
+		"startLine": 3243,
+		"endLine": 3379,
+		"startColumn": 4,
+		"endColumn": 5				
+	},
+		"nodesAmount": 129			
+	},
+{
+		"id": "518149",
+		"location": {
+		"path": "/src/org/hsqldb/dbinfo/DatabaseInformationMain.java",
+		"length": 4460,
+		"startLine": 3199,
+		"endLine": 3301,
+		"startColumn": 4,
+		"endColumn": 5				
+	},
+		"nodesAmount": 817			
+	},
+{
+		"id": "1068709",
+		"location": {
+		"path": "/src/org/hsqldb/lib/KMPSearchAlgorithm.java",
+		"length": 2112,
+		"startLine": 93,
+		"endLine": 161,
+		"startColumn": 4,
+		"endColumn": 5				
+	},
+		"nodesAmount": 274			
+	},
+{
+		"id": "164290",
+		"location": {
+		"path": "/src/org/hsqldb/dbinfo/DatabaseInformationFull.java",
+		"length": 2659,
+		"startLine": 2799,
+		"endLine": 2879,
+		"startColumn": 70,
+		"endColumn": 5				
+	},
+		"nodesAmount": 520			
+	},
+{
+		"id": "166530",
+		"location": {
+		"path": "/src/org/hsqldb/dbinfo/DatabaseInformationFull.java",
+		"length": 2917,
+		"startLine": 3172,
+		"endLine": 3227,
+		"startColumn": 16,
+		"endColumn": 17				
+	},
+		"nodesAmount": 501			
+	},
+{
+		"id": "717146",
+		"location": {
+		"path": "/src/org/hsqldb/jdbc/JDBCDatabaseMetaData.java",
+		"length": 6315,
+		"startLine": 3931,
+		"endLine": 4046,
+		"startColumn": 4,
+		"endColumn": 5				
+	},
+		"nodesAmount": 109			
+	},
+{
+		"id": "447314",
+		"location": {
+		"path": "/src/org/hsqldb/jdbc/JDBCConnection.java",
+		"length": 2712,
+		"startLine": 1148,
+		"endLine": 1208,
+		"startColumn": 4,
+		"endColumn": 5				
+	},
+		"nodesAmount": 39			
+	},
+{
+		"id": "188264",
+		"location": {
+		"path": "/src/org/hsqldb/dbinfo/DatabaseInformationFull.java",
+		"length": 2449,
+		"startLine": 7348,
+		"endLine": 7420,
+		"startColumn": 72,
+		"endColumn": 5				
+	},
+		"nodesAmount": 474			
+	},
+{
+		"id": "188756",
+		"location": {
+		"path": "/src/org/hsqldb/dbinfo/DatabaseInformationFull.java",
+		"length": 2470,
+		"startLine": 7457,
+		"endLine": 7530,
+		"startColumn": 73,
+		"endColumn": 5				
+	},
+		"nodesAmount": 474			
+	}],
+		"connections": [[188756,188264],[164290,164828],[1068709,1068983],[164295,164833],[1069611,1069297],[1069285,1069599],[447314,447055],[188761,188269],[1186397,1186133],[518143,517326],[716283,715922],[518149,517332],[166530,193298,183642,170072],[604053,603823],[717146,716815,716924],[1068699,1068973],[180091,180581],[180576,180086],[604133,603903]]
+	}

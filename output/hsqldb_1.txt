@@ -1,0 +1,51 @@
+{
+		"nodes": [{
+		"id": "170072",
+		"location": {
+		"path": "/src/org/hsqldb/dbinfo/DatabaseInformationFull.java",
+		"length": 2662,
+		"startLine": 3921,
+		"endLine": 3973,
+		"startColumn": 12,
+		"endColumn": 13				
+	},
+		"nodesAmount": 501			
+	},
+{
+		"id": "183642",
+		"location": {
+		"path": "/src/org/hsqldb/dbinfo/DatabaseInformationFull.java",
+		"length": 2917,
+		"startLine": 6437,
+		"endLine": 6492,
+		"startColumn": 16,
+		"endColumn": 17				
+	},
+		"nodesAmount": 501			
+	},
+{
+		"id": "193298",
+		"location": {
+		"path": "/src/org/hsqldb/dbinfo/DatabaseInformationFull.java",
+		"length": 2641,
+		"startLine": 8388,
+		"endLine": 8438,
+		"startColumn": 12,
+		"endColumn": 13				
+	},
+		"nodesAmount": 501			
+	},
+{
+		"id": "166530",
+		"location": {
+		"path": "/src/org/hsqldb/dbinfo/DatabaseInformationFull.java",
+		"length": 2917,
+		"startLine": 3172,
+		"endLine": 3227,
+		"startColumn": 16,
+		"endColumn": 17				
+	},
+		"nodesAmount": 501			
+	}],
+		"connections": [[166530,193298,183642,170072]]
+	}
