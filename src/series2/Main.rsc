@@ -22,22 +22,24 @@ import series2::CloneDetection::CloneExporter;
 
 import DateTime;
 
+public void runAll() {
+	 testExampleJavaProject();
+	 testSmallsqlJavaProject();
+	 testHsqlJavaProject();
+}
+
 /*
 	Will exexute the meterics on a test project 
 */
 public void testExampleJavaProject() {
-	doAnalyses(|project://TestJavaProject/|);
-}
-
-public void testExampleJavaProject2() {
-	doAnalyses(|project://TestJavaProject|);
+	writeAnalyses("test-project", |project://use-test-project/|);
 }
 
 /*
 	Will exexute the meterics on smallsql
 */
 public void testSmallsqlJavaProject() {
-	doAnalyses(|project://smallsql|);
+	writeAnalyses("smallsql", |project://smallsql|);
 }
 
 
@@ -45,52 +47,42 @@ public void testSmallsqlJavaProject() {
 	Will exexute the meterics on hsqldb
 */
 public void testHsqlJavaProject() {
-	doAnalyses(|project://hsqldb|);
+	writeAnalyses("hsqldb", |project://hsqldb|);
+}
+
+/*
+	Test and write to file
+*/
+
+public void writeAnalyses(str name, loc location) {
+	for(int i <- [1..(3+1)]) {
+		str output = doAnalyses(location,1);
+		writeFile(toLocation("project://uva-software-evolution/output/<name>_<i>.txt"), output);
+	}
 }
 
 /*
 	Runes the analyses on a eclipse project
 */
-public void doAnalyses(loc eclipsePath) {
+public str doAnalyses(loc eclipsePath, int cloneType) {
+
+	bool normalizeAST = cloneType != 1;
+	real minimalSimularity = cloneType == 3 ? minimalSimularityT3 : 100.0;
 
 	//Create M3 model
 	println("Loading eclipse project <eclipsePath>");
 
-	//startMeasure("LoadEclipseProject");
-	//M3 model = createM3FromEclipseProject(eclipsePath);
-	//iprintln(files(model));
-	//stopMeasure("LoadEclipseProject");
-
 	startMeasure("LoadM3");
-
-	//startMeasure("LoadAST");
-	M3 model = createM3FromEclipseProject(eclipsePath);
-	//list[loc] files = toList(files(model));
-	//list[loc] projectFiles = getProjectFiles(files);
-	
+	M3 model = createM3FromEclipseProject(eclipsePath);	
 	stopMeasure("LoadM3");
 	
 	startMeasure("CreateAsts");
 	set[Declaration] ast = createAstsFromEclipseProject(eclipsePath, true);
 	stopMeasure("CreateAsts");
-	
-	//iprintln(files(ast));
-	//stopMeasure("LoadAST");
-	
-	/*
-	tuple[FileLineMapping fileMapping, list[str] codeLines] filesResult = getCodeLinesFromFiles(projectFiles);
-	FileLineMapping fileLineMapping = filesResult.fileMapping;
-	list[str] codeLines = filesResult.codeLines;
-	
-	set[int] duplicateLineIndexes = getDuplicateLineIndexes(codeLines, DUPLICATION_THRESHOLD);
-	DuplicationExport duplicationExport = getDuplicationExport(fileLineMapping, codeLines, duplicateLineIndexes);
-	
-	writeDuplicationReport(|file:///tmp/duplicationReport.rdexp|, duplicationExport);
-	*/
-	
+		
 	startMeasure("DetectClones");	
 	
-	cloneDetectionResult cloneResult = doCloneDetection(ast, false, 60, 100.0);
+	cloneDetectionResult cloneResult = doCloneDetection(ast, normalizeAST, minimumCodeSize, minimalNodeGroupSize, minimalSimularity);
 	iprintln(cloneResult.connections);
 	
 	stopMeasure("DetectClones");	
@@ -99,23 +91,5 @@ public void doAnalyses(loc eclipsePath) {
 	str json = cloneResultToJson(cloneResult);
 	stopMeasure("ToJson");	
 	
-	text(json);
-	
-	/*
-	for(connection <- cloneResult.connections) {
-		loc la = cloneResult.nodeDetails[connection.f].l;
-		loc lb = cloneResult.nodeDetails[connection.s].l;
-		
-		str las = readFile(la);
-		str lbs = readFile(lb);
-		
-		iprintln("#########<la>");
-		iprintln("#########<lb>");
-		iprintln(las);
-		iprintln("");
-		iprintln("");
-		iprintln(lbs);
-		iprintln("");
-	}
-	*/
+	return json;
 }

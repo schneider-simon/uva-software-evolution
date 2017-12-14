@@ -21,7 +21,7 @@ loc eclipsePath = |project://use-test-project/|;
 //Incorrect if match
 test bool incorrectIf() {
 	set[int] lines = getClonesType("ifChange", 1);
-	return size(lines) == 4;
+	return size(lines) == 8;
 }
 
 //Code swap
@@ -83,14 +83,14 @@ test bool testT3SimCorrect() {
 
 //Test simularity
 test bool testT3SimCorrect() {
-	set[int] lines = doT3CloneDetection("detectMethodD", 6, 25.0);
+	set[int] lines = doT3CloneDetection("detectMethodD", 6, 12.0);
 	return size(lines) == 6;
 }
 
 //Test simularity
 test bool testT3SimInCorrect() {
-	set[int] lines = doT3CloneDetection("detectMethodD", 6, 26.0);
-	return size(lines) == 3;
+	set[int] lines = doT3CloneDetection("detectMethodD", 6, 14.0);
+	return size(lines) == 4;
 }
 
 //globalWithSubClass
@@ -138,8 +138,8 @@ test bool testT2SmallChange() {
 
 //Small change for type 3
 test bool testT3SmallChange() {
-	set[int] lines = getClonesType("smallCodeChange", 3);
-	return size(lines) == 11;
+	set[int] lines = doT3CloneDetection("smallCodeChange", 5, 50.0);
+	return size(lines) == 8;
 }
 
 //Change type and method name = no duplicate for type 1
@@ -169,7 +169,7 @@ test bool testT2TypeIndpToHighV() {
 //Do clone detection
 public set[int] doT3CloneDetection(str className, int v, real diff) {
 	set[Declaration] ast = getASTForClass(className);
-	cloneDetectionResult cloneResult = doCloneDetection(ast, true, v, diff);
+	cloneDetectionResult cloneResult = doCloneDetection(ast, true, 1, v, diff);
 	return getDuplicateLines(cloneResult);
 }
 
@@ -177,7 +177,7 @@ public set[int] getClonesTypeWithV(str className, int ctype, int v) {
 	bool clean = ctype != 1;
 	real dupLevel = ctype != 3 ? 100.0 : 50.0;
 	set[Declaration] ast = getASTForClass(className);
-	cloneDetectionResult cloneResult = doCloneDetection(ast, clean, v, dupLevel);
+	cloneDetectionResult cloneResult = doCloneDetection(ast, clean, 1, v, dupLevel);
 	return getDuplicateLines(cloneResult);
 }
 
