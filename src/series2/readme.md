@@ -110,3 +110,23 @@ The pseudo code will genarate an AST based on the location of the project. The c
 You can display the AST as an tree. When you compare the nodes, there will be a lot of useless small clones. This parameter can be used to define a minimum size. Nodes are only considered that contain z sub nodes.
 
 * minimalSimularity = ```z```
+
+# Clone classes
+
+![Clone classes](docs/clone_classes.png)
+
+
+
+# Visualization
+
+![Clone map](docs/clone_map.png)
+
+Figure: Clone map
+
+![Edges graph](docs/edges_graph_ori.png)
+
+Figure: Graph of clone classes
+
+![Files graph](docs/files_graph.png)
+
+Figure: Graph of clone files
