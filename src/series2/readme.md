@@ -3,6 +3,8 @@
 - Laurance Saess
 
 # TO DO
+
+```
 We expect
 you to find some literature on this topic yourself and use it in your design.
 
@@ -14,7 +16,8 @@ and argumentation. You will need to use literature discussed and referenced in t
 lectures to find and motivate good solutions: for instance for finding an appropriate
 clone detection algorithm.
 
-From the ass:
+From the assignment:
+
 * The detected clone classes are written to file in a textual representation.
 * Clone classes that are strictly included in others are dropped
 * Show % of duplicated lines
@@ -34,6 +37,8 @@ From the ass:
 * BONUS: Implement more vizualizations that provide additional insight
 * BONUS: Make sure your tool works on bigger projects such as hsqlsb16
 * BONUS: Produce maintainable code that is covered by unit tests.
+
+```
 
 # Clone detection
 
@@ -113,20 +118,78 @@ You can display the AST as an tree. When you compare the nodes, there will be a 
 
 # Clone classes
 
+The diagram below shows our approach to delete unnecessary clones, which are subsumed by other clones. 
+
+__Figure: Detecting clone classes__
+
 ![Clone classes](docs/clone_classes.png)
 
+At first, we flagged every clone that was included in another clone. For this, we can use the underlying location of a cloned node. 
 
+```Java
+public bool containsLargerLocation(NodeIdLocation nlA, list[NodeIdLocation] nls){
+	return any(NodeIdLocation nlB <- nls, nlA.id != nlB.id && nlB.l >= nlA.l);
+}
+```
+
+This code above can tell us if a node (`nlA`) is located inside a clone of the node list (`nls`). In this first approach, we simply flagged and deleted the clones from the clone graph.
+
+We soon recognized another type of clones (category 2), in which included clones are not deleted because they appear outside of other clones. In order to build the right clone classes, we use the following algorithm:
+
+1. Flag every clone that is fully included in another clone.
+2. Build a graph of clones
+	1. Use the transitive closure for clone type 1 and 2. Type3 clones must not be transitive.
+3. Remove a class of clones from the output if all nodes are flagged as deleted. 
+4. Output the clones as a graph that builds a cluster for every clone class (please see visualization below)
 
 # Visualization
 
+## Enclosure diagram
+
+In his book, Adam Tornhill describes the methods and visualizations that criminologists use to find murderers and describes how software engineers can learn from this, by using similar methods to detect code smells or "dirty" developers. [Tornhill, 2015]
+
+One example of visualizations that criminologists supposedly use maps in which they highlight hotspots in order to predict future crimes. 
+
+__Figure: Clone enclose diagram to show clone overview__
+
 ![Clone map](docs/clone_map.png)
 
-Figure: Clone map
+The visualization above tries to imitate this approach by creating a zoomable map of code clone criminals. 
+
+We used an enclosure diagram in order to handle large software systems. This diagram is based on a geometric layout algorithm called circle packing. Each circle represents a module or code class of the system. 
+The more duplicate lines a module has the larger the circle. We can immediately see the files with the largest clones and in which folders they are located.
+
+## Clone graphs
+
+The enclosure diagram is good to get a quick overview over the project, but it does not tell anything about how clones are connected inside the system.
+
+__Figure: Graph of clone classes (approach 1)__
 
 ![Edges graph](docs/edges_graph_ori.png)
 
-Figure: Graph of clone classes
+To show the maintainer how the clone classes in his project are structured we created the interactive diagram above.
+
+In the first approach, we used the clones as nodes and their connections as edges. If there are two clones of type A in one file, they will be displayed as two connected nodes. 
+This view nicely shows that clone classes can be seen as clusters that are not interconnected. A behavior that we used to detect them (see the pseudo algorithm in "clone classes" section). 
+
+__Figure: Graph of clone files (approach 2)__
 
 ![Files graph](docs/files_graph.png)
 
-Figure: Graph of clone files
+
+The second approach is more useful for a maintainer.  In this view, the files are represented as nodes and they are connected by an edge as soon as one duplicate is found in both files. 
+A highlighted area shows that these clusters are not fully interconnected, unlike in the first approach where the clones were fully transitive.
+If `class A` and `class B` share a clone, and `class B` and `class C` share a clone, `class A` and `class C` are not connected (not transitive).
+
+What a maintainer can learn from this view: 
+
+* There are many files that have clones in themselves - which should be an easy fix
+* Most of the clusters are fully interconnected, which shows that there is some behavior that all of these files could have in common.
+* Removing the largest 4 clone classes could reduce the number of files that contain clones drastically. 
+
+
+##TODO: Add raw data table and explain why it was created
+
+# Literature
+
+[Tornhill, 2015] Adam Tornhill. (2015). Your Code as a Crime Scene. https://doi.org/10.1017/CBO9781107415324.004
