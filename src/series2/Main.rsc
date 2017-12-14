@@ -56,7 +56,7 @@ public void testHsqlJavaProject() {
 
 public void writeAnalyses(str name, loc location) {
 	for(int i <- [1..(3+1)]) {
-		str output = doAnalyses(location,1);
+		str output = doAnalyses(location,i);
 		writeFile(toLocation("project://uva-software-evolution/output/<name>_<i>.txt"), output);
 	}
 }
