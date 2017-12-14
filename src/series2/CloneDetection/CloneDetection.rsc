@@ -22,9 +22,7 @@ loc noLocation = |unresolved:///|;
 Type defaultType = lang::java::jdt::m3::AST::short();
 
 //Start clone detection
-//Type 2: simularity = 100
-//Type 3: simularity = 30?
-public cloneDetectionResult doCloneDetection(set[Declaration] ast, bool normalizeAST, int minimalNodeGroupSize, real minimalSimularity) {
+public cloneDetectionResult doCloneDetection(set[Declaration] ast, bool normalizeAST, int minimumCodeSize, int minimalNodeGroupSize, real minimalSimularity) {
 
 	cloneDetectionResult results = <(),{}>;
 
@@ -44,24 +42,20 @@ public cloneDetectionResult doCloneDetection(set[Declaration] ast, bool normaliz
 									nLoc := nodeFileLocation(nodeI),
 									size := nodeSize(nodeI),
 									size >= minimalNodeGroupSize,
-									nLoc != noLocation ];
-	//iprintln(nodeWLoc);
-	/*if(normalizeAST) {
-		printDebug("Get normalized AST");
-		testOnAst = getNormalizedLocationAst(normalizeAST);
-		printDebug("End normalized AST");
-	}*/
-	
+									nLoc != noLocation,
+									(nLoc.end.line - nLoc.begin.line + 1) >= minimumCodeSize ];
+									
 	printDebug("End adding node details");
 
 	printDebug("Comparing nodes");
 	int nodeItems = size(nodeWLoc);
 	int counter = 0;
 	for (nodeLA <- nodeWLoc) {	
+		//Progress
 		printDebug("<counter> / <nodeItems>");
 		counter = counter + 1;
-
-		//TODO: only with higher ID!
+		
+		//Compare with all nodes
 		for (nodeLB <- nodeWLoc) {
 
 			//Only comapre with biger items, otherwise duplicates
@@ -76,12 +70,19 @@ public cloneDetectionResult doCloneDetection(set[Declaration] ast, bool normaliz
 			if( nodeLA.s > nodeLB.s || nodeLB.s == 0 || nodeLA.s == 0 || percent(nodeLA.s,nodeLB.s) < minimalSimularity)
 				continue;
 
+			//Do not compare when node is subnode of
+			if(nodeLA.l >= nodeLB.l || nodeLA.l <= nodeLB.l )
+				continue; 
+
 			//Minimal similarity
 			num similarity = nodeSimilarity(nodeLA.d, nodeLB.d);
-			
 			if(similarity < minimalSimularity)
 				continue;
-
+			
+			//iprintln(nodeLA.d);
+			//iprintln("#############");
+			//iprintln(nodeLB.d);
+			
 			//Log items that are the same
 			printDebug("Similarity: <similarity>");
 			printDebug("Loc a: <nodeLA.l> Loc b: <nodeLB.l>");
@@ -98,7 +99,6 @@ public cloneDetectionResult doCloneDetection(set[Declaration] ast, bool normaliz
 }
 
 public int nodeSize(node nodeItem) {
-
 	int counter = 0;
 	visit (nodeItem) {
 		case node _ : counter += 1;
@@ -138,8 +138,6 @@ public num nodeSimilarity(node nodeA, node nodeB) {
 	num sameElements = size(nodeList1 & nodeList2);
 	num totalItems = size(nodeList1) + size(nodeList2) - sameElements;
 
-	//printDebug("sameElements: <sameElements> totalItems: <totalItems>");
-
 	return sameElements / totalItems * 100;
 }
 
@@ -149,19 +147,23 @@ public num nodeSimilarity(node nodeA, node nodeB) {
 */
 public loc nodeFileLocation(node n) {
 
-	if (Declaration d := n) {
-		return d.src;
+	loc location = noLocation;
+	
+	if (Declaration d := n) 
+		location = d.src;
+	
+	if (Expression e := n) 
+		location = e.src;
+	
+	if (Statement s := n)
+		location = s.src;
+	
+	//Unit that is not related to source-code
+	if(location == |unknown:///|) {
+		location = noLocation;
 	}
-
-	if (Expression e := n) {
-		return e.src;
-	}
-
-	if (Statement s := n) {
-		return s.src;
-	}
-
-	return noLocation;
+	
+	return location;
 }
 
 //Will remove all items that are inrelevant for type 2 and 3
