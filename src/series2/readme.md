@@ -5,49 +5,25 @@
 # TO DO
 
 ```
-We expect
-you to find some literature on this topic yourself and use it in your design.
-
-<< add that the ast approach is from the paper
-
-Compared to Lab Series 1, this assignment will be more open. Your solution
-will be graded using more generic criteria, with a stronger emphasis on motivation
-and argumentation. You will need to use literature discussed and referenced in the
-lectures to find and motivate good solutions: for instance for finding an appropriate
-clone detection algorithm.
-
-From the assignment:
-
-* The detected clone classes are written to file in a textual representation.
-* Clone classes that are strictly included in others are dropped
 * Show % of duplicated lines
 * Show number of clones
 * Show number of clone classes
 * Show biggest clone (in lines),
 * Show biggest clone class
 * Show example clones
-* one insightful vizualization of the cloning in a project.
-* A convincing test harness (an automated regression test framework) that ensures your clone detector work
-* Design documentation that describes and motivates the following
-	* The 3 main requirements your tool satisfies from the perspective of a maintainer (see for instance [18]), and the related implementation choices.
-	* The exact type of clones your tool detects. Start from Type 1, Type 2, ... but become more specific.
-	* The core of the clone detection algorithm that you use (in pseudocode).
-	* The vizualization(s) you implemented: how do they help a maintainer or developer?
-* BONUS: Also detect Type 2 and Type 3 clone classes.
-* BONUS: Implement more vizualizations that provide additional insight
-* BONUS: Make sure your tool works on bigger projects such as hsqlsb16
-* BONUS: Produce maintainable code that is covered by unit tests.
-
 ```
 
 # Clone detection
 
-In pseudo code:
-
+We use a approach that uses the AST to detect code clones. We use the tactics that is described by [Koschke, 2008]. In pseudo code:
+ 
 Where:
+```
 * x is the clone type
 * y is the project location
 * z is the min number of sub notes
+* z' is the min number of lines of code per node
+```
 
 ```
 type = x
@@ -60,7 +36,8 @@ astList <- remove when subitems less than z
 astList <- remove with invalid location
 
 @no duplicate compares
-@sub nodes for every node is minimal <a>
+@sub nodes for every node is minimal <z>
+@sub nodes code size is minimal <z'>
 @similarity of nodeA and NodeB > a
 compare astList astList to nodeA nodeB:
 	return add connection:<nodeA.l,nodeB.l>
@@ -80,6 +57,7 @@ The real project has the following parameters:
 * set[Declaration] ast
 * bool normalizeAST
 * int minimalNodeGroupSize
+* int minimalCodeSize
 * real minimalSimularity
 
 What is a little bit different than the pseudo code. In the section we are going to describe what every parameter is and how it translates to the real project.
@@ -110,21 +88,22 @@ The pseudo code will genarate an AST based on the location of the project. The c
 
 * ast = ```createAstsFromEclipseProject(createM3FromEclipseProject(y), true);```
 
-### Z is the min number of sub notes
+### Z is the min number of sub notes and Z' are the minimum lines of code per node
 
-You can display the AST as an tree. When you compare the nodes, there will be a lot of useless small clones. This parameter can be used to define a minimum size. Nodes are only considered that contain z sub nodes.
+You can display the AST as an tree. When you compare the nodes, there will be a lot of useless small clones. This parameter can be used to define a minimum size. Nodes are only considered that contain z sub nodes or has minimum z' lines of code.
 
-* minimalSimularity = ```z```
+* int minimalNodeGroupSize = z
+* int minimalCodeSize = z'
 
 # Clone classes
 
-The diagram below shows our approach to delete unnecessary clones, which are subsumed by other clones. 
+The diagram below shows our approach to delete unnecessary clones, which are subsumed by other clones.
 
 __Figure: Detecting clone classes__
 
 ![Clone classes](docs/clone_classes.png)
 
-At first, we flagged every clone that was included in another clone. For this, we can use the underlying location of a cloned node. 
+At first, we flagged every clone that was included in another clone. For this, we can use the underlying location of a cloned node.
 
 ```Java
 public bool containsLargerLocation(NodeIdLocation nlA, list[NodeIdLocation] nls){
@@ -139,7 +118,7 @@ We soon recognized another type of clones (category 2), in which included clones
 1. Flag every clone that is fully included in another clone.
 2. Build a graph of clones
 	1. Use the transitive closure for clone type 1 and 2. Type3 clones must not be transitive.
-3. Remove a class of clones from the output if all nodes are flagged as deleted. 
+3. Remove a class of clones from the output if all nodes are flagged as deleted.
 4. Output the clones as a graph that builds a cluster for every clone class (please see visualization below)
 
 # Visualization
@@ -148,15 +127,15 @@ We soon recognized another type of clones (category 2), in which included clones
 
 In his book, Adam Tornhill describes the methods and visualizations that criminologists use to find murderers and describes how software engineers can learn from this, by using similar methods to detect code smells or "dirty" developers. [Tornhill, 2015]
 
-One example of visualizations that criminologists supposedly use maps in which they highlight hotspots in order to predict future crimes. 
+One example of visualizations that criminologists supposedly use maps in which they highlight hotspots in order to predict future crimes.
 
 __Figure: Clone enclose diagram to show clone overview__
 
 ![Clone map](docs/clone_map.png)
 
-The visualization above tries to imitate this approach by creating a zoomable map of code clone criminals. 
+The visualization above tries to imitate this approach by creating a zoomable map of code clone criminals.
 
-We used an enclosure diagram in order to handle large software systems. This diagram is based on a geometric layout algorithm called circle packing. Each circle represents a module or code class of the system. 
+We used an enclosure diagram in order to handle large software systems. This diagram is based on a geometric layout algorithm called circle packing. Each circle represents a module or code class of the system.
 The more duplicate lines a module has the larger the circle. We can immediately see the files with the largest clones and in which folders they are located.
 
 ## Clone graphs
@@ -169,23 +148,23 @@ __Figure: Graph of clone classes (approach 1)__
 
 To show the maintainer how the clone classes in his project are structured we created the interactive diagram above.
 
-In the first approach, we used the clones as nodes and their connections as edges. If there are two clones of type A in one file, they will be displayed as two connected nodes. 
-This view nicely shows that clone classes can be seen as clusters that are not interconnected. A behavior that we used to detect them (see the pseudo algorithm in "clone classes" section). 
+In the first approach, we used the clones as nodes and their connections as edges. If there are two clones of type A in one file, they will be displayed as two connected nodes.
+This view nicely shows that clone classes can be seen as clusters that are not interconnected. A behavior that we used to detect them (see the pseudo algorithm in "clone classes" section).
 
 __Figure: Graph of clone files (approach 2)__
 
 ![Files graph](docs/files_graph.png)
 
 
-The second approach is more useful for a maintainer.  In this view, the files are represented as nodes and they are connected by an edge as soon as one duplicate is found in both files. 
+The second approach is more useful for a maintainer.  In this view, the files are represented as nodes and they are connected by an edge as soon as one duplicate is found in both files.
 A highlighted area shows that these clusters are not fully interconnected, unlike in the first approach where the clones were fully transitive.
 If `class A` and `class B` share a clone, and `class B` and `class C` share a clone, `class A` and `class C` are not connected (not transitive).
 
-What a maintainer can learn from this view: 
+What a maintainer can learn from this view:
 
 * There are many files that have clones in themselves - which should be an easy fix
 * Most of the clusters are fully interconnected, which shows that there is some behavior that all of these files could have in common.
-* Removing the largest 4 clone classes could reduce the number of files that contain clones drastically. 
+* Removing the largest 4 clone classes could reduce the number of files that contain clones drastically.
 
 
 ##TODO: Add raw data table and explain why it was created
@@ -193,3 +172,4 @@ What a maintainer can learn from this view:
 # Literature
 
 [Tornhill, 2015] Adam Tornhill. (2015). Your Code as a Crime Scene. https://doi.org/10.1017/CBO9781107415324.004
+[Koschke, 2008]. R. Koschke. (2008). Identifying and Removing Software Clones.
