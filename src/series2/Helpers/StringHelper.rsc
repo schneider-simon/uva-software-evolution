@@ -85,7 +85,9 @@ bool isCodeLine(str line, bool curlyBracketsAreCode){
 	return true;
 }
 
-list[str] getCodeLines(str source) = getCodeLines(source, CURLY_BRACKETS_ARE_CODE);
+list[str] getCodeLines(loc location) = getCodeLines(readFile(location), true);
+
+list[str] getCodeLines(str source) = getCodeLines(source, true);
 
 list[str] getCodeLines(str source, bool curlyBracketsAreCode){
 	source = "\n" + source + "\n";
