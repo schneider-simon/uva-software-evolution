@@ -32,7 +32,7 @@ public void runAll() {
 	Will exexute the meterics on a test project 
 */
 public void testExampleJavaProject() {
-	writeAnalyses("test-project", |project://test-project/|);
+	writeAnalyses("test-project", |project://use-test-project|);
 }
 
 /*
@@ -83,7 +83,7 @@ public void writeAnalyses(str name, loc location) {
 		str output = cloneResultToJson(result, location, size(codeLines), projectFiles);
 		stopMeasure("ToJson");	
 		
-		loc outputLocation = toLocation("file:///tmp/rascal_output/<name>_<i>.json");
+		loc outputLocation = toLocation("project://uva-software-evolution/output/<name>_<i>.json");
 	
 		writeFile(outputLocation, output);
 		println("Output location: <outputLocation>");
@@ -102,8 +102,24 @@ public cloneDetectionResult doAnalyses(set[Declaration] ast, int cloneType) {
 	startMeasure("DetectClones");	
 	
 	cloneDetectionResult cloneResult = doCloneDetection(ast, normalizeAST, minimumCodeSize, minimalNodeGroupSize, minimalSimularity);
-	iprintln(cloneResult.connections);
+	//iprintln(cloneResult.connections);
 	
+ 	/*for(connection <- cloneResult.connections) {
+ 		loc la = cloneResult.nodeDetails[connection.f].l;
+ 		loc lb = cloneResult.nodeDetails[connection.s].l;
+ 		
+ 		str las = readFile(la);
+ 		str lbs = readFile(lb);
+ 		
+ 		iprintln("#########<la>");
+ 		iprintln("#########<lb>");
+ 		iprintln(las);
+ 		iprintln("");
+ 		iprintln("");
+ 		iprintln(lbs);
+ 		iprintln("");
+ 	}*/
+
 	stopMeasure("DetectClones");	
 		
 	return cloneResult;

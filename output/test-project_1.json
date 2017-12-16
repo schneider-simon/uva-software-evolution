@@ -1,0 +1,16 @@
+{
+		"project": { 
+
+			"name": "use-test-project",
+			"location": {
+		"uri": "project://use-test-project",	
+		"path": "/"			
+	},
+
+			"linesOfCode": 20,
+
+			"projectFiles": 2
+		},
+		"nodes": [],
+		"connections": []
+	}

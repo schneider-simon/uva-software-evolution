@@ -64,7 +64,7 @@ public cloneDetectionResult doCloneDetection(set[Declaration] ast, bool normaliz
 			//Only comapre with biger items, otherwise duplicates
 			if(nodeLA.id >= nodeLB.id)
 				continue;
-				
+								
 			//Compare different and valid locations
 			if(nodeLA.l == nodeLB.l || nodeLA.l == noLocation || nodeLB.l == noLocation)
 				continue;
@@ -76,9 +76,11 @@ public cloneDetectionResult doCloneDetection(set[Declaration] ast, bool normaliz
 			//Do not compare when node is subnode of
 			if(nodeLA.l.path == nodeLB.l.path && (nodeLA.l >= nodeLB.l || nodeLA.l <= nodeLB.l))
 				continue; 				
-
+				
 			//Minimal similarity
 			num similarity = nodeSimilarity(nodeLA.d, nodeLB.d);
+			//if(nodeLB.l.end.line - nodeLB.l.begin.line + 1 > 5 && nodeLA.l.end.line - nodeLA.l.begin.line + 1 > 5)
+			//	iprintln("For (<similarity>): <(nodeLA.l)> - <(nodeLB.l)>");
 			if(similarity < minimalSimularity)
 				continue;
 							
