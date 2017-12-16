@@ -4,11 +4,13 @@ import Set;
 import List;
 import String;
 import IO;
+import lang::json::IO;
 import series2::Helpers::LocationHelper;
+import series2::Helpers::StringHelper;
 import series2::CloneDetection::CloneNetwork;
 import series2::CloneDetection::CloneDetection;
 
-public str cloneResultToJson(cloneDetectionResult result){
+public str cloneResultToJson(cloneDetectionResult result, loc projectLocation, int linesOfCode){
 	list[set[int]] connectionRegions = cubeCloneNetwork(result.connections);
 	
 	list[str] nodesDetailsJson = [];
@@ -19,7 +21,14 @@ public str cloneResultToJson(cloneDetectionResult result){
 		nodesDetailsJson += [nodeDetailedToJson(details)];
 	}
 	
+	projectName = projectLocation.authority;
+		
 	return "{
+		\"project\": { \n
+			\"name\": \"<projectName>\",
+			\"location\": <locationWithoutAreaToJson(projectLocation)>,\n
+			\"linesOfCode\": <linesOfCode>\n
+		},
 		\"nodes\": [<intercalate(",\n", nodesDetailsJson)>],
 		\"connections\": <[toList(region) | region <- connectionRegions]>
 	}";
@@ -29,6 +38,7 @@ str nodeDetailedToJson(nodeDetailed details){
 	return "{
 		\"id\": \"<details.id>\",
 		\"location\": <locationToJson(details.l)>,
+		\"linesOfCode\": <size(getCodeLines(details.l))>,
 		\"nodesAmount\": <details.s>			
 	}";
 }
@@ -38,7 +48,6 @@ str locationToJson(loc location){
 		return "null";
 	}
 
-	//TODO: Return null if location does not have a line begin and end
 	return "{
 		\"path\": \"<location.path>\",
 		\"length\": <location.length>,
@@ -46,5 +55,12 @@ str locationToJson(loc location){
 		\"endLine\": <location.end.line>,
 		\"startColumn\": <location.begin.column>,
 		\"endColumn\": <location.end.column>				
+	}";
+}
+
+str locationWithoutAreaToJson(loc location){
+	return "{
+		\"uri\": \"<location.uri>\"			
+		\"path\": \"<location.path>\"			
 	}";
 }
