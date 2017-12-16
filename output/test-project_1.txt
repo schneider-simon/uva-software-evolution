@@ -1,207 +1,723 @@
 {
 		"nodes": [{
-		"id": "348",
+		"id": "35",
 		"location": {
-		"path": "/src/simpleType.java",
-		"length": 18,
-		"startLine": 32,
-		"endLine": 34,
-		"startColumn": 29,
-		"endColumn": 3				
+		"path": "/src/TestClass2.java",
+		"length": 27,
+		"startLine": 5,
+		"endLine": 5,
+		"startColumn": 2,
+		"endColumn": 29				
 	},
-		"nodesAmount": 2			
+		"nodesAmount": 11			
 	},
 {
-		"id": "621",
+		"id": "134",
 		"location": {
-		"path": "/src/simpleType.java",
-		"length": 19,
-		"startLine": 127,
-		"endLine": 129,
-		"startColumn": 15,
-		"endColumn": 4				
+		"path": "/src/TestClass1.java",
+		"length": 27,
+		"startLine": 8,
+		"endLine": 8,
+		"startColumn": 2,
+		"endColumn": 29				
 	},
-		"nodesAmount": 2			
+		"nodesAmount": 11			
 	},
 {
-		"id": "495",
+		"id": "28",
 		"location": {
-		"path": "/src/simpleType.java",
-		"length": 19,
-		"startLine": 82,
-		"endLine": 84,
-		"startColumn": 30,
-		"endColumn": 2				
+		"path": "/src/TestClass2.java",
+		"length": 3,
+		"startLine": 5,
+		"endLine": 5,
+		"startColumn": 9,
+		"endColumn": 12				
 	},
-		"nodesAmount": 8			
+		"nodesAmount": 2			
 	},
 {
 		"id": "136",
 		"location": {
-		"path": "/src/testClass.java",
-		"length": 33,
-		"startLine": 26,
-		"endLine": 28,
+		"path": "/src/TestClass1.java",
+		"length": 6,
+		"startLine": 9,
+		"endLine": 9,
 		"startColumn": 2,
-		"endColumn": 3				
-	},
-		"nodesAmount": 15			
-	},
-{
-		"id": "478",
-		"location": {
-		"path": "/src/simpleType.java",
-		"length": 19,
-		"startLine": 78,
-		"endLine": 80,
-		"startColumn": 27,
-		"endColumn": 2				
-	},
-		"nodesAmount": 8			
-	},
-{
-		"id": "650",
-		"location": {
-		"path": "/src/simpleType.java",
-		"length": 19,
-		"startLine": 139,
-		"endLine": 141,
-		"startColumn": 16,
-		"endColumn": 4				
+		"endColumn": 8				
 	},
 		"nodesAmount": 2			
 	},
 {
-		"id": "135",
+		"id": "81",
 		"location": {
-		"path": "/src/testClass.java",
-		"length": 19,
-		"startLine": 26,
-		"endLine": 28,
-		"startColumn": 16,
-		"endColumn": 3				
-	},
-		"nodesAmount": 8			
-	},
-{
-		"id": "720",
-		"location": {
-		"path": "/src/simpleType.java",
-		"length": 60,
-		"startLine": 156,
-		"endLine": 159,
+		"path": "/src/TestClass1.java",
+		"length": 6,
+		"startLine": 3,
+		"endLine": 3,
 		"startColumn": 2,
-		"endColumn": 3				
-	},
-		"nodesAmount": 23			
-	},
-{
-		"id": "616",
-		"location": {
-		"path": "/src/simpleType.java",
-		"length": 22,
-		"startLine": 124,
-		"endLine": 126,
-		"startColumn": 15,
-		"endColumn": 4				
+		"endColumn": 8				
 	},
 		"nodesAmount": 2			
 	},
 {
-		"id": "694",
+		"id": "129",
 		"location": {
-		"path": "/src/simpleType.java",
-		"length": 60,
-		"startLine": 150,
-		"endLine": 153,
+		"path": "/src/TestClass1.java",
+		"length": 10,
+		"startLine": 8,
+		"endLine": 8,
 		"startColumn": 2,
-		"endColumn": 3				
+		"endColumn": 12				
 	},
-		"nodesAmount": 23			
+		"nodesAmount": 6			
 	},
 {
-		"id": "189",
+		"id": "24",
 		"location": {
-		"path": "/src/testClass.java",
-		"length": 33,
-		"startLine": 36,
-		"endLine": 38,
+		"path": "/src/TestClass2.java",
+		"length": 27,
+		"startLine": 4,
+		"endLine": 4,
 		"startColumn": 2,
-		"endColumn": 3				
+		"endColumn": 29				
 	},
-		"nodesAmount": 15			
-	},
-{
-		"id": "208",
-		"location": {
-		"path": "/src/testClass.java",
-		"length": 106,
-		"startLine": 33,
-		"endLine": 41,
-		"startColumn": 22,
-		"endColumn": 2				
-	},
-		"nodesAmount": 48			
+		"nodesAmount": 11			
 	},
 {
-		"id": "365",
+		"id": "30",
 		"location": {
-		"path": "/src/simpleType.java",
-		"length": 18,
-		"startLine": 35,
-		"endLine": 37,
-		"startColumn": 29,
-		"endColumn": 3				
+		"path": "/src/TestClass2.java",
+		"length": 10,
+		"startLine": 5,
+		"endLine": 5,
+		"startColumn": 2,
+		"endColumn": 12				
+	},
+		"nodesAmount": 6			
+	},
+{
+		"id": "15",
+		"location": {
+		"path": "/src/TestClass2.java",
+		"length": 6,
+		"startLine": 4,
+		"endLine": 4,
+		"startColumn": 2,
+		"endColumn": 8				
 	},
 		"nodesAmount": 2			
 	},
 {
-		"id": "645",
+		"id": "43",
 		"location": {
-		"path": "/src/simpleType.java",
-		"length": 22,
-		"startLine": 136,
-		"endLine": 138,
-		"startColumn": 16,
-		"endColumn": 4				
-	},
-		"nodesAmount": 2			
-	},
-{
-		"id": "155",
-		"location": {
-		"path": "/src/testClass.java",
-		"length": 106,
-		"startLine": 23,
-		"endLine": 31,
-		"startColumn": 22,
-		"endColumn": 2				
-	},
-		"nodesAmount": 48			
-	},
-{
-		"id": "188",
-		"location": {
-		"path": "/src/testClass.java",
-		"length": 19,
-		"startLine": 36,
-		"endLine": 38,
-		"startColumn": 16,
-		"endColumn": 3				
-	},
-		"nodesAmount": 8			
-	},
-{
-		"id": "533",
-		"location": {
-		"path": "/src/simpleType.java",
-		"length": 19,
-		"startLine": 94,
-		"endLine": 96,
+		"path": "/src/TestClass2.java",
+		"length": 6,
+		"startLine": 7,
+		"endLine": 7,
 		"startColumn": 21,
-		"endColumn": 2				
+		"endColumn": 27				
 	},
-		"nodesAmount": 8			
+		"nodesAmount": 2			
+	},
+{
+		"id": "56",
+		"location": {
+		"path": "/src/TestClass2.java",
+		"length": 26,
+		"startLine": 8,
+		"endLine": 8,
+		"startColumn": 2,
+		"endColumn": 28				
+	},
+		"nodesAmount": 10			
+	},
+{
+		"id": "8",
+		"location": {
+		"path": "/src/TestClass2.java",
+		"length": 10,
+		"startLine": 3,
+		"endLine": 3,
+		"startColumn": 2,
+		"endColumn": 12				
+	},
+		"nodesAmount": 6			
+	},
+{
+		"id": "123",
+		"location": {
+		"path": "/src/TestClass1.java",
+		"length": 27,
+		"startLine": 7,
+		"endLine": 7,
+		"startColumn": 2,
+		"endColumn": 29				
+	},
+		"nodesAmount": 11			
+	},
+{
+		"id": "98",
+		"location": {
+		"path": "/src/TestClass1.java",
+		"length": 6,
+		"startLine": 4,
+		"endLine": 4,
+		"startColumn": 21,
+		"endColumn": 27				
+	},
+		"nodesAmount": 2			
+	},
+{
+		"id": "48",
+		"location": {
+		"path": "/src/TestClass2.java",
+		"length": 6,
+		"startLine": 8,
+		"endLine": 8,
+		"startColumn": 2,
+		"endColumn": 8				
+	},
+		"nodesAmount": 2			
+	},
+{
+		"id": "125",
+		"location": {
+		"path": "/src/TestClass1.java",
+		"length": 6,
+		"startLine": 8,
+		"endLine": 8,
+		"startColumn": 2,
+		"endColumn": 8				
+	},
+		"nodesAmount": 2			
+	},
+{
+		"id": "39",
+		"location": {
+		"path": "/src/TestClass2.java",
+		"length": 3,
+		"startLine": 7,
+		"endLine": 7,
+		"startColumn": 9,
+		"endColumn": 12				
+	},
+		"nodesAmount": 2			
+	},
+{
+		"id": "118",
+		"location": {
+		"path": "/src/TestClass1.java",
+		"length": 10,
+		"startLine": 7,
+		"endLine": 7,
+		"startColumn": 2,
+		"endColumn": 12				
+	},
+		"nodesAmount": 6			
+	},
+{
+		"id": "96",
+		"location": {
+		"path": "/src/TestClass1.java",
+		"length": 10,
+		"startLine": 4,
+		"endLine": 4,
+		"startColumn": 2,
+		"endColumn": 12				
+	},
+		"nodesAmount": 6			
+	},
+{
+		"id": "116",
+		"location": {
+		"path": "/src/TestClass1.java",
+		"length": 3,
+		"startLine": 7,
+		"endLine": 7,
+		"startColumn": 9,
+		"endColumn": 12				
+	},
+		"nodesAmount": 2			
+	},
+{
+		"id": "50",
+		"location": {
+		"path": "/src/TestClass2.java",
+		"length": 3,
+		"startLine": 8,
+		"endLine": 8,
+		"startColumn": 9,
+		"endColumn": 12				
+	},
+		"nodesAmount": 2			
+	},
+{
+		"id": "127",
+		"location": {
+		"path": "/src/TestClass1.java",
+		"length": 3,
+		"startLine": 8,
+		"endLine": 8,
+		"startColumn": 9,
+		"endColumn": 12				
+	},
+		"nodesAmount": 2			
+	},
+{
+		"id": "37",
+		"location": {
+		"path": "/src/TestClass2.java",
+		"length": 6,
+		"startLine": 7,
+		"endLine": 7,
+		"startColumn": 2,
+		"endColumn": 8				
+	},
+		"nodesAmount": 2			
+	},
+{
+		"id": "41",
+		"location": {
+		"path": "/src/TestClass2.java",
+		"length": 10,
+		"startLine": 7,
+		"endLine": 7,
+		"startColumn": 2,
+		"endColumn": 12				
+	},
+		"nodesAmount": 6			
+	},
+{
+		"id": "85",
+		"location": {
+		"path": "/src/TestClass1.java",
+		"length": 10,
+		"startLine": 3,
+		"endLine": 3,
+		"startColumn": 2,
+		"endColumn": 12				
+	},
+		"nodesAmount": 6			
+	},
+{
+		"id": "133",
+		"location": {
+		"path": "/src/TestClass1.java",
+		"length": 26,
+		"startLine": 8,
+		"endLine": 8,
+		"startColumn": 2,
+		"endColumn": 28				
+	},
+		"nodesAmount": 10			
+	},
+{
+		"id": "52",
+		"location": {
+		"path": "/src/TestClass2.java",
+		"length": 10,
+		"startLine": 8,
+		"endLine": 8,
+		"startColumn": 2,
+		"endColumn": 12				
+	},
+		"nodesAmount": 6			
+	},
+{
+		"id": "112",
+		"location": {
+		"path": "/src/TestClass1.java",
+		"length": 27,
+		"startLine": 5,
+		"endLine": 5,
+		"startColumn": 2,
+		"endColumn": 29				
+	},
+		"nodesAmount": 11			
+	},
+{
+		"id": "103",
+		"location": {
+		"path": "/src/TestClass1.java",
+		"length": 6,
+		"startLine": 5,
+		"endLine": 5,
+		"startColumn": 2,
+		"endColumn": 8				
+	},
+		"nodesAmount": 2			
+	},
+{
+		"id": "45",
+		"location": {
+		"path": "/src/TestClass2.java",
+		"length": 26,
+		"startLine": 7,
+		"endLine": 7,
+		"startColumn": 2,
+		"endColumn": 28				
+	},
+		"nodesAmount": 10			
+	},
+{
+		"id": "120",
+		"location": {
+		"path": "/src/TestClass1.java",
+		"length": 6,
+		"startLine": 7,
+		"endLine": 7,
+		"startColumn": 21,
+		"endColumn": 27				
+	},
+		"nodesAmount": 2			
+	},
+{
+		"id": "17",
+		"location": {
+		"path": "/src/TestClass2.java",
+		"length": 3,
+		"startLine": 4,
+		"endLine": 4,
+		"startColumn": 9,
+		"endColumn": 12				
+	},
+		"nodesAmount": 2			
+	},
+{
+		"id": "111",
+		"location": {
+		"path": "/src/TestClass1.java",
+		"length": 26,
+		"startLine": 5,
+		"endLine": 5,
+		"startColumn": 2,
+		"endColumn": 28				
+	},
+		"nodesAmount": 10			
+	},
+{
+		"id": "4",
+		"location": {
+		"path": "/src/TestClass2.java",
+		"length": 6,
+		"startLine": 3,
+		"endLine": 3,
+		"startColumn": 2,
+		"endColumn": 8				
+	},
+		"nodesAmount": 2			
+	},
+{
+		"id": "34",
+		"location": {
+		"path": "/src/TestClass2.java",
+		"length": 26,
+		"startLine": 5,
+		"endLine": 5,
+		"startColumn": 2,
+		"endColumn": 28				
+	},
+		"nodesAmount": 10			
+	},
+{
+		"id": "61",
+		"location": {
+		"path": "/src/TestClass2.java",
+		"length": 3,
+		"startLine": 9,
+		"endLine": 9,
+		"startColumn": 9,
+		"endColumn": 12				
+	},
+		"nodesAmount": 2			
+	},
+{
+		"id": "92",
+		"location": {
+		"path": "/src/TestClass1.java",
+		"length": 6,
+		"startLine": 4,
+		"endLine": 4,
+		"startColumn": 2,
+		"endColumn": 8				
+	},
+		"nodesAmount": 2			
+	},
+{
+		"id": "6",
+		"location": {
+		"path": "/src/TestClass2.java",
+		"length": 3,
+		"startLine": 3,
+		"endLine": 3,
+		"startColumn": 9,
+		"endColumn": 12				
+	},
+		"nodesAmount": 2			
+	},
+{
+		"id": "63",
+		"location": {
+		"path": "/src/TestClass2.java",
+		"length": 10,
+		"startLine": 9,
+		"endLine": 9,
+		"startColumn": 2,
+		"endColumn": 12				
+	},
+		"nodesAmount": 6			
+	},
+{
+		"id": "122",
+		"location": {
+		"path": "/src/TestClass1.java",
+		"length": 26,
+		"startLine": 7,
+		"endLine": 7,
+		"startColumn": 2,
+		"endColumn": 28				
+	},
+		"nodesAmount": 10			
+	},
+{
+		"id": "32",
+		"location": {
+		"path": "/src/TestClass2.java",
+		"length": 6,
+		"startLine": 5,
+		"endLine": 5,
+		"startColumn": 21,
+		"endColumn": 27				
+	},
+		"nodesAmount": 2			
+	},
+{
+		"id": "109",
+		"location": {
+		"path": "/src/TestClass1.java",
+		"length": 6,
+		"startLine": 5,
+		"endLine": 5,
+		"startColumn": 21,
+		"endColumn": 27				
+	},
+		"nodesAmount": 2			
+	},
+{
+		"id": "140",
+		"location": {
+		"path": "/src/TestClass1.java",
+		"length": 10,
+		"startLine": 9,
+		"endLine": 9,
+		"startColumn": 2,
+		"endColumn": 12				
+	},
+		"nodesAmount": 6			
+	},
+{
+		"id": "21",
+		"location": {
+		"path": "/src/TestClass2.java",
+		"length": 6,
+		"startLine": 4,
+		"endLine": 4,
+		"startColumn": 21,
+		"endColumn": 27				
+	},
+		"nodesAmount": 2			
+	},
+{
+		"id": "94",
+		"location": {
+		"path": "/src/TestClass1.java",
+		"length": 3,
+		"startLine": 4,
+		"endLine": 4,
+		"startColumn": 9,
+		"endColumn": 12				
+	},
+		"nodesAmount": 2			
+	},
+{
+		"id": "107",
+		"location": {
+		"path": "/src/TestClass1.java",
+		"length": 10,
+		"startLine": 5,
+		"endLine": 5,
+		"startColumn": 2,
+		"endColumn": 12				
+	},
+		"nodesAmount": 6			
+	},
+{
+		"id": "57",
+		"location": {
+		"path": "/src/TestClass2.java",
+		"length": 27,
+		"startLine": 8,
+		"endLine": 8,
+		"startColumn": 2,
+		"endColumn": 29				
+	},
+		"nodesAmount": 11			
+	},
+{
+		"id": "19",
+		"location": {
+		"path": "/src/TestClass2.java",
+		"length": 10,
+		"startLine": 4,
+		"endLine": 4,
+		"startColumn": 2,
+		"endColumn": 12				
+	},
+		"nodesAmount": 6			
+	},
+{
+		"id": "100",
+		"location": {
+		"path": "/src/TestClass1.java",
+		"length": 26,
+		"startLine": 4,
+		"endLine": 4,
+		"startColumn": 2,
+		"endColumn": 28				
+	},
+		"nodesAmount": 10			
+	},
+{
+		"id": "26",
+		"location": {
+		"path": "/src/TestClass2.java",
+		"length": 6,
+		"startLine": 5,
+		"endLine": 5,
+		"startColumn": 2,
+		"endColumn": 8				
+	},
+		"nodesAmount": 2			
+	},
+{
+		"id": "59",
+		"location": {
+		"path": "/src/TestClass2.java",
+		"length": 6,
+		"startLine": 9,
+		"endLine": 9,
+		"startColumn": 2,
+		"endColumn": 8				
+	},
+		"nodesAmount": 2			
+	},
+{
+		"id": "105",
+		"location": {
+		"path": "/src/TestClass1.java",
+		"length": 3,
+		"startLine": 5,
+		"endLine": 5,
+		"startColumn": 9,
+		"endColumn": 12				
+	},
+		"nodesAmount": 2			
+	},
+{
+		"id": "23",
+		"location": {
+		"path": "/src/TestClass2.java",
+		"length": 26,
+		"startLine": 4,
+		"endLine": 4,
+		"startColumn": 2,
+		"endColumn": 28				
+	},
+		"nodesAmount": 10			
+	},
+{
+		"id": "46",
+		"location": {
+		"path": "/src/TestClass2.java",
+		"length": 27,
+		"startLine": 7,
+		"endLine": 7,
+		"startColumn": 2,
+		"endColumn": 29				
+	},
+		"nodesAmount": 11			
+	},
+{
+		"id": "54",
+		"location": {
+		"path": "/src/TestClass2.java",
+		"length": 6,
+		"startLine": 8,
+		"endLine": 8,
+		"startColumn": 21,
+		"endColumn": 27				
+	},
+		"nodesAmount": 2			
+	},
+{
+		"id": "114",
+		"location": {
+		"path": "/src/TestClass1.java",
+		"length": 6,
+		"startLine": 7,
+		"endLine": 7,
+		"startColumn": 2,
+		"endColumn": 8				
+	},
+		"nodesAmount": 2			
+	},
+{
+		"id": "131",
+		"location": {
+		"path": "/src/TestClass1.java",
+		"length": 6,
+		"startLine": 8,
+		"endLine": 8,
+		"startColumn": 21,
+		"endColumn": 27				
+	},
+		"nodesAmount": 2			
+	},
+{
+		"id": "101",
+		"location": {
+		"path": "/src/TestClass1.java",
+		"length": 27,
+		"startLine": 4,
+		"endLine": 4,
+		"startColumn": 2,
+		"endColumn": 29				
+	},
+		"nodesAmount": 11			
+	},
+{
+		"id": "138",
+		"location": {
+		"path": "/src/TestClass1.java",
+		"length": 3,
+		"startLine": 9,
+		"endLine": 9,
+		"startColumn": 9,
+		"endColumn": 12				
+	},
+		"nodesAmount": 2			
+	},
+{
+		"id": "83",
+		"location": {
+		"path": "/src/TestClass1.java",
+		"length": 3,
+		"startLine": 3,
+		"endLine": 3,
+		"startColumn": 9,
+		"endColumn": 12				
+	},
+		"nodesAmount": 2			
 	}],
-		"connections": [[188,135],[155,208],[136,189],[533,478,495],[694,720],[650,621],[645,616],[365,348]]
+		"connections": [[100,122,111,133],[56,23,34,45],[131,109,120,98],[83,138,105,94,127,116],[101,112,134,123],[15,59,26,4,37,48],[30,19,63,52,41,8],[114,92,103,81,136,125],[6,61,17,28,50,39],[24,46,57,35],[43,54,21,32],[107,140,129,85,96,118]]
 	}
