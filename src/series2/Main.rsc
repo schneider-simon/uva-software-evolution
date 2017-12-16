@@ -32,7 +32,7 @@ public void runAll() {
 	Will exexute the meterics on a test project 
 */
 public void testExampleJavaProject() {
-	writeAnalyses("test-project", |project://TestJavaProject/|);
+	writeAnalyses("test-project", |project://test-project/|);
 }
 
 /*
@@ -80,7 +80,7 @@ public void writeAnalyses(str name, loc location) {
 		cloneDetectionResult result = doAnalyses(ast,i);
 			
 		startMeasure("ToJson");	
-		str output = cloneResultToJson(cloneResult, location, size(codeLines));
+		str output = cloneResultToJson(result, location, size(codeLines), projectFiles);
 		stopMeasure("ToJson");	
 		
 		loc outputLocation = toLocation("file:///tmp/rascal_output/<name>_<i>.json");
@@ -94,7 +94,7 @@ public void writeAnalyses(str name, loc location) {
 /*
 	Runes the analyses on a eclipse project
 */
-public str doAnalyses(set[Declaration] ast, int cloneType) {
+public cloneDetectionResult doAnalyses(set[Declaration] ast, int cloneType) {
 
 	bool normalizeAST = cloneType != 1;
 	real minimalSimularity = cloneType == 3 ? minimalSimularityT3 : 100.0;
