@@ -1,0 +1,211 @@
+{
+		"project": { 
+
+			"name": "smallsql",
+			"location": {
+		"uri": "project://smallsql",	
+		"path": "/"			
+	},
+
+			"linesOfCode": 24050,
+
+			"projectFiles": 186
+		},
+		"nodes": [{
+		"id": "186553",
+		"location": {
+		"path": "/src/smallsql/database/IndexScrollStatus.java",
+		"length": 385,
+		"startLine": 89,
+		"endLine": 99,
+		"startColumn": 5,
+		"endColumn": 6,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 83			
+	},
+{
+		"id": "30037",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionRound.java",
+		"length": 188,
+		"startLine": 50,
+		"endLine": 60,
+		"startColumn": 2,
+		"endColumn": 3,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 77			
+	},
+{
+		"id": "57524",
+		"location": {
+		"path": "/src/smallsql/junit/TestMoneyRounding.java",
+		"length": 301,
+		"startLine": 53,
+		"endLine": 62,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 9		
+	},
+		"linesOfCode": 9,
+		"nodesAmount": 53			
+	},
+{
+		"id": "62773",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionTruncate.java",
+		"length": 188,
+		"startLine": 50,
+		"endLine": 60,
+		"startColumn": 2,
+		"endColumn": 3,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 77			
+	},
+{
+		"id": "193202",
+		"location": {
+		"path": "/src/smallsql/junit/TestDataTypes.java",
+		"length": 279,
+		"startLine": 68,
+		"endLine": 77,
+		"startColumn": 26,
+		"endColumn": 5,	
+		"linesOfCode": 9		
+	},
+		"linesOfCode": 9,
+		"nodesAmount": 48			
+	},
+{
+		"id": "143605",
+		"location": {
+		"path": "/src/smallsql/junit/TestFunctions.java",
+		"length": 301,
+		"startLine": 374,
+		"endLine": 383,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 9		
+	},
+		"linesOfCode": 9,
+		"nodesAmount": 53			
+	},
+{
+		"id": "122677",
+		"location": {
+		"path": "/src/smallsql/junit/TestOperatoren.java",
+		"length": 301,
+		"startLine": 95,
+		"endLine": 104,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 9		
+	},
+		"linesOfCode": 9,
+		"nodesAmount": 53			
+	},
+{
+		"id": "57520",
+		"location": {
+		"path": "/src/smallsql/junit/TestMoneyRounding.java",
+		"length": 279,
+		"startLine": 53,
+		"endLine": 62,
+		"startColumn": 26,
+		"endColumn": 5,	
+		"linesOfCode": 9		
+	},
+		"linesOfCode": 9,
+		"nodesAmount": 48			
+	},
+{
+		"id": "186774",
+		"location": {
+		"path": "/src/smallsql/database/IndexScrollStatus.java",
+		"length": 400,
+		"startLine": 120,
+		"endLine": 131,
+		"startColumn": 33,
+		"endColumn": 41,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 72			
+	},
+{
+		"id": "186775",
+		"location": {
+		"path": "/src/smallsql/database/IndexScrollStatus.java",
+		"length": 428,
+		"startLine": 120,
+		"endLine": 131,
+		"startColumn": 5,
+		"endColumn": 41,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 83			
+	},
+{
+		"id": "186552",
+		"location": {
+		"path": "/src/smallsql/database/IndexScrollStatus.java",
+		"length": 357,
+		"startLine": 89,
+		"endLine": 99,
+		"startColumn": 33,
+		"endColumn": 6,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 72			
+	},
+{
+		"id": "193206",
+		"location": {
+		"path": "/src/smallsql/junit/TestDataTypes.java",
+		"length": 301,
+		"startLine": 68,
+		"endLine": 77,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 9		
+	},
+		"linesOfCode": 9,
+		"nodesAmount": 53			
+	},
+{
+		"id": "143601",
+		"location": {
+		"path": "/src/smallsql/junit/TestFunctions.java",
+		"length": 279,
+		"startLine": 374,
+		"endLine": 383,
+		"startColumn": 26,
+		"endColumn": 5,	
+		"linesOfCode": 9		
+	},
+		"linesOfCode": 9,
+		"nodesAmount": 48			
+	},
+{
+		"id": "122673",
+		"location": {
+		"path": "/src/smallsql/junit/TestOperatoren.java",
+		"length": 279,
+		"startLine": 95,
+		"endLine": 104,
+		"startColumn": 26,
+		"endColumn": 5,	
+		"linesOfCode": 9		
+	},
+		"linesOfCode": 9,
+		"nodesAmount": 48			
+	}],
+		"connections": [[122673,143601,193202,57520],[122677,143605,193206,57524],[186552,186774],[62773,30037],[186775,186553]]
+	}

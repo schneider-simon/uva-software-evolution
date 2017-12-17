@@ -66,62 +66,6 @@
 	},
 		"linesOfCode": 10,
 		"nodesAmount": 75			
-	},
-{
-		"id": "68",
-		"location": {
-		"path": "/src/TestClass2.java",
-		"length": 208,
-		"startLine": 2,
-		"endLine": 10,
-		"startColumn": 21,
-		"endColumn": 2,	
-		"linesOfCode": 8		
-	},
-		"linesOfCode": 8,
-		"nodesAmount": 67			
-	},
-{
-		"id": "148",
-		"location": {
-		"path": "/src/TestClass1.java",
-		"length": 228,
-		"startLine": 2,
-		"endLine": 10,
-		"startColumn": 1,
-		"endColumn": 2,	
-		"linesOfCode": 8		
-	},
-		"linesOfCode": 8,
-		"nodesAmount": 72			
-	},
-{
-		"id": "144",
-		"location": {
-		"path": "/src/TestClass1.java",
-		"length": 208,
-		"startLine": 2,
-		"endLine": 10,
-		"startColumn": 21,
-		"endColumn": 2,	
-		"linesOfCode": 8		
-	},
-		"linesOfCode": 8,
-		"nodesAmount": 67			
-	},
-{
-		"id": "72",
-		"location": {
-		"path": "/src/TestClass2.java",
-		"length": 228,
-		"startLine": 2,
-		"endLine": 10,
-		"startColumn": 1,
-		"endColumn": 2,	
-		"linesOfCode": 8		
-	},
-		"linesOfCode": 8,
-		"nodesAmount": 72			
 	}],
-		"connections": [[72,144,148,68,151,75,76,152]]
+		"connections": [[151,75,76,152]]
 	}

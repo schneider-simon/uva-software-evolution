@@ -1,0 +1,7267 @@
+{
+		"project": { 
+
+			"name": "smallsql",
+			"location": {
+		"uri": "project://smallsql",	
+		"path": "/"			
+	},
+
+			"linesOfCode": 24050,
+
+			"projectFiles": 186
+		},
+		"nodes": [{
+		"id": "135174",
+		"location": {
+		"path": "/src/smallsql/database/StoreImpl.java",
+		"length": 2487,
+		"startLine": 896,
+		"endLine": 951,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 56		
+	},
+		"linesOfCode": 56,
+		"nodesAmount": 408			
+	},
+{
+		"id": "106021",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 995,
+		"startLine": 375,
+		"endLine": 402,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 21		
+	},
+		"linesOfCode": 21,
+		"nodesAmount": 146			
+	},
+{
+		"id": "106272",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 625,
+		"startLine": 430,
+		"endLine": 445,
+		"startColumn": 2,
+		"endColumn": 3,	
+		"linesOfCode": 14		
+	},
+		"linesOfCode": 14,
+		"nodesAmount": 98			
+	},
+{
+		"id": "105870",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 822,
+		"startLine": 347,
+		"endLine": 370,
+		"startColumn": 2,
+		"endColumn": 3,	
+		"linesOfCode": 20		
+	},
+		"linesOfCode": 20,
+		"nodesAmount": 141			
+	},
+{
+		"id": "144580",
+		"location": {
+		"path": "/src/smallsql/junit/TestScrollable.java",
+		"length": 1025,
+		"startLine": 146,
+		"endLine": 161,
+		"startColumn": 5,
+		"endColumn": 3,	
+		"linesOfCode": 13		
+	},
+		"linesOfCode": 13,
+		"nodesAmount": 108			
+	},
+{
+		"id": "138245",
+		"location": {
+		"path": "/src/smallsql/database/StoreImpl.java",
+		"length": 2961,
+		"startLine": 1340,
+		"endLine": 1400,
+		"startColumn": 69,
+		"endColumn": 5,	
+		"linesOfCode": 61		
+	},
+		"linesOfCode": 61,
+		"nodesAmount": 458			
+	},
+{
+		"id": "167309",
+		"location": {
+		"path": "/src/smallsql/junit/TestExceptions.java",
+		"length": 986,
+		"startLine": 86,
+		"endLine": 111,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 26		
+	},
+		"linesOfCode": 26,
+		"nodesAmount": 190			
+	},
+{
+		"id": "144193",
+		"location": {
+		"path": "/src/smallsql/junit/TestScrollable.java",
+		"length": 1045,
+		"startLine": 76,
+		"endLine": 94,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 17		
+	},
+		"linesOfCode": 17,
+		"nodesAmount": 127			
+	},
+{
+		"id": "176539",
+		"location": {
+		"path": "/src/smallsql/junit/TestResultSet.java",
+		"length": 1805,
+		"startLine": 66,
+		"endLine": 108,
+		"startColumn": 51,
+		"endColumn": 5,	
+		"linesOfCode": 36		
+	},
+		"linesOfCode": 36,
+		"nodesAmount": 327			
+	},
+{
+		"id": "65401",
+		"location": {
+		"path": "/src/smallsql/junit/TestExceptionMethods.java",
+		"length": 541,
+		"startLine": 165,
+		"endLine": 179,
+		"startColumn": 60,
+		"endColumn": 5,	
+		"linesOfCode": 15		
+	},
+		"linesOfCode": 15,
+		"nodesAmount": 70			
+	},
+{
+		"id": "4723",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 752,
+		"startLine": 729,
+		"endLine": 757,
+		"startColumn": 57,
+		"endColumn": 2,	
+		"linesOfCode": 23		
+	},
+		"linesOfCode": 23,
+		"nodesAmount": 174			
+	},
+{
+		"id": "65468",
+		"location": {
+		"path": "/src/smallsql/junit/TestExceptionMethods.java",
+		"length": 409,
+		"startLine": 184,
+		"endLine": 193,
+		"startColumn": 11,
+		"endColumn": 9,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 49			
+	},
+{
+		"id": "15607",
+		"location": {
+		"path": "/src/smallsql/database/SQLParser.java",
+		"length": 1456,
+		"startLine": 757,
+		"endLine": 777,
+		"startColumn": 3,
+		"endColumn": 4,	
+		"linesOfCode": 21		
+	},
+		"linesOfCode": 21,
+		"nodesAmount": 356			
+	},
+{
+		"id": "85504",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 2658,
+		"startLine": 457,
+		"endLine": 504,
+		"startColumn": 56,
+		"endColumn": 5,	
+		"linesOfCode": 46		
+	},
+		"linesOfCode": 46,
+		"nodesAmount": 456			
+	},
+{
+		"id": "96461",
+		"location": {
+		"path": "/src/smallsql/database/SQLTokenizer.java",
+		"length": 1263,
+		"startLine": 748,
+		"endLine": 776,
+		"startColumn": 10,
+		"endColumn": 5,	
+		"linesOfCode": 29		
+	},
+		"linesOfCode": 29,
+		"nodesAmount": 197			
+	},
+{
+		"id": "787",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 629,
+		"startLine": 115,
+		"endLine": 140,
+		"startColumn": 48,
+		"endColumn": 2,	
+		"linesOfCode": 22		
+	},
+		"linesOfCode": 22,
+		"nodesAmount": 171			
+	},
+{
+		"id": "1129",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 606,
+		"startLine": 170,
+		"endLine": 195,
+		"startColumn": 55,
+		"endColumn": 2,	
+		"linesOfCode": 22		
+	},
+		"linesOfCode": 22,
+		"nodesAmount": 162			
+	},
+{
+		"id": "3370",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 591,
+		"startLine": 519,
+		"endLine": 542,
+		"startColumn": 43,
+		"endColumn": 2,	
+		"linesOfCode": 20		
+	},
+		"linesOfCode": 20,
+		"nodesAmount": 172			
+	},
+{
+		"id": "143999",
+		"location": {
+		"path": "/src/smallsql/junit/TestScrollable.java",
+		"length": 933,
+		"startLine": 45,
+		"endLine": 60,
+		"startColumn": 2,
+		"endColumn": 3,	
+		"linesOfCode": 14		
+	},
+		"linesOfCode": 14,
+		"nodesAmount": 108			
+	},
+{
+		"id": "118060",
+		"location": {
+		"path": "/src/smallsql/junit/BasicTestCase.java",
+		"length": 372,
+		"startLine": 138,
+		"endLine": 150,
+		"startColumn": 2,
+		"endColumn": 3,	
+		"linesOfCode": 12		
+	},
+		"linesOfCode": 12,
+		"nodesAmount": 141			
+	},
+{
+		"id": "2837",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 681,
+		"startLine": 440,
+		"endLine": 464,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 22		
+	},
+		"linesOfCode": 22,
+		"nodesAmount": 179			
+	},
+{
+		"id": "136855",
+		"location": {
+		"path": "/src/smallsql/database/StoreImpl.java",
+		"length": 2534,
+		"startLine": 1151,
+		"endLine": 1205,
+		"startColumn": 66,
+		"endColumn": 5,	
+		"linesOfCode": 55		
+	},
+		"linesOfCode": 55,
+		"nodesAmount": 433			
+	},
+{
+		"id": "34767",
+		"location": {
+		"path": "/src/smallsql/database/SSCallableStatement.java",
+		"length": 275,
+		"startLine": 173,
+		"endLine": 182,
+		"startColumn": 51,
+		"endColumn": 5,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 52			
+	},
+{
+		"id": "124531",
+		"location": {
+		"path": "/src/smallsql/database/MutableInteger.java",
+		"length": 534,
+		"startLine": 35,
+		"endLine": 70,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 24		
+	},
+		"linesOfCode": 24,
+		"nodesAmount": 95			
+	},
+{
+		"id": "93552",
+		"location": {
+		"path": "/src/smallsql/database/SQLTokenizer.java",
+		"length": 1847,
+		"startLine": 292,
+		"endLine": 354,
+		"startColumn": 42,
+		"endColumn": 2,	
+		"linesOfCode": 62		
+	},
+		"linesOfCode": 62,
+		"nodesAmount": 414			
+	},
+{
+		"id": "964",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 664,
+		"startLine": 143,
+		"endLine": 167,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 21		
+	},
+		"linesOfCode": 21,
+		"nodesAmount": 173			
+	},
+{
+		"id": "104773",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 975,
+		"startLine": 138,
+		"endLine": 163,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 21		
+	},
+		"linesOfCode": 21,
+		"nodesAmount": 135			
+	},
+{
+		"id": "186553",
+		"location": {
+		"path": "/src/smallsql/database/IndexScrollStatus.java",
+		"length": 385,
+		"startLine": 89,
+		"endLine": 99,
+		"startColumn": 5,
+		"endColumn": 6,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 83			
+	},
+{
+		"id": "3562",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 713,
+		"startLine": 545,
+		"endLine": 569,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 21		
+	},
+		"linesOfCode": 21,
+		"nodesAmount": 188			
+	},
+{
+		"id": "86988",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 1649,
+		"startLine": 646,
+		"endLine": 682,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 32		
+	},
+		"linesOfCode": 32,
+		"nodesAmount": 354			
+	},
+{
+		"id": "149534",
+		"location": {
+		"path": "/src/smallsql/database/MutableDouble.java",
+		"length": 550,
+		"startLine": 35,
+		"endLine": 70,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 24		
+	},
+		"linesOfCode": 24,
+		"nodesAmount": 105			
+	},
+{
+		"id": "1939",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 650,
+		"startLine": 303,
+		"endLine": 326,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 20		
+	},
+		"linesOfCode": 20,
+		"nodesAmount": 167			
+	},
+{
+		"id": "172448",
+		"location": {
+		"path": "/src/smallsql/database/IndexNode.java",
+		"length": 721,
+		"startLine": 422,
+		"endLine": 448,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 25		
+	},
+		"linesOfCode": 25,
+		"nodesAmount": 197			
+	},
+{
+		"id": "165973",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 911,
+		"startLine": 977,
+		"endLine": 1007,
+		"startColumn": 47,
+		"endColumn": 23,	
+		"linesOfCode": 31		
+	},
+		"linesOfCode": 31,
+		"nodesAmount": 183			
+	},
+{
+		"id": "160749",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 578,
+		"startLine": 205,
+		"endLine": 216,
+		"startColumn": 56,
+		"endColumn": 5,	
+		"linesOfCode": 12		
+	},
+		"linesOfCode": 12,
+		"nodesAmount": 103			
+	},
+{
+		"id": "184512",
+		"location": {
+		"path": "/src/smallsql/database/MutableNumeric.java",
+		"length": 901,
+		"startLine": 489,
+		"endLine": 510,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 19		
+	},
+		"linesOfCode": 19,
+		"nodesAmount": 226			
+	},
+{
+		"id": "169631",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionConvert.java",
+		"length": 292,
+		"startLine": 150,
+		"endLine": 160,
+		"startColumn": 28,
+		"endColumn": 4,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 84			
+	},
+{
+		"id": "170361",
+		"location": {
+		"path": "/src/smallsql/database/CommandSet.java",
+		"length": 560,
+		"startLine": 36,
+		"endLine": 57,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 19		
+	},
+		"linesOfCode": 19,
+		"nodesAmount": 106			
+	},
+{
+		"id": "173523",
+		"location": {
+		"path": "/src/smallsql/junit/TestGroupBy.java",
+		"length": 564,
+		"startLine": 154,
+		"endLine": 166,
+		"startColumn": 57,
+		"endColumn": 2,	
+		"linesOfCode": 13		
+	},
+		"linesOfCode": 13,
+		"nodesAmount": 148			
+	},
+{
+		"id": "86227",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 810,
+		"startLine": 575,
+		"endLine": 596,
+		"startColumn": 12,
+		"endColumn": 13,	
+		"linesOfCode": 22		
+	},
+		"linesOfCode": 22,
+		"nodesAmount": 161			
+	},
+{
+		"id": "105875",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 1193,
+		"startLine": 339,
+		"endLine": 371,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 23		
+	},
+		"linesOfCode": 23,
+		"nodesAmount": 160			
+	},
+{
+		"id": "74936",
+		"location": {
+		"path": "/src/smallsql/junit/TestAlterTable2.java",
+		"length": 575,
+		"startLine": 71,
+		"endLine": 80,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 140			
+	},
+{
+		"id": "136404",
+		"location": {
+		"path": "/src/smallsql/database/StoreImpl.java",
+		"length": 2395,
+		"startLine": 1092,
+		"endLine": 1146,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 55		
+	},
+		"linesOfCode": 55,
+		"nodesAmount": 370			
+	},
+{
+		"id": "83166",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 563,
+		"startLine": 207,
+		"endLine": 219,
+		"startColumn": 12,
+		"endColumn": 13,	
+		"linesOfCode": 12		
+	},
+		"linesOfCode": 12,
+		"nodesAmount": 85			
+	},
+{
+		"id": "161745",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 782,
+		"startLine": 351,
+		"endLine": 371,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 21		
+	},
+		"linesOfCode": 21,
+		"nodesAmount": 134			
+	},
+{
+		"id": "104634",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 924,
+		"startLine": 110,
+		"endLine": 135,
+		"startColumn": 58,
+		"endColumn": 2,	
+		"linesOfCode": 21		
+	},
+		"linesOfCode": 21,
+		"nodesAmount": 128			
+	},
+{
+		"id": "179756",
+		"location": {
+		"path": "/src/smallsql/database/LongTreeList.java",
+		"length": 670,
+		"startLine": 375,
+		"endLine": 395,
+		"startColumn": 3,
+		"endColumn": 4,	
+		"linesOfCode": 19		
+	},
+		"linesOfCode": 19,
+		"nodesAmount": 195			
+	},
+{
+		"id": "96463",
+		"location": {
+		"path": "/src/smallsql/database/SQLTokenizer.java",
+		"length": 1269,
+		"startLine": 748,
+		"endLine": 776,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 29		
+	},
+		"linesOfCode": 29,
+		"nodesAmount": 199			
+	},
+{
+		"id": "149536",
+		"location": {
+		"path": "/src/smallsql/database/MutableDouble.java",
+		"length": 1879,
+		"startLine": 1,
+		"endLine": 70,
+		"startColumn": 0,
+		"endColumn": 3,	
+		"linesOfCode": 25		
+	},
+		"linesOfCode": 25,
+		"nodesAmount": 109			
+	},
+{
+		"id": "34959",
+		"location": {
+		"path": "/src/smallsql/database/SSCallableStatement.java",
+		"length": 359,
+		"startLine": 202,
+		"endLine": 211,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 65			
+	},
+{
+		"id": "144373",
+		"location": {
+		"path": "/src/smallsql/junit/TestScrollable.java",
+		"length": 1050,
+		"startLine": 108,
+		"endLine": 126,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 17		
+	},
+		"linesOfCode": 17,
+		"nodesAmount": 127			
+	},
+{
+		"id": "73292",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionValue.java",
+		"length": 686,
+		"startLine": 517,
+		"endLine": 534,
+		"startColumn": 1,
+		"endColumn": 5,	
+		"linesOfCode": 18		
+	},
+		"linesOfCode": 18,
+		"nodesAmount": 147			
+	},
+{
+		"id": "102040",
+		"location": {
+		"path": "/src/smallsql/database/language/Language.java",
+		"length": 9336,
+		"startLine": 354,
+		"endLine": 488,
+		"startColumn": 1,
+		"endColumn": 3,	
+		"linesOfCode": 114		
+	},
+		"linesOfCode": 114,
+		"nodesAmount": 800			
+	},
+{
+		"id": "106017",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 825,
+		"startLine": 378,
+		"endLine": 402,
+		"startColumn": 60,
+		"endColumn": 2,	
+		"linesOfCode": 21		
+	},
+		"linesOfCode": 21,
+		"nodesAmount": 139			
+	},
+{
+		"id": "192942",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionReturnP1Number.java",
+		"length": 518,
+		"startLine": 59,
+		"endLine": 77,
+		"startColumn": 48,
+		"endColumn": 5,	
+		"linesOfCode": 19		
+	},
+		"linesOfCode": 19,
+		"nodesAmount": 107			
+	},
+{
+		"id": "91707",
+		"location": {
+		"path": "/src/smallsql/database/SQLTokenizer.java",
+		"length": 943,
+		"startLine": 61,
+		"endLine": 77,
+		"startColumn": 19,
+		"endColumn": 56,	
+		"linesOfCode": 16		
+	},
+		"linesOfCode": 16,
+		"nodesAmount": 154			
+	},
+{
+		"id": "172444",
+		"location": {
+		"path": "/src/smallsql/database/IndexNode.java",
+		"length": 675,
+		"startLine": 422,
+		"endLine": 448,
+		"startColumn": 47,
+		"endColumn": 2,	
+		"linesOfCode": 25		
+	},
+		"linesOfCode": 25,
+		"nodesAmount": 185			
+	},
+{
+		"id": "161035",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 637,
+		"startLine": 246,
+		"endLine": 258,
+		"startColumn": 1,
+		"endColumn": 5,	
+		"linesOfCode": 13		
+	},
+		"linesOfCode": 13,
+		"nodesAmount": 124			
+	},
+{
+		"id": "2833",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 630,
+		"startLine": 440,
+		"endLine": 464,
+		"startColumn": 52,
+		"endColumn": 2,	
+		"linesOfCode": 22		
+	},
+		"linesOfCode": 22,
+		"nodesAmount": 172			
+	},
+{
+		"id": "37325",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionCos.java",
+		"length": 1603,
+		"startLine": 1,
+		"endLine": 44,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 8		
+	},
+		"linesOfCode": 8,
+		"nodesAmount": 45			
+	},
+{
+		"id": "2118",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 647,
+		"startLine": 329,
+		"endLine": 352,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 20		
+	},
+		"linesOfCode": 20,
+		"nodesAmount": 179			
+	},
+{
+		"id": "65482",
+		"location": {
+		"path": "/src/smallsql/junit/TestExceptionMethods.java",
+		"length": 607,
+		"startLine": 182,
+		"endLine": 196,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 15		
+	},
+		"linesOfCode": 15,
+		"nodesAmount": 77			
+	},
+{
+		"id": "13765",
+		"location": {
+		"path": "/src/smallsql/database/SQLParser.java",
+		"length": 664,
+		"startLine": 491,
+		"endLine": 510,
+		"startColumn": 0,
+		"endColumn": 9,	
+		"linesOfCode": 20		
+	},
+		"linesOfCode": 20,
+		"nodesAmount": 104			
+	},
+{
+		"id": "104326",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 738,
+		"startLine": 46,
+		"endLine": 67,
+		"startColumn": 5,
+		"endColumn": 3,	
+		"linesOfCode": 17		
+	},
+		"linesOfCode": 17,
+		"nodesAmount": 117			
+	},
+{
+		"id": "104908",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 1061,
+		"startLine": 166,
+		"endLine": 194,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 21		
+	},
+		"linesOfCode": 21,
+		"nodesAmount": 135			
+	},
+{
+		"id": "135590",
+		"location": {
+		"path": "/src/smallsql/database/StoreImpl.java",
+		"length": 2506,
+		"startLine": 959,
+		"endLine": 1017,
+		"startColumn": 64,
+		"endColumn": 5,	
+		"linesOfCode": 59		
+	},
+		"linesOfCode": 59,
+		"nodesAmount": 398			
+	},
+{
+		"id": "164604",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 508,
+		"startLine": 761,
+		"endLine": 781,
+		"startColumn": 15,
+		"endColumn": 2,	
+		"linesOfCode": 21		
+	},
+		"linesOfCode": 21,
+		"nodesAmount": 104			
+	},
+{
+		"id": "160898",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 700,
+		"startLine": 222,
+		"endLine": 241,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 20		
+	},
+		"linesOfCode": 20,
+		"nodesAmount": 121			
+	},
+{
+		"id": "184505",
+		"location": {
+		"path": "/src/smallsql/database/MutableNumeric.java",
+		"length": 757,
+		"startLine": 493,
+		"endLine": 508,
+		"startColumn": 12,
+		"endColumn": 13,	
+		"linesOfCode": 13		
+	},
+		"linesOfCode": 13,
+		"nodesAmount": 195			
+	},
+{
+		"id": "4727",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 808,
+		"startLine": 729,
+		"endLine": 757,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 23		
+	},
+		"linesOfCode": 23,
+		"nodesAmount": 181			
+	},
+{
+		"id": "153907",
+		"location": {
+		"path": "/src/smallsql/database/SSResultSet.java",
+		"length": 533,
+		"startLine": 798,
+		"endLine": 810,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 13		
+	},
+		"linesOfCode": 13,
+		"nodesAmount": 93			
+	},
+{
+		"id": "117919",
+		"location": {
+		"path": "/src/smallsql/junit/BasicTestCase.java",
+		"length": 498,
+		"startLine": 125,
+		"endLine": 137,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 12		
+	},
+		"linesOfCode": 12,
+		"nodesAmount": 141			
+	},
+{
+		"id": "66669",
+		"location": {
+		"path": "/src/smallsql/database/SSResultSetMetaData.java",
+		"length": 1087,
+		"startLine": 120,
+		"endLine": 158,
+		"startColumn": 66,
+		"endColumn": 2,	
+		"linesOfCode": 39		
+	},
+		"linesOfCode": 39,
+		"nodesAmount": 219			
+	},
+{
+		"id": "101116",
+		"location": {
+		"path": "/src/smallsql/database/language/Language.java",
+		"length": 236,
+		"startLine": 321,
+		"endLine": 331,
+		"startColumn": 46,
+		"endColumn": 3,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 73			
+	},
+{
+		"id": "3012",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 596,
+		"startLine": 467,
+		"endLine": 490,
+		"startColumn": 50,
+		"endColumn": 2,	
+		"linesOfCode": 20		
+	},
+		"linesOfCode": 20,
+		"nodesAmount": 172			
+	},
+{
+		"id": "136002",
+		"location": {
+		"path": "/src/smallsql/database/StoreImpl.java",
+		"length": 2495,
+		"startLine": 1024,
+		"endLine": 1082,
+		"startColumn": 66,
+		"endColumn": 5,	
+		"linesOfCode": 59		
+	},
+		"linesOfCode": 59,
+		"nodesAmount": 395			
+	},
+{
+		"id": "186777",
+		"location": {
+		"path": "/src/smallsql/database/IndexScrollStatus.java",
+		"length": 456,
+		"startLine": 119,
+		"endLine": 132,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 13		
+	},
+		"linesOfCode": 13,
+		"nodesAmount": 93			
+	},
+{
+		"id": "85989",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 2406,
+		"startLine": 512,
+		"endLine": 559,
+		"startColumn": 59,
+		"endColumn": 5,	
+		"linesOfCode": 47		
+	},
+		"linesOfCode": 47,
+		"nodesAmount": 474			
+	},
+{
+		"id": "167305",
+		"location": {
+		"path": "/src/smallsql/junit/TestExceptions.java",
+		"length": 948,
+		"startLine": 86,
+		"endLine": 111,
+		"startColumn": 42,
+		"endColumn": 5,	
+		"linesOfCode": 26		
+	},
+		"linesOfCode": 26,
+		"nodesAmount": 183			
+	},
+{
+		"id": "166789",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionATan.java",
+		"length": 1607,
+		"startLine": 1,
+		"endLine": 44,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 8		
+	},
+		"linesOfCode": 8,
+		"nodesAmount": 45			
+	},
+{
+		"id": "57403",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionPower.java",
+		"length": 1730,
+		"startLine": 1,
+		"endLine": 48,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 67			
+	},
+{
+		"id": "168936",
+		"location": {
+		"path": "/src/smallsql/database/Strings.java",
+		"length": 871,
+		"startLine": 35,
+		"endLine": 84,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 31		
+	},
+		"linesOfCode": 31,
+		"nodesAmount": 239			
+	},
+{
+		"id": "2658",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 655,
+		"startLine": 414,
+		"endLine": 437,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 20		
+	},
+		"linesOfCode": 20,
+		"nodesAmount": 179			
+	},
+{
+		"id": "74641",
+		"location": {
+		"path": "/src/smallsql/junit/TestAlterTable2.java",
+		"length": 573,
+		"startLine": 41,
+		"endLine": 50,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 140			
+	},
+{
+		"id": "42476",
+		"location": {
+		"path": "/src/smallsql/database/ForeignKeys.java",
+		"length": 746,
+		"startLine": 35,
+		"endLine": 76,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 26		
+	},
+		"linesOfCode": 26,
+		"nodesAmount": 191			
+	},
+{
+		"id": "139707",
+		"location": {
+		"path": "/src/smallsql/database/JoinScroll.java",
+		"length": 957,
+		"startLine": 92,
+		"endLine": 115,
+		"startColumn": 29,
+		"endColumn": 13,	
+		"linesOfCode": 23		
+	},
+		"linesOfCode": 23,
+		"nodesAmount": 104			
+	},
+{
+		"id": "184738",
+		"location": {
+		"path": "/src/smallsql/database/MutableNumeric.java",
+		"length": 907,
+		"startLine": 512,
+		"endLine": 533,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 19		
+	},
+		"linesOfCode": 19,
+		"nodesAmount": 226			
+	},
+{
+		"id": "72710",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionValue.java",
+		"length": 1078,
+		"startLine": 423,
+		"endLine": 452,
+		"startColumn": 61,
+		"endColumn": 5,	
+		"linesOfCode": 30		
+	},
+		"linesOfCode": 30,
+		"nodesAmount": 212			
+	},
+{
+		"id": "83390",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 1973,
+		"startLine": 198,
+		"endLine": 243,
+		"startColumn": 47,
+		"endColumn": 5,	
+		"linesOfCode": 43		
+	},
+		"linesOfCode": 43,
+		"nodesAmount": 380			
+	},
+{
+		"id": "82998",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 1030,
+		"startLine": 168,
+		"endLine": 189,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 22		
+	},
+		"linesOfCode": 22,
+		"nodesAmount": 214			
+	},
+{
+		"id": "66676",
+		"location": {
+		"path": "/src/smallsql/database/SSResultSetMetaData.java",
+		"length": 1152,
+		"startLine": 120,
+		"endLine": 158,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 39		
+	},
+		"linesOfCode": 39,
+		"nodesAmount": 236			
+	},
+{
+		"id": "163799",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 891,
+		"startLine": 636,
+		"endLine": 650,
+		"startColumn": 20,
+		"endColumn": 21,	
+		"linesOfCode": 15		
+	},
+		"linesOfCode": 15,
+		"nodesAmount": 132			
+	},
+{
+		"id": "104871",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 711,
+		"startLine": 171,
+		"endLine": 188,
+		"startColumn": 5,
+		"endColumn": 3,	
+		"linesOfCode": 13		
+	},
+		"linesOfCode": 13,
+		"nodesAmount": 84			
+	},
+{
+		"id": "61682",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionExp.java",
+		"length": 1603,
+		"startLine": 1,
+		"endLine": 44,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 8		
+	},
+		"linesOfCode": 8,
+		"nodesAmount": 45			
+	},
+{
+		"id": "148760",
+		"location": {
+		"path": "/src/smallsql/database/IndexDescription.java",
+		"length": 457,
+		"startLine": 154,
+		"endLine": 165,
+		"startColumn": 85,
+		"endColumn": 2,	
+		"linesOfCode": 12		
+	},
+		"linesOfCode": 12,
+		"nodesAmount": 101			
+	},
+{
+		"id": "74637",
+		"location": {
+		"path": "/src/smallsql/junit/TestAlterTable2.java",
+		"length": 525,
+		"startLine": 41,
+		"endLine": 50,
+		"startColumn": 52,
+		"endColumn": 5,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 133			
+	},
+{
+		"id": "144790",
+		"location": {
+		"path": "/src/smallsql/junit/TestScrollable.java",
+		"length": 903,
+		"startLine": 184,
+		"endLine": 197,
+		"startColumn": 5,
+		"endColumn": 3,	
+		"linesOfCode": 12		
+	},
+		"linesOfCode": 12,
+		"nodesAmount": 103			
+	},
+{
+		"id": "83395",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 2106,
+		"startLine": 194,
+		"endLine": 243,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 43		
+	},
+		"linesOfCode": 43,
+		"nodesAmount": 391			
+	},
+{
+		"id": "1133",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 660,
+		"startLine": 170,
+		"endLine": 195,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 22		
+	},
+		"linesOfCode": 22,
+		"nodesAmount": 169			
+	},
+{
+		"id": "100997",
+		"location": {
+		"path": "/src/smallsql/database/language/Language.java",
+		"length": 270,
+		"startLine": 295,
+		"endLine": 305,
+		"startColumn": 2,
+		"endColumn": 3,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 98			
+	},
+{
+		"id": "164597",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 346,
+		"startLine": 766,
+		"endLine": 778,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 13		
+	},
+		"linesOfCode": 13,
+		"nodesAmount": 74			
+	},
+{
+		"id": "54941",
+		"location": {
+		"path": "/src/smallsql/junit/TestOther.java",
+		"length": 1037,
+		"startLine": 65,
+		"endLine": 81,
+		"startColumn": 2,
+		"endColumn": 3,	
+		"linesOfCode": 16		
+	},
+		"linesOfCode": 16,
+		"nodesAmount": 106			
+	},
+{
+		"id": "74497",
+		"location": {
+		"path": "/src/smallsql/junit/TestAlterTable2.java",
+		"length": 561,
+		"startLine": 29,
+		"endLine": 38,
+		"startColumn": 53,
+		"endColumn": 5,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 133			
+	},
+{
+		"id": "160622",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 882,
+		"startLine": 178,
+		"endLine": 200,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 20		
+	},
+		"linesOfCode": 20,
+		"nodesAmount": 124			
+	},
+{
+		"id": "12833",
+		"location": {
+		"path": "/src/smallsql/database/SQLParser.java",
+		"length": 560,
+		"startLine": 349,
+		"endLine": 368,
+		"startColumn": 3,
+		"endColumn": 4,	
+		"linesOfCode": 20		
+	},
+		"linesOfCode": 20,
+		"nodesAmount": 110			
+	},
+{
+		"id": "1626",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 596,
+		"startLine": 254,
+		"endLine": 277,
+		"startColumn": 59,
+		"endColumn": 2,	
+		"linesOfCode": 20		
+	},
+		"linesOfCode": 20,
+		"nodesAmount": 152			
+	},
+{
+		"id": "110161",
+		"location": {
+		"path": "/src/smallsql/junit/TestDBMetaData.java",
+		"length": 1763,
+		"startLine": 224,
+		"endLine": 254,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 25		
+	},
+		"linesOfCode": 25,
+		"nodesAmount": 345			
+	},
+{
+		"id": "137311",
+		"location": {
+		"path": "/src/smallsql/database/StoreImpl.java",
+		"length": 2761,
+		"startLine": 1212,
+		"endLine": 1267,
+		"startColumn": 77,
+		"endColumn": 5,	
+		"linesOfCode": 55		
+	},
+		"linesOfCode": 55,
+		"nodesAmount": 437			
+	},
+{
+		"id": "30037",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionRound.java",
+		"length": 188,
+		"startLine": 50,
+		"endLine": 60,
+		"startColumn": 2,
+		"endColumn": 3,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 77			
+	},
+{
+		"id": "60348",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionReturnString.java",
+		"length": 2539,
+		"startLine": 1,
+		"endLine": 93,
+		"startColumn": 0,
+		"endColumn": 3,	
+		"linesOfCode": 37		
+	},
+		"linesOfCode": 37,
+		"nodesAmount": 198			
+	},
+{
+		"id": "101118",
+		"location": {
+		"path": "/src/smallsql/database/language/Language.java",
+		"length": 353,
+		"startLine": 318,
+		"endLine": 332,
+		"startColumn": 35,
+		"endColumn": 2,	
+		"linesOfCode": 13		
+	},
+		"linesOfCode": 13,
+		"nodesAmount": 111			
+	},
+{
+		"id": "162039",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 882,
+		"startLine": 391,
+		"endLine": 412,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 22		
+	},
+		"linesOfCode": 22,
+		"nodesAmount": 153			
+	},
+{
+		"id": "184507",
+		"location": {
+		"path": "/src/smallsql/database/MutableNumeric.java",
+		"length": 858,
+		"startLine": 490,
+		"endLine": 509,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 17		
+	},
+		"linesOfCode": 17,
+		"nodesAmount": 220			
+	},
+{
+		"id": "101123",
+		"location": {
+		"path": "/src/smallsql/database/language/Language.java",
+		"length": 676,
+		"startLine": 308,
+		"endLine": 332,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 13		
+	},
+		"linesOfCode": 13,
+		"nodesAmount": 117			
+	},
+{
+		"id": "106144",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 621,
+		"startLine": 408,
+		"endLine": 423,
+		"startColumn": 2,
+		"endColumn": 3,	
+		"linesOfCode": 14		
+	},
+		"linesOfCode": 14,
+		"nodesAmount": 98			
+	},
+{
+		"id": "62811",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionTruncate.java",
+		"length": 488,
+		"startLine": 45,
+		"endLine": 68,
+		"startColumn": 45,
+		"endColumn": 5,	
+		"linesOfCode": 24		
+	},
+		"linesOfCode": 24,
+		"nodesAmount": 147			
+	},
+{
+		"id": "72956",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionValue.java",
+		"length": 1037,
+		"startLine": 458,
+		"endLine": 486,
+		"startColumn": 1,
+		"endColumn": 5,	
+		"linesOfCode": 29		
+	},
+		"linesOfCode": 29,
+		"nodesAmount": 226			
+	},
+{
+		"id": "104769",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 932,
+		"startLine": 138,
+		"endLine": 163,
+		"startColumn": 44,
+		"endColumn": 2,	
+		"linesOfCode": 21		
+	},
+		"linesOfCode": 21,
+		"nodesAmount": 128			
+	},
+{
+		"id": "128195",
+		"location": {
+		"path": "/src/smallsql/database/Database.java",
+		"length": 731,
+		"startLine": 483,
+		"endLine": 504,
+		"startColumn": 36,
+		"endColumn": 3,	
+		"linesOfCode": 21		
+	},
+		"linesOfCode": 21,
+		"nodesAmount": 231			
+	},
+{
+		"id": "184730",
+		"location": {
+		"path": "/src/smallsql/database/MutableNumeric.java",
+		"length": 576,
+		"startLine": 520,
+		"endLine": 531,
+		"startColumn": 12,
+		"endColumn": 13,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 146			
+	},
+{
+		"id": "64598",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionLog.java",
+		"length": 1603,
+		"startLine": 1,
+		"endLine": 44,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 8		
+	},
+		"linesOfCode": 8,
+		"nodesAmount": 45			
+	},
+{
+		"id": "159137",
+		"location": {
+		"path": "/src/smallsql/database/language/Language_de.java",
+		"length": 11624,
+		"startLine": 51,
+		"endLine": 183,
+		"startColumn": 39,
+		"endColumn": 5,	
+		"linesOfCode": 113		
+	},
+		"linesOfCode": 113,
+		"nodesAmount": 781			
+	},
+{
+		"id": "67469",
+		"location": {
+		"path": "/src/smallsql/database/SSResultSetMetaData.java",
+		"length": 1449,
+		"startLine": 258,
+		"endLine": 296,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 39		
+	},
+		"linesOfCode": 39,
+		"nodesAmount": 207			
+	},
+{
+		"id": "105422",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 1998,
+		"startLine": 244,
+		"endLine": 287,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 30		
+	},
+		"linesOfCode": 30,
+		"nodesAmount": 245			
+	},
+{
+		"id": "192479",
+		"location": {
+		"path": "/src/smallsql/junit/TestAlterTable.java",
+		"length": 612,
+		"startLine": 77,
+		"endLine": 91,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 15		
+	},
+		"linesOfCode": 15,
+		"nodesAmount": 92			
+	},
+{
+		"id": "30083",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionRound.java",
+		"length": 2086,
+		"startLine": 1,
+		"endLine": 71,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 31		
+	},
+		"linesOfCode": 31,
+		"nodesAmount": 194			
+	},
+{
+		"id": "34832",
+		"location": {
+		"path": "/src/smallsql/database/SSCallableStatement.java",
+		"length": 307,
+		"startLine": 183,
+		"endLine": 192,
+		"startColumn": 61,
+		"endColumn": 5,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 52			
+	},
+{
+		"id": "42522",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionASin.java",
+		"length": 1607,
+		"startLine": 1,
+		"endLine": 44,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 8		
+	},
+		"linesOfCode": 8,
+		"nodesAmount": 45			
+	},
+{
+		"id": "84992",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 1662,
+		"startLine": 411,
+		"endLine": 443,
+		"startColumn": 11,
+		"endColumn": 9,	
+		"linesOfCode": 33		
+	},
+		"linesOfCode": 33,
+		"nodesAmount": 326			
+	},
+{
+		"id": "73124",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionValue.java",
+		"length": 630,
+		"startLine": 494,
+		"endLine": 510,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 17		
+	},
+		"linesOfCode": 17,
+		"nodesAmount": 133			
+	},
+{
+		"id": "82552",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 737,
+		"startLine": 111,
+		"endLine": 125,
+		"startColumn": 11,
+		"endColumn": 9,	
+		"linesOfCode": 15		
+	},
+		"linesOfCode": 15,
+		"nodesAmount": 165			
+	},
+{
+		"id": "23266",
+		"location": {
+		"path": "/src/smallsql/database/SQLParser.java",
+		"length": 734,
+		"startLine": 1813,
+		"endLine": 1831,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 18		
+	},
+		"linesOfCode": 18,
+		"nodesAmount": 125			
+	},
+{
+		"id": "173656",
+		"location": {
+		"path": "/src/smallsql/junit/TestGroupBy.java",
+		"length": 452,
+		"startLine": 168,
+		"endLine": 179,
+		"startColumn": 43,
+		"endColumn": 2,	
+		"linesOfCode": 12		
+	},
+		"linesOfCode": 12,
+		"nodesAmount": 126			
+	},
+{
+		"id": "150449",
+		"location": {
+		"path": "/src/smallsql/database/SSResultSet.java",
+		"length": 290,
+		"startLine": 190,
+		"endLine": 199,
+		"startColumn": 71,
+		"endColumn": 5,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 52			
+	},
+{
+		"id": "192484",
+		"location": {
+		"path": "/src/smallsql/junit/TestAlterTable.java",
+		"length": 887,
+		"startLine": 72,
+		"endLine": 92,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 21		
+	},
+		"linesOfCode": 21,
+		"nodesAmount": 138			
+	},
+{
+		"id": "57524",
+		"location": {
+		"path": "/src/smallsql/junit/TestMoneyRounding.java",
+		"length": 301,
+		"startLine": 53,
+		"endLine": 62,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 9		
+	},
+		"linesOfCode": 9,
+		"nodesAmount": 53			
+	},
+{
+		"id": "124533",
+		"location": {
+		"path": "/src/smallsql/database/MutableInteger.java",
+		"length": 1864,
+		"startLine": 1,
+		"endLine": 70,
+		"startColumn": 0,
+		"endColumn": 3,	
+		"linesOfCode": 25		
+	},
+		"linesOfCode": 25,
+		"nodesAmount": 99			
+	},
+{
+		"id": "27248",
+		"location": {
+		"path": "/src/smallsql/database/language/Language_it.java",
+		"length": 10084,
+		"startLine": 51,
+		"endLine": 184,
+		"startColumn": 1,
+		"endColumn": 3,	
+		"linesOfCode": 113		
+	},
+		"linesOfCode": 113,
+		"nodesAmount": 793			
+	},
+{
+		"id": "122595",
+		"location": {
+		"path": "/src/smallsql/junit/TestOperatoren.java",
+		"length": 3429,
+		"startLine": 45,
+		"endLine": 87,
+		"startColumn": 37,
+		"endColumn": 5,	
+		"linesOfCode": 43		
+	},
+		"linesOfCode": 43,
+		"nodesAmount": 967			
+	},
+{
+		"id": "128576",
+		"location": {
+		"path": "/src/smallsql/database/Database.java",
+		"length": 699,
+		"startLine": 520,
+		"endLine": 540,
+		"startColumn": 38,
+		"endColumn": 4,	
+		"linesOfCode": 15		
+	},
+		"linesOfCode": 15,
+		"nodesAmount": 178			
+	},
+{
+		"id": "144799",
+		"location": {
+		"path": "/src/smallsql/junit/TestScrollable.java",
+		"length": 963,
+		"startLine": 184,
+		"endLine": 199,
+		"startColumn": 2,
+		"endColumn": 3,	
+		"linesOfCode": 14		
+	},
+		"linesOfCode": 14,
+		"nodesAmount": 112			
+	},
+{
+		"id": "91098",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionCeiling.java",
+		"length": 1616,
+		"startLine": 1,
+		"endLine": 44,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 8		
+	},
+		"linesOfCode": 8,
+		"nodesAmount": 45			
+	},
+{
+		"id": "91053",
+		"location": {
+		"path": "/src/smallsql/database/CommandSelect.java",
+		"length": 17562,
+		"startLine": 1,
+		"endLine": 570,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 363		
+	},
+		"linesOfCode": 363,
+		"nodesAmount": 2872			
+	},
+{
+		"id": "153901",
+		"location": {
+		"path": "/src/smallsql/database/SSResultSet.java",
+		"length": 452,
+		"startLine": 798,
+		"endLine": 810,
+		"startColumn": 85,
+		"endColumn": 5,	
+		"linesOfCode": 13		
+	},
+		"linesOfCode": 13,
+		"nodesAmount": 74			
+	},
+{
+		"id": "185826",
+		"location": {
+		"path": "/src/smallsql/database/StorePageMap.java",
+		"length": 604,
+		"startLine": 164,
+		"endLine": 184,
+		"startColumn": 2,
+		"endColumn": 3,	
+		"linesOfCode": 19		
+	},
+		"linesOfCode": 19,
+		"nodesAmount": 191			
+	},
+{
+		"id": "3191",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 591,
+		"startLine": 493,
+		"endLine": 516,
+		"startColumn": 48,
+		"endColumn": 2,	
+		"linesOfCode": 20		
+	},
+		"linesOfCode": 20,
+		"nodesAmount": 172			
+	},
+{
+		"id": "165980",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 955,
+		"startLine": 977,
+		"endLine": 1007,
+		"startColumn": 4,
+		"endColumn": 24,	
+		"linesOfCode": 31		
+	},
+		"linesOfCode": 31,
+		"nodesAmount": 192			
+	},
+{
+		"id": "169540",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionConvert.java",
+		"length": 291,
+		"startLine": 139,
+		"endLine": 149,
+		"startColumn": 31,
+		"endColumn": 4,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 84			
+	},
+{
+		"id": "139667",
+		"location": {
+		"path": "/src/smallsql/database/JoinScroll.java",
+		"length": 397,
+		"startLine": 96,
+		"endLine": 105,
+		"startColumn": 31,
+		"endColumn": 21,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 40			
+	},
+{
+		"id": "61273",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionLCase.java",
+		"length": 1893,
+		"startLine": 1,
+		"endLine": 62,
+		"startColumn": 0,
+		"endColumn": 3,	
+		"linesOfCode": 17		
+	},
+		"linesOfCode": 17,
+		"nodesAmount": 80			
+	},
+{
+		"id": "33611",
+		"location": {
+		"path": "/src/smallsql/database/MutableFloat.java",
+		"length": 1866,
+		"startLine": 1,
+		"endLine": 70,
+		"startColumn": 0,
+		"endColumn": 3,	
+		"linesOfCode": 25		
+	},
+		"linesOfCode": 25,
+		"nodesAmount": 106			
+	},
+{
+		"id": "143990",
+		"location": {
+		"path": "/src/smallsql/junit/TestScrollable.java",
+		"length": 873,
+		"startLine": 45,
+		"endLine": 58,
+		"startColumn": 5,
+		"endColumn": 3,	
+		"linesOfCode": 12		
+	},
+		"linesOfCode": 12,
+		"nodesAmount": 99			
+	},
+{
+		"id": "104903",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 874,
+		"startLine": 171,
+		"endLine": 193,
+		"startColumn": 2,
+		"endColumn": 3,	
+		"linesOfCode": 18		
+	},
+		"linesOfCode": 18,
+		"nodesAmount": 116			
+	},
+{
+		"id": "159144",
+		"location": {
+		"path": "/src/smallsql/database/language/Language_de.java",
+		"length": 11660,
+		"startLine": 51,
+		"endLine": 183,
+		"startColumn": 4,
+		"endColumn": 6,	
+		"linesOfCode": 113		
+	},
+		"linesOfCode": 113,
+		"nodesAmount": 793			
+	},
+{
+		"id": "4546",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 796,
+		"startLine": 698,
+		"endLine": 726,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 23		
+	},
+		"linesOfCode": 23,
+		"nodesAmount": 181			
+	},
+{
+		"id": "161476",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 843,
+		"startLine": 308,
+		"endLine": 332,
+		"startColumn": 48,
+		"endColumn": 5,	
+		"linesOfCode": 25		
+	},
+		"linesOfCode": 25,
+		"nodesAmount": 141			
+	},
+{
+		"id": "30079",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionRound.java",
+		"length": 488,
+		"startLine": 45,
+		"endLine": 68,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 24		
+	},
+		"linesOfCode": 24,
+		"nodesAmount": 154			
+	},
+{
+		"id": "65478",
+		"location": {
+		"path": "/src/smallsql/junit/TestExceptionMethods.java",
+		"length": 550,
+		"startLine": 182,
+		"endLine": 196,
+		"startColumn": 61,
+		"endColumn": 5,	
+		"linesOfCode": 15		
+	},
+		"linesOfCode": 15,
+		"nodesAmount": 70			
+	},
+{
+		"id": "86982",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 1349,
+		"startLine": 654,
+		"endLine": 681,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 28		
+	},
+		"linesOfCode": 28,
+		"nodesAmount": 315			
+	},
+{
+		"id": "192997",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionReturnP1Number.java",
+		"length": 1366,
+		"startLine": 36,
+		"endLine": 98,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 43		
+	},
+		"linesOfCode": 43,
+		"nodesAmount": 229			
+	},
+{
+		"id": "62818",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionTruncate.java",
+		"length": 794,
+		"startLine": 36,
+		"endLine": 71,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 30		
+	},
+		"linesOfCode": 30,
+		"nodesAmount": 191			
+	},
+{
+		"id": "184732",
+		"location": {
+		"path": "/src/smallsql/database/MutableNumeric.java",
+		"length": 787,
+		"startLine": 515,
+		"endLine": 532,
+		"startColumn": 13,
+		"endColumn": 9,	
+		"linesOfCode": 15		
+	},
+		"linesOfCode": 15,
+		"nodesAmount": 196			
+	},
+{
+		"id": "137767",
+		"location": {
+		"path": "/src/smallsql/database/StoreImpl.java",
+		"length": 2682,
+		"startLine": 1277,
+		"endLine": 1332,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 56		
+	},
+		"linesOfCode": 56,
+		"nodesAmount": 422			
+	},
+{
+		"id": "30082",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionRound.java",
+		"length": 747,
+		"startLine": 36,
+		"endLine": 71,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 30		
+	},
+		"linesOfCode": 30,
+		"nodesAmount": 191			
+	},
+{
+		"id": "65391",
+		"location": {
+		"path": "/src/smallsql/junit/TestExceptionMethods.java",
+		"length": 400,
+		"startLine": 167,
+		"endLine": 176,
+		"startColumn": 11,
+		"endColumn": 9,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 49			
+	},
+{
+		"id": "66357",
+		"location": {
+		"path": "/src/smallsql/database/SSResultSetMetaData.java",
+		"length": 341,
+		"startLine": 86,
+		"endLine": 98,
+		"startColumn": 2,
+		"endColumn": 3,	
+		"linesOfCode": 13		
+	},
+		"linesOfCode": 13,
+		"nodesAmount": 76			
+	},
+{
+		"id": "82596",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 976,
+		"startLine": 111,
+		"endLine": 130,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 20		
+	},
+		"linesOfCode": 20,
+		"nodesAmount": 209			
+	},
+{
+		"id": "6294",
+		"location": {
+		"path": "/src/smallsql/junit/TestJoins.java",
+		"length": 3247,
+		"startLine": 48,
+		"endLine": 88,
+		"startColumn": 37,
+		"endColumn": 5,	
+		"linesOfCode": 41		
+	},
+		"linesOfCode": 41,
+		"nodesAmount": 918			
+	},
+{
+		"id": "86584",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 866,
+		"startLine": 617,
+		"endLine": 635,
+		"startColumn": 11,
+		"endColumn": 9,	
+		"linesOfCode": 19		
+	},
+		"linesOfCode": 19,
+		"nodesAmount": 241			
+	},
+{
+		"id": "153776",
+		"location": {
+		"path": "/src/smallsql/database/SSResultSet.java",
+		"length": 424,
+		"startLine": 779,
+		"endLine": 789,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 73			
+	},
+{
+		"id": "1630",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 654,
+		"startLine": 254,
+		"endLine": 277,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 20		
+	},
+		"linesOfCode": 20,
+		"nodesAmount": 159			
+	},
+{
+		"id": "55410",
+		"location": {
+		"path": "/src/smallsql/junit/TestOther.java",
+		"length": 1295,
+		"startLine": 141,
+		"endLine": 161,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 19		
+	},
+		"linesOfCode": 19,
+		"nodesAmount": 119			
+	},
+{
+		"id": "4542",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 744,
+		"startLine": 698,
+		"endLine": 726,
+		"startColumn": 53,
+		"endColumn": 2,	
+		"linesOfCode": 23		
+	},
+		"linesOfCode": 23,
+		"nodesAmount": 174			
+	},
+{
+		"id": "10364",
+		"location": {
+		"path": "/src/smallsql/junit/TestStatement.java",
+		"length": 2934,
+		"startLine": 243,
+		"endLine": 304,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 55		
+	},
+		"linesOfCode": 55,
+		"nodesAmount": 543			
+	},
+{
+		"id": "107647",
+		"location": {
+		"path": "/src/smallsql/database/GroupResult.java",
+		"length": 1296,
+		"startLine": 161,
+		"endLine": 196,
+		"startColumn": 2,
+		"endColumn": 3,	
+		"linesOfCode": 33		
+	},
+		"linesOfCode": 33,
+		"nodesAmount": 225			
+	},
+{
+		"id": "151148",
+		"location": {
+		"path": "/src/smallsql/database/SSResultSet.java",
+		"length": 310,
+		"startLine": 319,
+		"endLine": 328,
+		"startColumn": 73,
+		"endColumn": 5,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 52			
+	},
+{
+		"id": "60417",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionMinute.java",
+		"length": 1729,
+		"startLine": 1,
+		"endLine": 54,
+		"startColumn": 0,
+		"endColumn": 3,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 69			
+	},
+{
+		"id": "161479",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 887,
+		"startLine": 308,
+		"endLine": 332,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 25		
+	},
+		"linesOfCode": 25,
+		"nodesAmount": 155			
+	},
+{
+		"id": "1935",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 599,
+		"startLine": 303,
+		"endLine": 326,
+		"startColumn": 52,
+		"endColumn": 2,	
+		"linesOfCode": 20		
+	},
+		"linesOfCode": 20,
+		"nodesAmount": 160			
+	},
+{
+		"id": "17354",
+		"location": {
+		"path": "/src/smallsql/database/SQLParser.java",
+		"length": 677,
+		"startLine": 1029,
+		"endLine": 1051,
+		"startColumn": 82,
+		"endColumn": 5,	
+		"linesOfCode": 22		
+	},
+		"linesOfCode": 22,
+		"nodesAmount": 112			
+	},
+{
+		"id": "122592",
+		"location": {
+		"path": "/src/smallsql/junit/TestOperatoren.java",
+		"length": 3421,
+		"startLine": 45,
+		"endLine": 87,
+		"startColumn": 45,
+		"endColumn": 5,	
+		"linesOfCode": 43		
+	},
+		"linesOfCode": 43,
+		"nodesAmount": 964			
+	},
+{
+		"id": "86938",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 1110,
+		"startLine": 654,
+		"endLine": 676,
+		"startColumn": 11,
+		"endColumn": 9,	
+		"linesOfCode": 23		
+	},
+		"linesOfCode": 23,
+		"nodesAmount": 271			
+	},
+{
+		"id": "144189",
+		"location": {
+		"path": "/src/smallsql/junit/TestScrollable.java",
+		"length": 997,
+		"startLine": 76,
+		"endLine": 94,
+		"startColumn": 49,
+		"endColumn": 2,	
+		"linesOfCode": 17		
+	},
+		"linesOfCode": 17,
+		"nodesAmount": 120			
+	},
+{
+		"id": "84627",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 1090,
+		"startLine": 376,
+		"endLine": 399,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 24		
+	},
+		"linesOfCode": 24,
+		"nodesAmount": 220			
+	},
+{
+		"id": "104601",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 706,
+		"startLine": 112,
+		"endLine": 129,
+		"startColumn": 5,
+		"endColumn": 3,	
+		"linesOfCode": 13		
+	},
+		"linesOfCode": 13,
+		"nodesAmount": 84			
+	},
+{
+		"id": "192622",
+		"location": {
+		"path": "/src/smallsql/junit/TestAlterTable.java",
+		"length": 885,
+		"startLine": 95,
+		"endLine": 115,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 21		
+	},
+		"linesOfCode": 21,
+		"nodesAmount": 138			
+	},
+{
+		"id": "55406",
+		"location": {
+		"path": "/src/smallsql/junit/TestOther.java",
+		"length": 1252,
+		"startLine": 141,
+		"endLine": 161,
+		"startColumn": 44,
+		"endColumn": 2,	
+		"linesOfCode": 19		
+	},
+		"linesOfCode": 19,
+		"nodesAmount": 112			
+	},
+{
+		"id": "153777",
+		"location": {
+		"path": "/src/smallsql/database/SSResultSet.java",
+		"length": 442,
+		"startLine": 778,
+		"endLine": 790,
+		"startColumn": 75,
+		"endColumn": 5,	
+		"linesOfCode": 13		
+	},
+		"linesOfCode": 13,
+		"nodesAmount": 74			
+	},
+{
+		"id": "135183",
+		"location": {
+		"path": "/src/smallsql/database/StoreImpl.java",
+		"length": 2708,
+		"startLine": 889,
+		"endLine": 952,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 61		
+	},
+		"linesOfCode": 61,
+		"nodesAmount": 441			
+	},
+{
+		"id": "184733",
+		"location": {
+		"path": "/src/smallsql/database/MutableNumeric.java",
+		"length": 862,
+		"startLine": 513,
+		"endLine": 532,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 17		
+	},
+		"linesOfCode": 17,
+		"nodesAmount": 220			
+	},
+{
+		"id": "102833",
+		"location": {
+		"path": "/src/smallsql/database/language/Language.java",
+		"length": 5337,
+		"startLine": 494,
+		"endLine": 628,
+		"startColumn": 39,
+		"endColumn": 2,	
+		"linesOfCode": 114		
+	},
+		"linesOfCode": 114,
+		"nodesAmount": 788			
+	},
+{
+		"id": "84959",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 1258,
+		"startLine": 414,
+		"endLine": 439,
+		"startColumn": 12,
+		"endColumn": 13,	
+		"linesOfCode": 26		
+	},
+		"linesOfCode": 26,
+		"nodesAmount": 262			
+	},
+{
+		"id": "64553",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionUCase.java",
+		"length": 1893,
+		"startLine": 1,
+		"endLine": 62,
+		"startColumn": 0,
+		"endColumn": 3,	
+		"linesOfCode": 17		
+	},
+		"linesOfCode": 17,
+		"nodesAmount": 80			
+	},
+{
+		"id": "104904",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 929,
+		"startLine": 169,
+		"endLine": 194,
+		"startColumn": 60,
+		"endColumn": 2,	
+		"linesOfCode": 21		
+	},
+		"linesOfCode": 21,
+		"nodesAmount": 128			
+	},
+{
+		"id": "128196",
+		"location": {
+		"path": "/src/smallsql/database/Database.java",
+		"length": 765,
+		"startLine": 483,
+		"endLine": 504,
+		"startColumn": 2,
+		"endColumn": 3,	
+		"linesOfCode": 21		
+	},
+		"linesOfCode": 21,
+		"nodesAmount": 252			
+	},
+{
+		"id": "128579",
+		"location": {
+		"path": "/src/smallsql/database/Database.java",
+		"length": 973,
+		"startLine": 515,
+		"endLine": 541,
+		"startColumn": 2,
+		"endColumn": 6,	
+		"linesOfCode": 21		
+	},
+		"linesOfCode": 21,
+		"nodesAmount": 278			
+	},
+{
+		"id": "3374",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 633,
+		"startLine": 519,
+		"endLine": 542,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 20		
+	},
+		"linesOfCode": 20,
+		"nodesAmount": 179			
+	},
+{
+		"id": "27252",
+		"location": {
+		"path": "/src/smallsql/database/language/Language_it.java",
+		"length": 11817,
+		"startLine": 1,
+		"endLine": 185,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 122		
+	},
+		"linesOfCode": 122,
+		"nodesAmount": 831			
+	},
+{
+		"id": "54942",
+		"location": {
+		"path": "/src/smallsql/junit/TestOther.java",
+		"length": 1092,
+		"startLine": 63,
+		"endLine": 82,
+		"startColumn": 44,
+		"endColumn": 2,	
+		"linesOfCode": 19		
+	},
+		"linesOfCode": 19,
+		"nodesAmount": 118			
+	},
+{
+		"id": "122599",
+		"location": {
+		"path": "/src/smallsql/junit/TestOperatoren.java",
+		"length": 3463,
+		"startLine": 45,
+		"endLine": 87,
+		"startColumn": 4,
+		"endColumn": 6,	
+		"linesOfCode": 43		
+	},
+		"linesOfCode": 43,
+		"nodesAmount": 975			
+	},
+{
+		"id": "144369",
+		"location": {
+		"path": "/src/smallsql/junit/TestScrollable.java",
+		"length": 1001,
+		"startLine": 108,
+		"endLine": 126,
+		"startColumn": 50,
+		"endColumn": 2,	
+		"linesOfCode": 17		
+	},
+		"linesOfCode": 17,
+		"nodesAmount": 120			
+	},
+{
+		"id": "81004",
+		"location": {
+		"path": "/src/smallsql/database/SSDatabaseMetaData.java",
+		"length": 11768,
+		"startLine": 830,
+		"endLine": 867,
+		"startColumn": 55,
+		"endColumn": 5,	
+		"linesOfCode": 37		
+	},
+		"linesOfCode": 37,
+		"nodesAmount": 2814			
+	},
+{
+		"id": "104466",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 704,
+		"startLine": 81,
+		"endLine": 98,
+		"startColumn": 5,
+		"endColumn": 3,	
+		"linesOfCode": 13		
+	},
+		"linesOfCode": 13,
+		"nodesAmount": 84			
+	},
+{
+		"id": "173660",
+		"location": {
+		"path": "/src/smallsql/junit/TestGroupBy.java",
+		"length": 494,
+		"startLine": 168,
+		"endLine": 179,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 12		
+	},
+		"linesOfCode": 12,
+		"nodesAmount": 133			
+	},
+{
+		"id": "181016",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionHour.java",
+		"length": 355,
+		"startLine": 37,
+		"endLine": 54,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 66			
+	},
+{
+		"id": "86628",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 1105,
+		"startLine": 617,
+		"endLine": 640,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 24		
+	},
+		"linesOfCode": 24,
+		"nodesAmount": 285			
+	},
+{
+		"id": "66435",
+		"location": {
+		"path": "/src/smallsql/database/SSResultSetMetaData.java",
+		"length": 194,
+		"startLine": 108,
+		"endLine": 117,
+		"startColumn": 47,
+		"endColumn": 2,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 38			
+	},
+{
+		"id": "57520",
+		"location": {
+		"path": "/src/smallsql/junit/TestMoneyRounding.java",
+		"length": 279,
+		"startLine": 53,
+		"endLine": 62,
+		"startColumn": 26,
+		"endColumn": 5,	
+		"linesOfCode": 9		
+	},
+		"linesOfCode": 9,
+		"nodesAmount": 48			
+	},
+{
+		"id": "192480",
+		"location": {
+		"path": "/src/smallsql/junit/TestAlterTable.java",
+		"length": 820,
+		"startLine": 72,
+		"endLine": 92,
+		"startColumn": 71,
+		"endColumn": 5,	
+		"linesOfCode": 21		
+	},
+		"linesOfCode": 21,
+		"nodesAmount": 131			
+	},
+{
+		"id": "85854",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 1129,
+		"startLine": 522,
+		"endLine": 543,
+		"startColumn": 16,
+		"endColumn": 14,	
+		"linesOfCode": 22		
+	},
+		"linesOfCode": 22,
+		"nodesAmount": 239			
+	},
+{
+		"id": "85409",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 1189,
+		"startLine": 468,
+		"endLine": 492,
+		"startColumn": 42,
+		"endColumn": 13,	
+		"linesOfCode": 25		
+	},
+		"linesOfCode": 25,
+		"nodesAmount": 234			
+	},
+{
+		"id": "16126",
+		"location": {
+		"path": "/src/smallsql/database/SQLParser.java",
+		"length": 2121,
+		"startLine": 795,
+		"endLine": 862,
+		"startColumn": 2,
+		"endColumn": 3,	
+		"linesOfCode": 64		
+	},
+		"linesOfCode": 64,
+		"nodesAmount": 414			
+	},
+{
+		"id": "106016",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 770,
+		"startLine": 380,
+		"endLine": 401,
+		"startColumn": 2,
+		"endColumn": 3,	
+		"linesOfCode": 18		
+	},
+		"linesOfCode": 18,
+		"nodesAmount": 127			
+	},
+{
+		"id": "176543",
+		"location": {
+		"path": "/src/smallsql/junit/TestResultSet.java",
+		"length": 1852,
+		"startLine": 66,
+		"endLine": 108,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 36		
+	},
+		"linesOfCode": 36,
+		"nodesAmount": 334			
+	},
+{
+		"id": "72473",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionValue.java",
+		"length": 733,
+		"startLine": 400,
+		"endLine": 417,
+		"startColumn": 1,
+		"endColumn": 5,	
+		"linesOfCode": 18		
+	},
+		"linesOfCode": 18,
+		"nodesAmount": 149			
+	},
+{
+		"id": "85037",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 2048,
+		"startLine": 408,
+		"endLine": 449,
+		"startColumn": 54,
+		"endColumn": 5,	
+		"linesOfCode": 42		
+	},
+		"linesOfCode": 42,
+		"nodesAmount": 398			
+	},
+{
+		"id": "65324",
+		"location": {
+		"path": "/src/smallsql/junit/TestExceptionMethods.java",
+		"length": 360,
+		"startLine": 153,
+		"endLine": 162,
+		"startColumn": 61,
+		"endColumn": 5,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 53			
+	},
+{
+		"id": "145887",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionInSelect.java",
+		"length": 986,
+		"startLine": 38,
+		"endLine": 75,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 28		
+	},
+		"linesOfCode": 28,
+		"nodesAmount": 212			
+	},
+{
+		"id": "116951",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionYear.java",
+		"length": 355,
+		"startLine": 37,
+		"endLine": 54,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 66			
+	},
+{
+		"id": "34702",
+		"location": {
+		"path": "/src/smallsql/database/SSCallableStatement.java",
+		"length": 275,
+		"startLine": 163,
+		"endLine": 172,
+		"startColumn": 51,
+		"endColumn": 5,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 52			
+	},
+{
+		"id": "186774",
+		"location": {
+		"path": "/src/smallsql/database/IndexScrollStatus.java",
+		"length": 400,
+		"startLine": 120,
+		"endLine": 131,
+		"startColumn": 33,
+		"endColumn": 41,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 72			
+	},
+{
+		"id": "124414",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionRepeat.java",
+		"length": 312,
+		"startLine": 61,
+		"endLine": 70,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 80			
+	},
+{
+		"id": "85994",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 2559,
+		"startLine": 508,
+		"endLine": 559,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 47		
+	},
+		"linesOfCode": 47,
+		"nodesAmount": 485			
+	},
+{
+		"id": "10360",
+		"location": {
+		"path": "/src/smallsql/junit/TestStatement.java",
+		"length": 2875,
+		"startLine": 243,
+		"endLine": 304,
+		"startColumn": 63,
+		"endColumn": 5,	
+		"linesOfCode": 55		
+	},
+		"linesOfCode": 55,
+		"nodesAmount": 536			
+	},
+{
+		"id": "65405",
+		"location": {
+		"path": "/src/smallsql/junit/TestExceptionMethods.java",
+		"length": 597,
+		"startLine": 165,
+		"endLine": 179,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 15		
+	},
+		"linesOfCode": 15,
+		"nodesAmount": 77			
+	},
+{
+		"id": "74932",
+		"location": {
+		"path": "/src/smallsql/junit/TestAlterTable2.java",
+		"length": 532,
+		"startLine": 71,
+		"endLine": 80,
+		"startColumn": 47,
+		"endColumn": 5,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 133			
+	},
+{
+		"id": "42219",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionLeft.java",
+		"length": 282,
+		"startLine": 52,
+		"endLine": 61,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 9		
+	},
+		"linesOfCode": 9,
+		"nodesAmount": 87			
+	},
+{
+		"id": "96787",
+		"location": {
+		"path": "/src/smallsql/database/SQLTokenizer.java",
+		"length": 1147,
+		"startLine": 799,
+		"endLine": 823,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 25		
+	},
+		"linesOfCode": 25,
+		"nodesAmount": 164			
+	},
+{
+		"id": "13764",
+		"location": {
+		"path": "/src/smallsql/database/SQLParser.java",
+		"length": 656,
+		"startLine": 491,
+		"endLine": 510,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 20		
+	},
+		"linesOfCode": 20,
+		"nodesAmount": 103			
+	},
+{
+		"id": "102837",
+		"location": {
+		"path": "/src/smallsql/database/language/Language.java",
+		"length": 5350,
+		"startLine": 494,
+		"endLine": 628,
+		"startColumn": 26,
+		"endColumn": 2,	
+		"linesOfCode": 114		
+	},
+		"linesOfCode": 114,
+		"nodesAmount": 792			
+	},
+{
+		"id": "97030",
+		"location": {
+		"path": "/src/smallsql/database/SQLTokenizer.java",
+		"length": 1125,
+		"startLine": 835,
+		"endLine": 861,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 26		
+	},
+		"linesOfCode": 26,
+		"nodesAmount": 171			
+	},
+{
+		"id": "144673",
+		"location": {
+		"path": "/src/smallsql/junit/TestScrollable.java",
+		"length": 502,
+		"startLine": 167,
+		"endLine": 179,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 13		
+	},
+		"linesOfCode": 13,
+		"nodesAmount": 79			
+	},
+{
+		"id": "110829",
+		"location": {
+		"path": "/src/smallsql/junit/TestDBMetaData.java",
+		"length": 13986,
+		"startLine": 38,
+		"endLine": 310,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 213		
+	},
+		"linesOfCode": 213,
+		"nodesAmount": 2903			
+	},
+{
+		"id": "104768",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 877,
+		"startLine": 140,
+		"endLine": 162,
+		"startColumn": 2,
+		"endColumn": 3,	
+		"linesOfCode": 18		
+	},
+		"linesOfCode": 18,
+		"nodesAmount": 116			
+	},
+{
+		"id": "72716",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionValue.java",
+		"length": 1138,
+		"startLine": 423,
+		"endLine": 452,
+		"startColumn": 1,
+		"endColumn": 5,	
+		"linesOfCode": 30		
+	},
+		"linesOfCode": 30,
+		"nodesAmount": 229			
+	},
+{
+		"id": "184506",
+		"location": {
+		"path": "/src/smallsql/database/MutableNumeric.java",
+		"length": 783,
+		"startLine": 492,
+		"endLine": 509,
+		"startColumn": 13,
+		"endColumn": 9,	
+		"linesOfCode": 15		
+	},
+		"linesOfCode": 15,
+		"nodesAmount": 196			
+	},
+{
+		"id": "163507",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 892,
+		"startLine": 602,
+		"endLine": 616,
+		"startColumn": 20,
+		"endColumn": 21,	
+		"linesOfCode": 15		
+	},
+		"linesOfCode": 15,
+		"nodesAmount": 132			
+	},
+{
+		"id": "144453",
+		"location": {
+		"path": "/src/smallsql/junit/TestScrollable.java",
+		"length": 463,
+		"startLine": 129,
+		"endLine": 141,
+		"startColumn": 72,
+		"endColumn": 5,	
+		"linesOfCode": 13		
+	},
+		"linesOfCode": 13,
+		"nodesAmount": 72			
+	},
+{
+		"id": "144359",
+		"location": {
+		"path": "/src/smallsql/junit/TestScrollable.java",
+		"length": 886,
+		"startLine": 110,
+		"endLine": 123,
+		"startColumn": 5,
+		"endColumn": 3,	
+		"linesOfCode": 12		
+	},
+		"linesOfCode": 12,
+		"nodesAmount": 99			
+	},
+{
+		"id": "3016",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 645,
+		"startLine": 467,
+		"endLine": 490,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 20		
+	},
+		"linesOfCode": 20,
+		"nodesAmount": 179			
+	},
+{
+		"id": "97987",
+		"location": {
+		"path": "/src/smallsql/database/CommandDrop.java",
+		"length": 1076,
+		"startLine": 48,
+		"endLine": 74,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 27		
+	},
+		"linesOfCode": 27,
+		"nodesAmount": 216			
+	},
+{
+		"id": "134236",
+		"location": {
+		"path": "/src/smallsql/database/StoreImpl.java",
+		"length": 531,
+		"startLine": 799,
+		"endLine": 810,
+		"startColumn": 5,
+		"endColumn": 6,	
+		"linesOfCode": 12		
+	},
+		"linesOfCode": 12,
+		"nodesAmount": 105			
+	},
+{
+		"id": "54416",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionRight.java",
+		"length": 261,
+		"startLine": 52,
+		"endLine": 61,
+		"startColumn": 41,
+		"endColumn": 2,	
+		"linesOfCode": 9		
+	},
+		"linesOfCode": 9,
+		"nodesAmount": 87			
+	},
+{
+		"id": "960",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 614,
+		"startLine": 143,
+		"endLine": 167,
+		"startColumn": 51,
+		"endColumn": 2,	
+		"linesOfCode": 21		
+	},
+		"linesOfCode": 21,
+		"nodesAmount": 166			
+	},
+{
+		"id": "150319",
+		"location": {
+		"path": "/src/smallsql/database/SSResultSet.java",
+		"length": 285,
+		"startLine": 168,
+		"endLine": 177,
+		"startColumn": 61,
+		"endColumn": 5,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 52			
+	},
+{
+		"id": "192618",
+		"location": {
+		"path": "/src/smallsql/junit/TestAlterTable.java",
+		"length": 819,
+		"startLine": 95,
+		"endLine": 115,
+		"startColumn": 70,
+		"endColumn": 5,	
+		"linesOfCode": 21		
+	},
+		"linesOfCode": 21,
+		"nodesAmount": 131			
+	},
+{
+		"id": "161187",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 882,
+		"startLine": 261,
+		"endLine": 285,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 25		
+	},
+		"linesOfCode": 25,
+		"nodesAmount": 152			
+	},
+{
+		"id": "136010",
+		"location": {
+		"path": "/src/smallsql/database/StoreImpl.java",
+		"length": 2631,
+		"startLine": 1020,
+		"endLine": 1082,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 60		
+	},
+		"linesOfCode": 60,
+		"nodesAmount": 412			
+	},
+{
+		"id": "191293",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionDayOfYear.java",
+		"length": 1743,
+		"startLine": 1,
+		"endLine": 54,
+		"startColumn": 0,
+		"endColumn": 3,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 73			
+	},
+{
+		"id": "135589",
+		"location": {
+		"path": "/src/smallsql/database/StoreImpl.java",
+		"length": 2415,
+		"startLine": 962,
+		"endLine": 1016,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 55		
+	},
+		"linesOfCode": 55,
+		"nodesAmount": 382			
+	},
+{
+		"id": "100996",
+		"location": {
+		"path": "/src/smallsql/database/language/Language.java",
+		"length": 229,
+		"startLine": 295,
+		"endLine": 305,
+		"startColumn": 43,
+		"endColumn": 3,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 73			
+	},
+{
+		"id": "56055",
+		"location": {
+		"path": "/src/smallsql/junit/TestOther.java",
+		"length": 1314,
+		"startLine": 254,
+		"endLine": 276,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 19		
+	},
+		"linesOfCode": 19,
+		"nodesAmount": 131			
+	},
+{
+		"id": "17359",
+		"location": {
+		"path": "/src/smallsql/database/SQLParser.java",
+		"length": 1015,
+		"startLine": 1022,
+		"endLine": 1051,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 22		
+	},
+		"linesOfCode": 22,
+		"nodesAmount": 127			
+	},
+{
+		"id": "165356",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 1432,
+		"startLine": 875,
+		"endLine": 901,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 27		
+	},
+		"linesOfCode": 27,
+		"nodesAmount": 237			
+	},
+{
+		"id": "80980",
+		"location": {
+		"path": "/src/smallsql/database/SSDatabaseMetaData.java",
+		"length": 11258,
+		"startLine": 832,
+		"endLine": 864,
+		"startColumn": 13,
+		"endColumn": 3,	
+		"linesOfCode": 33		
+	},
+		"linesOfCode": 33,
+		"nodesAmount": 2737			
+	},
+{
+		"id": "55396",
+		"location": {
+		"path": "/src/smallsql/junit/TestOther.java",
+		"length": 1134,
+		"startLine": 143,
+		"endLine": 158,
+		"startColumn": 5,
+		"endColumn": 3,	
+		"linesOfCode": 14		
+	},
+		"linesOfCode": 14,
+		"nodesAmount": 91			
+	},
+{
+		"id": "136854",
+		"location": {
+		"path": "/src/smallsql/database/StoreImpl.java",
+		"length": 2443,
+		"startLine": 1154,
+		"endLine": 1204,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 51		
+	},
+		"linesOfCode": 51,
+		"nodesAmount": 417			
+	},
+{
+		"id": "129511",
+		"location": {
+		"path": "/src/smallsql/database/StoreImpl.java",
+		"length": 1169,
+		"startLine": 117,
+		"endLine": 139,
+		"startColumn": 20,
+		"endColumn": 21,	
+		"linesOfCode": 23		
+	},
+		"linesOfCode": 23,
+		"nodesAmount": 186			
+	},
+{
+		"id": "137776",
+		"location": {
+		"path": "/src/smallsql/database/StoreImpl.java",
+		"length": 2915,
+		"startLine": 1270,
+		"endLine": 1333,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 61		
+	},
+		"linesOfCode": 61,
+		"nodesAmount": 457			
+	},
+{
+		"id": "62773",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionTruncate.java",
+		"length": 188,
+		"startLine": 50,
+		"endLine": 60,
+		"startColumn": 2,
+		"endColumn": 3,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 77			
+	},
+{
+		"id": "106123",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 517,
+		"startLine": 408,
+		"endLine": 419,
+		"startColumn": 5,
+		"endColumn": 3,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 77			
+	},
+{
+		"id": "173368",
+		"location": {
+		"path": "/src/smallsql/junit/TestGroupBy.java",
+		"length": 430,
+		"startLine": 141,
+		"endLine": 152,
+		"startColumn": 48,
+		"endColumn": 2,	
+		"linesOfCode": 12		
+	},
+		"linesOfCode": 12,
+		"nodesAmount": 126			
+	},
+{
+		"id": "50019",
+		"location": {
+		"path": "/src/smallsql/database/Utils.java",
+		"length": 399,
+		"startLine": 177,
+		"endLine": 188,
+		"startColumn": 42,
+		"endColumn": 5,	
+		"linesOfCode": 12		
+	},
+		"linesOfCode": 12,
+		"nodesAmount": 182			
+	},
+{
+		"id": "82999",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 1185,
+		"startLine": 164,
+		"endLine": 190,
+		"startColumn": 52,
+		"endColumn": 5,	
+		"linesOfCode": 26		
+	},
+		"linesOfCode": 26,
+		"nodesAmount": 242			
+	},
+{
+		"id": "65400",
+		"location": {
+		"path": "/src/smallsql/junit/TestExceptionMethods.java",
+		"length": 471,
+		"startLine": 167,
+		"endLine": 178,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 12		
+	},
+		"linesOfCode": 12,
+		"nodesAmount": 58			
+	},
+{
+		"id": "85910",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 1461,
+		"startLine": 521,
+		"endLine": 549,
+		"startColumn": 41,
+		"endColumn": 13,	
+		"linesOfCode": 29		
+	},
+		"linesOfCode": 29,
+		"nodesAmount": 295			
+	},
+{
+		"id": "138244",
+		"location": {
+		"path": "/src/smallsql/database/StoreImpl.java",
+		"length": 2867,
+		"startLine": 1343,
+		"endLine": 1399,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 57		
+	},
+		"linesOfCode": 57,
+		"nodesAmount": 442			
+	},
+{
+		"id": "116952",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionYear.java",
+		"length": 1722,
+		"startLine": 1,
+		"endLine": 54,
+		"startColumn": 0,
+		"endColumn": 3,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 69			
+	},
+{
+		"id": "160753",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 630,
+		"startLine": 205,
+		"endLine": 216,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 12		
+	},
+		"linesOfCode": 12,
+		"nodesAmount": 118			
+	},
+{
+		"id": "135175",
+		"location": {
+		"path": "/src/smallsql/database/StoreImpl.java",
+		"length": 2578,
+		"startLine": 893,
+		"endLine": 952,
+		"startColumn": 62,
+		"endColumn": 5,	
+		"linesOfCode": 60		
+	},
+		"linesOfCode": 60,
+		"nodesAmount": 424			
+	},
+{
+		"id": "193202",
+		"location": {
+		"path": "/src/smallsql/junit/TestDataTypes.java",
+		"length": 279,
+		"startLine": 68,
+		"endLine": 77,
+		"startColumn": 26,
+		"endColumn": 5,	
+		"linesOfCode": 9		
+	},
+		"linesOfCode": 9,
+		"nodesAmount": 48			
+	},
+{
+		"id": "106273",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 731,
+		"startLine": 427,
+		"endLine": 446,
+		"startColumn": 48,
+		"endColumn": 2,	
+		"linesOfCode": 18		
+	},
+		"linesOfCode": 18,
+		"nodesAmount": 121			
+	},
+{
+		"id": "105871",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 877,
+		"startLine": 345,
+		"endLine": 371,
+		"startColumn": 60,
+		"endColumn": 2,	
+		"linesOfCode": 23		
+	},
+		"linesOfCode": 23,
+		"nodesAmount": 153			
+	},
+{
+		"id": "110157",
+		"location": {
+		"path": "/src/smallsql/junit/TestDBMetaData.java",
+		"length": 1711,
+		"startLine": 224,
+		"endLine": 254,
+		"startColumn": 56,
+		"endColumn": 5,	
+		"linesOfCode": 25		
+	},
+		"linesOfCode": 25,
+		"nodesAmount": 338			
+	},
+{
+		"id": "81008",
+		"location": {
+		"path": "/src/smallsql/database/SSDatabaseMetaData.java",
+		"length": 11819,
+		"startLine": 830,
+		"endLine": 867,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 37		
+	},
+		"linesOfCode": 37,
+		"nodesAmount": 2823			
+	},
+{
+		"id": "104633",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 869,
+		"startLine": 112,
+		"endLine": 134,
+		"startColumn": 2,
+		"endColumn": 3,	
+		"linesOfCode": 18		
+	},
+		"linesOfCode": 18,
+		"nodesAmount": 116			
+	},
+{
+		"id": "27245",
+		"location": {
+		"path": "/src/smallsql/database/language/Language_it.java",
+		"length": 10058,
+		"startLine": 51,
+		"endLine": 184,
+		"startColumn": 26,
+		"endColumn": 2,	
+		"linesOfCode": 113		
+	},
+		"linesOfCode": 113,
+		"nodesAmount": 785			
+	},
+{
+		"id": "124329",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionRepeat.java",
+		"length": 311,
+		"startLine": 49,
+		"endLine": 58,
+		"startColumn": 41,
+		"endColumn": 2,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 74			
+	},
+{
+		"id": "170362",
+		"location": {
+		"path": "/src/smallsql/database/CommandSet.java",
+		"length": 1886,
+		"startLine": 1,
+		"endLine": 57,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 20		
+	},
+		"linesOfCode": 20,
+		"nodesAmount": 109			
+	},
+{
+		"id": "159148",
+		"location": {
+		"path": "/src/smallsql/database/language/Language_de.java",
+		"length": 13393,
+		"startLine": 1,
+		"endLine": 184,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 122		
+	},
+		"linesOfCode": 122,
+		"nodesAmount": 831			
+	},
+{
+		"id": "163201",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 858,
+		"startLine": 566,
+		"endLine": 580,
+		"startColumn": 20,
+		"endColumn": 21,	
+		"linesOfCode": 15		
+	},
+		"linesOfCode": 15,
+		"nodesAmount": 132			
+	},
+{
+		"id": "84368",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 2200,
+		"startLine": 316,
+		"endLine": 363,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 45		
+	},
+		"linesOfCode": 45,
+		"nodesAmount": 413			
+	},
+{
+		"id": "160632",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 1033,
+		"startLine": 175,
+		"endLine": 202,
+		"startColumn": 44,
+		"endColumn": 5,	
+		"linesOfCode": 25		
+	},
+		"linesOfCode": 25,
+		"nodesAmount": 147			
+	},
+{
+		"id": "80982",
+		"location": {
+		"path": "/src/smallsql/database/SSDatabaseMetaData.java",
+		"length": 11270,
+		"startLine": 832,
+		"endLine": 864,
+		"startColumn": 2,
+		"endColumn": 4,	
+		"linesOfCode": 33		
+	},
+		"linesOfCode": 33,
+		"nodesAmount": 2744			
+	},
+{
+		"id": "161031",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 583,
+		"startLine": 246,
+		"endLine": 258,
+		"startColumn": 55,
+		"endColumn": 5,	
+		"linesOfCode": 13		
+	},
+		"linesOfCode": 13,
+		"nodesAmount": 109			
+	},
+{
+		"id": "150199",
+		"location": {
+		"path": "/src/smallsql/database/SSResultSet.java",
+		"length": 395,
+		"startLine": 149,
+		"endLine": 158,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 71			
+	},
+{
+		"id": "136405",
+		"location": {
+		"path": "/src/smallsql/database/StoreImpl.java",
+		"length": 2486,
+		"startLine": 1089,
+		"endLine": 1147,
+		"startColumn": 68,
+		"endColumn": 5,	
+		"linesOfCode": 59		
+	},
+		"linesOfCode": 59,
+		"nodesAmount": 386			
+	},
+{
+		"id": "34582",
+		"location": {
+		"path": "/src/smallsql/database/SSCallableStatement.java",
+		"length": 375,
+		"startLine": 144,
+		"endLine": 153,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 71			
+	},
+{
+		"id": "124578",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionRadians.java",
+		"length": 1620,
+		"startLine": 1,
+		"endLine": 44,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 8		
+	},
+		"linesOfCode": 8,
+		"nodesAmount": 45			
+	},
+{
+		"id": "184508",
+		"location": {
+		"path": "/src/smallsql/database/MutableNumeric.java",
+		"length": 876,
+		"startLine": 489,
+		"endLine": 510,
+		"startColumn": 29,
+		"endColumn": 5,	
+		"linesOfCode": 19		
+	},
+		"linesOfCode": 19,
+		"nodesAmount": 221			
+	},
+{
+		"id": "57336",
+		"location": {
+		"path": "/src/smallsql/database/MutableLong.java",
+		"length": 1854,
+		"startLine": 1,
+		"endLine": 70,
+		"startColumn": 0,
+		"endColumn": 3,	
+		"linesOfCode": 25		
+	},
+		"linesOfCode": 25,
+		"nodesAmount": 103			
+	},
+{
+		"id": "184962",
+		"location": {
+		"path": "/src/smallsql/database/MutableNumeric.java",
+		"length": 833,
+		"startLine": 537,
+		"endLine": 556,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 17		
+	},
+		"linesOfCode": 17,
+		"nodesAmount": 209			
+	},
+{
+		"id": "86226",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 780,
+		"startLine": 575,
+		"endLine": 596,
+		"startColumn": 42,
+		"endColumn": 13,	
+		"linesOfCode": 22		
+	},
+		"linesOfCode": 22,
+		"nodesAmount": 142			
+	},
+{
+		"id": "56056",
+		"location": {
+		"path": "/src/smallsql/junit/TestOther.java",
+		"length": 1384,
+		"startLine": 252,
+		"endLine": 277,
+		"startColumn": 43,
+		"endColumn": 5,	
+		"linesOfCode": 22		
+	},
+		"linesOfCode": 22,
+		"nodesAmount": 143			
+	},
+{
+		"id": "176882",
+		"location": {
+		"path": "/src/smallsql/junit/TestResultSet.java",
+		"length": 1903,
+		"startLine": 111,
+		"endLine": 151,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 35		
+	},
+		"linesOfCode": 35,
+		"nodesAmount": 339			
+	},
+{
+		"id": "167960",
+		"location": {
+		"path": "/src/smallsql/database/MemoryStream.java",
+		"length": 412,
+		"startLine": 75,
+		"endLine": 85,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 194			
+	},
+{
+		"id": "105418",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 1669,
+		"startLine": 251,
+		"endLine": 287,
+		"startColumn": 51,
+		"endColumn": 2,	
+		"linesOfCode": 30		
+	},
+		"linesOfCode": 30,
+		"nodesAmount": 238			
+	},
+{
+		"id": "23875",
+		"location": {
+		"path": "/src/smallsql/database/SQLParser.java",
+		"length": 673,
+		"startLine": 1901,
+		"endLine": 1923,
+		"startColumn": 60,
+		"endColumn": 5,	
+		"linesOfCode": 22		
+	},
+		"linesOfCode": 22,
+		"nodesAmount": 105			
+	},
+{
+		"id": "83165",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 541,
+		"startLine": 207,
+		"endLine": 219,
+		"startColumn": 34,
+		"endColumn": 13,	
+		"linesOfCode": 12		
+	},
+		"linesOfCode": 12,
+		"nodesAmount": 78			
+	},
+{
+		"id": "60347",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionReturnString.java",
+		"length": 1171,
+		"startLine": 37,
+		"endLine": 93,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 36		
+	},
+		"linesOfCode": 36,
+		"nodesAmount": 195			
+	},
+{
+		"id": "145888",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionInSelect.java",
+		"length": 2393,
+		"startLine": 1,
+		"endLine": 75,
+		"startColumn": 0,
+		"endColumn": 3,	
+		"linesOfCode": 30		
+	},
+		"linesOfCode": 30,
+		"nodesAmount": 216			
+	},
+{
+		"id": "65743",
+		"location": {
+		"path": "/src/smallsql/junit/TestExceptionMethods.java",
+		"length": 441,
+		"startLine": 236,
+		"endLine": 246,
+		"startColumn": 11,
+		"endColumn": 9,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 56			
+	},
+{
+		"id": "144590",
+		"location": {
+		"path": "/src/smallsql/junit/TestScrollable.java",
+		"length": 1140,
+		"startLine": 144,
+		"endLine": 164,
+		"startColumn": 53,
+		"endColumn": 2,	
+		"linesOfCode": 18		
+	},
+		"linesOfCode": 18,
+		"nodesAmount": 129			
+	},
+{
+		"id": "6288",
+		"location": {
+		"path": "/src/smallsql/junit/TestJoins.java",
+		"length": 3224,
+		"startLine": 48,
+		"endLine": 88,
+		"startColumn": 60,
+		"endColumn": 5,	
+		"linesOfCode": 41		
+	},
+		"linesOfCode": 41,
+		"nodesAmount": 909			
+	},
+{
+		"id": "6801",
+		"location": {
+		"path": "/src/smallsql/junit/TestJoins.java",
+		"length": 902,
+		"startLine": 128,
+		"endLine": 156,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 23		
+	},
+		"linesOfCode": 23,
+		"nodesAmount": 215			
+	},
+{
+		"id": "165976",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 927,
+		"startLine": 977,
+		"endLine": 1007,
+		"startColumn": 31,
+		"endColumn": 23,	
+		"linesOfCode": 31		
+	},
+		"linesOfCode": 31,
+		"nodesAmount": 186			
+	},
+{
+		"id": "54946",
+		"location": {
+		"path": "/src/smallsql/junit/TestOther.java",
+		"length": 1135,
+		"startLine": 63,
+		"endLine": 82,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 19		
+	},
+		"linesOfCode": 19,
+		"nodesAmount": 125			
+	},
+{
+		"id": "15631",
+		"location": {
+		"path": "/src/smallsql/database/SQLParser.java",
+		"length": 1607,
+		"startLine": 755,
+		"endLine": 781,
+		"startColumn": 2,
+		"endColumn": 3,	
+		"linesOfCode": 27		
+	},
+		"linesOfCode": 27,
+		"nodesAmount": 392			
+	},
+{
+		"id": "192617",
+		"location": {
+		"path": "/src/smallsql/junit/TestAlterTable.java",
+		"length": 611,
+		"startLine": 100,
+		"endLine": 114,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 15		
+	},
+		"linesOfCode": 15,
+		"nodesAmount": 92			
+	},
+{
+		"id": "59747",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionATan2.java",
+		"length": 1732,
+		"startLine": 1,
+		"endLine": 48,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 67			
+	},
+{
+		"id": "85509",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 2820,
+		"startLine": 453,
+		"endLine": 504,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 46		
+	},
+		"linesOfCode": 46,
+		"nodesAmount": 467			
+	},
+{
+		"id": "157913",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionReturnP1StringAndBinary.java",
+		"length": 1304,
+		"startLine": 37,
+		"endLine": 91,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 35		
+	},
+		"linesOfCode": 35,
+		"nodesAmount": 196			
+	},
+{
+		"id": "193206",
+		"location": {
+		"path": "/src/smallsql/junit/TestDataTypes.java",
+		"length": 301,
+		"startLine": 68,
+		"endLine": 77,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 9		
+	},
+		"linesOfCode": 9,
+		"nodesAmount": 53			
+	},
+{
+		"id": "175712",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionRTrim.java",
+		"length": 883,
+		"startLine": 37,
+		"endLine": 76,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 28		
+	},
+		"linesOfCode": 28,
+		"nodesAmount": 210			
+	},
+{
+		"id": "3558",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 650,
+		"startLine": 545,
+		"endLine": 569,
+		"startColumn": 64,
+		"endColumn": 2,	
+		"linesOfCode": 21		
+	},
+		"linesOfCode": 21,
+		"nodesAmount": 181			
+	},
+{
+		"id": "186775",
+		"location": {
+		"path": "/src/smallsql/database/IndexScrollStatus.java",
+		"length": 428,
+		"startLine": 120,
+		"endLine": 131,
+		"startColumn": 5,
+		"endColumn": 41,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 83			
+	},
+{
+		"id": "161184",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 836,
+		"startLine": 261,
+		"endLine": 285,
+		"startColumn": 50,
+		"endColumn": 5,	
+		"linesOfCode": 25		
+	},
+		"linesOfCode": 25,
+		"nodesAmount": 138			
+	},
+{
+		"id": "2654",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 605,
+		"startLine": 414,
+		"endLine": 437,
+		"startColumn": 51,
+		"endColumn": 2,	
+		"linesOfCode": 20		
+	},
+		"linesOfCode": 20,
+		"nodesAmount": 172			
+	},
+{
+		"id": "85036",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 1901,
+		"startLine": 411,
+		"endLine": 448,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 38		
+	},
+		"linesOfCode": 38,
+		"nodesAmount": 370			
+	},
+{
+		"id": "84628",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 1239,
+		"startLine": 372,
+		"endLine": 400,
+		"startColumn": 47,
+		"endColumn": 5,	
+		"linesOfCode": 28		
+	},
+		"linesOfCode": 28,
+		"nodesAmount": 248			
+	},
+{
+		"id": "186552",
+		"location": {
+		"path": "/src/smallsql/database/IndexScrollStatus.java",
+		"length": 357,
+		"startLine": 89,
+		"endLine": 99,
+		"startColumn": 33,
+		"endColumn": 6,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 72			
+	},
+{
+		"id": "40638",
+		"location": {
+		"path": "/src/smallsql/database/TableView.java",
+		"length": 794,
+		"startLine": 128,
+		"endLine": 147,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 12		
+	},
+		"linesOfCode": 12,
+		"nodesAmount": 119			
+	},
+{
+		"id": "170098",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionConvert.java",
+		"length": 405,
+		"startLine": 207,
+		"endLine": 220,
+		"startColumn": 20,
+		"endColumn": 3,	
+		"linesOfCode": 13		
+	},
+		"linesOfCode": 13,
+		"nodesAmount": 76			
+	},
+{
+		"id": "30075",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionRound.java",
+		"length": 447,
+		"startLine": 45,
+		"endLine": 68,
+		"startColumn": 45,
+		"endColumn": 5,	
+		"linesOfCode": 24		
+	},
+		"linesOfCode": 24,
+		"nodesAmount": 147			
+	},
+{
+		"id": "160908",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 846,
+		"startLine": 219,
+		"endLine": 243,
+		"startColumn": 43,
+		"endColumn": 5,	
+		"linesOfCode": 25		
+	},
+		"linesOfCode": 25,
+		"nodesAmount": 144			
+	},
+{
+		"id": "85042",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 2185,
+		"startLine": 404,
+		"endLine": 449,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 42		
+	},
+		"linesOfCode": 42,
+		"nodesAmount": 409			
+	},
+{
+		"id": "106277",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 778,
+		"startLine": 427,
+		"endLine": 446,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 18		
+	},
+		"linesOfCode": 18,
+		"nodesAmount": 128			
+	},
+{
+		"id": "132421",
+		"location": {
+		"path": "/src/smallsql/database/StoreImpl.java",
+		"length": 784,
+		"startLine": 530,
+		"endLine": 549,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 18		
+	},
+		"linesOfCode": 18,
+		"nodesAmount": 214			
+	},
+{
+		"id": "54932",
+		"location": {
+		"path": "/src/smallsql/junit/TestOther.java",
+		"length": 974,
+		"startLine": 65,
+		"endLine": 79,
+		"startColumn": 5,
+		"endColumn": 3,	
+		"linesOfCode": 14		
+	},
+		"linesOfCode": 14,
+		"nodesAmount": 97			
+	},
+{
+		"id": "93551",
+		"location": {
+		"path": "/src/smallsql/database/SQLTokenizer.java",
+		"length": 1838,
+		"startLine": 293,
+		"endLine": 353,
+		"startColumn": 2,
+		"endColumn": 3,	
+		"linesOfCode": 60		
+	},
+		"linesOfCode": 60,
+		"nodesAmount": 413			
+	},
+{
+		"id": "55287",
+		"location": {
+		"path": "/src/smallsql/junit/TestOther.java",
+		"length": 1477,
+		"startLine": 90,
+		"endLine": 138,
+		"startColumn": 48,
+		"endColumn": 2,	
+		"linesOfCode": 40		
+	},
+		"linesOfCode": 40,
+		"nodesAmount": 323			
+	},
+{
+		"id": "144368",
+		"location": {
+		"path": "/src/smallsql/junit/TestScrollable.java",
+		"length": 946,
+		"startLine": 110,
+		"endLine": 125,
+		"startColumn": 2,
+		"endColumn": 3,	
+		"linesOfCode": 14		
+	},
+		"linesOfCode": 14,
+		"nodesAmount": 108			
+	},
+{
+		"id": "13076",
+		"location": {
+		"path": "/src/smallsql/database/SQLParser.java",
+		"length": 766,
+		"startLine": 391,
+		"endLine": 407,
+		"startColumn": 12,
+		"endColumn": 13,	
+		"linesOfCode": 16		
+	},
+		"linesOfCode": 16,
+		"nodesAmount": 112			
+	},
+{
+		"id": "127859",
+		"location": {
+		"path": "/src/smallsql/database/Database.java",
+		"length": 1142,
+		"startLine": 447,
+		"endLine": 473,
+		"startColumn": 2,
+		"endColumn": 3,	
+		"linesOfCode": 26		
+	},
+		"linesOfCode": 26,
+		"nodesAmount": 334			
+	},
+{
+		"id": "148936",
+		"location": {
+		"path": "/src/smallsql/database/IndexDescription.java",
+		"length": 816,
+		"startLine": 169,
+		"endLine": 186,
+		"startColumn": 11,
+		"endColumn": 9,	
+		"linesOfCode": 18		
+	},
+		"linesOfCode": 18,
+		"nodesAmount": 162			
+	},
+{
+		"id": "175430",
+		"location": {
+		"path": "/src/smallsql/database/Money.java",
+		"length": 417,
+		"startLine": 115,
+		"endLine": 128,
+		"startColumn": 32,
+		"endColumn": 5,	
+		"linesOfCode": 13		
+	},
+		"linesOfCode": 13,
+		"nodesAmount": 205			
+	},
+{
+		"id": "86629",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 1253,
+		"startLine": 613,
+		"endLine": 641,
+		"startColumn": 54,
+		"endColumn": 5,	
+		"linesOfCode": 28		
+	},
+		"linesOfCode": 28,
+		"nodesAmount": 313			
+	},
+{
+		"id": "74501",
+		"location": {
+		"path": "/src/smallsql/junit/TestAlterTable2.java",
+		"length": 610,
+		"startLine": 29,
+		"endLine": 38,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 140			
+	},
+{
+		"id": "57334",
+		"location": {
+		"path": "/src/smallsql/database/MutableLong.java",
+		"length": 527,
+		"startLine": 35,
+		"endLine": 70,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 24		
+	},
+		"linesOfCode": 24,
+		"nodesAmount": 99			
+	},
+{
+		"id": "143605",
+		"location": {
+		"path": "/src/smallsql/junit/TestFunctions.java",
+		"length": 301,
+		"startLine": 374,
+		"endLine": 383,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 9		
+	},
+		"linesOfCode": 9,
+		"nodesAmount": 53			
+	},
+{
+		"id": "153653",
+		"location": {
+		"path": "/src/smallsql/database/SSResultSet.java",
+		"length": 442,
+		"startLine": 758,
+		"endLine": 770,
+		"startColumn": 75,
+		"endColumn": 5,	
+		"linesOfCode": 13		
+	},
+		"linesOfCode": 13,
+		"nodesAmount": 74			
+	},
+{
+		"id": "161755",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 932,
+		"startLine": 348,
+		"endLine": 373,
+		"startColumn": 47,
+		"endColumn": 5,	
+		"linesOfCode": 26		
+	},
+		"linesOfCode": 26,
+		"nodesAmount": 157			
+	},
+{
+		"id": "138253",
+		"location": {
+		"path": "/src/smallsql/database/StoreImpl.java",
+		"length": 3101,
+		"startLine": 1336,
+		"endLine": 1400,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 62		
+	},
+		"linesOfCode": 62,
+		"nodesAmount": 477			
+	},
+{
+		"id": "150384",
+		"location": {
+		"path": "/src/smallsql/database/SSResultSet.java",
+		"length": 285,
+		"startLine": 180,
+		"endLine": 189,
+		"startColumn": 61,
+		"endColumn": 5,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 52			
+	},
+{
+		"id": "184278",
+		"location": {
+		"path": "/src/smallsql/database/MutableNumeric.java",
+		"length": 792,
+		"startLine": 468,
+		"endLine": 484,
+		"startColumn": 12,
+		"endColumn": 13,	
+		"linesOfCode": 15		
+	},
+		"linesOfCode": 15,
+		"nodesAmount": 193			
+	},
+{
+		"id": "96078",
+		"location": {
+		"path": "/src/smallsql/database/SQLTokenizer.java",
+		"length": 1043,
+		"startLine": 696,
+		"endLine": 722,
+		"startColumn": 10,
+		"endColumn": 5,	
+		"linesOfCode": 27		
+	},
+		"linesOfCode": 27,
+		"nodesAmount": 176			
+	},
+{
+		"id": "150454",
+		"location": {
+		"path": "/src/smallsql/database/SSResultSet.java",
+		"length": 357,
+		"startLine": 190,
+		"endLine": 199,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 65			
+	},
+{
+		"id": "104498",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 867,
+		"startLine": 81,
+		"endLine": 103,
+		"startColumn": 2,
+		"endColumn": 3,	
+		"linesOfCode": 18		
+	},
+		"linesOfCode": 18,
+		"nodesAmount": 116			
+	},
+{
+		"id": "60150",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionDegrees.java",
+		"length": 1620,
+		"startLine": 1,
+		"endLine": 44,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 8		
+	},
+		"linesOfCode": 8,
+		"nodesAmount": 45			
+	},
+{
+		"id": "158148",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunction.java",
+		"length": 197,
+		"startLine": 73,
+		"endLine": 86,
+		"startColumn": 2,
+		"endColumn": 3,	
+		"linesOfCode": 14		
+	},
+		"linesOfCode": 14,
+		"nodesAmount": 47			
+	},
+{
+		"id": "167956",
+		"location": {
+		"path": "/src/smallsql/database/MemoryStream.java",
+		"length": 386,
+		"startLine": 75,
+		"endLine": 85,
+		"startColumn": 27,
+		"endColumn": 2,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 186			
+	},
+{
+		"id": "3195",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 638,
+		"startLine": 493,
+		"endLine": 516,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 20		
+	},
+		"linesOfCode": 20,
+		"nodesAmount": 179			
+	},
+{
+		"id": "164495",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 469,
+		"startLine": 736,
+		"endLine": 757,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 22		
+	},
+		"linesOfCode": 22,
+		"nodesAmount": 71			
+	},
+{
+		"id": "163368",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 875,
+		"startLine": 586,
+		"endLine": 600,
+		"startColumn": 20,
+		"endColumn": 21,	
+		"linesOfCode": 15		
+	},
+		"linesOfCode": 15,
+		"nodesAmount": 132			
+	},
+{
+		"id": "150193",
+		"location": {
+		"path": "/src/smallsql/database/SSResultSet.java",
+		"length": 315,
+		"startLine": 149,
+		"endLine": 158,
+		"startColumn": 84,
+		"endColumn": 5,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 54			
+	},
+{
+		"id": "191292",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionDayOfYear.java",
+		"length": 372,
+		"startLine": 37,
+		"endLine": 54,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 70			
+	},
+{
+		"id": "172900",
+		"location": {
+		"path": "/src/smallsql/junit/TestGroupBy.java",
+		"length": 934,
+		"startLine": 61,
+		"endLine": 88,
+		"startColumn": 2,
+		"endColumn": 3,	
+		"linesOfCode": 24		
+	},
+		"linesOfCode": 24,
+		"nodesAmount": 190			
+	},
+{
+		"id": "106251",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 515,
+		"startLine": 430,
+		"endLine": 441,
+		"startColumn": 5,
+		"endColumn": 3,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 77			
+	},
+{
+		"id": "64746",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionDayOfMonth.java",
+		"length": 366,
+		"startLine": 37,
+		"endLine": 54,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 66			
+	},
+{
+		"id": "118059",
+		"location": {
+		"path": "/src/smallsql/junit/BasicTestCase.java",
+		"length": 344,
+		"startLine": 138,
+		"endLine": 150,
+		"startColumn": 30,
+		"endColumn": 3,	
+		"linesOfCode": 12		
+	},
+		"linesOfCode": 12,
+		"nodesAmount": 130			
+	},
+{
+		"id": "105838",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 659,
+		"startLine": 347,
+		"endLine": 365,
+		"startColumn": 5,
+		"endColumn": 3,	
+		"linesOfCode": 15		
+	},
+		"linesOfCode": 15,
+		"nodesAmount": 109			
+	},
+{
+		"id": "188635",
+		"location": {
+		"path": "/src/smallsql/database/Table.java",
+		"length": 878,
+		"startLine": 108,
+		"endLine": 129,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 18		
+	},
+		"linesOfCode": 18,
+		"nodesAmount": 190			
+	},
+{
+		"id": "32298",
+		"location": {
+		"path": "/src/smallsql/database/Index.java",
+		"length": 332,
+		"startLine": 359,
+		"endLine": 372,
+		"startColumn": 3,
+		"endColumn": 4,	
+		"linesOfCode": 14		
+	},
+		"linesOfCode": 14,
+		"nodesAmount": 65			
+	},
+{
+		"id": "55405",
+		"location": {
+		"path": "/src/smallsql/junit/TestOther.java",
+		"length": 1197,
+		"startLine": 143,
+		"endLine": 160,
+		"startColumn": 2,
+		"endColumn": 3,	
+		"linesOfCode": 16		
+	},
+		"linesOfCode": 16,
+		"nodesAmount": 100			
+	},
+{
+		"id": "2114",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 601,
+		"startLine": 329,
+		"endLine": 352,
+		"startColumn": 47,
+		"endColumn": 2,	
+		"linesOfCode": 20		
+	},
+		"linesOfCode": 20,
+		"nodesAmount": 172			
+	},
+{
+		"id": "184734",
+		"location": {
+		"path": "/src/smallsql/database/MutableNumeric.java",
+		"length": 880,
+		"startLine": 512,
+		"endLine": 533,
+		"startColumn": 31,
+		"endColumn": 5,	
+		"linesOfCode": 19		
+	},
+		"linesOfCode": 19,
+		"nodesAmount": 221			
+	},
+{
+		"id": "96080",
+		"location": {
+		"path": "/src/smallsql/database/SQLTokenizer.java",
+		"length": 1049,
+		"startLine": 696,
+		"endLine": 722,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 27		
+	},
+		"linesOfCode": 27,
+		"nodesAmount": 178			
+	},
+{
+		"id": "175435",
+		"location": {
+		"path": "/src/smallsql/database/Money.java",
+		"length": 445,
+		"startLine": 115,
+		"endLine": 128,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 13		
+	},
+		"linesOfCode": 13,
+		"nodesAmount": 212			
+	},
+{
+		"id": "104638",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 1055,
+		"startLine": 107,
+		"endLine": 135,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 21		
+	},
+		"linesOfCode": 21,
+		"nodesAmount": 135			
+	},
+{
+		"id": "105991",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 636,
+		"startLine": 380,
+		"endLine": 397,
+		"startColumn": 5,
+		"endColumn": 3,	
+		"linesOfCode": 14		
+	},
+		"linesOfCode": 14,
+		"nodesAmount": 102			
+	},
+{
+		"id": "86983",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 1507,
+		"startLine": 650,
+		"endLine": 682,
+		"startColumn": 60,
+		"endColumn": 5,	
+		"linesOfCode": 32		
+	},
+		"linesOfCode": 32,
+		"nodesAmount": 343			
+	},
+{
+		"id": "91052",
+		"location": {
+		"path": "/src/smallsql/database/CommandSelect.java",
+		"length": 16168,
+		"startLine": 38,
+		"endLine": 570,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 360		
+	},
+		"linesOfCode": 360,
+		"nodesAmount": 2866			
+	},
+{
+		"id": "62815",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionTruncate.java",
+		"length": 529,
+		"startLine": 45,
+		"endLine": 68,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 24		
+	},
+		"linesOfCode": 24,
+		"nodesAmount": 154			
+	},
+{
+		"id": "150389",
+		"location": {
+		"path": "/src/smallsql/database/SSResultSet.java",
+		"length": 342,
+		"startLine": 180,
+		"endLine": 189,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 65			
+	},
+{
+		"id": "1471",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 677,
+		"startLine": 226,
+		"endLine": 251,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 22		
+	},
+		"linesOfCode": 22,
+		"nodesAmount": 169			
+	},
+{
+		"id": "136863",
+		"location": {
+		"path": "/src/smallsql/database/StoreImpl.java",
+		"length": 2650,
+		"startLine": 1149,
+		"endLine": 1205,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 56		
+	},
+		"linesOfCode": 56,
+		"nodesAmount": 450			
+	},
+{
+		"id": "45643",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionTan.java",
+		"length": 1603,
+		"startLine": 1,
+		"endLine": 44,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 8		
+	},
+		"linesOfCode": 8,
+		"nodesAmount": 45			
+	},
+{
+		"id": "6298",
+		"location": {
+		"path": "/src/smallsql/junit/TestJoins.java",
+		"length": 3281,
+		"startLine": 48,
+		"endLine": 88,
+		"startColumn": 4,
+		"endColumn": 6,	
+		"linesOfCode": 41		
+	},
+		"linesOfCode": 41,
+		"nodesAmount": 926			
+	},
+{
+		"id": "122589",
+		"location": {
+		"path": "/src/smallsql/junit/TestOperatoren.java",
+		"length": 3406,
+		"startLine": 45,
+		"endLine": 87,
+		"startColumn": 60,
+		"endColumn": 5,	
+		"linesOfCode": 43		
+	},
+		"linesOfCode": 43,
+		"nodesAmount": 958			
+	},
+{
+		"id": "68897",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionACos.java",
+		"length": 1607,
+		"startLine": 1,
+		"endLine": 44,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 8		
+	},
+		"linesOfCode": 8,
+		"nodesAmount": 45			
+	},
+{
+		"id": "106149",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 776,
+		"startLine": 405,
+		"endLine": 424,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 18		
+	},
+		"linesOfCode": 18,
+		"nodesAmount": 128			
+	},
+{
+		"id": "164496",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 487,
+		"startLine": 735,
+		"endLine": 758,
+		"startColumn": 22,
+		"endColumn": 5,	
+		"linesOfCode": 24		
+	},
+		"linesOfCode": 24,
+		"nodesAmount": 72			
+	},
+{
+		"id": "136413",
+		"location": {
+		"path": "/src/smallsql/database/StoreImpl.java",
+		"length": 2625,
+		"startLine": 1085,
+		"endLine": 1147,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 60		
+	},
+		"linesOfCode": 60,
+		"nodesAmount": 403			
+	},
+{
+		"id": "144000",
+		"location": {
+		"path": "/src/smallsql/junit/TestScrollable.java",
+		"length": 988,
+		"startLine": 43,
+		"endLine": 61,
+		"startColumn": 49,
+		"endColumn": 2,	
+		"linesOfCode": 17		
+	},
+		"linesOfCode": 17,
+		"nodesAmount": 120			
+	},
+{
+		"id": "85410",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 1219,
+		"startLine": 468,
+		"endLine": 492,
+		"startColumn": 12,
+		"endColumn": 13,	
+		"linesOfCode": 25		
+	},
+		"linesOfCode": 25,
+		"nodesAmount": 253			
+	},
+{
+		"id": "105070",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 842,
+		"startLine": 198,
+		"endLine": 223,
+		"startColumn": 5,
+		"endColumn": 3,	
+		"linesOfCode": 20		
+	},
+		"linesOfCode": 20,
+		"nodesAmount": 151			
+	},
+{
+		"id": "84084",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 561,
+		"startLine": 321,
+		"endLine": 333,
+		"startColumn": 12,
+		"endColumn": 13,	
+		"linesOfCode": 12		
+	},
+		"linesOfCode": 12,
+		"nodesAmount": 85			
+	},
+{
+		"id": "165351",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 1387,
+		"startLine": 875,
+		"endLine": 901,
+		"startColumn": 49,
+		"endColumn": 5,	
+		"linesOfCode": 27		
+	},
+		"linesOfCode": 27,
+		"nodesAmount": 228			
+	},
+{
+		"id": "153900",
+		"location": {
+		"path": "/src/smallsql/database/SSResultSet.java",
+		"length": 434,
+		"startLine": 799,
+		"endLine": 809,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 73			
+	},
+{
+		"id": "61272",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionLCase.java",
+		"length": 526,
+		"startLine": 37,
+		"endLine": 62,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 16		
+	},
+		"linesOfCode": 16,
+		"nodesAmount": 77			
+	},
+{
+		"id": "165350",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 1369,
+		"startLine": 876,
+		"endLine": 900,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 25		
+	},
+		"linesOfCode": 25,
+		"nodesAmount": 227			
+	},
+{
+		"id": "99076",
+		"location": {
+		"path": "/src/smallsql/database/Identity.java",
+		"length": 373,
+		"startLine": 70,
+		"endLine": 80,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 187			
+	},
+{
+		"id": "151153",
+		"location": {
+		"path": "/src/smallsql/database/SSResultSet.java",
+		"length": 379,
+		"startLine": 319,
+		"endLine": 328,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 65			
+	},
+{
+		"id": "161587",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 563,
+		"startLine": 335,
+		"endLine": 345,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 108			
+	},
+{
+		"id": "102033",
+		"location": {
+		"path": "/src/smallsql/database/language/Language.java",
+		"length": 9299,
+		"startLine": 354,
+		"endLine": 488,
+		"startColumn": 37,
+		"endColumn": 2,	
+		"linesOfCode": 114		
+	},
+		"linesOfCode": 114,
+		"nodesAmount": 788			
+	},
+{
+		"id": "55291",
+		"location": {
+		"path": "/src/smallsql/junit/TestOther.java",
+		"length": 1524,
+		"startLine": 90,
+		"endLine": 138,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 40		
+	},
+		"linesOfCode": 40,
+		"nodesAmount": 330			
+	},
+{
+		"id": "144800",
+		"location": {
+		"path": "/src/smallsql/junit/TestScrollable.java",
+		"length": 1018,
+		"startLine": 182,
+		"endLine": 200,
+		"startColumn": 52,
+		"endColumn": 2,	
+		"linesOfCode": 17		
+	},
+		"linesOfCode": 17,
+		"nodesAmount": 124			
+	},
+{
+		"id": "85944",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 1894,
+		"startLine": 518,
+		"endLine": 553,
+		"startColumn": 11,
+		"endColumn": 9,	
+		"linesOfCode": 36		
+	},
+		"linesOfCode": 36,
+		"nodesAmount": 378			
+	},
+{
+		"id": "72467",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionValue.java",
+		"length": 665,
+		"startLine": 400,
+		"endLine": 417,
+		"startColumn": 69,
+		"endColumn": 5,	
+		"linesOfCode": 18		
+	},
+		"linesOfCode": 18,
+		"nodesAmount": 132			
+	},
+{
+		"id": "65477",
+		"location": {
+		"path": "/src/smallsql/junit/TestExceptionMethods.java",
+		"length": 480,
+		"startLine": 184,
+		"endLine": 195,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 12		
+	},
+		"linesOfCode": 12,
+		"nodesAmount": 58			
+	},
+{
+		"id": "161174",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 688,
+		"startLine": 264,
+		"endLine": 283,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 20		
+	},
+		"linesOfCode": 20,
+		"nodesAmount": 115			
+	},
+{
+		"id": "99305",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionMonth.java",
+		"length": 360,
+		"startLine": 37,
+		"endLine": 54,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 70			
+	},
+{
+		"id": "181017",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionHour.java",
+		"length": 1721,
+		"startLine": 1,
+		"endLine": 54,
+		"startColumn": 0,
+		"endColumn": 3,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 69			
+	},
+{
+		"id": "71772",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionValue.java",
+		"length": 999,
+		"startLine": 271,
+		"endLine": 304,
+		"startColumn": 2,
+		"endColumn": 3,	
+		"linesOfCode": 33		
+	},
+		"linesOfCode": 33,
+		"nodesAmount": 224			
+	},
+{
+		"id": "85459",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 2239,
+		"startLine": 461,
+		"endLine": 498,
+		"startColumn": 11,
+		"endColumn": 9,	
+		"linesOfCode": 37		
+	},
+		"linesOfCode": 37,
+		"nodesAmount": 384			
+	},
+{
+		"id": "144188",
+		"location": {
+		"path": "/src/smallsql/junit/TestScrollable.java",
+		"length": 942,
+		"startLine": 78,
+		"endLine": 93,
+		"startColumn": 2,
+		"endColumn": 3,	
+		"linesOfCode": 14		
+	},
+		"linesOfCode": 14,
+		"nodesAmount": 108			
+	},
+{
+		"id": "84958",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 1228,
+		"startLine": 414,
+		"endLine": 439,
+		"startColumn": 42,
+		"endColumn": 13,	
+		"linesOfCode": 26		
+	},
+		"linesOfCode": 26,
+		"nodesAmount": 243			
+	},
+{
+		"id": "99306",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionMonth.java",
+		"length": 1727,
+		"startLine": 1,
+		"endLine": 54,
+		"startColumn": 0,
+		"endColumn": 3,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 73			
+	},
+{
+		"id": "65759",
+		"location": {
+		"path": "/src/smallsql/junit/TestExceptionMethods.java",
+		"length": 535,
+		"startLine": 236,
+		"endLine": 249,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 14		
+	},
+		"linesOfCode": 14,
+		"nodesAmount": 72			
+	},
+{
+		"id": "128617",
+		"location": {
+		"path": "/src/smallsql/database/Database.java",
+		"length": 1213,
+		"startLine": 511,
+		"endLine": 545,
+		"startColumn": 94,
+		"endColumn": 2,	
+		"linesOfCode": 29		
+	},
+		"linesOfCode": 29,
+		"nodesAmount": 356			
+	},
+{
+		"id": "144594",
+		"location": {
+		"path": "/src/smallsql/junit/TestScrollable.java",
+		"length": 1192,
+		"startLine": 144,
+		"endLine": 164,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 18		
+	},
+		"linesOfCode": 18,
+		"nodesAmount": 136			
+	},
+{
+		"id": "73125",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionValue.java",
+		"length": 683,
+		"startLine": 492,
+		"endLine": 511,
+		"startColumn": 65,
+		"endColumn": 5,	
+		"linesOfCode": 20		
+	},
+		"linesOfCode": 20,
+		"nodesAmount": 144			
+	},
+{
+		"id": "159147",
+		"location": {
+		"path": "/src/smallsql/database/language/Language_de.java",
+		"length": 12059,
+		"startLine": 35,
+		"endLine": 184,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 121		
+	},
+		"linesOfCode": 121,
+		"nodesAmount": 827			
+	},
+{
+		"id": "64552",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionUCase.java",
+		"length": 526,
+		"startLine": 37,
+		"endLine": 62,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 16		
+	},
+		"linesOfCode": 16,
+		"nodesAmount": 77			
+	},
+{
+		"id": "192998",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionReturnP1Number.java",
+		"length": 2740,
+		"startLine": 1,
+		"endLine": 98,
+		"startColumn": 0,
+		"endColumn": 3,	
+		"linesOfCode": 44		
+	},
+		"linesOfCode": 44,
+		"nodesAmount": 232			
+	},
+{
+		"id": "159141",
+		"location": {
+		"path": "/src/smallsql/database/language/Language_de.java",
+		"length": 11634,
+		"startLine": 51,
+		"endLine": 183,
+		"startColumn": 29,
+		"endColumn": 5,	
+		"linesOfCode": 113		
+	},
+		"linesOfCode": 113,
+		"nodesAmount": 785			
+	},
+{
+		"id": "143601",
+		"location": {
+		"path": "/src/smallsql/junit/TestFunctions.java",
+		"length": 279,
+		"startLine": 374,
+		"endLine": 383,
+		"startColumn": 26,
+		"endColumn": 5,	
+		"linesOfCode": 9		
+	},
+		"linesOfCode": 9,
+		"nodesAmount": 48			
+	},
+{
+		"id": "161466",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 695,
+		"startLine": 311,
+		"endLine": 330,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 20		
+	},
+		"linesOfCode": 20,
+		"nodesAmount": 118			
+	},
+{
+		"id": "128578",
+		"location": {
+		"path": "/src/smallsql/database/Database.java",
+		"length": 939,
+		"startLine": 515,
+		"endLine": 541,
+		"startColumn": 36,
+		"endColumn": 6,	
+		"linesOfCode": 21		
+	},
+		"linesOfCode": 21,
+		"nodesAmount": 257			
+	},
+{
+		"id": "122673",
+		"location": {
+		"path": "/src/smallsql/junit/TestOperatoren.java",
+		"length": 279,
+		"startLine": 95,
+		"endLine": 104,
+		"startColumn": 26,
+		"endColumn": 5,	
+		"linesOfCode": 9		
+	},
+		"linesOfCode": 9,
+		"nodesAmount": 48			
+	},
+{
+		"id": "82597",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 1160,
+		"startLine": 107,
+		"endLine": 131,
+		"startColumn": 50,
+		"endColumn": 5,	
+		"linesOfCode": 24		
+	},
+		"linesOfCode": 24,
+		"nodesAmount": 237			
+	},
+{
+		"id": "137768",
+		"location": {
+		"path": "/src/smallsql/database/StoreImpl.java",
+		"length": 2776,
+		"startLine": 1274,
+		"endLine": 1333,
+		"startColumn": 68,
+		"endColumn": 5,	
+		"linesOfCode": 60		
+	},
+		"linesOfCode": 60,
+		"nodesAmount": 438			
+	},
+{
+		"id": "148766",
+		"location": {
+		"path": "/src/smallsql/database/IndexDescription.java",
+		"length": 541,
+		"startLine": 154,
+		"endLine": 165,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 12		
+	},
+		"linesOfCode": 12,
+		"nodesAmount": 122			
+	},
+{
+		"id": "40633",
+		"location": {
+		"path": "/src/smallsql/database/TableView.java",
+		"length": 431,
+		"startLine": 136,
+		"endLine": 147,
+		"startColumn": 77,
+		"endColumn": 2,	
+		"linesOfCode": 12		
+	},
+		"linesOfCode": 12,
+		"nodesAmount": 99			
+	},
+{
+		"id": "80976",
+		"location": {
+		"path": "/src/smallsql/database/SSDatabaseMetaData.java",
+		"length": 11249,
+		"startLine": 832,
+		"endLine": 864,
+		"startColumn": 22,
+		"endColumn": 3,	
+		"linesOfCode": 33		
+	},
+		"linesOfCode": 33,
+		"nodesAmount": 2733			
+	},
+{
+		"id": "62819",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionTruncate.java",
+		"length": 2136,
+		"startLine": 1,
+		"endLine": 71,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 31		
+	},
+		"linesOfCode": 31,
+		"nodesAmount": 194			
+	},
+{
+		"id": "60416",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionMinute.java",
+		"length": 361,
+		"startLine": 37,
+		"endLine": 54,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 66			
+	},
+{
+		"id": "173372",
+		"location": {
+		"path": "/src/smallsql/junit/TestGroupBy.java",
+		"length": 477,
+		"startLine": 141,
+		"endLine": 152,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 12		
+	},
+		"linesOfCode": 12,
+		"nodesAmount": 133			
+	},
+{
+		"id": "33609",
+		"location": {
+		"path": "/src/smallsql/database/MutableFloat.java",
+		"length": 538,
+		"startLine": 35,
+		"endLine": 70,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 24		
+	},
+		"linesOfCode": 24,
+		"nodesAmount": 102			
+	},
+{
+		"id": "12424",
+		"location": {
+		"path": "/src/smallsql/database/SQLParser.java",
+		"length": 471,
+		"startLine": 275,
+		"endLine": 290,
+		"startColumn": 5,
+		"endColumn": 6,	
+		"linesOfCode": 16		
+	},
+		"linesOfCode": 16,
+		"nodesAmount": 101			
+	},
+{
+		"id": "83004",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 1369,
+		"startLine": 160,
+		"endLine": 190,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 26		
+	},
+		"linesOfCode": 26,
+		"nodesAmount": 253			
+	},
+{
+		"id": "23264",
+		"location": {
+		"path": "/src/smallsql/database/SQLParser.java",
+		"length": 571,
+		"startLine": 1818,
+		"endLine": 1830,
+		"startColumn": 12,
+		"endColumn": 13,	
+		"linesOfCode": 13		
+	},
+		"linesOfCode": 13,
+		"nodesAmount": 102			
+	},
+{
+		"id": "27251",
+		"location": {
+		"path": "/src/smallsql/database/language/Language_it.java",
+		"length": 10481,
+		"startLine": 35,
+		"endLine": 185,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 121		
+	},
+		"linesOfCode": 121,
+		"nodesAmount": 827			
+	},
+{
+		"id": "56046",
+		"location": {
+		"path": "/src/smallsql/junit/TestOther.java",
+		"length": 1253,
+		"startLine": 254,
+		"endLine": 274,
+		"startColumn": 11,
+		"endColumn": 9,	
+		"linesOfCode": 17		
+	},
+		"linesOfCode": 17,
+		"nodesAmount": 122			
+	},
+{
+		"id": "104503",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 963,
+		"startLine": 79,
+		"endLine": 104,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 21		
+	},
+		"linesOfCode": 21,
+		"nodesAmount": 135			
+	},
+{
+		"id": "101117",
+		"location": {
+		"path": "/src/smallsql/database/language/Language.java",
+		"length": 280,
+		"startLine": 321,
+		"endLine": 331,
+		"startColumn": 2,
+		"endColumn": 3,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 98			
+	},
+{
+		"id": "144179",
+		"location": {
+		"path": "/src/smallsql/junit/TestScrollable.java",
+		"length": 882,
+		"startLine": 78,
+		"endLine": 91,
+		"startColumn": 5,
+		"endColumn": 3,	
+		"linesOfCode": 12		
+	},
+		"linesOfCode": 12,
+		"nodesAmount": 99			
+	},
+{
+		"id": "186776",
+		"location": {
+		"path": "/src/smallsql/database/IndexScrollStatus.java",
+		"length": 443,
+		"startLine": 119,
+		"endLine": 132,
+		"startColumn": 17,
+		"endColumn": 5,	
+		"linesOfCode": 13		
+	},
+		"linesOfCode": 13,
+		"nodesAmount": 84			
+	},
+{
+		"id": "85988",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 2133,
+		"startLine": 518,
+		"endLine": 558,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 41		
+	},
+		"linesOfCode": 41,
+		"nodesAmount": 422			
+	},
+{
+		"id": "12434",
+		"location": {
+		"path": "/src/smallsql/database/SQLParser.java",
+		"length": 591,
+		"startLine": 273,
+		"endLine": 292,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 20		
+	},
+		"linesOfCode": 20,
+		"nodesAmount": 127			
+	},
+{
+		"id": "192945",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionReturnP1Number.java",
+		"length": 562,
+		"startLine": 59,
+		"endLine": 77,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 19		
+	},
+		"linesOfCode": 19,
+		"nodesAmount": 115			
+	},
+{
+		"id": "1298",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 612,
+		"startLine": 198,
+		"endLine": 223,
+		"startColumn": 56,
+		"endColumn": 2,	
+		"linesOfCode": 22		
+	},
+		"linesOfCode": 22,
+		"nodesAmount": 162			
+	},
+{
+		"id": "168937",
+		"location": {
+		"path": "/src/smallsql/database/Strings.java",
+		"length": 2218,
+		"startLine": 1,
+		"endLine": 84,
+		"startColumn": 0,
+		"endColumn": 3,	
+		"linesOfCode": 32		
+	},
+		"linesOfCode": 32,
+		"nodesAmount": 242			
+	},
+{
+		"id": "15608",
+		"location": {
+		"path": "/src/smallsql/database/SQLParser.java",
+		"length": 1514,
+		"startLine": 755,
+		"endLine": 778,
+		"startColumn": 14,
+		"endColumn": 3,	
+		"linesOfCode": 24		
+	},
+		"linesOfCode": 24,
+		"nodesAmount": 367			
+	},
+{
+		"id": "102037",
+		"location": {
+		"path": "/src/smallsql/database/language/Language.java",
+		"length": 9310,
+		"startLine": 354,
+		"endLine": 488,
+		"startColumn": 26,
+		"endColumn": 2,	
+		"linesOfCode": 114		
+	},
+		"linesOfCode": 114,
+		"nodesAmount": 792			
+	},
+{
+		"id": "161758",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 975,
+		"startLine": 348,
+		"endLine": 373,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 26		
+	},
+		"linesOfCode": 26,
+		"nodesAmount": 171			
+	},
+{
+		"id": "66668",
+		"location": {
+		"path": "/src/smallsql/database/SSResultSetMetaData.java",
+		"length": 1078,
+		"startLine": 121,
+		"endLine": 157,
+		"startColumn": 2,
+		"endColumn": 3,	
+		"linesOfCode": 37		
+	},
+		"linesOfCode": 37,
+		"nodesAmount": 218			
+	},
+{
+		"id": "163653",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 909,
+		"startLine": 619,
+		"endLine": 633,
+		"startColumn": 20,
+		"endColumn": 21,	
+		"linesOfCode": 15		
+	},
+		"linesOfCode": 15,
+		"nodesAmount": 132			
+	},
+{
+		"id": "34837",
+		"location": {
+		"path": "/src/smallsql/database/SSCallableStatement.java",
+		"length": 364,
+		"startLine": 183,
+		"endLine": 192,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 65			
+	},
+{
+		"id": "57402",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionPower.java",
+		"length": 391,
+		"startLine": 36,
+		"endLine": 48,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 64			
+	},
+{
+		"id": "102840",
+		"location": {
+		"path": "/src/smallsql/database/language/Language.java",
+		"length": 5376,
+		"startLine": 494,
+		"endLine": 628,
+		"startColumn": 1,
+		"endColumn": 3,	
+		"linesOfCode": 114		
+	},
+		"linesOfCode": 114,
+		"nodesAmount": 800			
+	},
+{
+		"id": "192601",
+		"location": {
+		"path": "/src/smallsql/junit/TestAlterTable.java",
+		"length": 498,
+		"startLine": 100,
+		"endLine": 111,
+		"startColumn": 11,
+		"endColumn": 9,	
+		"linesOfCode": 12		
+	},
+		"linesOfCode": 12,
+		"nodesAmount": 76			
+	},
+{
+		"id": "86634",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 1379,
+		"startLine": 609,
+		"endLine": 641,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 28		
+	},
+		"linesOfCode": 28,
+		"nodesAmount": 324			
+	},
+{
+		"id": "6796",
+		"location": {
+		"path": "/src/smallsql/junit/TestJoins.java",
+		"length": 837,
+		"startLine": 128,
+		"endLine": 156,
+		"startColumn": 69,
+		"endColumn": 5,	
+		"linesOfCode": 23		
+	},
+		"linesOfCode": 23,
+		"nodesAmount": 202			
+	},
+{
+		"id": "83389",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 1824,
+		"startLine": 202,
+		"endLine": 242,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 39		
+	},
+		"linesOfCode": 39,
+		"nodesAmount": 352			
+	},
+{
+		"id": "131239",
+		"location": {
+		"path": "/src/smallsql/database/StoreImpl.java",
+		"length": 483,
+		"startLine": 388,
+		"endLine": 400,
+		"startColumn": 32,
+		"endColumn": 5,	
+		"linesOfCode": 12		
+	},
+		"linesOfCode": 12,
+		"nodesAmount": 209			
+	},
+{
+		"id": "117918",
+		"location": {
+		"path": "/src/smallsql/junit/BasicTestCase.java",
+		"length": 470,
+		"startLine": 125,
+		"endLine": 137,
+		"startColumn": 36,
+		"endColumn": 9,	
+		"linesOfCode": 12		
+	},
+		"linesOfCode": 12,
+		"nodesAmount": 130			
+	},
+{
+		"id": "9821",
+		"location": {
+		"path": "/src/smallsql/junit/TestStatement.java",
+		"length": 2769,
+		"startLine": 183,
+		"endLine": 240,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 50		
+	},
+		"linesOfCode": 50,
+		"nodesAmount": 509			
+	},
+{
+		"id": "85503",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 2478,
+		"startLine": 461,
+		"endLine": 503,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 42		
+	},
+		"linesOfCode": 42,
+		"nodesAmount": 428			
+	},
+{
+		"id": "144804",
+		"location": {
+		"path": "/src/smallsql/junit/TestScrollable.java",
+		"length": 1069,
+		"startLine": 182,
+		"endLine": 200,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 17		
+	},
+		"linesOfCode": 17,
+		"nodesAmount": 131			
+	},
+{
+		"id": "91706",
+		"location": {
+		"path": "/src/smallsql/database/SQLTokenizer.java",
+		"length": 859,
+		"startLine": 63,
+		"endLine": 77,
+		"startColumn": 25,
+		"endColumn": 56,	
+		"linesOfCode": 14		
+	},
+		"linesOfCode": 14,
+		"nodesAmount": 145			
+	},
+{
+		"id": "192463",
+		"location": {
+		"path": "/src/smallsql/junit/TestAlterTable.java",
+		"length": 499,
+		"startLine": 77,
+		"endLine": 88,
+		"startColumn": 11,
+		"endColumn": 9,	
+		"linesOfCode": 12		
+	},
+		"linesOfCode": 12,
+		"nodesAmount": 76			
+	},
+{
+		"id": "32673",
+		"location": {
+		"path": "/src/smallsql/database/Index.java",
+		"length": 322,
+		"startLine": 418,
+		"endLine": 431,
+		"startColumn": 3,
+		"endColumn": 4,	
+		"linesOfCode": 14		
+	},
+		"linesOfCode": 14,
+		"nodesAmount": 68			
+	},
+{
+		"id": "128241",
+		"location": {
+		"path": "/src/smallsql/database/Database.java",
+		"length": 1016,
+		"startLine": 480,
+		"endLine": 508,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 28		
+	},
+		"linesOfCode": 28,
+		"nodesAmount": 337			
+	},
+{
+		"id": "184277",
+		"location": {
+		"path": "/src/smallsql/database/MutableNumeric.java",
+		"length": 555,
+		"startLine": 473,
+		"endLine": 484,
+		"startColumn": 12,
+		"endColumn": 13,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 144			
+	},
+{
+		"id": "105694",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 2182,
+		"startLine": 295,
+		"endLine": 332,
+		"startColumn": 11,
+		"endColumn": 9,	
+		"linesOfCode": 28		
+	},
+		"linesOfCode": 28,
+		"nodesAmount": 258			
+	},
+{
+		"id": "184504",
+		"location": {
+		"path": "/src/smallsql/database/MutableNumeric.java",
+		"length": 573,
+		"startLine": 497,
+		"endLine": 508,
+		"startColumn": 12,
+		"endColumn": 13,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 146			
+	},
+{
+		"id": "34707",
+		"location": {
+		"path": "/src/smallsql/database/SSCallableStatement.java",
+		"length": 322,
+		"startLine": 163,
+		"endLine": 172,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 65			
+	},
+{
+		"id": "110874",
+		"location": {
+		"path": "/src/smallsql/junit/TestDBMetaData.java",
+		"length": 15380,
+		"startLine": 1,
+		"endLine": 310,
+		"startColumn": 0,
+		"endColumn": 3,	
+		"linesOfCode": 217		
+	},
+		"linesOfCode": 217,
+		"nodesAmount": 2955			
+	},
+{
+		"id": "59746",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionATan2.java",
+		"length": 393,
+		"startLine": 36,
+		"endLine": 48,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 64			
+	},
+{
+		"id": "82954",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 791,
+		"startLine": 168,
+		"endLine": 184,
+		"startColumn": 11,
+		"endColumn": 9,	
+		"linesOfCode": 17		
+	},
+		"linesOfCode": 17,
+		"nodesAmount": 170			
+	},
+{
+		"id": "34954",
+		"location": {
+		"path": "/src/smallsql/database/SSCallableStatement.java",
+		"length": 300,
+		"startLine": 202,
+		"endLine": 211,
+		"startColumn": 63,
+		"endColumn": 5,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 52			
+	},
+{
+		"id": "96785",
+		"location": {
+		"path": "/src/smallsql/database/SQLTokenizer.java",
+		"length": 1141,
+		"startLine": 799,
+		"endLine": 823,
+		"startColumn": 10,
+		"endColumn": 5,	
+		"linesOfCode": 25		
+	},
+		"linesOfCode": 25,
+		"nodesAmount": 162			
+	},
+{
+		"id": "84083",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 539,
+		"startLine": 321,
+		"endLine": 333,
+		"startColumn": 34,
+		"endColumn": 13,	
+		"linesOfCode": 12		
+	},
+		"linesOfCode": 12,
+		"nodesAmount": 78			
+	},
+{
+		"id": "84633",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 1372,
+		"startLine": 368,
+		"endLine": 400,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 28		
+	},
+		"linesOfCode": 28,
+		"nodesAmount": 259			
+	},
+{
+		"id": "106145",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 727,
+		"startLine": 405,
+		"endLine": 424,
+		"startColumn": 50,
+		"endColumn": 2,	
+		"linesOfCode": 18		
+	},
+		"linesOfCode": 18,
+		"nodesAmount": 121			
+	},
+{
+		"id": "172641",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionSqrt.java",
+		"length": 1607,
+		"startLine": 1,
+		"endLine": 44,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 8		
+	},
+		"linesOfCode": 8,
+		"nodesAmount": 45			
+	},
+{
+		"id": "160911",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 888,
+		"startLine": 219,
+		"endLine": 243,
+		"startColumn": 1,
+		"endColumn": 5,	
+		"linesOfCode": 25		
+	},
+		"linesOfCode": 25,
+		"nodesAmount": 158			
+	},
+{
+		"id": "153783",
+		"location": {
+		"path": "/src/smallsql/database/SSResultSet.java",
+		"length": 513,
+		"startLine": 778,
+		"endLine": 790,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 13		
+	},
+		"linesOfCode": 13,
+		"nodesAmount": 93			
+	},
+{
+		"id": "150324",
+		"location": {
+		"path": "/src/smallsql/database/SSResultSet.java",
+		"length": 342,
+		"startLine": 168,
+		"endLine": 177,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 65			
+	},
+{
+		"id": "104736",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 714,
+		"startLine": 140,
+		"endLine": 157,
+		"startColumn": 5,
+		"endColumn": 3,	
+		"linesOfCode": 13		
+	},
+		"linesOfCode": 13,
+		"nodesAmount": 84			
+	},
+{
+		"id": "144004",
+		"location": {
+		"path": "/src/smallsql/junit/TestScrollable.java",
+		"length": 1036,
+		"startLine": 43,
+		"endLine": 61,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 17		
+	},
+		"linesOfCode": 17,
+		"nodesAmount": 127			
+	},
+{
+		"id": "160355",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 291,
+		"startLine": 141,
+		"endLine": 155,
+		"startColumn": 2,
+		"endColumn": 3,	
+		"linesOfCode": 15		
+	},
+		"linesOfCode": 15,
+		"nodesAmount": 52			
+	},
+{
+		"id": "136001",
+		"location": {
+		"path": "/src/smallsql/database/StoreImpl.java",
+		"length": 2404,
+		"startLine": 1027,
+		"endLine": 1081,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 55		
+	},
+		"linesOfCode": 55,
+		"nodesAmount": 379			
+	},
+{
+		"id": "135598",
+		"location": {
+		"path": "/src/smallsql/database/StoreImpl.java",
+		"length": 2639,
+		"startLine": 955,
+		"endLine": 1017,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 60		
+	},
+		"linesOfCode": 60,
+		"nodesAmount": 415			
+	},
+{
+		"id": "34772",
+		"location": {
+		"path": "/src/smallsql/database/SSCallableStatement.java",
+		"length": 322,
+		"startLine": 173,
+		"endLine": 182,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 65			
+	},
+{
+		"id": "72709",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionValue.java",
+		"length": 1025,
+		"startLine": 425,
+		"endLine": 451,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 27		
+	},
+		"linesOfCode": 27,
+		"nodesAmount": 201			
+	},
+{
+		"id": "56060",
+		"location": {
+		"path": "/src/smallsql/junit/TestOther.java",
+		"length": 1423,
+		"startLine": 252,
+		"endLine": 277,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 22		
+	},
+		"linesOfCode": 22,
+		"nodesAmount": 150			
+	},
+{
+		"id": "184731",
+		"location": {
+		"path": "/src/smallsql/database/MutableNumeric.java",
+		"length": 761,
+		"startLine": 516,
+		"endLine": 531,
+		"startColumn": 12,
+		"endColumn": 13,	
+		"linesOfCode": 13		
+	},
+		"linesOfCode": 13,
+		"nodesAmount": 195			
+	},
+{
+		"id": "128194",
+		"location": {
+		"path": "/src/smallsql/database/Database.java",
+		"length": 529,
+		"startLine": 488,
+		"endLine": 503,
+		"startColumn": 3,
+		"endColumn": 4,	
+		"linesOfCode": 15		
+	},
+		"linesOfCode": 15,
+		"nodesAmount": 173			
+	},
+{
+		"id": "9817",
+		"location": {
+		"path": "/src/smallsql/junit/TestStatement.java",
+		"length": 2721,
+		"startLine": 183,
+		"endLine": 240,
+		"startColumn": 52,
+		"endColumn": 5,	
+		"linesOfCode": 50		
+	},
+		"linesOfCode": 50,
+		"nodesAmount": 502			
+	},
+{
+		"id": "27241",
+		"location": {
+		"path": "/src/smallsql/database/language/Language_it.java",
+		"length": 10048,
+		"startLine": 51,
+		"endLine": 184,
+		"startColumn": 36,
+		"endColumn": 2,	
+		"linesOfCode": 113		
+	},
+		"linesOfCode": 113,
+		"nodesAmount": 781			
+	},
+{
+		"id": "64747",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionDayOfMonth.java",
+		"length": 1738,
+		"startLine": 1,
+		"endLine": 54,
+		"startColumn": 0,
+		"endColumn": 3,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 69			
+	},
+{
+		"id": "100998",
+		"location": {
+		"path": "/src/smallsql/database/language/Language.java",
+		"length": 343,
+		"startLine": 292,
+		"endLine": 306,
+		"startColumn": 33,
+		"endColumn": 2,	
+		"linesOfCode": 13		
+	},
+		"linesOfCode": 13,
+		"nodesAmount": 111			
+	},
+{
+		"id": "16937",
+		"location": {
+		"path": "/src/smallsql/database/SQLParser.java",
+		"length": 444,
+		"startLine": 958,
+		"endLine": 970,
+		"startColumn": 5,
+		"endColumn": 6,	
+		"linesOfCode": 12		
+	},
+		"linesOfCode": 12,
+		"nodesAmount": 107			
+	},
+{
+		"id": "137310",
+		"location": {
+		"path": "/src/smallsql/database/StoreImpl.java",
+		"length": 2667,
+		"startLine": 1215,
+		"endLine": 1266,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 51		
+	},
+		"linesOfCode": 51,
+		"nodesAmount": 421			
+	},
+{
+		"id": "153652",
+		"location": {
+		"path": "/src/smallsql/database/SSResultSet.java",
+		"length": 424,
+		"startLine": 759,
+		"endLine": 769,
+		"startColumn": 8,
+		"endColumn": 9,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 73			
+	},
+{
+		"id": "182210",
+		"location": {
+		"path": "/src/smallsql/database/MutableNumeric.java",
+		"length": 756,
+		"startLine": 193,
+		"endLine": 214,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 14		
+	},
+		"linesOfCode": 14,
+		"nodesAmount": 184			
+	},
+{
+		"id": "1302",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 667,
+		"startLine": 198,
+		"endLine": 223,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 22		
+	},
+		"linesOfCode": 22,
+		"nodesAmount": 169			
+	},
+{
+		"id": "104499",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 922,
+		"startLine": 79,
+		"endLine": 104,
+		"startColumn": 42,
+		"endColumn": 2,	
+		"linesOfCode": 21		
+	},
+		"linesOfCode": 21,
+		"nodesAmount": 128			
+	},
+{
+		"id": "158313",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunction.java",
+		"length": 451,
+		"startLine": 113,
+		"endLine": 123,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 7		
+	},
+		"linesOfCode": 7,
+		"nodesAmount": 49			
+	},
+{
+		"id": "153659",
+		"location": {
+		"path": "/src/smallsql/database/SSResultSet.java",
+		"length": 513,
+		"startLine": 758,
+		"endLine": 770,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 13		
+	},
+		"linesOfCode": 13,
+		"nodesAmount": 93			
+	},
+{
+		"id": "158264",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunction.java",
+		"length": 433,
+		"startLine": 101,
+		"endLine": 111,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 7		
+	},
+		"linesOfCode": 7,
+		"nodesAmount": 49			
+	},
+{
+		"id": "12428",
+		"location": {
+		"path": "/src/smallsql/database/SQLParser.java",
+		"length": 544,
+		"startLine": 273,
+		"endLine": 292,
+		"startColumn": 51,
+		"endColumn": 5,	
+		"linesOfCode": 20		
+	},
+		"linesOfCode": 20,
+		"nodesAmount": 115			
+	},
+{
+		"id": "144589",
+		"location": {
+		"path": "/src/smallsql/junit/TestScrollable.java",
+		"length": 1085,
+		"startLine": 146,
+		"endLine": 163,
+		"startColumn": 2,
+		"endColumn": 3,	
+		"linesOfCode": 15		
+	},
+		"linesOfCode": 15,
+		"nodesAmount": 117			
+	},
+{
+		"id": "34576",
+		"location": {
+		"path": "/src/smallsql/database/SSCallableStatement.java",
+		"length": 305,
+		"startLine": 144,
+		"endLine": 153,
+		"startColumn": 74,
+		"endColumn": 5,	
+		"linesOfCode": 10		
+	},
+		"linesOfCode": 10,
+		"nodesAmount": 54			
+	},
+{
+		"id": "1467",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 619,
+		"startLine": 226,
+		"endLine": 251,
+		"startColumn": 59,
+		"endColumn": 2,	
+		"linesOfCode": 22		
+	},
+		"linesOfCode": 22,
+		"nodesAmount": 162			
+	},
+{
+		"id": "97028",
+		"location": {
+		"path": "/src/smallsql/database/SQLTokenizer.java",
+		"length": 1119,
+		"startLine": 835,
+		"endLine": 861,
+		"startColumn": 7,
+		"endColumn": 2,	
+		"linesOfCode": 26		
+	},
+		"linesOfCode": 26,
+		"nodesAmount": 169			
+	},
+{
+		"id": "122677",
+		"location": {
+		"path": "/src/smallsql/junit/TestOperatoren.java",
+		"length": 301,
+		"startLine": 95,
+		"endLine": 104,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 9		
+	},
+		"linesOfCode": 9,
+		"nodesAmount": 53			
+	},
+{
+		"id": "72950",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionValue.java",
+		"length": 975,
+		"startLine": 458,
+		"endLine": 486,
+		"startColumn": 63,
+		"endColumn": 5,	
+		"linesOfCode": 29		
+	},
+		"linesOfCode": 29,
+		"nodesAmount": 209			
+	},
+{
+		"id": "64271",
+		"location": {
+		"path": "/src/smallsql/tools/CommandLine.java",
+		"length": 1951,
+		"startLine": 21,
+		"endLine": 63,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 41		
+	},
+		"linesOfCode": 41,
+		"nodesAmount": 336			
+	},
+{
+		"id": "28534",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionSin.java",
+		"length": 1603,
+		"startLine": 1,
+		"endLine": 44,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 8		
+	},
+		"linesOfCode": 8,
+		"nodesAmount": 45			
+	},
+{
+		"id": "6291",
+		"location": {
+		"path": "/src/smallsql/junit/TestJoins.java",
+		"length": 3239,
+		"startLine": 48,
+		"endLine": 88,
+		"startColumn": 45,
+		"endColumn": 5,	
+		"linesOfCode": 41		
+	},
+		"linesOfCode": 41,
+		"nodesAmount": 915			
+	},
+{
+		"id": "82602",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 1320,
+		"startLine": 103,
+		"endLine": 131,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 24		
+	},
+		"linesOfCode": 24,
+		"nodesAmount": 248			
+	},
+{
+		"id": "176878",
+		"location": {
+		"path": "/src/smallsql/junit/TestResultSet.java",
+		"length": 1849,
+		"startLine": 111,
+		"endLine": 151,
+		"startColumn": 58,
+		"endColumn": 5,	
+		"linesOfCode": 35		
+	},
+		"linesOfCode": 35,
+		"nodesAmount": 332			
+	},
+{
+		"id": "157914",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionReturnP1StringAndBinary.java",
+		"length": 2689,
+		"startLine": 1,
+		"endLine": 91,
+		"startColumn": 0,
+		"endColumn": 3,	
+		"linesOfCode": 36		
+	},
+		"linesOfCode": 36,
+		"nodesAmount": 199			
+	},
+{
+		"id": "84324",
+		"location": {
+		"path": "/src/smallsql/junit/BenchTest.java",
+		"length": 1961,
+		"startLine": 316,
+		"endLine": 358,
+		"startColumn": 11,
+		"endColumn": 9,	
+		"linesOfCode": 40		
+	},
+		"linesOfCode": 40,
+		"nodesAmount": 369			
+	},
+{
+		"id": "164607",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionArithmetic.java",
+		"length": 522,
+		"startLine": 761,
+		"endLine": 781,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 21		
+	},
+		"linesOfCode": 21,
+		"nodesAmount": 108			
+	}],
+		"connections": [[12428,72467,23266],[34576,150193],[158264,158313],[72950,72709],[128194,128576],[34954,151153,151148],[184504,184730],[9817,9821,10360,10364],[131239,175435,132421],[6796,145888,145887],[84324,83389],[192601,192463],[12434,72467,17359,72473],[164607,16937,12424,23264,164604,13765,192942,192945,13076,23875,170362,134236,13764,17354,12833,139707,170361],[173372,173660,173523],[40633,148760],[192945,161466,161174,161745],[99306,99305,191292,191293],[84958,85410],[71772,107647],[105070,106149,104499,56060,104503,104638,105871,105875],[32673,32298],[164496,164495,164597],[160355,158148],[86634,86983,86629,86982,86988],[64271,55291,55287,110157,110161],[62815,30075,62811],[128241,128617,127859],[148766,40638],[1467,1302,1471,2114,2654,3558,3012,2658,3370,2837,1298,3195,3016,3374,3191,2833,3562],[186552,186775,186776,186774],[6801,145888],[175435,167956,175430,167960],[157914,157913,60347],[150199,34582],[144589,104499,104503,56046,144800,106149,104908,106017,144373,104634,144193,105870,106021,144004,144804,144594,104638,106277,144590,56056,105871,104904,104769,104773],[91706,184277,148936,86226,91707],[124329,124414],[82597,83004,82602,84633,84628,82999],[99076,50019],[173368,173660,173656],[106251,106123],[100996,101116],[163653,163368,163201,163507,163799],[160911,161758,161755,160908,161184,160632,161187,161479,162039],[144453,144673],[54416,42219],[64747,60416,181017,64746,116952,116951,181016],[65477,65743,65400,65324,65478],[122673,143601,122677,143605,193206,193202,57520],[85409,85854],[66435,139667],[86628,86982],[110874,80976,91052,80982,81008,80980,110829,81004,91053],[153659,153652,153783,153900,153653,153777,153776,153901,153907],[128579,128196,128578],[85910,84959],[64747,181017,116952,60417],[153900,153776,153901],[4542,4727,4723],[122589,6298,6291,6288,122599,122592,6294,122595],[30082,62818,62819],[137768,138253,138244,137776,137767,138245],[86938,86584],[170098,66357],[62815,30079],[4546,4727],[64552,61272,64553,61273],[169540,169631],[122677,143605,193206,57524],[192618,192480,192622,192484],[85503,85988,85459,85944,85042,85036,84992],[82954,82552],[73125,73124,73292],[62819,30083],[192617,192479],[105694,105418,105422],[97987,67469],[1935,1630,1626,1939],[157914,60348],[62773,30037],[128578,128195],[101123,101118,100998,101117,100997],[104736,106145,144004,104503,56046,144188,144594,144800,144000,106149,105991,104638,55405,144368,54932,106277,54946,144590,106273,104633,144359,56055,144369,54942,104466,104904,55406,104601,144189,104903,143990,104769,106144,144790,104871,104908,106017,144193,144580,105870,106272,144589,144804,144179,105838,104498,55396,104768,106016,55410,144799,144373,104773,143999],[165351,165350,168937,192998,165356,192997,66676,168936],[84627,82596,82998],[83395,83390,84368],[74637,74497,74501,74932,74641,74936],[66668,72716,72956,72710,66669],[42476,168936],[59746,57402,59747,57403],[117918,118059,117919,118060],[3012,2658,3195,3558,3016,3374,3191,2118,3562,2837],[91098,42522,28534,172641,68897,45643,60150,124578,64598,61682,166789,37325],[161758,161755,160908,161184,161479,161476,160622,160898],[159141,159147,27241,102840,102037,27251,102033,159148,27245,102837,27252,102833,159144,27248,159137,102040],[135598,136001,135589,136010,137310,136413,136863,93551,136405,135175,136854,135183,137311,136002,135590,136404,136855],[148936,129511,86227],[151153,34959],[84083,84084,83165,83166],[161587,161031,160753,161035,160749],[97028,182210,96080,184734,188635,172900,96078,184278,175712,165976,184962,184508,97030,96787,165980,185826,184505,172444,96463,179756,165973,172448,184731,96785,184506,184733,184732,184507,184738,167305,96461,167309],[186776,186775,186777,186553],[105871,104633,106149,104638,104498,106277,56055,104768,104904,104903,104769,104908,104634,104773,105870],[184738,184512],[137310,93552],[33609,57334,57336,33611,124533,149536,149534,124531],[34772,150324,150454,150384,34832,150449,34707,34837,150389,150319,34702,34767],[1467,1302,1298,1471,960,1133,1129],[85037,85994,85503,85988,85042,85509,85989,85504],[3558,3191,3012,3370],[964,787],[15608,15631,16126,15607],[65477,65743,65391,65468],[65759,65405,65478,65482,65401],[176878,176882,176543,176539],[106145,144004,144188,144594,144800,144000,144368,54932,54946,144590,144369,54942,55406,144189,144790,54941,144193,144580,144589,144804,144179,105838,106273,55396,144359,55410,143990,144799,104326,144373,143999],[144800,144799,144580],[135598,136854,136010,135174]]
+	}
