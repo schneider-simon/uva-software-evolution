@@ -64,7 +64,7 @@ public cloneDetectionResult removeSubsumedClones(cloneDetectionResult result, in
 	
 	map[nodeId, nodeDetailed] filteredNodes = (id: result.nodeDetails[id] | nodeId id <- result.nodeDetails, id in filteredConnections);
 		
-	return <filteredNodes, filteredConnections>;
+	return <filteredNodes, filteredConnections, result.duplicateLines>;
 }
 
 public map[nodeId, nodeDetailed] findIncludedClones(map[nodeId, nodeDetailed] nodeDetails){

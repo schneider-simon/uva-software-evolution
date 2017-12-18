@@ -24,12 +24,15 @@ public str cloneResultToJson(cloneDetectionResult result, loc projectLocation, i
 	
 	projectName = projectLocation.authority;
 		
+	filesJson = "<result.duplicateLines>";
+	
+	
 	return "{
 		\"project\": { \n
 			\"name\": \"<projectName>\",
 			\"location\": <locationWithoutAreaToJson(projectLocation)>,\n
 			\"linesOfCode\": <linesOfCode>,\n
-			\"files\": <result.duplicateLines>,\n
+			\"files\": <filesJson>,\n
 		},
 		\"nodes\": [<intercalate(",\n", nodesDetailsJson)>],
 		\"connections\": <[toList(region) | region <- connectionRegions]>
