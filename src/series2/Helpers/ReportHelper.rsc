@@ -40,13 +40,7 @@ public duplications getDuplicateLinesPerFile(M3 model, cloneDetectionResult clon
 	for( fileP <- locationsPerFile) {
 		result[fileP] = {};
 		list[loc] locations = locationsPerFile[fileP];
-		 		
-		//Stop when the file does not have comments
-		if( fileP notin commentsPerFile) {
-			result[fileP] = getAllLinesInFile(location);
-			continue;
-		}		
-			
+		 					
 		//Get all comments in the file
 		list[loc] commentsForFile = commentsPerFile[fileP];
 						

@@ -76,8 +76,8 @@ public void writeAnalyses(str name, loc location) {
 	list[str] codeLines = getCodeLinesFromFiles(projectFiles).codeLines;
 	stopMeasure("GetCodeLines");
 
-	//int i = 3;
-	for(int i <- [1..(3+1)]) {
+	int i = 3;
+	//for(int i <- [1..(3+1)]) {
 		cloneDetectionResult result = doAnalyses(model,ast,i);
 		
 		startMeasure("ToJson");	
@@ -88,8 +88,7 @@ public void writeAnalyses(str name, loc location) {
 	
 		writeFile(outputLocation, output);
 		println("Output location: <outputLocation>");
-		
-	}
+	//}
 }
 
 /*
