@@ -267,6 +267,7 @@ What a maintainer can learn from this view:
 # Literature
 
 [Tornhill, 2015] Adam Tornhill. (2015). Your Code as a Crime Scene. https://doi.org/10.1017/CBO9781107415324.004
+
 [Koschke, 2008] R. Koschke. (2008). Identifying and Removing Software Clones.
 
 [Storey, Fracchia, Müller, 1999] Storey, M. A., Fracchia, F. D., & Müller, H. A. (1999). Cognitive design elements to support the construction of a mental model during software exploration. *Journal of Systems and Software*, *44*(3), 171-185.
