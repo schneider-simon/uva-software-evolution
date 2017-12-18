@@ -4,6 +4,7 @@ import series2::CloneDetection::CloneDetection;
 import List;
 import Map;
 import IO;
+import Relation;
 
 loc location1 = |project://TestJavaProject/src/testClass.java|(271,92,<23,22>,<31,2>);
 loc location11 = |project://TestJavaProject/src/testClass.java|(271,22,<23,22>,<23,50>);
@@ -48,14 +49,22 @@ public cloneDetectionResult removeSubsumedClones(cloneDetectionResult result, in
 	
 	rel[nodeId f, nodeId s] connections = result.connections;
 	
+	//Add transitive relations (transitive closure) for clones that are not type 3
 	if(cloneType < 3){
 		connections = connections+;
 	}
+
+	rel[nodeId f, nodeId s] filteredConnections = {<c.f,c.s> | c <- connections, c.f in includedNodes && c.s in includedNodes};
 	
-	iprintln([id | id <- includedNodes]);
-	iprintln(connections);
+	set[nodeId] filteredNodeIds = domain(filteredConnections);
 	
-	return result;
+	if(cloneType < 3){
+		filteredConnections = filteredConnections+;
+	}
+	
+	map[nodeId, nodeDetailed] filteredNodes = (id: result.nodeDetails[id] | nodeId id <- result.nodeDetails, id in filteredConnections);
+		
+	return <filteredNodes, filteredConnections>;
 }
 
 public map[nodeId, nodeDetailed] findIncludedClones(map[nodeId, nodeDetailed] nodeDetails){
