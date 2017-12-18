@@ -15,7 +15,7 @@ import series2::Aliases;
 public duplications getDuplicateLinesPerFile(M3 model, cloneDetectionResult cloneDetectionResult) {
 
 	duplications result = ();
-
+	
 	//Get all dup locations		
 	set[loc] locations = {};
 	locations = ({} | it + e | e <- {{cloneDetectionResult.nodeDetails[a].l, cloneDetectionResult.nodeDetails[b].l} |

@@ -95,12 +95,13 @@ public cloneDetectionResult doCloneDetection(M3 model, set[Declaration] ast, boo
 	}
 	printDebug("End comparing nodes");
 
+	//Add node details
 	for(nodeI <- nodeWLoc) {
 		results.nodeDetails += (nodeI.id:nodeI);
 	}
-	
-	//results = removeSubsumedClones(results, minimalSimularity); 
-	
+		
+	//remove subsumed clones
+	results = removeSubsumedClones(results, minimalSimularity); 
 			
  	//Determine what lines are duplicates
 	results.duplicateLines = getDuplicateLinesPerFile(model,results); 
