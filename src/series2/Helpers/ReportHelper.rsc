@@ -40,9 +40,12 @@ public duplications getDuplicateLinesPerFile(M3 model, cloneDetectionResult clon
 	for( fileP <- locationsPerFile) {
 		result[fileP] = {};
 		list[loc] locations = locationsPerFile[fileP];
-		 					
+		 		
 		//Get all comments in the file
-		list[loc] commentsForFile = commentsPerFile[fileP];
+		list[loc] commentsForFile = [];
+		if( fileP in commentsPerFile) {
+			commentsForFile = commentsPerFile[fileP];
+		}		
 						
 		//Go over locations
 		for(loc location <- locations) {
