@@ -50,10 +50,6 @@ public cloneDetectionResult removeSubsumedClones(cloneDetectionResult result, re
 	map[nodeId, nodeDetailed] nodeDetails = (nodeId: result.nodeDetails[nodeId] | nodeId <- result.nodeDetails, nodeId in duplicateNodeIds);
 	
 	map[nodeId, nodeDetailed] flagForRemovalNodes = findIncludedClones(nodeDetails);
-	for(nodeId <- nodeDetails){
-		nodeDetail =  result.nodeDetails[nodeId];
-		println("<nodeId>: <nodeDetail.l.path> <nodeDetail.l.begin.line> - <nodeDetail.l.end.line>");
-	}
 	
 	rel[nodeId f, nodeId s] connections = result.connections;
 	

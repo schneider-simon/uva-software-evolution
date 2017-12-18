@@ -53,9 +53,10 @@ public tuple[FileLineMapping fileMapping, list[str] codeLines] getConcatinatedCo
 	for(loc file <- files){
 		list[str] fileCode = getCodeLines(readFile(file));
 		fileMapping[file] = <size(code), size(code) + size(fileCode) - 1>;
+	
 		code = fileCode + code;
 	}
-
+	
 	return <fileMapping, code>;
 }
 
