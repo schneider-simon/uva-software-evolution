@@ -7,65 +7,65 @@
 		"path": "/"			
 	},
 
-			"linesOfCode": 20,
+			"linesOfCode": 202,
 
-			"projectFiles": 2
+			"files": ("/src/simpleType.java":{121,143,134,133,129,142,130,128,135,131,123,141,137,125,139,127,136,124,122,140,126,138}),ń
 		},
 		"nodes": [{
-		"id": "152",
+		"id": "555",
 		"location": {
-		"path": "/src/TestClass1.java",
-		"length": 257,
-		"startLine": 1,
-		"endLine": 11,
-		"startColumn": 0,
-		"endColumn": 1,	
-		"linesOfCode": 10		
+		"path": "/src/simpleType.java",
+		"length": 146,
+		"startLine": 121,
+		"endLine": 131,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 11		
 	},
-		"linesOfCode": 10,
-		"nodesAmount": 76			
+		"linesOfCode": 11,
+		"nodesAmount": 29			
 	},
 {
-		"id": "76",
+		"id": "580",
 		"location": {
-		"path": "/src/TestClass2.java",
-		"length": 257,
-		"startLine": 1,
-		"endLine": 11,
-		"startColumn": 0,
-		"endColumn": 1,	
-		"linesOfCode": 10		
+		"path": "/src/simpleType.java",
+		"length": 131,
+		"startLine": 133,
+		"endLine": 143,
+		"startColumn": 21,
+		"endColumn": 2,	
+		"linesOfCode": 11		
 	},
-		"linesOfCode": 10,
-		"nodesAmount": 76			
+		"linesOfCode": 11,
+		"nodesAmount": 24			
 	},
 {
-		"id": "75",
+		"id": "584",
 		"location": {
-		"path": "/src/TestClass2.java",
-		"length": 257,
-		"startLine": 1,
-		"endLine": 11,
-		"startColumn": 0,
-		"endColumn": 1,	
-		"linesOfCode": 10		
+		"path": "/src/simpleType.java",
+		"length": 151,
+		"startLine": 133,
+		"endLine": 143,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 11		
 	},
-		"linesOfCode": 10,
-		"nodesAmount": 75			
+		"linesOfCode": 11,
+		"nodesAmount": 29			
 	},
 {
-		"id": "151",
+		"id": "551",
 		"location": {
-		"path": "/src/TestClass1.java",
-		"length": 257,
-		"startLine": 1,
-		"endLine": 11,
-		"startColumn": 0,
-		"endColumn": 1,	
-		"linesOfCode": 10		
+		"path": "/src/simpleType.java",
+		"length": 126,
+		"startLine": 121,
+		"endLine": 131,
+		"startColumn": 21,
+		"endColumn": 2,	
+		"linesOfCode": 11		
 	},
-		"linesOfCode": 10,
-		"nodesAmount": 75			
+		"linesOfCode": 11,
+		"nodesAmount": 24			
 	}],
-		"connections": [[151,75],[76,152]]
+		"connections": [[551,580],[584,555]]
 	}

@@ -4,27 +4,30 @@ import lang::java::jdt::m3::AST;
 import lang::java::m3::AST;
 import lang::java::jdt::m3::Core;
 import util::ValueUI;
+import series2::Helpers::ReportHelper;
 
 import series2::Helpers::LogHelper;
 import IO;
 import List;
 import Node;
 import Set;
+import String;
+
 
 import util::Math;
 
 alias nodeId = int;
 alias nodeS = tuple[node d,int s];
 alias nodeDetailed = tuple[nodeId id, node d, loc l, int s];
-alias cloneDetectionResult = tuple[map[nodeId, nodeDetailed] nodeDetails, rel[nodeId f,nodeId s] connections];
+alias cloneDetectionResult = tuple[map[nodeId, nodeDetailed] nodeDetails, rel[nodeId f,nodeId s] connections, duplications duplicateLines];
 
 loc noLocation = |unresolved:///|;
 Type defaultType = lang::java::jdt::m3::AST::short();
 
 //Start clone detection
-public cloneDetectionResult doCloneDetection(set[Declaration] ast, bool normalizeAST, int minimumCodeSize, int minimalNodeGroupSize, real minimalSimularity) {
+public cloneDetectionResult doCloneDetection(M3 model, set[Declaration] ast, bool normalizeAST, int minimumCodeSize, int minimalNodeGroupSize, real minimalSimularity) {
 
-	cloneDetectionResult results = <(),{}>;
+	cloneDetectionResult results = <(),{}, ()>;
 
 	//For type 2 - 3. Names are types are removed
 	set[Declaration] testOnAst = ast;
@@ -99,6 +102,10 @@ public cloneDetectionResult doCloneDetection(set[Declaration] ast, bool normaliz
 	for(nodeI <- nodeWLoc) {
 		results.nodeDetails += (nodeI.id:nodeI);
 	}
+	
+			
+ 	//Determine what lines are duplicates
+	results.duplicateLines = getDuplicateLinesPerFile(model,results); 
 
 	return results;
 }

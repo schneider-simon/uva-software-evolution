@@ -28,7 +28,7 @@ public str cloneResultToJson(cloneDetectionResult result, loc projectLocation, i
 			\"name\": \"<projectName>\",
 			\"location\": <locationWithoutAreaToJson(projectLocation)>,\n
 			\"linesOfCode\": <linesOfCode>,\n
-			\"projectFiles\": <size(projectFiles)>
+			\"files\": <result.duplicateLines>,\n
 		},
 		\"nodes\": [<intercalate(",\n", nodesDetailsJson)>],
 		\"connections\": <[toList(region) | region <- connectionRegions]>
