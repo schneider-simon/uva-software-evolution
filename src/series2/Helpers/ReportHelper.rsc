@@ -1,7 +1,5 @@
 module series2::Helpers::ReportHelper
 
-import series2::CloneDetection::CloneDetection;
-
 import lang::java::jdt::m3::Core;
 import lang::java::jdt::m3::AST;
 import series2::Helpers::StringHelper;
@@ -14,6 +12,13 @@ import String;
 
 alias duplications = map[str, set[int]];
 alias commentRangs = tuple[int fromL, int fromC, int toL, int toC];
+alias cloneDetectionResult = tuple[map[nodeId, nodeDetailed] nodeDetails, rel[nodeId f,nodeId s] connections, duplications duplicateLines];
+
+alias nodeId = int;
+alias nodeS = tuple[node d,int s];
+alias nodeDetailed = tuple[nodeId id, node d, loc l, int s];
+alias cloneDetectionResult = tuple[map[nodeId, nodeDetailed] nodeDetails, rel[nodeId f,nodeId s] connections, duplications duplicateLines];
+
 
 public duplications getDuplicateLinesPerFile(M3 model, cloneDetectionResult cloneDetectionResult) {
 
@@ -30,7 +35,6 @@ public duplications getDuplicateLinesPerFile(M3 model, cloneDetectionResult clon
 	//Create a file path -> loc overview
 	map[str, list[loc]] locationsPerFile = getLocationsPerFile(locations);
 	map[str, list[loc]] commentsPerFile = getLocationsPerFile({ d.comments | d <- model.documentation});
-	
 		
 	//Go through the comments, and determine if it is inside a comment
 	for( fileP <- locationsPerFile) {

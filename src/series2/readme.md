@@ -16,7 +16,7 @@
 # Clone detection
 
 We use a approach that uses the AST to detect code clones. We use the tactics that is described by [Koschke, 2008]. In pseudo code:
- 
+
 Where:
 ```
 * x is the clone type
@@ -95,6 +95,45 @@ You can display the AST as an tree. When you compare the nodes, there will be a 
 * int minimalNodeGroupSize = z
 * int minimalCodeSize = z'
 
+# Finding what lines are duplication
+
+```java
+import javax.annotation.Generated;
+
+class dupTest {
+	public void testM() {			//Comment
+		int i1 = 1 + 1;				//Comment
+		int i2 = 1 + 1 * 2;			//Comment
+/*test*/int i3 = 1 + 1 / 4;/*test*/
+}
+
+	public void testM2() {			//Some test comment
+/*test*/int i1 = 1 + 1;
+		int i2 = 1 + 1 * 2;/*test*/
+		/*
+		 * test
+		 */
+		int i3 = 1 + 1 / 4;
+	}
+
+	public void testM3() {
+		int i2 = 1 /*test*/+ 1 * 2;
+		int i3 = 1 + 1 / 4;
+		/*
+		int i1 = 1 + 1;
+		int i2 = 1 + 1 * 2;
+		*/
+	}
+
+}
+```
+
+Loading eclipse project |project://use-test-project|
+"All dups: [4,5,6,7,8,10,11,12,13,14,15,16,17,20,21,22,23,24,25]"
+"All dups clean: [4,5,6,7,8,10,11,12,16,17,20,21]"
+"All dups removed: [13,14,15,22,23,24,25]"
+
+
 # Clone classes
 
 The diagram below shows our approach to delete unnecessary clones, which are subsumed by other clones.
@@ -117,7 +156,7 @@ We soon recognized another type of clones (category 2), in which included clones
 
 1. Flag every clone that is fully included in another clone.
 2. Build a graph of clones
-	1. Use the transitive closure for clone type 1 and 2. Type3 clones must not be transitive.
+  1. Use the transitive closure for clone type 1 and 2. Type3 clones must not be transitive.
 3. Remove a class of clones from the output if all nodes are flagged as deleted.
 4. Output the clones as a graph that builds a cluster for every clone class (please see visualization below)
 

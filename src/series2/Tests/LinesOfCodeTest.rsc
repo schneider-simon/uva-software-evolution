@@ -10,6 +10,8 @@ import series2::Helpers::ProjectFilesHelper;
 import series2::Helpers::OutputHelper;
 import series2::Configuration;
 import series2::CloneDetection::CloneExporter;
+import series2::Helpers::ReportHelper;
+
 
 import DateTime;
 import Set;

@@ -103,23 +103,6 @@ public cloneDetectionResult doAnalyses(M3 model, set[Declaration] ast, int clone
 	startMeasure("DetectClones");	
 	
 	cloneDetectionResult cloneResult = doCloneDetection(model, ast, normalizeAST, minimumCodeSize, minimalNodeGroupSize, minimalSimularity);
-	//iprintln(cloneResult.connections);
-	
- 	/*for(connection <- cloneResult.connections) {
- 		loc la = cloneResult.nodeDetails[connection.f].l;
- 		loc lb = cloneResult.nodeDetails[connection.s].l;
- 		
- 		str las = readFile(la);
- 		str lbs = readFile(lb);
- 		
- 		iprintln("#########<la>");
- 		iprintln("#########<lb>");
- 		iprintln(las);
- 		iprintln("");
- 		iprintln("");
- 		iprintln(lbs);
- 		iprintln("");
- 	}*/
 
 	stopMeasure("DetectClones");	
 		
