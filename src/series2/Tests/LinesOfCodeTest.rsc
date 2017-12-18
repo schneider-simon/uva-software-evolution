@@ -11,7 +11,7 @@ import series2::Helpers::OutputHelper;
 import series2::Configuration;
 import series2::CloneDetection::CloneExporter;
 import series2::Helpers::ReportHelper;
-
+import series2::Aliases;
 
 import DateTime;
 import Set;

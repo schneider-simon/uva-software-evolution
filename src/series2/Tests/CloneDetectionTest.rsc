@@ -12,15 +12,12 @@ import series2::Configuration;
 import series2::CloneDetection::CloneExporter;
 import series2::Helpers::ReportHelper;
 
+import series2::Aliases;
+
 import DateTime;
 import Set;
 import List;
 import IO;
-
-alias nodeId = int;
-alias nodeS = tuple[node d,int s];
-alias nodeDetailed = tuple[nodeId id, node d, loc l, int s];
-alias cloneDetectionResult = tuple[map[nodeId, nodeDetailed] nodeDetails, rel[nodeId f,nodeId s] connections, duplications duplicateLines];
 
 loc eclipsePath = |project://use-test-project/|;
 

@@ -9,12 +9,10 @@ import series2::Configuration;
 import series2::Helpers::LogHelper;
 import series2::Helpers::BenchmarkHelper;
 import util::FileSystem;
+import series2::Aliases;
 
 list[str] invalidFolders = ["/test/","/generated/"];
 
-alias FileLineBounds = tuple[int fileStart, int fileEnd];
-alias FileLineMapping = map[loc, FileLineBounds];
-alias ProjectFileOptions = tuple[bool addPageBreakTokens];
 public ProjectFileOptions defaultProjectFileOptions = <false>;
 
 public list[loc] getProjectFiles(list[loc] files) {

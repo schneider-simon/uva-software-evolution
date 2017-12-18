@@ -10,15 +10,7 @@ import Map;
 import IO;
 import String;
 
-alias duplications = map[str, set[int]];
-alias commentRangs = tuple[int fromL, int fromC, int toL, int toC];
-alias cloneDetectionResult = tuple[map[nodeId, nodeDetailed] nodeDetails, rel[nodeId f,nodeId s] connections, duplications duplicateLines];
-
-alias nodeId = int;
-alias nodeS = tuple[node d,int s];
-alias nodeDetailed = tuple[nodeId id, node d, loc l, int s];
-alias cloneDetectionResult = tuple[map[nodeId, nodeDetailed] nodeDetails, rel[nodeId f,nodeId s] connections, duplications duplicateLines];
-
+import series2::Aliases;
 
 public duplications getDuplicateLinesPerFile(M3 model, cloneDetectionResult cloneDetectionResult) {
 
