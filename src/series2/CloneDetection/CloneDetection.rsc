@@ -13,10 +13,10 @@ import Set;
 
 import util::Math;
 
+alias nodeId = int;
 alias nodeS = tuple[node d,int s];
 alias nodeDetailed = tuple[nodeId id, node d, loc l, int s];
 alias cloneDetectionResult = tuple[map[nodeId, nodeDetailed] nodeDetails, rel[nodeId f,nodeId s] connections];
-alias nodeId = int;
 
 loc noLocation = |unresolved:///|;
 Type defaultType = lang::java::jdt::m3::AST::short();
