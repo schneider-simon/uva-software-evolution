@@ -1,0 +1,46 @@
+{
+		"project": { 
+
+			"name": "use-test-project",
+			"location": {
+		"uri": "project://use-test-project",	
+		"path": "/"			
+	},
+
+			"linesOfCode": 42,
+
+			"duplicateFiles": {"/src/TestClass2.java":[10,3,9,4,11,6,5,8],"/src/TestClass1.java":[10,3,9,4,11,6,5,8]},
+
+			"projectFiles": ["/src/TestClass1.java","/src/TestClass2.java","/src/TestClass3.java"]
+
+		},
+		"nodes": [{
+		"id": "148",
+		"location": {
+		"path": "/src/TestClass2.java",
+		"length": 191,
+		"startLine": 3,
+		"endLine": 11,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 8		
+	},
+		"linesOfCode": 8,
+		"nodesAmount": 72			
+	},
+{
+		"id": "72",
+		"location": {
+		"path": "/src/TestClass1.java",
+		"length": 191,
+		"startLine": 3,
+		"endLine": 11,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 8		
+	},
+		"linesOfCode": 8,
+		"nodesAmount": 72			
+	}],
+		"connections": [[72,148]]
+	}
