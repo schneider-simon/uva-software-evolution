@@ -1,0 +1,19 @@
+{
+		"project": { 
+
+			"name": "use-test-project",
+			"location": {
+		"uri": "project://use-test-project",	
+		"path": "/"			
+	},
+
+			"linesOfCode": 27,
+
+			"duplicateFiles": (),
+
+			"projectFiles": ["/src/TestClass1.java","/src/TestClass2.java","/src/TestClass3.java"],
+
+		},
+		"nodes": [],
+		"connections": []
+	}
