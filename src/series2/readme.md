@@ -97,6 +97,23 @@ You can display the AST as an tree. When you compare the nodes, there will be a 
 
 # Finding what lines are duplication
 
+We use an custom algorithm for detecting the amount of duplicate lines.  The algorithm works like this:
+
+1. Get all locations that contain an duplicate
+2.  Request from the M3 model, all the locations with comments
+3. Go through every duplication, and get the lines for every location and look per line:
+   1. :If it is a one line comment
+   2. If the first character is a multi line start comment  
+   3. If it ends with an comment close tag
+   4. If it is an empty line
+   5. If the line is in a multi-line comment
+4. When when of above is true, the line is counted as a non-duplicate
+5. When above is false, the line is counted as a duplicate
+
+
+
+We wrote the following unit test:
+
 ```java
 import javax.annotation.Generated;
 
@@ -106,32 +123,41 @@ class dupTest {
 		int i2 = 1 + 1 * 2;			//Comment
 /*test*/int i3 = 1 + 1 / 4;/*test*/
 }
-
+	
 	public void testM2() {			//Some test comment
 /*test*/int i1 = 1 + 1;
-		int i2 = 1 + 1 * 2;/*test*/
+ /*est*/int i2 = 1 + 1 * 2;/*test*/
 		/*
 		 * test
 		 */
 		int i3 = 1 + 1 / 4;
 	}
-
+	
 	public void testM3() {
 		int i2 = 1 /*test*/+ 1 * 2;
+		//test
+		/*
+		  
+		  
+		*/
 		int i3 = 1 + 1 / 4;
 		/*
 		int i1 = 1 + 1;
 		int i2 = 1 + 1 * 2;
-		*/
+		*/		
 	}
-
+	
 }
+
 ```
 
-Loading eclipse project |project://use-test-project|
-"All dups: [4,5,6,7,8,10,11,12,13,14,15,16,17,20,21,22,23,24,25]"
-"All dups clean: [4,5,6,7,8,10,11,12,16,17,20,21]"
-"All dups removed: [13,14,15,22,23,24,25]"
+The file has the following duplicate lines:
+
+```
+[4,5,6,7,8,10,11,12,16,17,20,26]
+```
+
+What is correct.
 
 
 # Clone classes
