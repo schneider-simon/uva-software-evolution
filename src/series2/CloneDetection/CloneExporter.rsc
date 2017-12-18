@@ -40,7 +40,7 @@ public str cloneResultToJson(cloneDetectionResult result, loc projectLocation, i
 			\"location\": <locationWithoutAreaToJson(projectLocation)>,\n
 			\"linesOfCode\": <linesOfCode>,\n
 			\"duplicateFiles\": <filesJson>,\n
-			\"projectFiles\": <projectFilesJson>,\n
+			\"projectFiles\": <projectFilesJson>\n
 		},
 		\"nodes\": [<intercalate(",\n", nodesDetailsJson)>],
 		\"connections\": <[toList(region) | region <- connectionRegions]>
