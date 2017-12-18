@@ -11,6 +11,7 @@
 * Show biggest clone (in lines),
 * Show biggest clone class
 * Show example clones
+* Add raw data table and explain why it was created
 ```
 
 # Clone detection
@@ -33,11 +34,11 @@ ast = loadAstForProject(y);
 ast <- normalize @ type 2 / type 3
 astList = getAllNodes(ast)
 astList <- remove when subitems less than z
+astList <- remove node when less than z' lines of code
 astList <- remove with invalid location
 
 @no duplicate compares
-@sub nodes for every node is minimal <z>
-@sub nodes code size is minimal <z'>
+@Do not compare when node is a subnode of that node 
 @similarity of nodeA and NodeB > a
 compare astList astList to nodeA nodeB:
 	return add connection:<nodeA.l,nodeB.l>
@@ -50,6 +51,26 @@ where:
 	nodea.subItems `similar` nodeb.subItems /
 	(nodea.subcount + nodeb.subcount) * 100
 ```
+
+## Limitations of our AST approach
+
+We cannot compare nodes, or groups of nodes that are on the same level to other nodes or group of nodes. For example, the tree below where nodes with a similar color are the same:
+
+
+
+![Problem](./docs/prob.jpg)
+
+
+
+
+
+* The two large green trees are not seen as a type one or two clone, this because the sub nodes are different, what is correct.  
+* The two yellow sub nodes of the first green tree are not seen as duplicates. This because our tool only compares whole nodes. 
+* The two yellow sub nodes of the first green tree are also not compared with any combination of sequential nodes of the second green sub tree. This because our approach does not support comparing sequential nodes with other nodes in the system. It also does not support comparing these groups to groups under the same parent node.  
+
+We did not add support for this because it adds a lot of complexity. The clone detection will also take a lot more times because of the high amount of additional checks that have to be preformed. Large clones are unlikely to be affected because in real-live projects, they normally are not on a single layer in the AST. For this project, and our goal is to find large clones; small codes have a smaller impact to the system. 
+
+
 
 ## Parameters
 
@@ -100,7 +121,7 @@ You can display the AST as an tree. When you compare the nodes, there will be a 
 We use an custom algorithm for detecting the amount of duplicate lines.  The algorithm works like this:
 
 1. Get all locations that contain an duplicate
-2.  Request from the M3 model, all the locations with comments
+2. Request from the M3 model, all the locations with comments
 3. Go through every duplication, and get the lines for every location and look per line:
    1. :If it is a one line comment
    2. If the first character is a multi line start comment  
@@ -232,9 +253,22 @@ What a maintainer can learn from this view:
 * Removing the largest 4 clone classes could reduce the number of files that contain clones drastically.
 
 
-##TODO: Add raw data table and explain why it was created
+
+
+# Maintainer requirements
+
+1: Maintainers have to have an understanding of a program. There are multiple ways of getting an understanding at a global level of the program. In the paper [Storey, Fracchia, Müller, 1999] these are Macro-strategies. One strategy is called the "As-needed macro-strategies" strategy [Storey, Fracchia, Müller, 1999]. You only take a look at a part of the code when you needed it. With this approach, code clones give a very negative impact. When you want to make a change, you first have to find where the duplicates are, otherwise you can introduce bugs into the system. Our goal is to visualization of clone classes. We are going to resolve this by adding support for clicking so that you can see where else the same code is used.  
+
+2: One issue in maintenance can be that duplicate in required to extent current functionality. When a maintainer wants to abstract these parts, he has to know on what locations these abstractions can be introduced. When you can find clones, and view how to clones look like, you can faster spot places where you can introduce abstraction. This is why we are making it possible to show the code per duplicate. Clicking in the clone will result in a overview of the code. 
+
+3: When a maintainer wants to improve the code quality, it is useful to know in what part of the project the most duplicates are. This way, you know on what part of the project the most progress can be booked. It can be use as a guide for reducing complexity. To solve this, we added an overview of the largest code classes.   
+
+#
 
 # Literature
 
 [Tornhill, 2015] Adam Tornhill. (2015). Your Code as a Crime Scene. https://doi.org/10.1017/CBO9781107415324.004
-[Koschke, 2008]. R. Koschke. (2008). Identifying and Removing Software Clones.
+
+[Koschke, 2008] R. Koschke. (2008). Identifying and Removing Software Clones.
+
+[Storey, Fracchia, Müller, 1999] Storey, M. A., Fracchia, F. D., & Müller, H. A. (1999). Cognitive design elements to support the construction of a mental model during software exploration. *Journal of Systems and Software*, *44*(3), 171-185.
