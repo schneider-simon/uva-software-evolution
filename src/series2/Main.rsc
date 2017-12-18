@@ -78,13 +78,8 @@ public void writeAnalyses(str name, loc location) {
 
 	int i = 3;
 	//for(int i <- [1..(3+1)]) {
-		cloneDetectionResult result = doAnalyses(ast,i);
+		cloneDetectionResult result = doAnalyses(model,ast,i);
 		
-		//Determine what lines are duplicates
-		duplications dups = getDuplicateLinesPerFile(model,result);
-		iprintln(dups);
-		asd;
-			
 		startMeasure("ToJson");	
 		str output = cloneResultToJson(result, location, size(codeLines), projectFiles);
 		stopMeasure("ToJson");	
@@ -100,14 +95,14 @@ public void writeAnalyses(str name, loc location) {
 /*
 	Runes the analyses on a eclipse project
 */
-public cloneDetectionResult doAnalyses(set[Declaration] ast, int cloneType) {
+public cloneDetectionResult doAnalyses(M3 model, set[Declaration] ast, int cloneType) {
 
 	bool normalizeAST = cloneType != 1;
 	real minimalSimularity = cloneType == 3 ? minimalSimularityT3 : 100.0;
 
 	startMeasure("DetectClones");	
 	
-	cloneDetectionResult cloneResult = doCloneDetection(ast, normalizeAST, minimumCodeSize, minimalNodeGroupSize, minimalSimularity);
+	cloneDetectionResult cloneResult = doCloneDetection(model, ast, normalizeAST, minimumCodeSize, minimalNodeGroupSize, minimalSimularity);
 	//iprintln(cloneResult.connections);
 	
  	/*for(connection <- cloneResult.connections) {

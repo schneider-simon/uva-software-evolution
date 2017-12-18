@@ -4,13 +4,16 @@ import series2::CloneDetection::CloneDetection;
 
 import lang::java::jdt::m3::Core;
 import lang::java::jdt::m3::AST;
+import series2::Helpers::StringHelper;
+
 import Set;
 import List;
 import Map;
 import IO;
-
+import String;
 
 alias duplications = map[str, set[int]];
+alias commentRangs = tuple[int fromL, int fromC, int toL, int toC];
 
 public duplications getDuplicateLinesPerFile(M3 model, cloneDetectionResult cloneDetectionResult) {
 
@@ -28,24 +31,42 @@ public duplications getDuplicateLinesPerFile(M3 model, cloneDetectionResult clon
 	map[str, list[loc]] locationsPerFile = getLocationsPerFile(locations);
 	map[str, list[loc]] commentsPerFile = getLocationsPerFile({ d.comments | d <- model.documentation});
 	
+		
 	//Go through the comments, and determine if it is inside a comment
 	for( fileP <- locationsPerFile) {
+		result[fileP] = {};
 		list[loc] locations = locationsPerFile[fileP];
-	
+		 		
 		//Stop when the file does not have comments
-		if( fileP notin commentsPerFile)
+		if( fileP notin commentsPerFile) {
+			result[fileP] = getAllLinesInFile(location);
 			continue;
-	
+		}		
+			
 		//Get all comments in the file
 		list[loc] commentsForFile = commentsPerFile[fileP];
-		
-		//Go over al locations
-		for(locationItem <- locations) {
-			list[loc] allLocation = getAllLocsInside(locationItem);
+						
+		//Go over locations
+		for(loc location <- locations) {
+			int startLineNumber = location.begin.line;
+			list[str] file = split("\n",readFile(location)); 
+			for( int i <- [0 .. (size(file))]) {
 			
-			list[loc] dupsForFile = getLocationInsideLocations(allLocation, commentsForFile);
-			result[fileP] = dupsForFile;
-		}
+				str line = trim(file[i]);
+				int lineSize = size(line);
+				int lineNumber = startLineNumber + i;
+				
+				//It is not a line of code when
+				if(isOneLineComment(line) || isMultiLineCommentStart(line) || isMultiLineCommentEnd(line) || isLineEmpty(line))
+					continue;
+				
+				//Or if it is inside a comment section
+				if(any(comment <- commentsForFile, lineInLoc(comment, lineNumber, lineSize)))
+					continue;
+				
+				result[fileP] += lineNumber;
+			}			
+		}		
 	}
 	
 	return result;
@@ -65,38 +86,30 @@ private map[str, list[loc]] getLocationsPerFile(set[loc] location) {
 	return locationsPerFile;
 }
 
-private list[loc] getAllLocsInside(loc location) {
-
-	//Create locations that have to be checked
-	loc locationB = location;
-	locationB.beg
-	list[loc] locationsToCheck = [locations.begin, locations.end];
-	
-	list[int] locationList = [ line | line  <-[(locations.begin.line + 1)..(locations.end.line - 1)]];
-	for(int line <- locationList) {
-		loc locToAdd = locations.begin;
-		locToAdd.line = line;
-		locToAdd.column = 0;
-		locationsToCheck += locToAdd;
-	}	
-	
-	return locationsToCheck;
-}
-
 private list[loc] getLocationInsideLocations(list[loc] setA, list[loc] setB) {
+ 
+ 	list[loc] dups = [];
+ 	
+ 	for(loc a <- setA) {
+ 		//Check location is 2nth
+ 		for(loc b <- setB) {
+ 			if(a.path == b.path && a <= b) {
+ 				dups += a;
+ 				break;
+ 			}
+ 		}
+ 	}
+ 	
+ 	return dups;
+ }
 
-	list[loc] dups = [];
-	
-	for(loc a <- setA) {
-		//Check location is 2nth
-		for(loc b <- setB) {
-			if(a.path == b.path && a <= b) {
-				dups += a;
-				break;
-			}
-		}
-	}
-	
-	return dups;
+list[int] getAllLinesInFile(loc location) {
+	return [(location.begin.line) .. (location.end.line + 1)];
 }
 
+bool lineInLoc(loc location, int lineNr, int lineSize) {
+	bool startIsSameOrBefore = location.begin.line <= lineNr && location.begin.column <= lineSize;
+	bool endIsSameOrAfter = (location.end.line > lineNr) || (location.end.line == lineNr && location.begin.column >= lineSize);
+	
+	return startIsSameOrBefore && endIsSameOrAfter;
+}

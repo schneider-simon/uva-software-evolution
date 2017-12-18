@@ -1,4 +1,4 @@
-module series2::Test
+module series2::Tests::CloneDetectionTest
 
 import lang::java::jdt::m3::Core;
 import lang::java::jdt::m3::AST;
@@ -169,7 +169,8 @@ test bool testT2TypeIndpToHighV() {
 //Do clone detection
 public set[int] doT3CloneDetection(str className, int v, real diff) {
 	set[Declaration] ast = getASTForClass(className);
-	cloneDetectionResult cloneResult = doCloneDetection(ast, true, 1, v, diff);
+	M3 model = createM3FromEclipseProject(eclipsePath);
+	cloneDetectionResult cloneResult = doCloneDetection(model, ast, true, 1, v, diff);
 	return getDuplicateLines(cloneResult);
 }
 
@@ -177,7 +178,8 @@ public set[int] getClonesTypeWithV(str className, int ctype, int v) {
 	bool clean = ctype != 1;
 	real dupLevel = ctype != 3 ? 100.0 : 50.0;
 	set[Declaration] ast = getASTForClass(className);
-	cloneDetectionResult cloneResult = doCloneDetection(ast, clean, 1, v, dupLevel);
+	M3 model = createM3FromEclipseProject(eclipsePath);
+	cloneDetectionResult cloneResult = doCloneDetection(model, ast, clean, 1, v, dupLevel);
 	return getDuplicateLines(cloneResult);
 }
 

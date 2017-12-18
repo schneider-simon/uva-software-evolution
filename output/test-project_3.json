@@ -7,65 +7,93 @@
 		"path": "/"			
 	},
 
-			"linesOfCode": 17,
+			"linesOfCode": 202,
 
-			"projectFiles": 1
+			"projectFiles": 3
 		},
 		"nodes": [{
-		"id": "95",
+		"id": "555",
 		"location": {
 		"path": "/src/simpleType.java",
-		"length": 107,
-		"startLine": 10,
-		"endLine": 14,
+		"length": 146,
+		"startLine": 121,
+		"endLine": 131,
 		"startColumn": 1,
 		"endColumn": 2,	
-		"linesOfCode": 5		
+		"linesOfCode": 11		
 	},
-		"linesOfCode": 5,
-		"nodesAmount": 47			
-	},
-{
-		"id": "48",
-		"location": {
-		"path": "/src/simpleType.java",
-		"length": 106,
-		"startLine": 4,
-		"endLine": 8,
-		"startColumn": 1,
-		"endColumn": 2,	
-		"linesOfCode": 5		
-	},
-		"linesOfCode": 5,
-		"nodesAmount": 47			
+		"linesOfCode": 11,
+		"nodesAmount": 29			
 	},
 {
-		"id": "44",
+		"id": "724",
 		"location": {
 		"path": "/src/simpleType.java",
-		"length": 86,
-		"startLine": 4,
-		"endLine": 8,
+		"length": 210,
+		"startLine": 161,
+		"endLine": 174,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 13		
+	},
+		"linesOfCode": 13,
+		"nodesAmount": 65			
+	},
+{
+		"id": "580",
+		"location": {
+		"path": "/src/simpleType.java",
+		"length": 131,
+		"startLine": 133,
+		"endLine": 143,
 		"startColumn": 21,
 		"endColumn": 2,	
-		"linesOfCode": 5		
+		"linesOfCode": 11		
 	},
-		"linesOfCode": 5,
-		"nodesAmount": 42			
+		"linesOfCode": 11,
+		"nodesAmount": 24			
 	},
 {
-		"id": "91",
+		"id": "246",
 		"location": {
 		"path": "/src/simpleType.java",
-		"length": 86,
-		"startLine": 10,
-		"endLine": 14,
-		"startColumn": 22,
+		"length": 160,
+		"startLine": 15,
+		"endLine": 25,
+		"startColumn": 21,
 		"endColumn": 2,	
-		"linesOfCode": 5		
+		"linesOfCode": 10		
 	},
-		"linesOfCode": 5,
-		"nodesAmount": 42			
+		"linesOfCode": 10,
+		"nodesAmount": 65			
+	},
+{
+		"id": "584",
+		"location": {
+		"path": "/src/simpleType.java",
+		"length": 151,
+		"startLine": 133,
+		"endLine": 143,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 29			
+	},
+{
+		"id": "551",
+		"location": {
+		"path": "/src/simpleType.java",
+		"length": 126,
+		"startLine": 121,
+		"endLine": 131,
+		"startColumn": 21,
+		"endColumn": 2,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 24			
 	}],
-		"connections": [[91,44,48,95]]
+		"connections": [[551,584,580],[246,724],[584,555]]
 	}
