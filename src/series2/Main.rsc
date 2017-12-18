@@ -76,19 +76,16 @@ public void writeAnalyses(str name, loc location) {
 	list[str] codeLines = getCodeLinesFromFiles(projectFiles).codeLines;
 	stopMeasure("GetCodeLines");
 
-	for(int i <- [1..(3+1)]) {
-		cloneDetectionResult result = doAnalyses(ast,i);
-			
-		startMeasure("ToJson");	
-		str output = cloneResultToJson(result, location, size(codeLines), projectFiles);
-		stopMeasure("ToJson");	
+	cloneDetectionResult result = doAnalyses(ast,i);
 		
-		loc outputLocation = toLocation("project://uva-software-evolution/output/<name>_<i>.json");
+	startMeasure("ToJson");	
+	str output = cloneResultToJson(result, location, size(codeLines), projectFiles);
+	stopMeasure("ToJson");	
 	
-		writeFile(outputLocation, output);
-		println("Output location: <outputLocation>");
-		
-	}
+	loc outputLocation = toLocation("project://uva-software-evolution/output/<name>_<i>.json");
+
+	writeFile(outputLocation, output);
+	println("Output location: <outputLocation>");
 }
 
 /*
