@@ -5,6 +5,7 @@ import lang::java::m3::AST;
 import lang::java::jdt::m3::Core;
 import util::ValueUI;
 import series2::Helpers::ReportHelper;
+import series2::Aliases;
 
 import series2::Helpers::LogHelper;
 import IO;
@@ -13,13 +14,7 @@ import Node;
 import Set;
 import String;
 
-
 import util::Math;
-
-alias nodeId = int;
-alias nodeS = tuple[node d,int s];
-alias nodeDetailed = tuple[nodeId id, node d, loc l, int s];
-alias cloneDetectionResult = tuple[map[nodeId, nodeDetailed] nodeDetails, rel[nodeId f,nodeId s] connections, duplications duplicateLines];
 
 loc noLocation = |unresolved:///|;
 Type defaultType = lang::java::jdt::m3::AST::short();
