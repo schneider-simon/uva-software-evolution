@@ -100,7 +100,7 @@ You can display the AST as an tree. When you compare the nodes, there will be a 
 We use an custom algorithm for detecting the amount of duplicate lines.  The algorithm works like this:
 
 1. Get all locations that contain an duplicate
-2.  Request from the M3 model, all the locations with comments
+2. Request from the M3 model, all the locations with comments
 3. Go through every duplication, and get the lines for every location and look per line:
    1. :If it is a one line comment
    2. If the first character is a multi line start comment  
@@ -234,7 +234,19 @@ What a maintainer can learn from this view:
 
 ##TODO: Add raw data table and explain why it was created
 
+
+
+# Maintainer requirements
+
+1: Maintainers have to have an understanding of a program. There are multiple ways of getting an understanding at a global level of the program. In the paper [Storey, Fracchia, Müller, 1999] these are Macro-strategies. One strategy is called the "As-needed macro-strategies" strategy [Storey, Fracchia, Müller, 1999]. You only take a look at a part of the code when you needed it. With this approach, code clones give a very negative impact. When you want to make a change, you first have to find where the duplicates are, otherwise you can introduce bugs into the system. Our goal is to visualization of clone classes. We are going to resolve this by adding support for clicking so that you can see where else the same code is used.   
+
+2: One issue in maintenance can be that duplicate in required to extent current functionality. When a maintainer wants to abstract these parts, he has to know on what locations these abstraction can be introduced. When you can find clones, and view how to clones look like, you can faster spot places where you can introduce abstraction. This is why we are making it possible to show the code per duplicate. Clicking in the clone will result in a overview of the code.
+
+3: When a maintainer wants to improve the code quality, it is useful to know in what part of the project the most duplicates are. This way, you know on what part of the project the most progress can be booked. It can be use as a guide for reducing complexity.  To solve this, we added a overview of the largest code classes. 
+
 # Literature
 
 [Tornhill, 2015] Adam Tornhill. (2015). Your Code as a Crime Scene. https://doi.org/10.1017/CBO9781107415324.004
-[Koschke, 2008]. R. Koschke. (2008). Identifying and Removing Software Clones.
+[Koschke, 2008] R. Koschke. (2008). Identifying and Removing Software Clones.
+
+[Storey, Fracchia, Müller, 1999] Storey, M. A., Fracchia, F. D., & Müller, H. A. (1999). Cognitive design elements to support the construction of a mental model during software exploration. *Journal of Systems and Software*, *44*(3), 171-185.
