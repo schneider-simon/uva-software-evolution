@@ -61,7 +61,7 @@ public duplications getDuplicateLinesPerFile(M3 model, cloneDetectionResult clon
 				int lineNumber = startLineNumber + i;
 				
 				//It is not a line of code when
-				if(/*isOneLineComment(line) || isMultiLineCommentStart(line) || isMultiLineCommentEnd(line) || */isLineEmpty(line))
+				if(isOneLineComment(line) || isMultiLineCommentStart(line) || isMultiLineCommentEnd(line) || isLineEmpty(line))
 					continue;
 				
 				//Or if it is inside a comment section

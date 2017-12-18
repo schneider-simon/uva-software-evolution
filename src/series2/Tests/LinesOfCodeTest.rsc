@@ -29,8 +29,8 @@ test bool doDupTest() {
 	//Just geting the last ID
 	for(str key <- result.duplicateLines)
 		indName = key;
-		iprintln(sort(toList(result.duplicateLines[indName])));
-	return size(result.duplicateLines) == 1 && result.duplicateLines[indName] == toSet([4,5,6,7,8,10,11,12,16,17,20,21]);
+
+	return size(result.duplicateLines) == 1 && result.duplicateLines[indName] == toSet([4,5,6,7,8,10,11,12,16,17,20,26]);
 }
 
 
