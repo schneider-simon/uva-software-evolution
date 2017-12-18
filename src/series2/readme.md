@@ -34,11 +34,11 @@ ast = loadAstForProject(y);
 ast <- normalize @ type 2 / type 3
 astList = getAllNodes(ast)
 astList <- remove when subitems less than z
+astList <- remove node when less than z' lines of code
 astList <- remove with invalid location
 
 @no duplicate compares
-@sub nodes for every node is minimal <z>
-@sub nodes code size is minimal <z'>
+@Do not compare when node is a subnode of that node 
 @similarity of nodeA and NodeB > a
 compare astList astList to nodeA nodeB:
 	return add connection:<nodeA.l,nodeB.l>
