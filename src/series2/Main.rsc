@@ -11,6 +11,7 @@ import util::Math;
 import lang::java::jdt::m3::Core;
 import lang::java::jdt::m3::AST;
 
+import series2::Helpers::ReportHelper;
 import series2::CloneDetection::CloneDetection;
 import series2::Helpers::LogHelper;
 import series2::Helpers::BenchmarkHelper;
@@ -61,7 +62,6 @@ public void writeAnalyses(str name, loc location) {
 	startMeasure("LoadM3");
 	M3 model = createM3FromEclipseProject(location);	
 	stopMeasure("LoadM3");
-
 	
 	startMeasure("CreateAsts");
 	set[Declaration] ast = createAstsFromEclipseProject(location, true);
@@ -76,8 +76,14 @@ public void writeAnalyses(str name, loc location) {
 	list[str] codeLines = getCodeLinesFromFiles(projectFiles).codeLines;
 	stopMeasure("GetCodeLines");
 
-	for(int i <- [1..(3+1)]) {
+	int i = 3;
+	//for(int i <- [1..(3+1)]) {
 		cloneDetectionResult result = doAnalyses(ast,i);
+		
+		//Determine what lines are duplicates
+		duplications dups = getDuplicateLinesPerFile(model,result);
+		iprintln(dups);
+		asd;
 			
 		startMeasure("ToJson");	
 		str output = cloneResultToJson(result, location, size(codeLines), projectFiles);
@@ -88,7 +94,7 @@ public void writeAnalyses(str name, loc location) {
 		writeFile(outputLocation, output);
 		println("Output location: <outputLocation>");
 		
-	}
+	//}
 }
 
 /*

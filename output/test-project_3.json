@@ -7,65 +7,65 @@
 		"path": "/"			
 	},
 
-			"linesOfCode": 20,
+			"linesOfCode": 17,
 
-			"projectFiles": 2
+			"projectFiles": 1
 		},
 		"nodes": [{
-		"id": "152",
+		"id": "95",
 		"location": {
-		"path": "/src/TestClass1.java",
-		"length": 257,
-		"startLine": 1,
-		"endLine": 11,
-		"startColumn": 0,
-		"endColumn": 1,	
-		"linesOfCode": 10		
+		"path": "/src/simpleType.java",
+		"length": 107,
+		"startLine": 10,
+		"endLine": 14,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 5		
 	},
-		"linesOfCode": 10,
-		"nodesAmount": 76			
+		"linesOfCode": 5,
+		"nodesAmount": 47			
 	},
 {
-		"id": "76",
+		"id": "48",
 		"location": {
-		"path": "/src/TestClass2.java",
-		"length": 257,
-		"startLine": 1,
-		"endLine": 11,
-		"startColumn": 0,
-		"endColumn": 1,	
-		"linesOfCode": 10		
+		"path": "/src/simpleType.java",
+		"length": 106,
+		"startLine": 4,
+		"endLine": 8,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 5		
 	},
-		"linesOfCode": 10,
-		"nodesAmount": 76			
+		"linesOfCode": 5,
+		"nodesAmount": 47			
 	},
 {
-		"id": "75",
+		"id": "44",
 		"location": {
-		"path": "/src/TestClass2.java",
-		"length": 257,
-		"startLine": 1,
-		"endLine": 11,
-		"startColumn": 0,
-		"endColumn": 1,	
-		"linesOfCode": 10		
+		"path": "/src/simpleType.java",
+		"length": 86,
+		"startLine": 4,
+		"endLine": 8,
+		"startColumn": 21,
+		"endColumn": 2,	
+		"linesOfCode": 5		
 	},
-		"linesOfCode": 10,
-		"nodesAmount": 75			
+		"linesOfCode": 5,
+		"nodesAmount": 42			
 	},
 {
-		"id": "151",
+		"id": "91",
 		"location": {
-		"path": "/src/TestClass1.java",
-		"length": 257,
-		"startLine": 1,
-		"endLine": 11,
-		"startColumn": 0,
-		"endColumn": 1,	
-		"linesOfCode": 10		
+		"path": "/src/simpleType.java",
+		"length": 86,
+		"startLine": 10,
+		"endLine": 14,
+		"startColumn": 22,
+		"endColumn": 2,	
+		"linesOfCode": 5		
 	},
-		"linesOfCode": 10,
-		"nodesAmount": 75			
+		"linesOfCode": 5,
+		"nodesAmount": 42			
 	}],
-		"connections": [[151,75,76,152]]
+		"connections": [[91,44,48,95]]
 	}
