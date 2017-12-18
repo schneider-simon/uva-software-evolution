@@ -2,13 +2,13 @@ module series2::Helpers::OutputHelper
 
 import IO;
 import List;
+
 import series2::Helpers::LogHelper;
+import series2::Aliases;
+
 import String;
 
-alias OutputHeads = list[str];
-alias OutputRow = list[str];
-alias OutputRows = list[OutputRow];
-alias HeadValue = tuple[str headVal, str val];
+
 
 
 void writeCsv(loc location, OutputHeads heads, OutputRows rows){

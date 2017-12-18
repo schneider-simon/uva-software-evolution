@@ -1,6 +1,8 @@
 module series2::CloneDetection::CloneClasses
 
 import series2::CloneDetection::CloneDetection;
+import series2::Aliases;
+
 import List;
 import Map;
 import IO;
@@ -25,8 +27,6 @@ map[nodeId, nodeDetailed] SAMPLE_NODE_DETAILS = (
 
 rel[nodeId f,nodeId s] SAMPLE_CONNECTIONS = {<2,4>,<4,5>};
 cloneDetectionResult SAMLE_CLONE_RESULT = <SAMPLE_NODE_DETAILS, SAMPLE_CONNECTIONS>;
-
-alias NodeIdLocation = tuple[nodeId id, loc l];
 
 void testCloneClasses(){	
 	println(location1 >= location12);
