@@ -13,6 +13,7 @@ import List;
 import Node;
 import Set;
 import String;
+import series2::CloneDetection::CloneClasses;
 
 import util::Math;
 
@@ -97,6 +98,8 @@ public cloneDetectionResult doCloneDetection(M3 model, set[Declaration] ast, boo
 	for(nodeI <- nodeWLoc) {
 		results.nodeDetails += (nodeI.id:nodeI);
 	}
+	
+	//results = removeSubsumedClones(results, minimalSimularity); 
 	
 			
  	//Determine what lines are duplicates

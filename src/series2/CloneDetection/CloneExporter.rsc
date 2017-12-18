@@ -10,6 +10,7 @@ import series2::Helpers::StringHelper;
 import series2::CloneDetection::CloneNetwork;
 import series2::CloneDetection::CloneDetection;
 import series2::Helpers::ReportHelper;
+import series2::Aliases;
 
 public str cloneResultToJson(cloneDetectionResult result, loc projectLocation, int linesOfCode, list[loc] projectFiles){
 	list[set[int]] connectionRegions = cubeCloneNetwork(result.connections);
@@ -25,14 +26,21 @@ public str cloneResultToJson(cloneDetectionResult result, loc projectLocation, i
 	projectName = projectLocation.authority;
 		
 	filesJson = "<result.duplicateLines>";
+	filesJson = replaceAll(filesJson, "{", "[");
+	filesJson = replaceAll(filesJson, "}", "]");
 	
+	filesJson = replaceAll(filesJson, "(\"", "{\"");
+	filesJson = replaceAll(filesJson, "])", "]}");
+
+	projectFilesJson = "[" + intercalate(",", ["\"<f.path>\"" | f <- projectFiles]) + "]";
 	
 	return "{
 		\"project\": { \n
 			\"name\": \"<projectName>\",
 			\"location\": <locationWithoutAreaToJson(projectLocation)>,\n
 			\"linesOfCode\": <linesOfCode>,\n
-			\"files\": <filesJson>,\n
+			\"duplicateFiles\": <filesJson>,\n
+			\"projectFiles\": <projectFilesJson>,\n
 		},
 		\"nodes\": [<intercalate(",\n", nodesDetailsJson)>],
 		\"connections\": <[toList(region) | region <- connectionRegions]>

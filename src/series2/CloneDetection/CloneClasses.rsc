@@ -26,7 +26,7 @@ map[nodeId, nodeDetailed] SAMPLE_NODE_DETAILS = (
 );
 
 rel[nodeId f,nodeId s] SAMPLE_CONNECTIONS = {<2,4>,<4,5>};
-cloneDetectionResult SAMLE_CLONE_RESULT = <SAMPLE_NODE_DETAILS, SAMPLE_CONNECTIONS>;
+cloneDetectionResult SAMLE_CLONE_RESULT = <SAMPLE_NODE_DETAILS, SAMPLE_CONNECTIONS, ()>;
 
 void testCloneClasses(){	
 	println(location1 >= location12);
@@ -36,7 +36,7 @@ void testCloneClasses(){
 }
 
 void testRemoval(){	
-	removeSubsumedClones(SAMLE_CLONE_RESULT, 1);
+	removeSubsumedClones(SAMLE_CLONE_RESULT, 100.0);
 }
 
 /**
@@ -44,13 +44,13 @@ void testRemoval(){
 	Step2: Get connections for clones to delete
 	Step3: Only delete clones and their connections if both clones are marked as "to delete"
 **/
-public cloneDetectionResult removeSubsumedClones(cloneDetectionResult result, int cloneType){
+public cloneDetectionResult removeSubsumedClones(cloneDetectionResult result, real minimalSimularity){
 	map[nodeId, nodeDetailed] includedNodes = findIncludedClones(result.nodeDetails);
 	
 	rel[nodeId f, nodeId s] connections = result.connections;
 	
 	//Add transitive relations (transitive closure) for clones that are not type 3
-	if(cloneType < 3){
+	if(minimalSimularity == 100.0){
 		connections = connections+;
 	}
 
@@ -58,7 +58,7 @@ public cloneDetectionResult removeSubsumedClones(cloneDetectionResult result, in
 	
 	set[nodeId] filteredNodeIds = domain(filteredConnections);
 	
-	if(cloneType < 3){
+	if(minimalSimularity == 100.0){
 		filteredConnections = filteredConnections+;
 	}
 	
