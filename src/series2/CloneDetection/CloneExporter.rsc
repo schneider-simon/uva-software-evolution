@@ -9,6 +9,7 @@ import series2::Helpers::LocationHelper;
 import series2::Helpers::StringHelper;
 import series2::CloneDetection::CloneNetwork;
 import series2::CloneDetection::CloneDetection;
+import series2::Helpers::ReportHelper;
 
 public str cloneResultToJson(cloneDetectionResult result, loc projectLocation, int linesOfCode, list[loc] projectFiles){
 	list[set[int]] connectionRegions = cubeCloneNetwork(result.connections);
