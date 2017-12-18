@@ -11,6 +11,8 @@ import util::Math;
 import lang::java::jdt::m3::Core;
 import lang::java::jdt::m3::AST;
 
+import series2::Aliases;
+
 import series2::Helpers::ReportHelper;
 import series2::CloneDetection::CloneDetection;
 import series2::Helpers::LogHelper;
