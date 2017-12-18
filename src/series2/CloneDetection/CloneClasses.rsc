@@ -45,8 +45,15 @@ void testRemoval(){
 	Step3: Only delete clones and their connections if both clones are marked as "to delete"
 **/
 public cloneDetectionResult removeSubsumedClones(cloneDetectionResult result, real minimalSimularity){
+	set[nodeId] duplicateNodeIds = carrier(result.connections);
 
-	map[nodeId, nodeDetailed] flagForeRemovalNodes = findIncludedClones(result.nodeDetails);
+	map[nodeId, nodeDetailed] nodeDetails = (nodeId: result.nodeDetails[nodeId] | nodeId <- result.nodeDetails, nodeId in duplicateNodeIds);
+	
+	map[nodeId, nodeDetailed] flagForRemovalNodes = findIncludedClones(nodeDetails);
+	for(nodeId <- nodeDetails){
+		nodeDetail =  result.nodeDetails[nodeId];
+		println("<nodeId>: <nodeDetail.l.path> <nodeDetail.l.begin.line> - <nodeDetail.l.end.line>");
+	}
 	
 	rel[nodeId f, nodeId s] connections = result.connections;
 	
@@ -55,17 +62,16 @@ public cloneDetectionResult removeSubsumedClones(cloneDetectionResult result, re
 		connections = connections+;
 	}
 
-	rel[nodeId f, nodeId s] filteredConnections = {<c.f,c.s> | c <- connections, c.f notin flagForeRemovalNodes || c.s notin flagForeRemovalNodes};
+	rel[nodeId f, nodeId s] filteredConnections = {<c.f,c.s> | c <- connections, c.f notin flagForRemovalNodes || c.s notin flagForRemovalNodes};
 	
-	set[nodeId] filteredNodeIds = domain(filteredConnections);
+	set[nodeId] filteredNodeIds = carrier(filteredConnections);
 	
 	if(minimalSimularity == 100.0){
 		filteredConnections = filteredConnections+;
 	}
-	iprintln(sort(([id | id <- flagForeRemovalNodes])));
-	iprintln(sort(([id | id <- result.nodeDetails])));
 	
-	map[nodeId, nodeDetailed] filteredNodes = (id: result.nodeDetails[id] | nodeId id <- result.nodeDetails, id in filteredNodeIds);
+	
+	map[nodeId, nodeDetailed] filteredNodes = (id: nodeDetails[id] | nodeId id <- nodeDetails, id in filteredNodeIds);
 
 	return <filteredNodes, filteredConnections, result.duplicateLines>;
 }
