@@ -16,41 +16,97 @@
 
 # Clone detection
 
-We use a approach that uses the AST to detect code clones. We use the tactics that is described by [Koschke, 2008]. In pseudo code:
+We use an approach that uses the AST to detect code clones, what is a valid method of clone detection according to [Koschke, 2008]. 
 
-Where:
+
+
+## What code types do we detect
+
+We did some research on what the differences in the clone types are. According to [Roy, Cordy, 2007], the difference is: 
+
+- Type 1 clones: The code fragments are identical, except for variations in whitespace and comments.
+- Type 2 clones: The code fragments are structurally and syntactically identical, except variations are allowed in identifiers, literals, types, layout and comments.
+- Type 3 clones: The code fragments are copied with further modifications. Statements can be altered in addition to variations in identifiers, literals, types, layout and comments.
+
+
+
+If we apply this on an AST. 
+
+
+
+![Problem](./docs/prob2.jpg)
+
+Than (where the symbol == means comparing nodes without looking at the sub-nodes):
+
+- Type 1 clone:  ```node 6 == node 9```,  ```node 7 == node 10``` and ```node 2 == node 4```  then node 2 is a type 1 clone of node 4,  node 6 is a type 1 clone of node 9,  node 7 is a type 1 clone of node 10.  
+- Type 2 clone: Node  ```node 9 == node 10``` where identifiers, literals, types, and layout are removed. Then node 9 is a type 2 clone of node 10.
+- Type 3 clone: Node  ```node 2 == node 3``` and ```node 6 or node 7 == node 8``` where identifiers, literals, types, and layout are removed. Then node 2 is a type 3 clone of node 3. With type 3 clones you have to set a similarity threshold. It could be true that node 2 is a type 3 clone of node 3, but node 3 is not a type 3 clone of node 2. 
+
+## The algorithm
+
+The algorithm is the basic algorithm described by [Khatoon, Singh, Shukla, 2012]. The only difference is that we do not use an hash function ans that clone pairs are managed outside the detection code.
+
+In pseudo code:
+
 ```
 * x is the clone type
 * y is the project location
 * z is the min number of sub notes
 * z' is the min number of lines of code per node
+doCloneDetection(x,y,z,z')
+  type = x
+  a = (for type = 1:100 2:100 3:30)
+
+  ast = loadAstForProject(y);
+  ast <- normalize @ type 2 / type 3
+  astList = getAllNodes(ast)
+  astList <- remove when subitems less than z
+  astList <- remove node when less than z' lines of code
+  astList <- remove with invalid location
+
+  @no duplicate compares
+  @Do not compare when node is a subnode of that node 
+  @similarity of nodeA and NodeB > a
+  compare astList astList to nodeA nodeB:
+      return add connection:<nodeA.l,nodeB.l>
+
+  return set nodes:astList
+  return
 ```
 
+
+
+## The similarity function
+
+We used the similarity function as described by [Baxter, Yahin, Moura, Sant'Anna, Bier, 1998].   Where:
+
 ```
-type = x
-a = (for type = 1:100 2:100 3:30)
-
-ast = loadAstForProject(y);
-ast <- normalize @ type 2 / type 3
-astList = getAllNodes(ast)
-astList <- remove when subitems less than z
-astList <- remove node when less than z' lines of code
-astList <- remove with invalid location
-
-@no duplicate compares
-@Do not compare when node is a subnode of that node 
-@similarity of nodeA and NodeB > a
-compare astList astList to nodeA nodeB:
-	return add connection:<nodeA.l,nodeB.l>
-
-return set nodes:astList
-return
-
-where:
-	similarity nodea nodeb =
-	nodea.subItems `similar` nodeb.subItems /
-	(nodea.subcount + nodeb.subcount) * 100
+Similarity = 2 x S / (2 x S + L + R)
+		where:
+		S = number of shared nodes
+		L = number of different nodes in sub-tree 1
+		R = number of different nodes in sub-tree 2
 ```
+
+What translates in rascal to this:
+
+```java
+public num nodeSimilarity(node nodeA, node nodeB) {
+	list[node] nodeList1 = nodeToNodeList(nodeA);
+	list[node] nodeList2 = nodeToNodeList(nodeB);
+
+	list[node] sameItems = nodeList1 & nodeList2;
+	int sameItemSize = size(sameItems);
+
+	num nodeADiff = size([nodei | nodei <- nodeList1, nodei notin sameItems]);
+	num nodeBDiff = size([nodei | nodei <- nodeList2, nodei notin sameItems]);
+	
+	return 2.0 * sameItemSize / (2.0 * sameItemSize + nodeADiff + nodeBDiff);
+}
+
+```
+
+
 
 ## Limitations of our AST approach
 
@@ -272,3 +328,9 @@ What a maintainer can learn from this view:
 [Koschke, 2008] R. Koschke. (2008). Identifying and Removing Software Clones.
 
 [Storey, Fracchia, Müller, 1999] Storey, M. A., Fracchia, F. D., & Müller, H. A. (1999). Cognitive design elements to support the construction of a mental model during software exploration. *Journal of Systems and Software*, *44*(3), 171-185.
+
+[Baxter, Yahin, Moura, Sant'Anna, Bier, 1998] Baxter, I. D., Yahin, A., Moura, L., Sant'Anna, M., & Bier, L. (1998, November). Clone detection using abstract syntax trees. In *Software Maintenance, 1998. Proceedings., International Conference on* (pp. 368-377). IEEE.
+
+[Khatoon, Singh, Shukla, 2012] Khatoon, T., Singh, P., & Shukla, S. (2012). Abstract Syntax Tree Based Clone Detection for Java Projects. *IOSR Journal of Engineering*, *2*(12).
+
+[Roy, Cordy, 2007] Roy, C. K., & Cordy, J. R. (2007). A survey on software clone detection research. *Queen’s School of Computing TR*, *541*(115), 64-68.
