@@ -11,6 +11,7 @@
 * Show biggest clone (in lines),
 * Show biggest clone class
 * Show example clones
+* Add raw data table and explain why it was created
 ```
 
 # Clone detection
@@ -262,7 +263,7 @@ What a maintainer can learn from this view:
 
 3: When a maintainer wants to improve the code quality, it is useful to know in what part of the project the most duplicates are. This way, you know on what part of the project the most progress can be booked. It can be use as a guide for reducing complexity. To solve this, we added an overview of the largest code classes.   
 
-#TODO: Add raw data table and explain why it was created
+#
 
 # Literature
 
