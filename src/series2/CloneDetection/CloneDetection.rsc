@@ -140,17 +140,23 @@ public list[node] nodeToNodeList(node iNode) {
 }
 
 /*
-	Todo: Extract the lines per node. Use these to determine how many % is the same
-		  Also return how many lines are the same?
+	Similarity = 2 x S / (2 x S + L + R)
+			where:
+			S = number of shared nodes
+			L = number of different nodes in sub-tree 1
+			R = number of different nodes in sub-tree 2
 */
 public num nodeSimilarity(node nodeA, node nodeB) {
 	list[node] nodeList1 = nodeToNodeList(nodeA);
 	list[node] nodeList2 = nodeToNodeList(nodeB);
 
-	num sameElements = size(nodeList1 & nodeList2);
-	num totalItems = size(nodeList1) + size(nodeList2) - sameElements;
+	list[node] sameItems = nodeList1 & nodeList2;
+	int sameItemSize = size(sameItems);
 
-	return sameElements / totalItems * 100;
+	num nodeADiff = size([nodei | nodei <- nodeList1, nodei notin sameItems]);
+	num nodeBDiff = size([nodei | nodei <- nodeList2, nodei notin sameItems]);
+	
+	return 2.0 * sameItemSize / (2.0 * sameItemSize + nodeADiff + nodeBDiff);
 }
 
 /*
