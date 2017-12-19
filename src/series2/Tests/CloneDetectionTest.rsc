@@ -93,7 +93,7 @@ test bool testT3SimCorrect() {
 //Test simularity
 test bool testT3SimInCorrect() {
 	set[int] lines = doT3CloneDetect("detectMethodD", 6, 14.0);
-	return size(lines) == 6;
+	return size(lines) == 4;
 }
 
 //globalWithSubClass

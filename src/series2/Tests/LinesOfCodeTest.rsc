@@ -23,19 +23,19 @@ loc eclipsePath = |project://use-test-project/|;
 
 //Code swap
 test bool doDupTest() {
-	cloneDetectionResult result = doT3CloneDetection("dupTest", 1, 80.0);
+	cloneDetectionResult result = doT3CloneDetectionLoc("dupTest", 1, 90.0);
 	str indName = "";
 	
 	//Just geting the last ID
 	for(str key <- result.duplicateLines)
 		indName = key;
-
-	return size(result.duplicateLines) == 1 && result.duplicateLines[indName] == toSet([4,5,6,7,8,10,11,17,21,22,25,31]);	
+iprintln(sort(toList(result.duplicateLines[indName])));
+	return size(result.duplicateLines) == 1 && result.duplicateLines[indName] == toSet([4,5,6,8,10,11,21,22,25,31]);	
 }
 
 //Code swap
 test bool hsqlErrorTest() {
-	cloneDetectionResult result = doT3CloneDetection("JaasAuthBean", 0, 10.0);
+	cloneDetectionResult result = doT3CloneDetectionLoc("JaasAuthBean", 0, 10.0);
 	str indName = "";
 	
 	//Just geting the last ID
@@ -46,7 +46,7 @@ test bool hsqlErrorTest() {
 }
 
 //Do clone detection
-public cloneDetectionResult doT3CloneDetection(str className, int v, real diff) {
+public cloneDetectionResult doT3CloneDetectionLoc(str className, int v, real diff) {
 	set[Declaration] ast = getASTForClass(className);
 	M3 model = createM3FromEclipseProject(eclipsePath);
 	return doCloneDetection(model, ast, true, 1, v, diff);
