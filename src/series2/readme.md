@@ -16,21 +16,31 @@
 
 ## Related files / projects
 
-* Manual: [manual.pdf](./manual.pdf)
-* Result tables: [[/final_output/results](https://github.com/schneider-simon/uva-software-evolution/tree/master/final_output/results)](./docs/results/)
+* Manual: [manual.md](https://github.com/schneider-simon/uva-software-evolution/blob/master/src/series2/manual.md)
+* Result tables: [src/series2/docs/results/results.tsv](https://github.com/schneider-simon/uva-software-evolution/blob/master/src/series2/docs/results/results.tsv)
 * Result JSON exports: [/final_output/results](https://github.com/schneider-simon/uva-software-evolution/tree/master/final_output/results)
 * Eclipse respoistory with test files: https://github.com/lauwdude/use-test-project
 * Duplication visualisation:
   * Repository: https://github.com/schneider-simon/duplication-visualization
-  * Demo: https://software-evolution.schneider.click 
+  * Online demo: https://software-evolution.schneider.click 
 
+# Maintainer requirements
 
+**1. Give new maintainers a quick understanding of the program**
+
+Maintainers need to have an understanding of a program. There are multiple ways of getting an understanding at a global level of the program. In the paper [Storey, Fracchia, Müller, 1999] these are Macro-strategies. One strategy is called the "As-needed macro-strategies" strategy [Storey, Fracchia, Müller, 1999]. You only take a look at a part of the code when you needed it. With this approach, code clones give a very negative impact. When you want to make a change, you first have to find where the duplicates are, otherwise you can introduce bugs into the system. Our goal is to visualization of clone classes. We are going to resolve this by adding support for clicking so that you can see where else the same code is used.  
+
+**2. Show clone hotspots **
+
+One issue in maintenance can be that duplicate is required to extent current functionality. When a maintainer wants to abstract these parts, he has to know on what locations these abstractions can be introduced. When you can find clones, and view how to clones look like, you can faster spot places where you can introduce abstraction. This is why we are making it possible to show the code per duplicate. Clicking in the clone will result in a overview of the code. 
+
+**3. Help maintainer to reduce duplicated code quickly**
+
+When a maintainer wants to improve the code quality, it is useful to know in what part of the project the most duplicates are. This way, you know on what part of the project the most progress can be booked. It can be use as a guide for reducing complexity. To solve this, we added an overview of the largest code classes and a code preview panel.
 
 # Clone detection
 
 We use an approach that uses the AST to detect code clones, as described by [Koschke, 2008]. 
-
-
 
 ## What code types do we detect
 
@@ -262,23 +272,7 @@ public num nodeSimilarity(node nodeA, node nodeB) {
 
 
 
-## Limitations of our AST approach
 
-We cannot compare nodes, or groups of nodes that are on the same level to other nodes or group of nodes. For example, the tree below where nodes with a similar color are the same:
-
-
-
-![Problem](./docs/prob.jpg)
-
-
-
-
-
-* The two large green trees are not seen as a type one or two clone, this because the sub nodes are different, what is correct.  
-* The two yellow sub nodes of the first green tree are not seen as duplicates. This because our tool only compares whole nodes. 
-* The two yellow sub nodes of the first green tree are also not compared with any combination of sequential nodes of the second green sub tree. This because our approach does not support comparing sequential nodes with other nodes in the system. It also does not support comparing these groups to groups under the same parent node.  
-
-We did not add support for this because it adds a lot of complexity. The clone detection will also take a lot more times because of the high amount of additional checks that have to be preformed. Large clones are unlikely to be affected because in real-live projects, they normally are not on a single layer in the AST. For this project, and our goal is to find large clones; small codes have a smaller impact to the system. 
 
 # Finding what lines are duplication
 
@@ -383,14 +377,27 @@ In his book, Adam Tornhill describes the methods and visualizations that crimino
 
 One example of visualizations that criminologists supposedly use maps in which they highlight hotspots in order to predict future crimes.
 
-__Figure: Clone enclose diagram to show clone overview__
+__Figure: Clone enclose diagram to show clone overview (Step 1, before zoom)__ 
 
-![Clone map](docs/clone_map.png)
+![Clone map](docs/use_bubble_step1.png)
+
+**Figure: Clone enclose diagram to show clone overview (Step 2, after zoom to lib folder)**
+
+![Clone map](docs/use_bubble_step2.png)
+
+
 
 The visualization above tries to imitate this approach by creating a zoomable map of code clone criminals.
 
 We used an enclosure diagram in order to handle large software systems. This diagram is based on a geometric layout algorithm called circle packing. Each circle represents a module or code class of the system.
 The more duplicate lines a module has the larger the circle. We can immediately see the files with the largest clones and in which folders they are located.
+
+### Properties of the enclose diagram 
+
+* *Pro*: Even very large projects can be visualized. Very small circles can be hidden before a zoom step to increase performance.
+* *Pro* : A maintainer can focus on one specific part of the project (see step 2) or get a quick overview (step 1)
+* *Pro* : For future work one could highlight the bubbles or use diffrent shapes to show relations or other properties like lines of code.
+* *Contra*: It is relativly hard to implement the packed circles chart and other visualizations like the clone graph (see below) or the "friendship wheel" express the relations between duplicates better. 
 
 ## Clone graphs
 
@@ -421,21 +428,126 @@ What a maintainer can learn from this view:
 * Removing the largest 4 clone classes could reduce the number of files that contain clones drastically.
 
 
+## Code preview
 
+Instead of showing clones only we decided to show the whole code of a selected class next to the enclosure diagram.
+
+**Figure: Code preview panel next to enclosure diagram **
+
+![Code preview](./docs/use_code_preview.png) 
+
+There are three diffrent levels of highlighting:
+
+* Regular: No clone was detected in this area. The code is highlighted like the contents of an IDE.
+* Dark red: Inside a clone, but not counted as a line of code (empty line or comment)
+* Bright red: Lines that are inside a clone and contain actual code.
+
+By clicking on an area which is highlighted red a maintainer can see which other parts of his codebase contain the same clone (see figure below).
+
+**Figure: Modal to show related clones**
+
+![Modal](./docs/use_modal.png)
+
+
+
+## Tabular information
+
+To give the maintainer a proof of our numbers we included a searchable raw data table.
+
+In the example below only files that contain the keywork `KMP` are listed. A maintainer can then inspect the clone class by opening the arrow to the left.
+
+**Figure: Interactive raw data table**
+
+![Raw data](./docs/use_raw_data.png)
+
+
+
+If a maintainer does not want to explore raw data but get a quick overview of the system we added a "facts" table that shows the worst hotspots and other metrics:
+
+**Figure: Quick facts table ** 
+
+![Raw data](./docs/use_smallsql_type1.png)
 
 # Testing
 
-We provided a test suit for  
+We provided a test suit for this projects.  Tests can be executed when all test files are imported:
+```java
+import series2::Tests::CloneDetectionTest;
+import series2::Tests::LinesOfCodeTest;
+import series2::Tests::CloneClassesTest;
+```
+## Clone detection
+We created a framework that makes testing easy. You can specify in the test file what project has to be tested. The following tests are supported:  
+```java
+//getClonesType accepts a class that has to be analyzed, and the clone type 
+//It returns the duplicate lines 
+set[int] lines = getClonesType("ifChange", 1); //Test the class ifChange for type 1 clone 
+//doT3CloneDetect accepts a class that has to be analyzed, the amount of minimal sub nodes, and a similarity percentage. 
+//It returns the duplicate lines 
+set[int] lines = doT3CloneDetect("codeSwap", 16, 95.0); //Test the class codeSwap, test nodes with minimal 16 sub nodes and a similarity of 95% 
+//doT3CloneDetect accepts a class that has to be analyzed, the amount of minimal sub nodes, and the clone type 
+set[int] lines = getClonesTypeWithV("codeSwap", 1, 16); //Test the class codeSwap, detect type 1 clones, and each node that is compared needs to have 16 sub nodes or more.
+//There are multiple ways of testing the output. You can check if the lines are equal to a set of lines, or you can check how many lines are found. For example:
+size(lines) == 6;
+```
+We execute 25 different test cases:
+```java
+Running tests for series2::Tests::CloneDetectionTest
+Test report for series2::Tests::CloneDetectionTest                                       
+        all 25/25 tests succeeded
+```
+## Lines of code
+As mentioned earlier, we have test the lines of code functionality. We created a framework that makes testing easy. You can specify in the test file what project has to be tested. The following tests are supported:
+```java
+//doT3CloneDetectionLoc accepts a class that has to be analyzed, the amount of minimal sub nodes, and a similarity percentage
+//It returnes a file overview with lines that are counted as duplicates
+cloneDetectionResult result = doT3CloneDetectionLoc("dupTest", 1, 90.0); //Test the class dupTest, test nodes with minimal 1 sub node and a similarity of 90% 
+//You can caludate the output like this:
+result.duplicateLines[fn] == toSet([4,5,6,8,10,11,21,22,25,31]);    
+//With this you check that [4,5,6,8,10,11,21,22,25,31] are the found duplicate lines.
+```
+We execute 2 different test cases:
+```java
+Running tests for series2::Tests::LinesOfCodeTest
+[4,5,6,8,10,11,21,22,25,31] success                                                       
+Test report for series2::Tests::LinesOfCodeTest                             
+        all 2/2 tests succeeded
+```
+For these test we choose to add multiple side cases per test instead of a large amount of different tests.
 
-# Maintainer requirements
+# Design decision
 
-1: Maintainers have to have an understanding of a program. There are multiple ways of getting an understanding at a global level of the program. In the paper [Storey, Fracchia, Müller, 1999] these are Macro-strategies. One strategy is called the "As-needed macro-strategies" strategy [Storey, Fracchia, Müller, 1999]. You only take a look at a part of the code when you needed it. With this approach, code clones give a very negative impact. When you want to make a change, you first have to find where the duplicates are, otherwise you can introduce bugs into the system. Our goal is to visualization of clone classes. We are going to resolve this by adding support for clicking so that you can see where else the same code is used.  
+* **Make report configurable**: TODO!
+* **Loading whole code files on demand**: TODO!
+* **Using AST over text based approach**: TODO!
+* **Including multiple diagrams**: TODO!
+* **Using JavaScript for visualisation**: TODO!
 
-2: One issue in maintenance can be that duplicate in required to extent current functionality. When a maintainer wants to abstract these parts, he has to know on what locations these abstractions can be introduced. When you can find clones, and view how to clones look like, you can faster spot places where you can introduce abstraction. This is why we are making it possible to show the code per duplicate. Clicking in the clone will result in a overview of the code. 
+# Future work
 
-3: When a maintainer wants to improve the code quality, it is useful to know in what part of the project the most duplicates are. This way, you know on what part of the project the most progress can be booked. It can be use as a guide for reducing complexity. To solve this, we added an overview of the largest code classes.   
+## Comparing neighbouring nodes
 
-#
+We cannot compare nodes, or groups of nodes that are on the same level to other nodes or group of nodes. For example, the tree below where nodes with a similar color are the same:
+
+
+
+![Problem](./docs/prob.jpg)
+
+
+
+
+
+- The two large green trees are not seen as a type one or two clone, this because the sub nodes are different, what is correct.  
+- The two yellow sub nodes of the first green tree are not seen as duplicates. This because our tool only compares whole nodes. 
+- The two yellow sub nodes of the first green tree are also not compared with any combination of sequential nodes of the second green sub tree. This because our approach does not support comparing sequential nodes with other nodes in the system. It also does not support comparing these groups to groups under the same parent node.  
+
+We did not add support for this because it adds a lot of complexity. The clone detection will also take a lot more times because of the high amount of additional checks that have to be preformed. Large clones are unlikely to be affected because in real-live projects, they normally are not on a single layer in the AST. For this project, and our goal is to find large clones; small codes have a smaller impact to the system. 
+
+## Show relationship in enclosure diagram
+
+Instead of using two diagrams, enclosure and graph, to give an overview and the relations we could unit them in a single view. One approach could be a connected bubble diagram in which bubbles are connected with lines to represent the amount of shared clones, the stronger the line, the more duplicates they share.
+
+ Furthermore, we could add color codes or shapes to visualize multiple properties like lines of code, complecity or analyzability at once. 
 
 # Literature
 
