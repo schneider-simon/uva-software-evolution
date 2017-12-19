@@ -1,0 +1,592 @@
+{
+		"project": { 
+
+			"name": "smallsql",
+			"location": {
+		"uri": "project://smallsql",	
+		"path": "/"			
+	},
+
+			"linesOfCode": 24050,
+
+			"duplicateFiles": {"/src/smallsql/database/ExpressionFunctionLog.java":[33,40,41,38,44,42,43,36],"/src/smallsql/database/ExpressionFunctionTan.java":[33,40,41,38,44,42,43,36],"/src/smallsql/database/language/Language.java":[615,590,386,472,565,443,469,413,624,497,382,515,570,601,486,436,463,588,542,474,384,438,380,461,484,415,513,568,603,626,561,607,598,557,459,409,555,398,616,447,501,530,368,609,411,550,553,457,611,528,445,503,454,618,449,562,544,517,395,535,467,448,406,466,388,375,545,621,357,563,521,360,579,532,391,394,520,593,361,418,405,578,622,358,495,617,518,399,509,426,531,628,432,453,471,574,556,478,371,502,378,610,583,444,401,549,552,480,538,365,505,604,430,423,425,597,600,412,487,625,514,383,437,442,541,614,591,387,512,569,627,460,381,414,485,439,475,498,440,589,566,612,543,479,580,433,587,470,429,508,372,526,575,537,402,488,477,422,481,468,377,539,524,582,573,585,354,420,483,434,389,363,577,416,374,620,523,516,435,362,417,534,594,595,576,407,451,494,464,522,404,393,547,623,392,546,390,533,450,403,500,527,373,554,376,599,428,507,606,367,458,560,619,584,482,421,511,529,355,572,551,558,455,476,397,410,369,608],"/src/smallsql/database/ExpressionFunctionLCase.java":[60,62,48,52,59,44,54,43,47,49,58,55,40,34,61,42,53],"/src/smallsql/junit/TestOrderBy.java":[751,540,242,472,336,469,214,497,515,732,701,486,436,705,199,212,338,542,703,474,202,484,415,227,749,200,513,506,348,734,720,530,740,240,504,330,699,229,745,709,528,350,722,231,510,251,535,220,233,724,755,730,713,467,712,244,731,754,250,347,521,333,532,334,247,520,223,495,418,419,509,426,741,531,432,710,471,329,478,717,723,502,230,219,351,208,480,538,340,505,744,430,423,733,203,425,215,487,437,514,541,750,700,496,243,512,201,414,485,498,702,226,748,213,198,479,207,346,343,433,216,211,470,427,526,537,352,488,236,756,341,431,481,468,539,736,524,238,490,205,218,718,483,345,523,416,698,245,434,725,516,493,435,417,494,519,726,753,715,522,222,729,248,332,246,533,714,241,228,500,489,536,349,210,507,235,342,217,428,739,743,421,511,239,746,719,757,708,476,331],"/src/smallsql/database/ExpressionFunctionDayOfMonth.java":[48,50,40,52,45,51,34,44,54,43,49],"/src/smallsql/database/ExpressionFunctionSin.java":[33,40,41,38,44,42,43,36],"/src/smallsql/database/language/Language_it.java":[93,164,171,110,121,60,183,66,95,141,62,143,166,64,33,108,98,76,184,181,179,175,125,39,118,116,78,139,173,177,58,134,55,40,41,85,146,113,88,86,89,74,52,112,133,147,38,136,151,154,124,160,99,178,172,106,185,103,45,79,129,117,51,68,153,182,111,170,165,168,63,167,180,155,67,122,109,140,71,94,107,57,80,150,100,130,157,159,163,105,69,102,44,82,128,144,84,90,135,91,114,145,72,53,132,87,43,101,174,131,77,56,156,70,119,126,176,149,138,83,162,97],"/src/smallsql/database/language/Language_de.java":[93,164,171,152,110,121,60,183,66,123,62,143,166,64,169,33,108,98,76,184,181,137,179,175,125,39,118,96,116,78,139,127,173,177,58,134,55,40,41,85,146,75,113,88,86,89,133,52,112,38,154,124,81,99,178,172,106,45,79,129,117,51,68,158,120,153,182,111,170,165,92,142,63,167,180,155,67,109,140,71,94,107,57,161,150,100,130,159,163,105,69,102,44,82,148,128,73,144,84,90,115,135,145,72,53,132,87,43,101,174,131,77,56,156,70,176,149,138,83,162,104,97],"/src/smallsql/database/ExpressionFunctionYear.java":[48,50,40,52,45,51,34,44,54,43,49],"/src/smallsql/database/ExpressionFunctionUCase.java":[60,62,48,52,59,44,54,43,47,49,58,55,40,34,61,42,53],"/src/smallsql/database/ExpressionFunctionPower.java":[33,48,40,41,38,45,46,44,42,47,36],"/src/smallsql/database/ExpressionFunctionASin.java":[33,40,41,38,44,42,43,36],"/src/smallsql/database/MutableNumeric.java":[499,513,506,504,528,532,514,496,512,508,523,533,507,529,497,515,501,530,510,492,520,495,518,509,531,502,491,525,505,524,490,516,493,522,519,500,527,489],"/src/smallsql/database/ExpressionFunctionMinute.java":[48,50,40,52,45,51,34,44,54,43,49],"/src/smallsql/database/ExpressionFunctionMonth.java":[48,50,40,52,45,51,34,44,54,43,49],"/src/smallsql/database/ExpressionFunctionExp.java":[33,40,41,38,44,42,43,36],"/src/smallsql/database/ExpressionFunctionCeiling.java":[33,40,41,38,44,42,43,36],"/src/smallsql/database/ExpressionFunctionATan2.java":[33,48,40,41,38,45,46,44,42,47,36],"/src/smallsql/database/ExpressionFunctionACos.java":[33,40,41,38,44,42,43,36],"/src/smallsql/database/ExpressionFunctionRadians.java":[33,40,41,38,44,42,43,36],"/src/smallsql/database/ExpressionFunctionHour.java":[48,50,40,52,45,51,34,44,54,43,49],"/src/smallsql/database/ExpressionFunctionDayOfYear.java":[48,50,40,52,45,51,34,44,54,43,49],"/src/smallsql/database/ExpressionFunctionATan.java":[33,40,41,38,44,42,43,36],"/src/smallsql/junit/TestTransactions.java":[440,420,410,443,171,413,110,183,121,436,123,441,438,169,409,179,175,411,116,186,127,173,445,134,194,190,406,113,189,405,133,112,418,419,408,124,432,178,172,444,185,129,117,430,423,120,182,111,170,442,414,180,439,433,429,427,130,431,422,416,191,135,114,435,417,407,192,132,193,188,131,446,428,119,126,176,421,424],"/src/smallsql/database/ExpressionFunctionSqrt.java":[33,40,41,38,44,42,43,36],"/src/smallsql/database/ExpressionFunctionDegrees.java":[33,40,41,38,44,42,43,36],"/src/smallsql/database/ExpressionFunctionCos.java":[33,40,41,38,44,42,43,36]},
+
+			"projectFiles": ["/src/smallsql/junit/AllTests.java","/src/smallsql/database/ExpressionFunctionPI.java","/src/smallsql/database/ExpressionFunctionInsert.java","/src/smallsql/database/TableViewMap.java","/src/smallsql/database/SQLTokenizer.java","/src/smallsql/database/RowSource.java","/src/smallsql/database/ExpressionFunctionPower.java","/src/smallsql/database/ExpressionFunctionUCase.java","/src/smallsql/junit/TestOther.java","/src/smallsql/database/IndexDescription.java","/src/smallsql/database/ExpressionFunctionReturnP1Number.java","/src/smallsql/database/ExpressionFunctionSpace.java","/src/smallsql/database/ExpressionFunctionIIF.java","/src/smallsql/database/CommandDelete.java","/src/smallsql/database/Join.java","/src/smallsql/database/FileIndex.java","/src/smallsql/database/SSDatabaseMetaData.java","/src/smallsql/database/ExpressionFunctionDegrees.java","/src/smallsql/database/ForeignKey.java","/src/smallsql/database/ExpressionFunctionRepeat.java","/src/smallsql/database/SSCallableStatement.java","/src/smallsql/database/SQLToken.java","/src/smallsql/database/MutableDouble.java","/src/smallsql/database/ExpressionFunctionCos.java","/src/smallsql/database/ExpressionFunctionDayOfWeek.java","/src/smallsql/database/FileIndexNode.java","/src/smallsql/database/StorePageMap.java","/src/smallsql/database/ExpressionFunctionCot.java","/src/smallsql/database/ExpressionValue.java","/src/smallsql/database/ExpressionFunctionSign.java","/src/smallsql/database/ExpressionFunctionYear.java","/src/smallsql/database/ExpressionFunctionDifference.java","/src/smallsql/junit/BenchTest.java","/src/smallsql/junit/TestMoneyRounding.java","/src/smallsql/database/ColumnExpression.java","/src/smallsql/database/CommandDrop.java","/src/smallsql/database/Expressions.java","/src/smallsql/database/JoinScrollIndex.java","/src/smallsql/junit/TestDeleteUpdate.java","/src/smallsql/junit/TestGroupBy.java","/src/smallsql/database/Logger.java","/src/smallsql/database/ExpressionFunction.java","/src/smallsql/database/ExpressionFunctionReturnFloat.java","/src/smallsql/database/ExpressionFunctionSqrt.java","/src/smallsql/database/ExpressionFunctionFloor.java","/src/smallsql/junit/TestTransactions.java","/src/smallsql/database/ExpressionFunctionATan.java","/src/smallsql/junit/TestTokenizer.java","/src/smallsql/database/GroupResult.java","/src/smallsql/database/Columns.java","/src/smallsql/database/ExpressionFunctionReturnString.java","/src/smallsql/database/language/Language_de.java","/src/smallsql/database/ExpressionFunctionRound.java","/src/smallsql/database/ExpressionFunctionLTrim.java","/src/smallsql/database/UnionAll.java","/src/smallsql/junit/TestAlterTable2.java","/src/smallsql/junit/TestLanguage.java","/src/smallsql/junit/TestIdentifer.java","/src/smallsql/junit/TestAlterTable.java","/src/smallsql/database/Lobs.java","/src/smallsql/junit/TestFunctions.java","/src/smallsql/database/Money.java","/src/smallsql/database/ExpressionFunctionDayOfYear.java","/src/smallsql/database/ExpressionFunctionHour.java","/src/smallsql/database/ExpressionFunctionRand.java","/src/smallsql/database/ExpressionFunctionAscii.java","/src/smallsql/database/Store.java","/src/smallsql/database/StoreImpl.java","/src/smallsql/database/ExpressionFunctionSubstring.java","/src/smallsql/database/LongLongList.java","/src/smallsql/database/Column.java","/src/smallsql/database/ExpressionFunctionLength.java","/src/smallsql/database/ExpressionFunctionACos.java","/src/smallsql/database/ExpressionFunctionRadians.java","/src/smallsql/database/ExpressionFunctionATan2.java","/src/smallsql/database/ExpressionFunctionTruncate.java","/src/smallsql/database/ExpressionFunctionOctetLen.java","/src/smallsql/database/CommandCreateDatabase.java","/src/smallsql/database/MutableFloat.java","/src/smallsql/database/MutableLong.java","/src/smallsql/database/ExpressionFunctionAbs.java","/src/smallsql/database/Strings.java","/src/smallsql/database/JoinScroll.java","/src/smallsql/database/StoreNoCurrentRow.java","/src/smallsql/database/CommandSet.java","/src/smallsql/database/ExpressionFunctionLeft.java","/src/smallsql/database/ExpressionFunctionConvert.java","/src/smallsql/tools/CommandLine.java","/src/smallsql/database/MutableInteger.java","/src/smallsql/database/CreateFile.java","/src/smallsql/database/ExpressionFunctionBitLen.java","/src/smallsql/database/CommandInsert.java","/src/smallsql/database/LongTreeList.java","/src/smallsql/database/Expression.java","/src/smallsql/database/ExpressionFunctionRTrim.java","/src/smallsql/database/ExpressionFunctionReplace.java","/src/smallsql/database/LongTreeListEnum.java","/src/smallsql/database/language/Language_en.java","/src/smallsql/database/ExpressionInSelect.java","/src/smallsql/database/SSResultSet.java","/src/smallsql/database/ExpressionFunctionReturnP1StringAndBinary.java","/src/smallsql/database/LongList.java","/src/smallsql/database/Mutable.java","/src/smallsql/database/SortedResult.java","/src/smallsql/database/Database.java","/src/smallsql/database/Where.java","/src/smallsql/database/ExpressionFunctionTimestampAdd.java","/src/smallsql/database/language/Language_it.java","/src/smallsql/database/CommandSelect.java","/src/smallsql/junit/BasicTestCase.java","/src/smallsql/database/TableStorePageInsert.java","/src/smallsql/database/DateTime.java","/src/smallsql/database/ExpressionFunctionSin.java","/src/smallsql/database/StoreNull.java","/src/smallsql/database/ForeignKeys.java","/src/smallsql/database/SmallSQLException.java","/src/smallsql/database/Distinct.java","/src/smallsql/database/ExpressionFunctionDayOfMonth.java","/src/smallsql/database/IndexDescriptions.java","/src/smallsql/database/StorePageLink.java","/src/smallsql/database/SSConnection.java","/src/smallsql/database/TransactionStep.java","/src/smallsql/junit/TestResultSet.java","/src/smallsql/database/Identity.java","/src/smallsql/junit/TestExceptionMethods.java","/src/smallsql/junit/TestOrderBy.java","/src/smallsql/database/MemoryResult.java","/src/smallsql/database/TableResult.java","/src/smallsql/junit/TestExceptions.java","/src/smallsql/database/Command.java","/src/smallsql/database/ExpressionFunctionTimestampDiff.java","/src/smallsql/database/ExpressionFunctionLCase.java","/src/smallsql/database/ExpressionFunctionCase.java","/src/smallsql/database/ExpressionFunctionRight.java","/src/smallsql/database/CommandCreateView.java","/src/smallsql/database/ExpressionFunctionCeiling.java","/src/smallsql/database/ExpressionFunctionReturnP1.java","/src/smallsql/database/MemoryStream.java","/src/smallsql/database/ExpressionFunctionExp.java","/src/smallsql/database/SQLParser.java","/src/smallsql/database/ExpressionArithmetic.java","/src/smallsql/database/Table.java","/src/smallsql/junit/TestThreads.java","/src/smallsql/junit/TestJoins.java","/src/smallsql/database/ViewResult.java","/src/smallsql/database/DataSources.java","/src/smallsql/database/ExpressionFunctionLocate.java","/src/smallsql/database/TableStorePage.java","/src/smallsql/junit/TestScrollable.java","/src/smallsql/database/CommandTable.java","/src/smallsql/database/SSStatement.java","/src/smallsql/database/ExpressionFunctionReturnInt.java","/src/smallsql/database/ExpressionFunctionCharLen.java","/src/smallsql/database/language/Language.java","/src/smallsql/database/ExpressionName.java","/src/smallsql/database/TableViewResult.java","/src/smallsql/database/StorePage.java","/src/smallsql/database/ExpressionFunctionMonth.java","/src/smallsql/database/ExpressionFunctionMinute.java","/src/smallsql/database/DataSource.java","/src/smallsql/database/ExpressionFunctionTan.java","/src/smallsql/database/IndexScrollStatus.java","/src/smallsql/database/Utils.java","/src/smallsql/database/View.java","/src/smallsql/database/ExpressionFunctionMod.java","/src/smallsql/database/ExpressionFunctionChar.java","/src/smallsql/database/ExpressionFunctionSoundex.java","/src/smallsql/database/Index.java","/src/smallsql/database/SSPreparedStatement.java","/src/smallsql/database/IndexNodeScrollStatus.java","/src/smallsql/database/ExpressionFunctionLog10.java","/src/smallsql/database/Scrollable.java","/src/smallsql/database/MutableNumeric.java","/src/smallsql/database/ExpressionFunctionASin.java","/src/smallsql/database/SSSavepoint.java","/src/smallsql/database/TableView.java","/src/smallsql/junit/TestDBMetaData.java","/src/smallsql/database/ExpressionFunctionLog.java","/src/smallsql/junit/TestDataTypes.java","/src/smallsql/database/IndexNode.java","/src/smallsql/junit/TestOperatoren.java","/src/smallsql/database/NoFromResult.java","/src/smallsql/database/SSResultSetMetaData.java","/src/smallsql/database/SSDriver.java","/src/smallsql/database/CommandUpdate.java","/src/smallsql/junit/TestStatement.java"]
+
+		},
+		"nodes": [{
+		"id": "184512",
+		"location": {
+		"path": "/src/smallsql/database/MutableNumeric.java",
+		"length": 901,
+		"startLine": 489,
+		"endLine": 510,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 19		
+	},
+		"linesOfCode": 19,
+		"nodesAmount": 226			
+	},
+{
+		"id": "102040",
+		"location": {
+		"path": "/src/smallsql/database/language/Language.java",
+		"length": 9336,
+		"startLine": 354,
+		"endLine": 488,
+		"startColumn": 1,
+		"endColumn": 3,	
+		"linesOfCode": 114		
+	},
+		"linesOfCode": 114,
+		"nodesAmount": 800			
+	},
+{
+		"id": "64598",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionLog.java",
+		"length": 1603,
+		"startLine": 1,
+		"endLine": 44,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 8		
+	},
+		"linesOfCode": 8,
+		"nodesAmount": 45			
+	},
+{
+		"id": "60417",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionMinute.java",
+		"length": 1729,
+		"startLine": 1,
+		"endLine": 54,
+		"startColumn": 0,
+		"endColumn": 3,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 69			
+	},
+{
+		"id": "64553",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionUCase.java",
+		"length": 1893,
+		"startLine": 1,
+		"endLine": 62,
+		"startColumn": 0,
+		"endColumn": 3,	
+		"linesOfCode": 17		
+	},
+		"linesOfCode": 17,
+		"nodesAmount": 80			
+	},
+{
+		"id": "116952",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionYear.java",
+		"length": 1722,
+		"startLine": 1,
+		"endLine": 54,
+		"startColumn": 0,
+		"endColumn": 3,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 69			
+	},
+{
+		"id": "59747",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionATan2.java",
+		"length": 1732,
+		"startLine": 1,
+		"endLine": 48,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 67			
+	},
+{
+		"id": "106277",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 778,
+		"startLine": 427,
+		"endLine": 446,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 18		
+	},
+		"linesOfCode": 18,
+		"nodesAmount": 128			
+	},
+{
+		"id": "102840",
+		"location": {
+		"path": "/src/smallsql/database/language/Language.java",
+		"length": 5376,
+		"startLine": 494,
+		"endLine": 628,
+		"startColumn": 1,
+		"endColumn": 3,	
+		"linesOfCode": 114		
+	},
+		"linesOfCode": 114,
+		"nodesAmount": 800			
+	},
+{
+		"id": "37325",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionCos.java",
+		"length": 1603,
+		"startLine": 1,
+		"endLine": 44,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 8		
+	},
+		"linesOfCode": 8,
+		"nodesAmount": 45			
+	},
+{
+		"id": "2118",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 647,
+		"startLine": 329,
+		"endLine": 352,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 20		
+	},
+		"linesOfCode": 20,
+		"nodesAmount": 179			
+	},
+{
+		"id": "104908",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 1061,
+		"startLine": 166,
+		"endLine": 194,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 21		
+	},
+		"linesOfCode": 21,
+		"nodesAmount": 135			
+	},
+{
+		"id": "4727",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 808,
+		"startLine": 729,
+		"endLine": 757,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 23		
+	},
+		"linesOfCode": 23,
+		"nodesAmount": 181			
+	},
+{
+		"id": "166789",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionATan.java",
+		"length": 1607,
+		"startLine": 1,
+		"endLine": 44,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 8		
+	},
+		"linesOfCode": 8,
+		"nodesAmount": 45			
+	},
+{
+		"id": "57403",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionPower.java",
+		"length": 1730,
+		"startLine": 1,
+		"endLine": 48,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 67			
+	},
+{
+		"id": "2658",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 655,
+		"startLine": 414,
+		"endLine": 437,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 20		
+	},
+		"linesOfCode": 20,
+		"nodesAmount": 179			
+	},
+{
+		"id": "184738",
+		"location": {
+		"path": "/src/smallsql/database/MutableNumeric.java",
+		"length": 907,
+		"startLine": 512,
+		"endLine": 533,
+		"startColumn": 4,
+		"endColumn": 5,	
+		"linesOfCode": 19		
+	},
+		"linesOfCode": 19,
+		"nodesAmount": 226			
+	},
+{
+		"id": "61682",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionExp.java",
+		"length": 1603,
+		"startLine": 1,
+		"endLine": 44,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 8		
+	},
+		"linesOfCode": 8,
+		"nodesAmount": 45			
+	},
+{
+		"id": "42522",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionASin.java",
+		"length": 1607,
+		"startLine": 1,
+		"endLine": 44,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 8		
+	},
+		"linesOfCode": 8,
+		"nodesAmount": 45			
+	},
+{
+		"id": "91098",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionCeiling.java",
+		"length": 1616,
+		"startLine": 1,
+		"endLine": 44,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 8		
+	},
+		"linesOfCode": 8,
+		"nodesAmount": 45			
+	},
+{
+		"id": "4546",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 796,
+		"startLine": 698,
+		"endLine": 726,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 23		
+	},
+		"linesOfCode": 23,
+		"nodesAmount": 181			
+	},
+{
+		"id": "61273",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionLCase.java",
+		"length": 1893,
+		"startLine": 1,
+		"endLine": 62,
+		"startColumn": 0,
+		"endColumn": 3,	
+		"linesOfCode": 17		
+	},
+		"linesOfCode": 17,
+		"nodesAmount": 80			
+	},
+{
+		"id": "3374",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 633,
+		"startLine": 519,
+		"endLine": 542,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 20		
+	},
+		"linesOfCode": 20,
+		"nodesAmount": 179			
+	},
+{
+		"id": "27252",
+		"location": {
+		"path": "/src/smallsql/database/language/Language_it.java",
+		"length": 11817,
+		"startLine": 1,
+		"endLine": 185,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 122		
+	},
+		"linesOfCode": 122,
+		"nodesAmount": 831			
+	},
+{
+		"id": "191293",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionDayOfYear.java",
+		"length": 1743,
+		"startLine": 1,
+		"endLine": 54,
+		"startColumn": 0,
+		"endColumn": 3,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 73			
+	},
+{
+		"id": "3016",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 645,
+		"startLine": 467,
+		"endLine": 490,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 20		
+	},
+		"linesOfCode": 20,
+		"nodesAmount": 179			
+	},
+{
+		"id": "159148",
+		"location": {
+		"path": "/src/smallsql/database/language/Language_de.java",
+		"length": 13393,
+		"startLine": 1,
+		"endLine": 184,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 122		
+	},
+		"linesOfCode": 122,
+		"nodesAmount": 831			
+	},
+{
+		"id": "124578",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionRadians.java",
+		"length": 1620,
+		"startLine": 1,
+		"endLine": 44,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 8		
+	},
+		"linesOfCode": 8,
+		"nodesAmount": 45			
+	},
+{
+		"id": "60150",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionDegrees.java",
+		"length": 1620,
+		"startLine": 1,
+		"endLine": 44,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 8		
+	},
+		"linesOfCode": 8,
+		"nodesAmount": 45			
+	},
+{
+		"id": "3195",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 638,
+		"startLine": 493,
+		"endLine": 516,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 20		
+	},
+		"linesOfCode": 20,
+		"nodesAmount": 179			
+	},
+{
+		"id": "104638",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 1055,
+		"startLine": 107,
+		"endLine": 135,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 21		
+	},
+		"linesOfCode": 21,
+		"nodesAmount": 135			
+	},
+{
+		"id": "1471",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 677,
+		"startLine": 226,
+		"endLine": 251,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 22		
+	},
+		"linesOfCode": 22,
+		"nodesAmount": 169			
+	},
+{
+		"id": "45643",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionTan.java",
+		"length": 1603,
+		"startLine": 1,
+		"endLine": 44,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 8		
+	},
+		"linesOfCode": 8,
+		"nodesAmount": 45			
+	},
+{
+		"id": "68897",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionACos.java",
+		"length": 1607,
+		"startLine": 1,
+		"endLine": 44,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 8		
+	},
+		"linesOfCode": 8,
+		"nodesAmount": 45			
+	},
+{
+		"id": "106149",
+		"location": {
+		"path": "/src/smallsql/junit/TestTransactions.java",
+		"length": 776,
+		"startLine": 405,
+		"endLine": 424,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 18		
+	},
+		"linesOfCode": 18,
+		"nodesAmount": 128			
+	},
+{
+		"id": "181017",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionHour.java",
+		"length": 1721,
+		"startLine": 1,
+		"endLine": 54,
+		"startColumn": 0,
+		"endColumn": 3,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 69			
+	},
+{
+		"id": "99306",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionMonth.java",
+		"length": 1727,
+		"startLine": 1,
+		"endLine": 54,
+		"startColumn": 0,
+		"endColumn": 3,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 73			
+	},
+{
+		"id": "172641",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionSqrt.java",
+		"length": 1607,
+		"startLine": 1,
+		"endLine": 44,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 8		
+	},
+		"linesOfCode": 8,
+		"nodesAmount": 45			
+	},
+{
+		"id": "64747",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionDayOfMonth.java",
+		"length": 1738,
+		"startLine": 1,
+		"endLine": 54,
+		"startColumn": 0,
+		"endColumn": 3,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 69			
+	},
+{
+		"id": "1302",
+		"location": {
+		"path": "/src/smallsql/junit/TestOrderBy.java",
+		"length": 667,
+		"startLine": 198,
+		"endLine": 223,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 22		
+	},
+		"linesOfCode": 22,
+		"nodesAmount": 169			
+	},
+{
+		"id": "28534",
+		"location": {
+		"path": "/src/smallsql/database/ExpressionFunctionSin.java",
+		"length": 1603,
+		"startLine": 1,
+		"endLine": 44,
+		"startColumn": 0,
+		"endColumn": 1,	
+		"linesOfCode": 8		
+	},
+		"linesOfCode": 8,
+		"nodesAmount": 45			
+	}],
+		"connections": [[1302,1471],[106149,106277],[104638,104908],[64553,61273],[4546,4727],[59747,57403],[3195,3016,3374,2658,2118],[3195,3016,3374],[91098,42522,28534,172641,68897,45643,60150,124578,64598,61682,166789,37325],[99306,191293],[64747,181017,116952,60417],[159148,27252],[102840,102040],[184738,184512]]
+	}
