@@ -15,35 +15,35 @@
 
 		},
 		"nodes": [{
-		"id": "916",
+		"id": "831",
 		"location": {
-		"path": "/src/testClass.java",
-		"length": 127,
-		"startLine": 13,
-		"endLine": 21,
+		"path": "/src/simpleType.java",
+		"length": 136,
+		"startLine": 121,
+		"endLine": 131,
 		"startColumn": 1,
 		"endColumn": 2,	
-		"linesOfCode": 9		
+		"linesOfCode": 11		
 	},
-		"linesOfCode": 9,
-		"nodesAmount": 53			
+		"linesOfCode": 11,
+		"nodesAmount": 29			
 	},
 {
-		"id": "1021",
+		"id": "860",
 		"location": {
-		"path": "/src/testClass.java",
-		"length": 127,
-		"startLine": 33,
-		"endLine": 41,
+		"path": "/src/simpleType.java",
+		"length": 141,
+		"startLine": 133,
+		"endLine": 143,
 		"startColumn": 1,
 		"endColumn": 2,	
-		"linesOfCode": 9		
+		"linesOfCode": 11		
 	},
-		"linesOfCode": 9,
-		"nodesAmount": 52			
+		"linesOfCode": 11,
+		"nodesAmount": 29			
 	},
 {
-		"id": "33",
+		"id": "250",
 		"location": {
 		"path": "/src/JaasAuthBean.java",
 		"length": 642,
@@ -57,10 +57,80 @@
 		"nodesAmount": 19			
 	},
 {
-		"id": "406",
+		"id": "106",
+		"location": {
+		"path": "/src/testClass.java",
+		"length": 119,
+		"startLine": 13,
+		"endLine": 21,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 9		
+	},
+		"linesOfCode": 9,
+		"nodesAmount": 53			
+	},
+{
+		"id": "211",
+		"location": {
+		"path": "/src/testClass.java",
+		"length": 119,
+		"startLine": 33,
+		"endLine": 41,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 9		
+	},
+		"linesOfCode": 9,
+		"nodesAmount": 52			
+	},
+{
+		"id": "159",
+		"location": {
+		"path": "/src/testClass.java",
+		"length": 119,
+		"startLine": 23,
+		"endLine": 31,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 9		
+	},
+		"linesOfCode": 9,
+		"nodesAmount": 53			
+	},
+{
+		"id": "102",
+		"location": {
+		"path": "/src/testClass.java",
+		"length": 98,
+		"startLine": 13,
+		"endLine": 21,
+		"startColumn": 22,
+		"endColumn": 2,	
+		"linesOfCode": 9		
+	},
+		"linesOfCode": 9,
+		"nodesAmount": 48			
+	},
+{
+		"id": "53",
+		"location": {
+		"path": "/src/testClass.java",
+		"length": 119,
+		"startLine": 3,
+		"endLine": 11,
+		"startColumn": 1,
+		"endColumn": 2,	
+		"linesOfCode": 9		
+	},
+		"linesOfCode": 9,
+		"nodesAmount": 53			
+	},
+{
+		"id": "623",
 		"location": {
 		"path": "/src/simpleType.java",
-		"length": 105,
+		"length": 99,
 		"startLine": 51,
 		"endLine": 57,
 		"startColumn": 1,
@@ -71,7 +141,35 @@
 		"nodesAmount": 22			
 	},
 {
-		"id": "52",
+		"id": "49",
+		"location": {
+		"path": "/src/testClass.java",
+		"length": 99,
+		"startLine": 3,
+		"endLine": 11,
+		"startColumn": 21,
+		"endColumn": 2,	
+		"linesOfCode": 9		
+	},
+		"linesOfCode": 9,
+		"nodesAmount": 48			
+	},
+{
+		"id": "827",
+		"location": {
+		"path": "/src/simpleType.java",
+		"length": 116,
+		"startLine": 121,
+		"endLine": 131,
+		"startColumn": 21,
+		"endColumn": 2,	
+		"linesOfCode": 11		
+	},
+		"linesOfCode": 11,
+		"nodesAmount": 24			
+	},
+{
+		"id": "269",
 		"location": {
 		"path": "/src/JaasAuthBean.java",
 		"length": 643,
@@ -85,108 +183,10 @@
 		"nodesAmount": 19			
 	},
 {
-		"id": "912",
-		"location": {
-		"path": "/src/testClass.java",
-		"length": 106,
-		"startLine": 13,
-		"endLine": 21,
-		"startColumn": 22,
-		"endColumn": 2,	
-		"linesOfCode": 9		
-	},
-		"linesOfCode": 9,
-		"nodesAmount": 48			
-	},
-{
-		"id": "610",
+		"id": "645",
 		"location": {
 		"path": "/src/simpleType.java",
-		"length": 126,
-		"startLine": 121,
-		"endLine": 131,
-		"startColumn": 21,
-		"endColumn": 2,	
-		"linesOfCode": 11		
-	},
-		"linesOfCode": 11,
-		"nodesAmount": 24			
-	},
-{
-		"id": "965",
-		"location": {
-		"path": "/src/testClass.java",
-		"length": 106,
-		"startLine": 23,
-		"endLine": 31,
-		"startColumn": 22,
-		"endColumn": 2,	
-		"linesOfCode": 9		
-	},
-		"linesOfCode": 9,
-		"nodesAmount": 48			
-	},
-{
-		"id": "859",
-		"location": {
-		"path": "/src/testClass.java",
-		"length": 107,
-		"startLine": 3,
-		"endLine": 11,
-		"startColumn": 21,
-		"endColumn": 2,	
-		"linesOfCode": 9		
-	},
-		"linesOfCode": 9,
-		"nodesAmount": 48			
-	},
-{
-		"id": "643",
-		"location": {
-		"path": "/src/simpleType.java",
-		"length": 151,
-		"startLine": 133,
-		"endLine": 143,
-		"startColumn": 1,
-		"endColumn": 2,	
-		"linesOfCode": 11		
-	},
-		"linesOfCode": 11,
-		"nodesAmount": 29			
-	},
-{
-		"id": "614",
-		"location": {
-		"path": "/src/simpleType.java",
-		"length": 146,
-		"startLine": 121,
-		"endLine": 131,
-		"startColumn": 1,
-		"endColumn": 2,	
-		"linesOfCode": 11		
-	},
-		"linesOfCode": 11,
-		"nodesAmount": 29			
-	},
-{
-		"id": "863",
-		"location": {
-		"path": "/src/testClass.java",
-		"length": 127,
-		"startLine": 3,
-		"endLine": 11,
-		"startColumn": 1,
-		"endColumn": 2,	
-		"linesOfCode": 9		
-	},
-		"linesOfCode": 9,
-		"nodesAmount": 53			
-	},
-{
-		"id": "428",
-		"location": {
-		"path": "/src/simpleType.java",
-		"length": 105,
+		"length": 99,
 		"startLine": 58,
 		"endLine": 64,
 		"startColumn": 1,
@@ -197,18 +197,18 @@
 		"nodesAmount": 22			
 	},
 {
-		"id": "969",
+		"id": "155",
 		"location": {
 		"path": "/src/testClass.java",
-		"length": 127,
+		"length": 98,
 		"startLine": 23,
 		"endLine": 31,
-		"startColumn": 1,
+		"startColumn": 22,
 		"endColumn": 2,	
 		"linesOfCode": 9		
 	},
 		"linesOfCode": 9,
-		"nodesAmount": 53			
+		"nodesAmount": 48			
 	}],
-		"connections": [[969,859,965,863,912,1021],[643,614,610],[428,406],[52,33],[969,859,863,916]]
+		"connections": [[623,645],[49,53,102,159,211,155],[49,53,159,106],[250,269],[827,860,831]]
 	}
