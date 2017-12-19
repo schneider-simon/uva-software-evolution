@@ -2,19 +2,11 @@
 - Simon Schneider
 - Laurance Saess
 
-# To-do
+This report documents the problems and solutions that were used for this code duplication assignment. Firstly, we will introduce the requirements of a maintainer in order to understand the goals of the report generation and visualization. 
 
-```
-* Show % of duplicated lines
-* Show number of clones
-* Show number of clone classes
-* Show biggest clone (in lines),
-* Show biggest clone class
-* Show example clones
-* Add raw data table and explain why it was created
-```
+The following chapters explain different parts of the clone detection system and their inner workings. The final chapters discuss our decisions, that were made on the basis of the initial requirements, and possibilities to extend the tool.
 
-## Related files / projects
+# Related files / projects
 
 * Manual: [manual.md](https://github.com/schneider-simon/uva-software-evolution/blob/master/src/series2/manual.md)
 * Result tables: [src/series2/docs/results/results.tsv](https://github.com/schneider-simon/uva-software-evolution/blob/master/src/series2/docs/results/results.tsv)
@@ -30,7 +22,7 @@
 
 Maintainers need to have an understanding of a program. There are multiple ways of getting an understanding at a global level of the program. In the paper [Storey, Fracchia, Müller, 1999] these are Macro-strategies. One strategy is called the "As-needed macro-strategies" strategy [Storey, Fracchia, Müller, 1999]. You only take a look at a part of the code when you needed it. With this approach, code clones give a very negative impact. When you want to make a change, you first have to find where the duplicates are, otherwise you can introduce bugs into the system. Our goal is to visualization of clone classes. We are going to resolve this by adding support for clicking so that you can see where else the same code is used.  
 
-**2. Show clone hotspots **
+**2. Show clone hotspots**
 
 One issue in maintenance can be that duplicate is required to extent current functionality. When a maintainer wants to abstract these parts, he has to know on what locations these abstractions can be introduced. When you can find clones, and view how to clones look like, you can faster spot places where you can introduce abstraction. This is why we are making it possible to show the code per duplicate. Clicking in the clone will result in a overview of the code. 
 
@@ -48,19 +40,23 @@ In order to detect software clones, we have to know what clones are and what typ
 
 We are using Rascal for the detection tool and only want to apply static code analysis. According to [Roy, Cordy, 2007], the clones types for static code analysis are:  
 
-- Type 1 clones: The code fragments are identical, except for variations in white space and comments. 
-- Type 2 clones: The code fragments are structurally and syntactically identical, except variations are allowed in identifiers, literals, types, layout and comments. 
-- Type 3 clones: The code fragments are copied with further modifications. Statements can be altered in addition to variations in identifiers, literals, types, layout and comments. 
+- **Type 1 clones**: The code fragments are identical, except for variations in white space and comments. 
+- **Type 2 clones**: The code fragments are structurally and syntactically identical, except variations are allowed in identifiers, literals, types, layout and comments. 
+- **Type 3 clones**: The code fragments are copied with further modifications. Statements can be altered in addition to variations in identifiers, literals, types, layout and comments. 
+
+
 
 Our tool focuses on all these types of clones with an AST clone detection approach. So, what do these types of clones mean to us. An AST is a tree structure of the code, so we are going to compare nodes instead of code fragments. Source-code can be displayed in an AST structure as follows:   
+
+**Figure: Example abstract syntax tree with duplicate nodes** 
 
 ![Problem](./docs/prob2.jpg)
 
 Than we can define clones like this (where the symbol == means comparing nodes without looking at the sub-nodes):
 
-- Type 1 clone:  ```node 6 == node 9```,  ```node 7 == node 10``` and ```node 2 == node 4```  then node 2 is a type 1 clone of node 4,  node 6 is a type 1 clone of node 9,  node 7 is a type 1 clone of node 10.  
-- Type 2 clone: Node  ```node 9 == node 10``` where identifiers, literals, types, and layout are removed. Then node 9 is a type 2 clone of node 10.
-- Type 3 clone: Node  ```node 2 == node 3``` and ```node 6 or node 7 == node 8``` where identifiers, literals, types, and layout are removed. Then node 2 is a type 3 clone of node 3. With type 3 clones you have to set a similarity threshold. It could be true that node 2 is a type 3 clone of node 3, but node 3 is not a type 3 clone of node 2. 
+- **Type 1 clone**:  ```node 6 == node 9```,  ```node 7 == node 10``` and ```node 2 == node 4```  then node 2 is a type 1 clone of node 4,  node 6 is a type 1 clone of node 9,  node 7 is a type 1 clone of node 10.  
+- **Type 2 clone**: Node  ```node 9 == node 10``` where identifiers, literals, types, and layout are removed. Then node 9 is a type 2 clone of node 10.
+- **Type 3 clone**: Node  ```node 2 == node 3``` and ```node 6 or node 7 == node 8``` where identifiers, literals, types, and layout are removed. Then node 2 is a type 3 clone of node 3. With type 3 clones you have to set a similarity threshold. It could be true that node 2 is a type 3 clone of node 3, but node 3 is not a type 3 clone of node 2. 
 
 ## The algorithm
 
@@ -70,7 +66,7 @@ The hashes are used so that clones can be stored into buckets. We use relations 
 
 In pseudo code:
 
-```
+```java
 * x is the clone type
 * y is the project location
 * z is the min number of sub notes
@@ -272,8 +268,6 @@ public num nodeSimilarity(node nodeA, node nodeB) {
 
 
 
-
-
 # Finding what lines are duplication
 
 We use an custom algorithm for detecting the amount of duplicate lines.  The algorithm works like this:
@@ -337,7 +331,7 @@ class dupTest {
 The file has the following duplicate lines:
 
 ```
-[4,5,6,7,8,10,11,17,21,22,25,31]
+[4,5,6,8,10,11,21,22,25,31]
 ```
 
 What is correct.
@@ -363,11 +357,11 @@ This code above can tell us if a node (`nlA`) is located inside a clone of the n
 
 We soon recognized another type of clones (category 2), in which included clones are not deleted because they appear outside of other clones. In order to build the right clone classes, we use the following algorithm:
 
-1. Flag every clone that is fully included in another clone.
-2. Build a graph of clones
-  1. Use the transitive closure for clone type 1 and 2. Type3 clones must not be transitive.
-3. Remove a class of clones from the output if all nodes are flagged as deleted.
-4. Output the clones as a graph that builds a cluster for every clone class (please see visualization below)
+1. **Flag** every clone that is fully included in another clone.
+2. **Build a graph** of clones
+  1. Use the **transitive closure** for clone type 1 and 2. Type3 clones must not be transitive.
+3. **Remove a class of clones** from the output if all nodes are flagged as deleted.
+4. **Output** the clones as a graph that builds a cluster for every clone class (please see visualization below)
 
 # Visualization
 
@@ -454,7 +448,7 @@ By clicking on an area which is highlighted red a maintainer can see which other
 
 To give the maintainer a proof of our numbers we included a searchable raw data table.
 
-In the example below only files that contain the keywork `KMP` are listed. A maintainer can then inspect the clone class by opening the arrow to the left.
+In the example below only files that contain the keyword `KMP` are listed. A maintainer can then inspect the clone class by opening the arrow to the left.
 
 **Figure: Interactive raw data table**
 
@@ -517,17 +511,21 @@ For these test we choose to add multiple side cases per test instead of a large 
 
 # Design decision
 
-* **Make report configurable**: TODO!
-* **Loading whole code files on demand**: TODO!
-* **Using AST over text based approach**: TODO!
-* **Including multiple diagrams**: TODO!
-* **Using JavaScript for visualisation**: TODO!
+The following list illustrates our most important and influencial design decisions. We tried to base them on the initial stakeholder requirements and explain them in the sections above:
+
+* **Make report configurable**: As you can see in the `Parameters` section, we included a set of options that a user of the tool can use to change the report to his own liking. There are many variables that could make it hard to reproduce results, so we decided to use sensible default values based on literature (see parameters section).
+* **Loading whole code files on demand**: Instead of showing snippets of clones with little to no context we decided to load and show whole code classes on demand. Other duplication tools only show the part of the code which is duplicate, but with our approach, a maintainer can get a quick overview of the whole class and can maybe already see the reason for the clone.
+* **Using AST over text based approach**: Our text-based approach from series1 was already able to detect Type1 clones and deliver clone classes. However, we used an AST based approach in this assignment to create Type2+ clones. Without the AST it is hard to normalize the vocabulary of each programming language. Java has a set of well-defined keywords, but for other languages, we would need to add a tokenizer to understand in which context we have to normalize token values.
+* **Including multiple diagrams**: We decided to use multiple diagrams to show different aspects of clones: their distribution across the project (enclosure diagram) and their relation towards each other / how clone classes are built (graph diagram).
+* **Using JavaScript for visualisation**: Rascal has a powerful visualization framework, but a rather small community and libraries that one can build on. We decided to use JavaScript together with React, D3.js, and vis.js to quickly prototype different diagrams. By saving time on basic problematics like layout algorithms we invested more time in usability and the integration of the diagrams in the dashboard (e.g. making enclosure and graph diagram zoomable and selectable). 
 
 # Future work
 
 ## Comparing neighbouring nodes
 
 We cannot compare nodes, or groups of nodes that are on the same level to other nodes or group of nodes. For example, the tree below where nodes with a similar color are the same:
+
+**Figure: Neighbouring nodes with clones**
 
 
 
@@ -545,9 +543,9 @@ We did not add support for this because it adds a lot of complexity. The clone d
 
 ## Show relationship in enclosure diagram
 
-Instead of using two diagrams, enclosure and graph, to give an overview and the relations we could unit them in a single view. One approach could be a connected bubble diagram in which bubbles are connected with lines to represent the amount of shared clones, the stronger the line, the more duplicates they share.
+Instead of using two diagrams, enclosure, and graph, to give an overview and the relations we could unit them in a single view. One approach could be a connected bubble diagram in which bubbles are connected with lines to represent the number of shared clones, the stronger the line, the more duplicates they share.
 
- Furthermore, we could add color codes or shapes to visualize multiple properties like lines of code, complecity or analyzability at once. 
+ Furthermore, we could add color codes or shapes to visualize multiple properties like lines of code, complexity or analyzability at once.  
 
 # Literature
 
