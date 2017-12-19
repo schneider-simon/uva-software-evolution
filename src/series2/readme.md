@@ -96,17 +96,67 @@ public num nodeSimilarity(node nodeA, node nodeB) {
 	list[node] nodeList2 = nodeToNodeList(nodeB);
 
 	list[node] sameItems = nodeList1 & nodeList2;
-	int sameItemSize = size(sameItems);
+	int sharedNodes = size(nodeList1) + size(nodeList2) - size(sameItems);
 
 	num nodeADiff = size([nodei | nodei <- nodeList1, nodei notin sameItems]);
 	num nodeBDiff = size([nodei | nodei <- nodeList2, nodei notin sameItems]);
 	
-	return 2.0 * sameItemSize / (2.0 * sameItemSize + nodeADiff + nodeBDiff);
+	num sim = (2.0 * sharedNodes / (2.0 * sharedNodes + nodeADiff + nodeBDiff)) * 100;
+	
+	return sim;
 }
-
 ```
 
+## Parameters
 
+The real project has the following parameters:
+
+- set[Declaration] ast
+- bool normalizeAST
+- int minimalNodeGroupSize
+- int minimalCodeSize
+- real minimalSimularity
+
+What is a little bit different than the pseudo code. In the section we are going to describe what every parameter is and how it translates to the real project.
+
+### X is the clone type
+
+You can define the clone type in the pseudo code. In the real project you have to translate it like this:
+
+Type 1:
+
+- normalizeAST = ```false```
+- minimalSimularity = ```100```
+
+Type 2:
+
+- normalizeAST = ```true```
+- minimalSimularity = ```100```
+
+Type 3:
+
+- normalizeAST = ```true```
+- minimalSimularity = ```50``` <- or any other similarity factor you prefer.
+
+For these settings, normalizeAST will remove all information that are type or name related. With this setting `int test` is the same as `float test2`.
+
+For these setting, minimalSimularity will defined a percentage of how much of the node has to be the same to be considered equivalent.
+
+### Y is the project location
+
+The pseudo code will genarate an AST based on the location of the project. The clone detection function requires the AST already what is done in the main.
+
+- ast = ```createAstsFromEclipseProject(createM3FromEclipseProject(y), true);```
+
+### Z is the min number of sub notes and Z' are the minimum lines of code per node
+
+You can display the AST as an tree. When you compare the nodes, there will be a lot of useless small clones. This parameter can be used to define a minimum size. Nodes are only considered that contain z sub nodes or has minimum z' lines of code.
+
+- int minimalNodeGroupSize = z
+
+- int minimalCodeSize = z'
+
+  ​
 
 ## Limitations of our AST approach
 
@@ -126,52 +176,6 @@ We cannot compare nodes, or groups of nodes that are on the same level to other 
 
 We did not add support for this because it adds a lot of complexity. The clone detection will also take a lot more times because of the high amount of additional checks that have to be preformed. Large clones are unlikely to be affected because in real-live projects, they normally are not on a single layer in the AST. For this project, and our goal is to find large clones; small codes have a smaller impact to the system. 
 
-
-
-## Parameters
-
-The real project has the following parameters:
-* set[Declaration] ast
-* bool normalizeAST
-* int minimalNodeGroupSize
-* int minimalCodeSize
-* real minimalSimularity
-
-What is a little bit different than the pseudo code. In the section we are going to describe what every parameter is and how it translates to the real project.
-
-### X is the clone type
-
-You can define the clone type in the pseudo code. In the real project you have to translate it like this:
-
-Type 1:
-* normalizeAST = ```false```
-* minimalSimularity = ```100```
-
-Type 2:
-* normalizeAST = ```true```
-* minimalSimularity = ```100```
-
-Type 3:
-* normalizeAST = ```true```
-* minimalSimularity = ```50``` <- or any other similarity factor you prefer.
-
-For these settings, normalizeAST will remove all information that are type or name related. With this setting `int test` is the same as `float test2`.
-
-For these setting, minimalSimularity will defined a percentage of how much of the node has to be the same to be considered equivalent.
-
-### Y is the project location
-
-The pseudo code will genarate an AST based on the location of the project. The clone detection function requires the AST already what is done in the main.
-
-* ast = ```createAstsFromEclipseProject(createM3FromEclipseProject(y), true);```
-
-### Z is the min number of sub notes and Z' are the minimum lines of code per node
-
-You can display the AST as an tree. When you compare the nodes, there will be a lot of useless small clones. This parameter can be used to define a minimum size. Nodes are only considered that contain z sub nodes or has minimum z' lines of code.
-
-* int minimalNodeGroupSize = z
-* int minimalCodeSize = z'
-
 # Finding what lines are duplication
 
 We use an custom algorithm for detecting the amount of duplicate lines.  The algorithm works like this:
@@ -179,11 +183,9 @@ We use an custom algorithm for detecting the amount of duplicate lines.  The alg
 1. Get all locations that contain an duplicate
 2. Request from the M3 model, all the locations with comments
 3. Go through every duplication, and get the lines for every location and look per line:
-   1. :If it is a one line comment
-   2. If the first character is a multi line start comment  
-   3. If it ends with an comment close tag
-   4. If it is an empty line
-   5. If the line is in a multi-line comment
+   1. If it is a one line comment
+   2. If it is an empty line
+   3. If the line is in a multi-line comment
 4. When when of above is true, the line is counted as a non-duplicate
 5. When above is false, the line is counted as a duplicate
 
@@ -203,6 +205,11 @@ class dupTest {
 	
 	public void testM2() {			//Some test comment
 /*test*/int i1 = 1 + 1;
+/*
+ * 
+ * Test
+ * 
+ */
  /*est*/int i2 = 1 + 1 * 2;/*test*/
 		/*
 		 * test
@@ -226,12 +233,13 @@ class dupTest {
 	
 }
 
+
 ```
 
 The file has the following duplicate lines:
 
 ```
-[4,5,6,7,8,10,11,12,16,17,20,26]
+[4,5,6,7,8,10,11,17,21,22,25,31]
 ```
 
 What is correct.

@@ -81,6 +81,7 @@ public cloneDetectionResult doCloneDetection(M3 model, set[Declaration] ast, boo
 			
 			//if(nodeLB.l.end.line - nodeLB.l.begin.line + 1 > 5 && nodeLA.l.end.line - nodeLA.l.begin.line + 1 > 5)
 			//	iprintln("For (<similarity>): <(nodeLA.l)> - <(nodeLB.l)>");
+			//iprintln("similarity: <similarity>");
 			if(similarity < minimalSimularity)
 				continue;
 							
@@ -150,13 +151,10 @@ public num nodeSimilarity(node nodeA, node nodeB) {
 	list[node] nodeList1 = nodeToNodeList(nodeA);
 	list[node] nodeList2 = nodeToNodeList(nodeB);
 
-	list[node] sameItems = nodeList1 & nodeList2;
-	int sameItemSize = size(sameItems);
+	num sameElements = size(nodeList1 & nodeList2);
+	num totalItems = size(nodeList1) + size(nodeList2) - sameElements;
 
-	num nodeADiff = size([nodei | nodei <- nodeList1, nodei notin sameItems]);
-	num nodeBDiff = size([nodei | nodei <- nodeList2, nodei notin sameItems]);
-	
-	return 2.0 * sameItemSize / (2.0 * sameItemSize + nodeADiff + nodeBDiff);
+	return sameElements / totalItems * 100;
 }
 
 /*

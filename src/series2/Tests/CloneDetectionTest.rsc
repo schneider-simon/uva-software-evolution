@@ -39,7 +39,7 @@ test bool callMyMethodT2() {
 }
 
 test bool callMyMethodT3() {
-	set[int] lines = doT3CloneDetection("codeSwap", 16, 90.0);
+	set[int] lines = doT3CloneDetect("codeSwap", 16, 95.0);
 	return size(lines) == 0;
 }
 
@@ -86,14 +86,14 @@ test bool testT3SimCorrect() {
 
 //Test simularity
 test bool testT3SimCorrect() {
-	set[int] lines = doT3CloneDetection("detectMethodD", 6, 12.0);
+	set[int] lines = doT3CloneDetect("detectMethodD", 6, 12.0);
 	return size(lines) == 6;
 }
 
 //Test simularity
 test bool testT3SimInCorrect() {
-	set[int] lines = doT3CloneDetection("detectMethodD", 6, 14.0);
-	return size(lines) == 4;
+	set[int] lines = doT3CloneDetect("detectMethodD", 6, 14.0);
+	return size(lines) == 6;
 }
 
 //globalWithSubClass
@@ -141,7 +141,7 @@ test bool testT2SmallChange() {
 
 //Small change for type 3
 test bool testT3SmallChange() {
-	set[int] lines = doT3CloneDetection("smallCodeChange", 5, 50.0);
+	set[int] lines = doT3CloneDetect("smallCodeChange", 5, 50.0);
 	return size(lines) == 8;
 }
 
@@ -170,7 +170,7 @@ test bool testT2TypeIndpToHighV() {
 }
 
 //Do clone detection
-public set[int] doT3CloneDetection(str className, int v, real diff) {
+public set[int] doT3CloneDetect(str className, int v, real diff) {
 	set[Declaration] ast = getASTForClass(className);
 	M3 model = createM3FromEclipseProject(eclipsePath);
 	cloneDetectionResult cloneResult = doCloneDetection(model, ast, true, 1, v, diff);
