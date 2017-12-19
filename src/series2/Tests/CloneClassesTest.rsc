@@ -60,3 +60,11 @@ test bool testIsNotIncludedInOtherFile(){
 	
 	return isIncludedInAny(nodeA, otherNodes) == false;
 } 
+
+test bool testLocationIsInValid(){
+	return locationIsValid(location2) == false;
+}
+
+test bool testLocationIsValid(){
+	return locationIsValid(location1) == true;
+}
