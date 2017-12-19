@@ -6,6 +6,10 @@ This report documents the problems and solutions that were used for this code du
 
 The following chapters explain different parts of the clone detection system and their inner workings. The final chapters discuss our decisions, that were made on the basis of the initial requirements, and possibilities to extend the tool.
 
+## Table of contents
+
+[TOC]
+
 # Related files / projects
 
 * Manual: [manual.md](https://github.com/schneider-simon/uva-software-evolution/blob/master/src/series2/manual.md)
