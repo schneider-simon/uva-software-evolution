@@ -44,6 +44,8 @@ Than we can define clones like this (where the symbol == means comparing nodes w
 
 The algorithm is the basic algorithm described by [Khatoon, Singh, Shukla, 2012]. The only difference is that we do not use an hash function ans that clone pairs are managed outside the detection code.
 
+The hashes are used so that clones can be stored into buckets. We use relations instead so that we can use relation operations. There is a relation between node a and node b when they are registered as a clone. 
+
 In pseudo code:
 
 ```
@@ -71,6 +73,101 @@ doCloneDetection(x,y,z,z')
   return set nodes:astList
   return
 ```
+
+### Parameters
+
+The real project has the following parameters:
+
+- set[Declaration] ast
+- bool normalizeAST
+- int minimalNodeGroupSize
+- int minimalCodeSize
+- real minimalSimularity
+
+What is a little bit different than the pseudo code. In the section we are going to describe what every parameter is and how it translates to the real project.
+
+#### X is the clone type
+
+You can define the clone type in the pseudo code. In the real project you have to translate it like this:
+
+Type 1:
+
+- normalizeAST = ```false```
+- minimalSimularity = ```100```
+
+Type 2:
+
+- normalizeAST = ```true```
+- minimalSimularity = ```100```
+
+Type 3:
+
+- normalizeAST = ```true```
+- minimalSimularity = ```50``` <- or any other similarity factor you prefer.
+
+For these settings, normalizeAST will remove all information that are type or name related. With this setting `int test` is the same as `float test2`.
+
+For these setting, minimalSimularity will defined a percentage of how much of the node has to be the same to be considered equivalent.
+
+#### Y is the project location
+
+The pseudo code will genarate an AST based on the location of the project. The clone detection function requires the AST already what is done in the main.
+
+- ast = ```createAstsFromEclipseProject(createM3FromEclipseProject(y), true);```
+
+#### Z is the min number of sub notes and Z' are the minimum lines of code per node
+
+You can display the AST as an tree. When you compare the nodes, there will be a lot of useless small clones. This parameter can be used to define a minimum size. Nodes are only considered that contain z sub nodes or has minimum z' lines of code.
+
+- int minimalNodeGroupSize = z
+- int minimalCodeSize = z'
+
+ ## The node normalize function
+
+The nodes are normalized for type 2 and type 3 clones. We replace all identifiers, literals, types and layout in the AST with a static value. 
+
+ ```java
+//Will remove all items that are inrelevant for type 2 and 3
+public node normalizeNode(node nodeItem) {
+
+	return visit(nodeItem) {
+		case \enumConstant(_, args, cls) => \enumConstant("enumConstant", args, cls)
+		case \enumConstant(_, args) => \enumConstant("enumConstant", args)
+		case \class(_, ext, imp, bod) => \class("class", ext, imp, bod)
+		case \interface(_, ext, imp, bod) => \interface("interface", ext, imp, bod)
+		case \method(_, _, a, b, c) => \method(defaultType, "method", a, b, c)
+		case \method(Type a,str b,list[Declaration] c,list[Expression] d) => \method(a,b,c,d)
+		case \constructor(_, pars, expr, impl) => \constructor("constructor", pars, expr, impl)
+		case \variable(_,ext) => \variable("variableName",ext)
+		case \variable(_,ext, ini) => \variable("variable",ext,ini)
+		case \typeParameter(_, list[Type] ext) => \typeParameter("typeParameter",ext)
+		case \annotationType(_, bod) => \annotationType("annotationType", bod)
+		case \annotationTypeMember(_, _) => \annotationTypeMember(defaultType, "annotationTypeMember")
+		case \annotationTypeMember(_, _, def) => \annotationTypeMember(defaultType, "annotationTypeMember", def)
+		case \parameter(_, _, ext) => \parameter(defaultType, "parameter", ext)
+		case \vararg(_, _) => \vararg(defaultType, "vararg")
+		case \characterLiteral(_) => \characterLiteral("a")
+		case \fieldAccess(is, _) => \fieldAccess(is, "fa")
+		case \methodCall(is, _, arg) => \methodCall(is, "methodCall", arg)
+		case \methodCall(is, expr, _, arg) => \methodCall(is, expr, "methodCall", arg)
+		case \number(_) => \number("1")
+		case \booleanLiteral(_) => \booleanLiteral(true)
+		case \stringLiteral(_) => \stringLiteral("str")
+		case \type(_) => \type(defaultType)
+		case \simpleName(_) => \simpleName("simpleName")
+		case \markerAnnotation(_) => \markerAnnotation("markerAnnotation")
+		case \normalAnnotation(_, memb) => \normalAnnotation("normalAnnotation", memb)
+		case \memberValuePair(_, vl) => \memberValuePair("memberValuePair", vl)
+		case \singleMemberAnnotation(_, vl) => \singleMemberAnnotation("singleMemberAnnotation", vl)
+		case \break(_) => \break("break")
+		case \continue(_) => \continue("continue")
+		case \label(_, bdy) => \label("label", bdy)
+		case Type _ => defaultType
+		case Modifier _ => lang::java::jdt::m3::AST::\public()
+	}
+}
+
+ ```
 
 
 
@@ -151,56 +248,7 @@ public num nodeSimilarity(node nodeA, node nodeB) {
 }
 ```
 
-## Parameters
 
-The real project has the following parameters:
-
-- set[Declaration] ast
-- bool normalizeAST
-- int minimalNodeGroupSize
-- int minimalCodeSize
-- real minimalSimularity
-
-What is a little bit different than the pseudo code. In the section we are going to describe what every parameter is and how it translates to the real project.
-
-### X is the clone type
-
-You can define the clone type in the pseudo code. In the real project you have to translate it like this:
-
-Type 1:
-
-- normalizeAST = ```false```
-- minimalSimularity = ```100```
-
-Type 2:
-
-- normalizeAST = ```true```
-- minimalSimularity = ```100```
-
-Type 3:
-
-- normalizeAST = ```true```
-- minimalSimularity = ```50``` <- or any other similarity factor you prefer.
-
-For these settings, normalizeAST will remove all information that are type or name related. With this setting `int test` is the same as `float test2`.
-
-For these setting, minimalSimularity will defined a percentage of how much of the node has to be the same to be considered equivalent.
-
-### Y is the project location
-
-The pseudo code will genarate an AST based on the location of the project. The clone detection function requires the AST already what is done in the main.
-
-- ast = ```createAstsFromEclipseProject(createM3FromEclipseProject(y), true);```
-
-### Z is the min number of sub notes and Z' are the minimum lines of code per node
-
-You can display the AST as an tree. When you compare the nodes, there will be a lot of useless small clones. This parameter can be used to define a minimum size. Nodes are only considered that contain z sub nodes or has minimum z' lines of code.
-
-- int minimalNodeGroupSize = z
-
-- int minimalCodeSize = z'
-
-  ​
 
 ## Limitations of our AST approach
 
@@ -362,6 +410,10 @@ What a maintainer can learn from this view:
 
 
 
+
+# Testing
+
+We provided a test suit for  
 
 # Maintainer requirements
 
