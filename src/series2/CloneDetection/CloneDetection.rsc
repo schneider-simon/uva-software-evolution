@@ -151,10 +151,15 @@ public num nodeSimilarity(node nodeA, node nodeB) {
 	list[node] nodeList1 = nodeToNodeList(nodeA);
 	list[node] nodeList2 = nodeToNodeList(nodeB);
 
-	num sameElements = size(nodeList1 & nodeList2);
-	num totalItems = size(nodeList1) + size(nodeList2) - sameElements;
+	list[node] sameItems = nodeList1 & nodeList2;
+	int sharedNodes = size(sameItems);
 
-	return sameElements / totalItems * 100;
+	num nodeADiff = size([nodei | nodei <- nodeList1, nodei notin sameItems]);
+	num nodeBDiff = size([nodei | nodei <- nodeList2, nodei notin sameItems]);
+	
+	num sim = (2.0 * sharedNodes / (2.0 * sharedNodes + nodeADiff + nodeBDiff)) * 100.0;
+	
+	return sim;
 }
 
 /*

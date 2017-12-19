@@ -2,7 +2,7 @@
 - Simon Schneider
 - Laurance Saess
 
-# TO DO
+# To-do
 
 ```
 * Show % of duplicated lines
@@ -16,27 +16,25 @@
 
 # Clone detection
 
-We use an approach that uses the AST to detect code clones, what is a valid method of clone detection according to [Koschke, 2008]. 
+We use an approach that uses the AST to detect code clones, as described by [Koschke, 2008]. 
 
 
 
 ## What code types do we detect
 
-We did some research on what the differences in the clone types are. According to [Roy, Cordy, 2007], the difference is: 
+In order to detect software clones, we have to know what clones are and what type of clones exist. There multiple types of clones, some can be detected with a code analysis tool and others require code execution.  
 
-- Type 1 clones: The code fragments are identical, except for variations in whitespace and comments.
-- Type 2 clones: The code fragments are structurally and syntactically identical, except variations are allowed in identifiers, literals, types, layout and comments.
-- Type 3 clones: The code fragments are copied with further modifications. Statements can be altered in addition to variations in identifiers, literals, types, layout and comments.
+We are using Rascal for the detection tool and only want to apply static code analysis. According to [Roy, Cordy, 2007], the clones types for static code analysis are:  
 
+- Type 1 clones: The code fragments are identical, except for variations in white space and comments. 
+- Type 2 clones: The code fragments are structurally and syntactically identical, except variations are allowed in identifiers, literals, types, layout and comments. 
+- Type 3 clones: The code fragments are copied with further modifications. Statements can be altered in addition to variations in identifiers, literals, types, layout and comments. 
 
-
-If we apply this on an AST. 
-
-
+Our tool focuses on all these types of clones with an AST clone detection approach. So, what do these types of clones mean to us. An AST is a tree structure of the code, so we are going to compare nodes instead of code fragments. Source-code can be displayed in an AST structure as follows:   
 
 ![Problem](./docs/prob2.jpg)
 
-Than (where the symbol == means comparing nodes without looking at the sub-nodes):
+Than we can define clones like this (where the symbol == means comparing nodes without looking at the sub-nodes):
 
 - Type 1 clone:  ```node 6 == node 9```,  ```node 7 == node 10``` and ```node 2 == node 4```  then node 2 is a type 1 clone of node 4,  node 6 is a type 1 clone of node 9,  node 7 is a type 1 clone of node 10.  
 - Type 2 clone: Node  ```node 9 == node 10``` where identifiers, literals, types, and layout are removed. Then node 9 is a type 2 clone of node 10.
@@ -45,6 +43,8 @@ Than (where the symbol == means comparing nodes without looking at the sub-nodes
 ## The algorithm
 
 The algorithm is the basic algorithm described by [Khatoon, Singh, Shukla, 2012]. The only difference is that we do not use an hash function ans that clone pairs are managed outside the detection code.
+
+The hashes are used so that clones can be stored into buckets. We use relations instead so that we can use relation operations. There is a relation between node a and node b when they are registered as a clone. 
 
 In pseudo code:
 
@@ -74,40 +74,7 @@ doCloneDetection(x,y,z,z')
   return
 ```
 
-
-
-## The similarity function
-
-We used the similarity function as described by [Baxter, Yahin, Moura, Sant'Anna, Bier, 1998].   Where:
-
-```
-Similarity = 2 x S / (2 x S + L + R)
-		where:
-		S = number of shared nodes
-		L = number of different nodes in sub-tree 1
-		R = number of different nodes in sub-tree 2
-```
-
-What translates in rascal to this:
-
-```java
-public num nodeSimilarity(node nodeA, node nodeB) {
-	list[node] nodeList1 = nodeToNodeList(nodeA);
-	list[node] nodeList2 = nodeToNodeList(nodeB);
-
-	list[node] sameItems = nodeList1 & nodeList2;
-	int sharedNodes = size(nodeList1) + size(nodeList2) - size(sameItems);
-
-	num nodeADiff = size([nodei | nodei <- nodeList1, nodei notin sameItems]);
-	num nodeBDiff = size([nodei | nodei <- nodeList2, nodei notin sameItems]);
-	
-	num sim = (2.0 * sharedNodes / (2.0 * sharedNodes + nodeADiff + nodeBDiff)) * 100;
-	
-	return sim;
-}
-```
-
-## Parameters
+### Parameters
 
 The real project has the following parameters:
 
@@ -119,7 +86,7 @@ The real project has the following parameters:
 
 What is a little bit different than the pseudo code. In the section we are going to describe what every parameter is and how it translates to the real project.
 
-### X is the clone type
+#### X is the clone type
 
 You can define the clone type in the pseudo code. In the real project you have to translate it like this:
 
@@ -142,21 +109,146 @@ For these settings, normalizeAST will remove all information that are type or na
 
 For these setting, minimalSimularity will defined a percentage of how much of the node has to be the same to be considered equivalent.
 
-### Y is the project location
+#### Y is the project location
 
 The pseudo code will genarate an AST based on the location of the project. The clone detection function requires the AST already what is done in the main.
 
 - ast = ```createAstsFromEclipseProject(createM3FromEclipseProject(y), true);```
 
-### Z is the min number of sub notes and Z' are the minimum lines of code per node
+#### Z is the min number of sub notes and Z' are the minimum lines of code per node
 
 You can display the AST as an tree. When you compare the nodes, there will be a lot of useless small clones. This parameter can be used to define a minimum size. Nodes are only considered that contain z sub nodes or has minimum z' lines of code.
 
 - int minimalNodeGroupSize = z
-
 - int minimalCodeSize = z'
 
-  ​
+ ## The node normalize function
+
+The nodes are normalized for type 2 and type 3 clones. We replace all identifiers, literals, types and layout in the AST with a static value. 
+
+ ```java
+//Will remove all items that are inrelevant for type 2 and 3
+public node normalizeNode(node nodeItem) {
+
+	return visit(nodeItem) {
+		case \enumConstant(_, args, cls) => \enumConstant("enumConstant", args, cls)
+		case \enumConstant(_, args) => \enumConstant("enumConstant", args)
+		case \class(_, ext, imp, bod) => \class("class", ext, imp, bod)
+		case \interface(_, ext, imp, bod) => \interface("interface", ext, imp, bod)
+		case \method(_, _, a, b, c) => \method(defaultType, "method", a, b, c)
+		case \method(Type a,str b,list[Declaration] c,list[Expression] d) => \method(a,b,c,d)
+		case \constructor(_, pars, expr, impl) => \constructor("constructor", pars, expr, impl)
+		case \variable(_,ext) => \variable("variableName",ext)
+		case \variable(_,ext, ini) => \variable("variable",ext,ini)
+		case \typeParameter(_, list[Type] ext) => \typeParameter("typeParameter",ext)
+		case \annotationType(_, bod) => \annotationType("annotationType", bod)
+		case \annotationTypeMember(_, _) => \annotationTypeMember(defaultType, "annotationTypeMember")
+		case \annotationTypeMember(_, _, def) => \annotationTypeMember(defaultType, "annotationTypeMember", def)
+		case \parameter(_, _, ext) => \parameter(defaultType, "parameter", ext)
+		case \vararg(_, _) => \vararg(defaultType, "vararg")
+		case \characterLiteral(_) => \characterLiteral("a")
+		case \fieldAccess(is, _) => \fieldAccess(is, "fa")
+		case \methodCall(is, _, arg) => \methodCall(is, "methodCall", arg)
+		case \methodCall(is, expr, _, arg) => \methodCall(is, expr, "methodCall", arg)
+		case \number(_) => \number("1")
+		case \booleanLiteral(_) => \booleanLiteral(true)
+		case \stringLiteral(_) => \stringLiteral("str")
+		case \type(_) => \type(defaultType)
+		case \simpleName(_) => \simpleName("simpleName")
+		case \markerAnnotation(_) => \markerAnnotation("markerAnnotation")
+		case \normalAnnotation(_, memb) => \normalAnnotation("normalAnnotation", memb)
+		case \memberValuePair(_, vl) => \memberValuePair("memberValuePair", vl)
+		case \singleMemberAnnotation(_, vl) => \singleMemberAnnotation("singleMemberAnnotation", vl)
+		case \break(_) => \break("break")
+		case \continue(_) => \continue("continue")
+		case \label(_, bdy) => \label("label", bdy)
+		case Type _ => defaultType
+		case Modifier _ => lang::java::jdt::m3::AST::\public()
+	}
+}
+
+ ```
+
+
+
+## The similarity function
+
+We looked at multiple similarity function. One is described by [Baxter, Yahin, Moura, Sant'Anna, Bier, 1998].   Where:
+
+```
+Similarity = 2 x S / (2 x S + L + R)
+		where:
+		S = number of shared nodes
+		L = number of different nodes in sub-tree 1
+		R = number of different nodes in sub-tree 2
+```
+
+Lets assume that two nodes are going to be compared:
+
+```
+Node1.sub = [1..50]
+Node2.sub = [41..90]
+```
+
+They share 10 nodes that are the same. Sub tree L and R have 40 nodes that are different.
+
+This is going to result in:
+
+```
+2 * 10 / (2 * 10 + 40 + 40) = 0.20
+```
+
+ In another case:
+
+```
+Node1.sub = [1..50]
+Node2.sub = [21..70]
+```
+
+They share 30 nodes that are the same. Sub tree L and R have 20 nodes that are different.
+
+This is going to result in:
+
+```
+2 * 30 / (2 * 30 + 20 + 20) = 0.60
+```
+
+ In another case:
+
+```
+Node1.sub = [1..50]
+Node2.sub = [11..60]
+```
+
+They share 40 nodes that are the same. Sub tree L and R have 10 nodes that are different.
+
+This is going to result in:
+
+```
+2 * 40 / (2 * 40 + 10 + 10) = 0.80
+```
+
+What translates in rascal to this:
+
+```java
+public num nodeSimilarity(node nodeA, node nodeB) {
+	list[node] nodeList1 = nodeToNodeList(nodeA); // 50 nodes
+	list[node] nodeList2 = nodeToNodeList(nodeB); // 50 nodes
+
+	list[node] sameItems = nodeList1 & nodeList2; // 40 nodes
+	int sharedNodes = size(sameItems); //40
+
+	num nodeADiff = size([nodei | nodei <- nodeList1, nodei notin sameItems]); //10
+	num nodeBDiff = size([nodei | nodei <- nodeList2, nodei notin sameItems]); // 10
+	
+    //(2.0 * 40 / (2 * 40 + 10 + 10)) * 100.0
+	num sim = (2.0 * sharedNodes / (2.0 * sharedNodes + nodeADiff + nodeBDiff)) * 100.0;
+	
+	return sim;
+}
+```
+
+
 
 ## Limitations of our AST approach
 
@@ -318,6 +410,10 @@ What a maintainer can learn from this view:
 
 
 
+
+# Testing
+
+We provided a test suit for  
 
 # Maintainer requirements
 
