@@ -14,11 +14,15 @@
 * Add raw data table and explain why it was created
 ```
 
-## Related files
+## Related files / projects
 
 * Manual: [manual.pdf](./manual.pdf)
-* Result tables: [docs/results](./docs/results/)
-* Result JSON exports: 
+* Result tables: [[/final_output/results](https://github.com/schneider-simon/uva-software-evolution/tree/master/final_output/results)](./docs/results/)
+* Result JSON exports: [/final_output/results](https://github.com/schneider-simon/uva-software-evolution/tree/master/final_output/results)
+* Eclipse respoistory with test files: https://github.com/lauwdude/use-test-project
+* Duplication visualisation:
+  * Repository: https://github.com/schneider-simon/duplication-visualization
+  * Demo: https://software-evolution.schneider.click 
 
 
 
