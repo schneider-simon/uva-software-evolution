@@ -14,6 +14,14 @@
 * Add raw data table and explain why it was created
 ```
 
+## Related files
+
+* Manual: [manual.pdf](./manual.pdf)
+* Result tables: [docs/results](./docs/results/)
+* Result JSON exports: 
+
+
+
 # Clone detection
 
 We use an approach that uses the AST to detect code clones, as described by [Koschke, 2008]. 

@@ -1,0 +1,77 @@
+Small SQL type1;
+Project name;smallsql
+Project lines of code;24050
+Duplicate lines;375 (1.56% of total project)
+Clone classes;23
+Largest clone class by nodes;#105869 (nodes: 6, lines: 6, lines total: 36)
+Largest clone class by lines;#186775 (nodes: 2, lines: 11, lines total: 22)
+Largest clone class by lines total;#105869 (nodes: 6, lines: 6, lines total: 36)
+Files in project;186
+Files with clones;30
+File with most cloned lines;/src/smallsql/junit/TestTransactions.java (duplicate lines: 36, clones: 6)
+File with most distinct clones;/src/smallsql/junit/TestTransactions.java (duplicate lines: 36, clones: 6)
+;
+Small SQL type2;
+Project name;smallsql
+Project lines of code;24050
+Duplicate lines;2545 (10.58% of total project)
+Clone classes;87
+Largest clone class by nodes;#64895 (nodes: 15, lines: 6, lines total: 90)
+Largest clone class by lines;#159148 (nodes: 2, lines: 122, lines total: 244)
+Largest clone class by lines total;#159148 (nodes: 2, lines: 122, lines total: 244)
+Files in project;186
+Files with clones;83
+File with most cloned lines;/src/smallsql/database/language/Language.java (duplicate lines: 254, clones: 4)
+File with most distinct clones;/src/smallsql/junit/TestExceptionMethods.java (duplicate lines: 144, clones: 23)
+;
+Small SQL type3;
+Project name;smallsql
+Project lines of code;24050
+Duplicate lines;8297 (34.5% of total project)
+Clone classes;177
+Largest clone class by nodes;#1467 (nodes: 36, lines: 22, lines total: 783)
+Largest clone class by lines;#145672 (nodes: 3, lines: 227, lines total: 681)
+Largest clone class by lines total;#135598 (nodes: 31, lines: 59, lines total: 1799)
+Files in project;186
+Files with clones;121
+File with most cloned lines;/src/smallsql/database/StoreImpl.java (duplicate lines: 894, clones: 50)
+File with most distinct clones;/src/smallsql/junit/TestOrderBy.java (duplicate lines: 497, clones: 53)
+;
+HSQLDB type 1;
+Project name;hsqldb
+Project lines of code;158854
+Duplicate lines;1826 (1.15% of total project)
+Clone classes;55
+Largest clone class by nodes;#428091 (nodes: 6, lines: 4, lines total: 24)
+Largest clone class by lines;#166530 (nodes: 4, lines: 50, lines total: 198)
+Largest clone class by lines total;#166530 (nodes: 4, lines: 50, lines total: 198)
+Files in project;478
+Files with clones;54
+File with most cloned lines;/src/org/hsqldb/dbinfo/DatabaseInformationFull.java (duplicate lines: 225, clones: 9)
+File with most distinct clones;/src/org/hsqldb/jdbc/JDBCStatement.java (duplicate lines: 46, clones: 10)
+;
+HSQLDB type 2;
+Project name;hsqldb
+Project lines of code;158854
+Duplicate lines;8319 (5.24% of total project)
+Clone classes;221
+Largest clone class by nodes;#715159 (nodes: 38, lines: 3, lines total: 114)
+Largest clone class by lines;#518149 (nodes: 2, lines: 81, lines total: 161)
+Largest clone class by lines total;#90995 (nodes: 11, lines: 26, lines total: 286)
+Files in project;478
+Files with clones;118
+File with most cloned lines;/src/org/hsqldb/dbinfo/DatabaseInformationFull.java (duplicate lines: 1082, clones: 52)
+File with most distinct clones;/src/org/hsqldb/jdbc/JDBCResultSet.java (duplicate lines: 613, clones: 125)
+;
+HSQLDB type 3;
+Project name;hsqldb
+Project lines of code;158854
+Duplicate lines;48479 (30.52% of total project)
+Clone classes;390
+Largest clone class by nodes;#213184 (nodes: 294, lines: 28, lines total: 8184)
+Largest clone class by lines;#579348 (nodes: 4, lines: 778, lines total: 3112)
+Largest clone class by lines total;#802577 (nodes: 32, lines: 469, lines total: 14987)
+Files in project;478
+Files with clones;289
+File with most cloned lines;/src/org/hsqldb/dbinfo/DatabaseInformationFull.java (duplicate lines: 3260, clones: 209)
+File with most distinct clones;/src/org/hsqldb/dbinfo/DatabaseInformationFull.java (duplicate lines: 3260, clones: 209)
