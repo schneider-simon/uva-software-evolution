@@ -16,41 +16,147 @@
 
 # Clone detection
 
-We use a approach that uses the AST to detect code clones. We use the tactics that is described by [Koschke, 2008]. In pseudo code:
+We use an approach that uses the AST to detect code clones, what is a valid method of clone detection according to [Koschke, 2008]. 
 
-Where:
+
+
+## What code types do we detect
+
+We did some research on what the differences in the clone types are. According to [Roy, Cordy, 2007], the difference is: 
+
+- Type 1 clones: The code fragments are identical, except for variations in whitespace and comments.
+- Type 2 clones: The code fragments are structurally and syntactically identical, except variations are allowed in identifiers, literals, types, layout and comments.
+- Type 3 clones: The code fragments are copied with further modifications. Statements can be altered in addition to variations in identifiers, literals, types, layout and comments.
+
+
+
+If we apply this on an AST. 
+
+
+
+![Problem](./docs/prob2.jpg)
+
+Than (where the symbol == means comparing nodes without looking at the sub-nodes):
+
+- Type 1 clone:  ```node 6 == node 9```,  ```node 7 == node 10``` and ```node 2 == node 4```  then node 2 is a type 1 clone of node 4,  node 6 is a type 1 clone of node 9,  node 7 is a type 1 clone of node 10.  
+- Type 2 clone: Node  ```node 9 == node 10``` where identifiers, literals, types, and layout are removed. Then node 9 is a type 2 clone of node 10.
+- Type 3 clone: Node  ```node 2 == node 3``` and ```node 6 or node 7 == node 8``` where identifiers, literals, types, and layout are removed. Then node 2 is a type 3 clone of node 3. With type 3 clones you have to set a similarity threshold. It could be true that node 2 is a type 3 clone of node 3, but node 3 is not a type 3 clone of node 2. 
+
+## The algorithm
+
+The algorithm is the basic algorithm described by [Khatoon, Singh, Shukla, 2012]. The only difference is that we do not use an hash function ans that clone pairs are managed outside the detection code.
+
+In pseudo code:
+
 ```
 * x is the clone type
 * y is the project location
 * z is the min number of sub notes
 * z' is the min number of lines of code per node
+doCloneDetection(x,y,z,z')
+  type = x
+  a = (for type = 1:100 2:100 3:30)
+
+  ast = loadAstForProject(y);
+  ast <- normalize @ type 2 / type 3
+  astList = getAllNodes(ast)
+  astList <- remove when subitems less than z
+  astList <- remove node when less than z' lines of code
+  astList <- remove with invalid location
+
+  @no duplicate compares
+  @Do not compare when node is a subnode of that node 
+  @similarity of nodeA and NodeB > a
+  compare astList astList to nodeA nodeB:
+      return add connection:<nodeA.l,nodeB.l>
+
+  return set nodes:astList
+  return
 ```
 
+
+
+## The similarity function
+
+We used the similarity function as described by [Baxter, Yahin, Moura, Sant'Anna, Bier, 1998].   Where:
+
 ```
-type = x
-a = (for type = 1:100 2:100 3:30)
-
-ast = loadAstForProject(y);
-ast <- normalize @ type 2 / type 3
-astList = getAllNodes(ast)
-astList <- remove when subitems less than z
-astList <- remove node when less than z' lines of code
-astList <- remove with invalid location
-
-@no duplicate compares
-@Do not compare when node is a subnode of that node 
-@similarity of nodeA and NodeB > a
-compare astList astList to nodeA nodeB:
-	return add connection:<nodeA.l,nodeB.l>
-
-return set nodes:astList
-return
-
-where:
-	similarity nodea nodeb =
-	nodea.subItems `similar` nodeb.subItems /
-	(nodea.subcount + nodeb.subcount) * 100
+Similarity = 2 x S / (2 x S + L + R)
+		where:
+		S = number of shared nodes
+		L = number of different nodes in sub-tree 1
+		R = number of different nodes in sub-tree 2
 ```
+
+What translates in rascal to this:
+
+```java
+public num nodeSimilarity(node nodeA, node nodeB) {
+	list[node] nodeList1 = nodeToNodeList(nodeA);
+	list[node] nodeList2 = nodeToNodeList(nodeB);
+
+	list[node] sameItems = nodeList1 & nodeList2;
+	int sharedNodes = size(nodeList1) + size(nodeList2) - size(sameItems);
+
+	num nodeADiff = size([nodei | nodei <- nodeList1, nodei notin sameItems]);
+	num nodeBDiff = size([nodei | nodei <- nodeList2, nodei notin sameItems]);
+	
+	num sim = (2.0 * sharedNodes / (2.0 * sharedNodes + nodeADiff + nodeBDiff)) * 100;
+	
+	return sim;
+}
+```
+
+## Parameters
+
+The real project has the following parameters:
+
+- set[Declaration] ast
+- bool normalizeAST
+- int minimalNodeGroupSize
+- int minimalCodeSize
+- real minimalSimularity
+
+What is a little bit different than the pseudo code. In the section we are going to describe what every parameter is and how it translates to the real project.
+
+### X is the clone type
+
+You can define the clone type in the pseudo code. In the real project you have to translate it like this:
+
+Type 1:
+
+- normalizeAST = ```false```
+- minimalSimularity = ```100```
+
+Type 2:
+
+- normalizeAST = ```true```
+- minimalSimularity = ```100```
+
+Type 3:
+
+- normalizeAST = ```true```
+- minimalSimularity = ```50``` <- or any other similarity factor you prefer.
+
+For these settings, normalizeAST will remove all information that are type or name related. With this setting `int test` is the same as `float test2`.
+
+For these setting, minimalSimularity will defined a percentage of how much of the node has to be the same to be considered equivalent.
+
+### Y is the project location
+
+The pseudo code will genarate an AST based on the location of the project. The clone detection function requires the AST already what is done in the main.
+
+- ast = ```createAstsFromEclipseProject(createM3FromEclipseProject(y), true);```
+
+### Z is the min number of sub notes and Z' are the minimum lines of code per node
+
+You can display the AST as an tree. When you compare the nodes, there will be a lot of useless small clones. This parameter can be used to define a minimum size. Nodes are only considered that contain z sub nodes or has minimum z' lines of code.
+
+- int minimalNodeGroupSize = z
+
+- int minimalCodeSize = z'
+
+  ​
 
 ## Limitations of our AST approach
 
@@ -70,52 +176,6 @@ We cannot compare nodes, or groups of nodes that are on the same level to other 
 
 We did not add support for this because it adds a lot of complexity. The clone detection will also take a lot more times because of the high amount of additional checks that have to be preformed. Large clones are unlikely to be affected because in real-live projects, they normally are not on a single layer in the AST. For this project, and our goal is to find large clones; small codes have a smaller impact to the system. 
 
-
-
-## Parameters
-
-The real project has the following parameters:
-* set[Declaration] ast
-* bool normalizeAST
-* int minimalNodeGroupSize
-* int minimalCodeSize
-* real minimalSimularity
-
-What is a little bit different than the pseudo code. In the section we are going to describe what every parameter is and how it translates to the real project.
-
-### X is the clone type
-
-You can define the clone type in the pseudo code. In the real project you have to translate it like this:
-
-Type 1:
-* normalizeAST = ```false```
-* minimalSimularity = ```100```
-
-Type 2:
-* normalizeAST = ```true```
-* minimalSimularity = ```100```
-
-Type 3:
-* normalizeAST = ```true```
-* minimalSimularity = ```50``` <- or any other similarity factor you prefer.
-
-For these settings, normalizeAST will remove all information that are type or name related. With this setting `int test` is the same as `float test2`.
-
-For these setting, minimalSimularity will defined a percentage of how much of the node has to be the same to be considered equivalent.
-
-### Y is the project location
-
-The pseudo code will genarate an AST based on the location of the project. The clone detection function requires the AST already what is done in the main.
-
-* ast = ```createAstsFromEclipseProject(createM3FromEclipseProject(y), true);```
-
-### Z is the min number of sub notes and Z' are the minimum lines of code per node
-
-You can display the AST as an tree. When you compare the nodes, there will be a lot of useless small clones. This parameter can be used to define a minimum size. Nodes are only considered that contain z sub nodes or has minimum z' lines of code.
-
-* int minimalNodeGroupSize = z
-* int minimalCodeSize = z'
-
 # Finding what lines are duplication
 
 We use an custom algorithm for detecting the amount of duplicate lines.  The algorithm works like this:
@@ -123,11 +183,9 @@ We use an custom algorithm for detecting the amount of duplicate lines.  The alg
 1. Get all locations that contain an duplicate
 2. Request from the M3 model, all the locations with comments
 3. Go through every duplication, and get the lines for every location and look per line:
-   1. :If it is a one line comment
-   2. If the first character is a multi line start comment  
-   3. If it ends with an comment close tag
-   4. If it is an empty line
-   5. If the line is in a multi-line comment
+   1. If it is a one line comment
+   2. If it is an empty line
+   3. If the line is in a multi-line comment
 4. When when of above is true, the line is counted as a non-duplicate
 5. When above is false, the line is counted as a duplicate
 
@@ -147,6 +205,11 @@ class dupTest {
 	
 	public void testM2() {			//Some test comment
 /*test*/int i1 = 1 + 1;
+/*
+ * 
+ * Test
+ * 
+ */
  /*est*/int i2 = 1 + 1 * 2;/*test*/
 		/*
 		 * test
@@ -170,12 +233,13 @@ class dupTest {
 	
 }
 
+
 ```
 
 The file has the following duplicate lines:
 
 ```
-[4,5,6,7,8,10,11,12,16,17,20,26]
+[4,5,6,7,8,10,11,17,21,22,25,31]
 ```
 
 What is correct.
@@ -272,3 +336,9 @@ What a maintainer can learn from this view:
 [Koschke, 2008] R. Koschke. (2008). Identifying and Removing Software Clones.
 
 [Storey, Fracchia, Müller, 1999] Storey, M. A., Fracchia, F. D., & Müller, H. A. (1999). Cognitive design elements to support the construction of a mental model during software exploration. *Journal of Systems and Software*, *44*(3), 171-185.
+
+[Baxter, Yahin, Moura, Sant'Anna, Bier, 1998] Baxter, I. D., Yahin, A., Moura, L., Sant'Anna, M., & Bier, L. (1998, November). Clone detection using abstract syntax trees. In *Software Maintenance, 1998. Proceedings., International Conference on* (pp. 368-377). IEEE.
+
+[Khatoon, Singh, Shukla, 2012] Khatoon, T., Singh, P., & Shukla, S. (2012). Abstract Syntax Tree Based Clone Detection for Java Projects. *IOSR Journal of Engineering*, *2*(12).
+
+[Roy, Cordy, 2007] Roy, C. K., & Cordy, J. R. (2007). A survey on software clone detection research. *Queen’s School of Computing TR*, *541*(115), 64-68.

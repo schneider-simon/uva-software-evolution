@@ -77,9 +77,11 @@ public cloneDetectionResult doCloneDetection(M3 model, set[Declaration] ast, boo
 				continue; 				
 				
 			//Minimal similarity
-			num similarity = nodeSimilarity(nodeLA.d, nodeLB.d);
+			num similarity = minimalSimularity == 100.0 ? (nodeLA.d == nodeLB.d ? 100.0 : 0) : nodeSimilarity(nodeLA.d, nodeLB.d);
+			
 			//if(nodeLB.l.end.line - nodeLB.l.begin.line + 1 > 5 && nodeLA.l.end.line - nodeLA.l.begin.line + 1 > 5)
 			//	iprintln("For (<similarity>): <(nodeLA.l)> - <(nodeLB.l)>");
+			//iprintln("similarity: <similarity>");
 			if(similarity < minimalSimularity)
 				continue;
 							
@@ -139,8 +141,11 @@ public list[node] nodeToNodeList(node iNode) {
 }
 
 /*
-	Todo: Extract the lines per node. Use these to determine how many % is the same
-		  Also return how many lines are the same?
+	Similarity = 2 x S / (2 x S + L + R)
+			where:
+			S = number of shared nodes
+			L = number of different nodes in sub-tree 1
+			R = number of different nodes in sub-tree 2
 */
 public num nodeSimilarity(node nodeA, node nodeB) {
 	list[node] nodeList1 = nodeToNodeList(nodeA);
